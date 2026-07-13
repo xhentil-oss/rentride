@@ -35,3 +35,4 @@ backend/.env.*
 .screen-graph.json
 workspace/
 rent_car_tirana_svxbp0/
+backend/tmp/
