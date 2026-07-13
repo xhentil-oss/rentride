@@ -1,0 +1,1049 @@
+{
+  "cookieConsent": {
+    "message": "Përdorim cookies për të matur trafikun dhe për të përmirësuar përvojën tënde.",
+    "accept": "Prano",
+    "decline": "Refuzo",
+    "learnMore": "Mëso më shumë"
+  },
+  "header": {
+    "fleet": "Flota",
+    "reviews": "Vlerësimet",
+    "about": "Rreth Nesh",
+    "contact": "Kontakti",
+    "phone": "+355 69 81 45 803",
+    "bookNow": "Rezervo Tani",
+    "loginGoogle": "Kyçu me Google",
+    "myReservations": "Rezervimet e Mia",
+    "adminPanel": "Panel Admin",
+    "logout": "Dil nga llogaria",
+    "login": "Hyr",
+    "user": "Përdoruesi",
+    "trustClients": "Mbi 500 klientë të kënaqur",
+    "trustNoFees": "Pa kosto të fshehura",
+    "trustSupport": "Mbështetje 24/7",
+    "errors": {
+      "googleSignIn": "Hyrja me Google dështoi",
+      "googleLoad": "Nuk u ngarkua Google Sign-In",
+      "loginFailed": "Login dështoi",
+      "otpWrong": "Kodi OTP është i gabuar",
+      "requestFailed": "Kërkesa dështoi",
+      "nameRequired": "Emri është i detyrueshëm",
+      "invalidEmail": "Email i pavlefshëm",
+      "passwordMismatch": "Fjalëkalimet nuk përputhen",
+      "passwordTooShort": "Fjalëkalimi duhet të ketë min 8 karaktere",
+      "registerFailed": "Regjistrimi dështoi"
+    }
+  },
+  "footer": {
+    "tagline": "Makina me qira në Tiranë & aeroport — flotë moderne, çmime të qarta dhe mbështetje 24/7.",
+    "navigation": "Navigimi",
+    "services": "Shërbimet",
+    "contactTitle": "Kontakti",
+    "nav": {
+      "fleet": "Flota jonë",
+      "book": "Rezervo tani",
+      "reviews": "Vlerësimet",
+      "account": "Llogaria ime",
+      "sitemap": "Harta e faqes"
+    },
+    "seo": {
+      "tirana": "Makina me qira Tiranë",
+      "airport": "Makinë nga Aeroporti",
+      "suv": "SUV me qira",
+      "luxury": "Makina luksoze",
+      "automatic": "Makina automatike"
+    },
+    "address": "Rruga Nënë Tereza, Tiranë 1504",
+    "addresses": [
+      "Rruga Nënë Tereza, Tiranë 1504"
+    ],
+    "email": "rentcaralbania23@gmail.com",
+    "accepts": "Pranojmë:",
+    "trustRating": "bazuar në 500+ vlerësime",
+    "privacy": "Politika e Privatësisë",
+    "terms": "Kushtet e Shërbimit",
+    "rights": "Të gjitha të drejtat e rezervuara."
+  },
+  "home": {
+    "promoBanner": "<strong>Ofertë e shpejtë:</strong> Rezervo brenda 24 orëve dhe kurse <strong>-10%</strong> me kodin",
+    "hero": {
+      "title": "Makina me Qira Tirana Airport.",
+      "titleHighlight": "Marrje Falas. Konfirmim në Çast.",
+      "subtitle": "Makina me qira te Aeroporti i Tiranës (TIA) dhe në qytet, me marrje falas. Tarifa të qarta nga €25/ditë, pa kosto të fshehura dhe me konfirmim në çast.",
+      "pickupFrom": "Tërhiqni nga",
+      "returnTo": "Ktheni në",
+      "selectPlace": "Zgjidhni vendin",
+      "centerTirana": "Tiranë Qendër",
+      "airport": "Aeroporti Nënë Tereza",
+      "departureDate": "Data e nisjes",
+      "returnDate": "Data e kthimit",
+      "searchBtn": "Kërko makina"
+    },
+    "trustStats": {
+      "clients": "Klientë të kënaqur",
+      "rating": "Vlerësim mesatar",
+      "support": "Suport i disponueshëm",
+      "locations": "Vendpikë (TIA + Tiranë)"
+    },
+    "featuredCars": {
+      "title": "Makinat e zgjedhura",
+      "subtitle": "Modelet më të kërkuara nga klientët tanë",
+      "viewAll": "Shiko të gjitha"
+    },
+    "categories": {
+      "title": "Kategoritë tona",
+      "subtitle": "Gjeni makinën e duhur për çdo nevojë",
+      "ekonomike": {
+        "name": "Ekonomike",
+        "desc": "Ideale për qytet, konsum i ulët"
+      },
+      "suv": {
+        "name": "SUV",
+        "desc": "Hapësirë e madhe, terrene të ndryshme"
+      },
+      "luksoze": {
+        "name": "Luksoze",
+        "desc": "Elegancë dhe komoditet maksimal"
+      },
+      "familjare": {
+        "name": "Familjare",
+        "desc": "Perfekte për familje dhe grupe"
+      },
+      "automatike": {
+        "name": "Automatike",
+        "desc": "Lehtësi drejtimi, teknologji moderne"
+      }
+    },
+    "howItWorks": {
+      "title": "Si funksionon?",
+      "subtitle": "Merr makinën tënde me vetëm 3 hapa",
+      "steps": [
+        {
+          "title": "Zgjidh makinën",
+          "desc": "Shfleto të gjithë flotën dhe filtroje sipas kategorisë (ekonomike, SUV, luksoze, automatike), çmimit ditor dhe disponueshmërisë në datat e tua. Çdo makinë ka të listuara specifikat e plota, pajisjet, opsionet e sigurimit dhe një çmim të vetëm gjithëpërfshirës — pa surpriza në fund."
+        },
+        {
+          "title": "Konfirmo rezervimin",
+          "desc": "Plotëso formularin online me të dhënat e tua, vendin e marrjes (Aeroporti i Tiranës ose qendra), datat dhe nivelin e sigurimit. Shiko totalin, fut kodin e zbritjes dhe firmos kontratën dixhitale — gjithçka brenda 2 minutash, nga çdo pajisje."
+        },
+        {
+          "title": "Merr çelësat",
+          "desc": "Sapo zbret në Aeroportin e Tiranës, përfaqësuesi ynë të pret te zona e arritjeve me një tabelë që mban emrin tënd. Bëjmë bashkë kontrollin e shpejtë të makinës, merr çelësat dhe je gati të zbulosh Shqipërinë."
+        }
+      ],
+      "cta": "Rezervo tani — zgjat pak minuta"
+    },
+    "whyUs": {
+      "title": "Pse të zgjidhni Rent Ride?",
+      "subtitle": "Operojmë direkt te Aeroporti Ndërkombëtar i Tiranës (TIA) dhe në qendër të qytetit. Flota e re, çmimet pa surpriza dhe ekipi 24/7 na bëjnë zgjedhjen e parë për mijëra udhëtarë që mbërrijnë në Shqipëri çdo vit.",
+      "items": [
+        {
+          "title": "Çmime të qarta",
+          "desc": "Pa kosto të fshehura — kurrë. Çdo ofertë përfshin sigurimin bazë dhe taksat rrugore. Çmimi që sheh online është pikërisht ai që paguan te marrja: pa shtesa aeroporti, pa grackë karburanti, pa tarifa surprizë në kartë."
+        },
+        {
+          "title": "Mbështetje 24/7",
+          "desc": "Jemi gjithmonë afër kur na duhesh. Qoftë për një fluturim që ulet vonë natën në Aeroportin e Tiranës, një pyetje për rezervimin, apo asistencë urgjente rrugore kudo në Shqipëri — ekipi ynë përgjigjet në çdo orë, ditë e natë."
+        },
+        {
+          "title": "Sigurim përfshirë",
+          "desc": "Çdo makinë vjen me sigurim bazë CDW (Collision Damage Waiver) pa pagesë shtesë, që mbulon dëmet mbi pragun standard. Gjatë rezervimit mund të kalosh në Super CDW me mbulim të plotë dhe zero kapar — i këshilluar veçanërisht për rrugët malore e bregdetare."
+        },
+        {
+          "title": "Fleksibilitet",
+          "desc": "Merre makinën te Aeroporti i Tiranës dhe kthena në qendër, ose anasjelltas — pa kosto shtesë. Punojmë 24 orë në ditë, 7 ditë në javë. Qira njëdrejtimëshe, tarifa mujore afatgjata dhe rezervime të minutës së fundit — të gjitha të mundura."
+        }
+      ]
+    },
+    "guarantees": [
+      {
+        "title": "Çmim i garantuar",
+        "desc": "Gjen një çmim më të ulët diku tjetër? Ne ta barazojmë pa kushte."
+      },
+      {
+        "title": "Pa kosto të fshehura",
+        "desc": "Çmimi final i përfshin të gjitha: taksat, sigurimin bazë dhe dorëzimin."
+      },
+      {
+        "title": "Anulim falas",
+        "desc": "Anulo pa pagesë deri 48 orë para marrjes. Pa rrezik, pa gjoba."
+      }
+    ],
+    "airportSection": {
+      "title": "Makinë me Qira te Aeroporti i Tiranës — Marrje Falas",
+      "badge": "Aeroporti Ndërkombëtar Tiranë — TIA",
+      "body": "Po kërkon makina me qira aeroport Tirana? Ofrojmë marrje dhe kthim falas direkt te Aeroporti Ndërkombëtar Nënë Tereza (TIA), të disponueshme ditë e natë, 7 ditë në javë. Garantojmë çmime gjithëpërfshirëse, flotë moderne dhe pritje personale sapo zbret nga avioni. Rezervimi online zgjat vetëm 2 minuta.",
+      "features": [
+        "Marrje falas te Aeroporti i Tiranës (TIA), me pritje personale te dalja",
+        "E disponueshme 24/7 — për fluturime ditën dhe natën",
+        "Një çmim i vetëm gjithëpërfshirës, pa kosto të fshehura",
+        "Konfirmim i menjëhershëm online brenda 2 minutash"
+      ],
+      "cta": "Rezervo Marrjen nga Aeroporti"
+    },
+    "destinations": {
+      "title": "Zbulo Shqipërinë me Makinën Tënde me Qira",
+      "subtitle": "Nga Aeroporti Nënë Tereza (TIA), e gjithë Shqipëria të rri afër",
+      "intro": "Qiraja e makinës te Aeroporti i Tiranës hap dyert e një prej vendeve më të bukura e ende pak të zbuluara të Evropës. Shqipëria të pret me plazhe të kthjellëta në Adriatik e Jon, qytete me trashëgimi UNESCO, gjurmë ilire antike dhe male dramatike — të gjitha brenda pak orësh udhëtim nga aeroporti.",
+      "places": [
+        {
+          "name": "Durrës — 35 km · 30 min",
+          "desc": "Qyteti kryesor bregdetar i Shqipërisë dhe destinacioni më i njohur i plazhit. Ec përgjatë rërës së gjerë të Adriatikut, vizito një nga amfiteatrot romake më të mëdha të Ballkanit dhe shijo bulevardin e gjallë buzë detit. Perfekt për një dalje ditore direkt nga Aeroporti i Tiranës."
+        },
+        {
+          "name": "Berat — 120 km · 1 orë 30 min",
+          "desc": "Qytet i Trashëgimisë Botërore UNESCO dhe një nga më të fotografuarit në Shqipëri, i njohur si 'Qyteti i Njëmijë Dritareve'. Qendra historike e ruajtur mirë shtrihet buzë lumit Osum, nën hijen e një kalaje mesjetare me pamje mbi luginë."
+        },
+        {
+          "name": "Vlorë — 150 km · 2 orë",
+          "desc": "Porta e Rivierës Shqiptare dhe qyteti ku u shpall pavarësia në 1912. E rrethuar nga ujërat e kthjellët të Adriatikut e Jonit, Vlora është baza ideale për të zbuluar Llogaranë, Karaburunin dhe fshatrat bregdetare të jugut."
+        },
+        {
+          "name": "Shkodër — 110 km · 1 orë 20 min",
+          "desc": "Kryeqyteti kulturor i veriut dhe porta drejt Alpeve Shqiptare. Ngjitu te Kalaja e Rozafës me pamje mbi liqen, endu nëpër pazarin historik dhe nis nga Shkodra aventurat në Bjeshkët e Nemuna — ndër pak natyra ende të virgjra në Evropë."
+        },
+        {
+          "name": "Sarandë — 280 km · 3 orë 30 min",
+          "desc": "Perla e Rivierës Shqiptare dhe një nga sekretet më të bukura të Mesdheut. Zbulo rrënojat antike të Butrintit (UNESCO), zhytu në ujërat e kaltër të Syrit të Kaltër dhe çlodhu në plazhet e bardha të Ksamilit. Ideale për një udhëtim 4–5 ditor nga Aeroporti i Tiranës."
+        }
+      ]
+    },
+    "rentalGuide": {
+      "title": "Çfarë të Dish Përpara se të Marrësh Makinën në Aeroport",
+      "subtitle": "Udhëzues i shkurtër për marrjen te Aeroporti i Tiranës",
+      "items": [
+        {
+          "title": "Dokumentet e nevojshme",
+          "desc": "Për të marrë makinë me qira te Aeroporti i Tiranës të duhen tri gjëra: patentë e vlefshme (e mbajtur të paktën 1 vit), kartë identiteti ose pasaportë, dhe një kartë krediti a debiti për depozitën e kthyeshme. Patentat e BE-së dhe ato ndërkombëtare pranohen pa dokumentacion shtesë."
+        },
+        {
+          "title": "Mosha minimale dhe rregullat për shoferët e rinj",
+          "desc": "Mosha minimale për qira te Aeroporti i Tiranës është 21 vjeç. Drejtuesit 21–25 vjeç mund të kenë një shtesë sipas kategorisë së makinës. Nuk ka kufi moshe maksimale. Çdo drejtues duhet të ketë patentë të vlefshme dhe të jetë i shënuar në kontratë."
+        },
+        {
+          "title": "Sigurimi dhe mbulimet e disponueshme",
+          "desc": "Çdo makinë e flotës sonë në aeroport përfshin sigurim bazë CDW pa pagesë shtesë. Gjatë rezervimit online mund të zgjedhësh Super CDW me mbulim të plotë e zero kapar — i këshilluar fort për rrugët malore dhe bregdetare të Shqipërisë."
+        },
+        {
+          "title": "Drejtimi në Shqipëri — çfarë të prisni",
+          "desc": "Rrugët kryesore të Shqipërisë janë moderne dhe të mirëmbajtura. Autostrada SH2 e lidh Aeroportin e Tiranës me qendrën në rreth 20 minuta. Rrugët e Rivierës dhe qafat malore janë më të ngushta — për to këshillojmë një SUV. Sinjalistika ndjek standardet evropiane."
+        }
+      ]
+    },
+    "reviews": {
+      "title": "Çfarë thonë klientët tanë",
+      "subtitle": "Mbi 500 klientë të kënaqur çdo vit"
+    },
+    "seoText": "Rent Ride ofron makina me qira në të gjithë Shqipërinë, me operim direkt te Aeroporti Ndërkombëtar i Tiranës (Nënë Tereza — TIA) dhe në qendër të qytetit. Qoftë për një udhëtim pune, pushime familjare përgjatë Rivierës Shqiptare, apo një rrugëtim nëpër Ballkanin Perëndimor — flota jonë e re, çmimet e qarta gjithëpërfshirëse dhe pritja e dedikuar në aeroport na kanë kthyer në zgjedhjen e mijëra udhëtarëve çdo vit. Rezervo online për nën 2 minuta: anulim falas, konfirmim i menjëhershëm, pa kosto të fshehura.",
+    "faq": {
+      "items": [
+        {
+          "question": "Si funksionon rezervimi?",
+          "answer": "Zgjidh makinën, plotëso formularin me datat dhe të dhënat e tua dhe konfirmo. Emailin e konfirmimit e merr menjëherë."
+        },
+        {
+          "question": "Cilat dokumente duhen?",
+          "answer": "Të duhet patentë e vlefshme (minimum 1 vit), kartë identiteti ose pasaportë, dhe një kartë krediti/debiti për depozitën."
+        },
+        {
+          "question": "A mund të marr makinën nga aeroporti?",
+          "answer": "Po! Marrja dhe kthimi te Aeroporti Nënë Tereza (TIA) janë falas. Ekipi ynë të pret te dalja — pa kosto shtesë e pa pritje."
+        },
+        {
+          "question": "A ka kosto shtesë për marrjen nga aeroporti?",
+          "answer": "Jo. Makina me qira aeroport Tirana vjen me marrje e kthim falas, pa asnjë shtesë. Çmimi që sheh gjatë rezervimit është ai final."
+        },
+        {
+          "question": "Si ju gjej në Aeroportin e Tiranës?",
+          "answer": "Pas zbritjes, drejtohu nga zona e arritjeve. Përfaqësuesi ynë të pret me një tabelë me emrin tënd. Mund të na marrësh edhe në telefon 24/7 në +355 69 81 45 803."
+        },
+        {
+          "question": "Çfarë makinash gjenden te aeroporti?",
+          "answer": "Flota e aeroportit përfshin makina ekonomike nga €25/ditë, SUV familjare, modele luksoze dhe automatike. Të gjitha servisohen rregullisht, pastrohen para çdo qiraje dhe nuk janë më të vjetra se 4 vjet. Mund ta filtrosh flotën sipas kategorisë, transmisionit dhe çmimit."
+        },
+        {
+          "question": "A mund ta dorëzoj makinën te aeroporti në çdo orë?",
+          "answer": "Po, pranojmë kthime te Aeroporti i Tiranës 24/7 — përfshirë festat. Na thuaj orarin e fluturimit të kthimit gjatë rezervimit dhe ne organizojmë pjesën tjetër. S'ka kosto shtesë për kthime natën ose herët në mëngjes."
+        },
+        {
+          "question": "Sa larg është aeroporti nga qendra e Tiranës?",
+          "answer": "Aeroporti Nënë Tereza (TIA) është rreth 17 km nga qendra e Tiranës — rreth 20–25 minuta nëpër autostradën SH2. Me makinën tënde me qira shmang taksitë e autobusët dhe shkon direkt te destinacioni."
+        },
+        {
+          "question": "Çfarë ndodh nëse makina prishet?",
+          "answer": "Kemi asistencë 24/7. Të dërgojmë menjëherë ndihmë ose një makinë zëvendësuese, pa kosto shtesë."
+        },
+        {
+          "question": "A mund të anuloj rezervimin?",
+          "answer": "Po, anulon falas deri 24 orë para datës së marrjes. Pas këtij afati zbatohet tarifa e anulimit."
+        }
+      ]
+    },
+    "registerCta": {
+      "title": "Krijo llogarinë falas",
+      "subtitle": "Hap një llogari për të ndjekur rezervimet, kontratat dhe historikun e qirave — të gjitha bashkë.",
+      "btn": "Regjistrohu tani",
+      "fleet": "Shiko flotën",
+      "f1": "Pa pagesë",
+      "f2": "Menaxho rezervimet",
+      "f3": "Histori e plotë"
+    },
+    "cta": {
+      "title": "Keni pyetje? Na kontaktoni!",
+      "subtitle": "Jemi këtu 24/7 për të të ndihmuar",
+      "whatsapp": "WhatsApp",
+      "whatsappMsg": "Përshëndetje! Dua të rezervoj një makinë me qira.",
+      "contactUs": "Na kontaktoni"
+    },
+    "seo": {
+      "title": "Makina me Qira në Tiranë & Aeroport — Marrje Falas | Rent Ride",
+      "description": "Makinë me qira në Tiranë dhe te Aeroporti Nënë Tereza (TIA) me marrje falas. Tarifa nga €25/ditë, pa kosto të fshehura, rezervim online për 2 minuta.",
+      "keywords": "makina me qira tirane, car hire tirana, makinë me qira aeroport, qira makine tirana airport, rent a car tirana"
+    },
+    "airportBadges": [
+      {
+        "label": "Marrje Falas Aeroport",
+        "sub": "Mother Teresa TIA"
+      },
+      {
+        "label": "24/7 i Disponueshëm",
+        "sub": "Fluturime ditore & natore"
+      },
+      {
+        "label": "Pa Kosto të Fshehura",
+        "sub": "Çmim gjithëpërfshirës"
+      },
+      {
+        "label": "Sigurim i Përfshirë",
+        "sub": "Mbulim bazë falas"
+      }
+    ],
+    "testimonialsFallback": [
+      {
+        "name": "Endrit Leka",
+        "location": "Tiranë",
+        "text": "Marrja te aeroporti shkoi pa asnjë problem dhe makina ishte si e re. Asnjë kosto surprizë në fund — do i kthehem patjetër."
+      },
+      {
+        "name": "Sara Malaj",
+        "location": "Durrës",
+        "text": "Rezervova online për pak minuta dhe konfirmimi erdhi menjëherë. Staf i sjellshëm dhe shumë i shpejtë."
+      },
+      {
+        "name": "Klaudio Nikolla",
+        "location": "Vlorë",
+        "text": "Raport çmim-cilësi i shkëlqyer dhe komunikim i qartë gjatë gjithë kohës. E rekomandoj pa hezitim."
+      }
+    ]
+  },
+  "fleet": {
+    "title": "Flota jonë",
+    "subtitle": "Gjej makinën e duhur mes {{count}} modeleve të disponueshme",
+    "filterLabel": "Filtro:",
+    "maxPrice": "Çmimi max: €{{price}}/ditë",
+    "sort": {
+      "label": "Renditja: Default",
+      "default": "Renditja: Default",
+      "price_asc": "Çmimi: i ulët → i lartë",
+      "price_desc": "Çmimi: i lartë → i ulët",
+      "name_asc": "Emri: A → Z"
+    },
+    "clearFilters": "Pastro filtrat",
+    "carsFound": "{{count}} makina të gjetura",
+    "noResults": "Nuk u gjetën makina me filtrat e zgjedhur.",
+    "prev": "Para",
+    "next": "Pas",
+    "faqTitle": "Pyetje rreth flotës",
+    "faqItems": [
+      {
+        "question": "Si mund të filtrojë makinat?",
+        "answer": "Përdor filtrat mbi listë për të zgjedhur kategorinë, transmisionin, karburantin dhe çmimin."
+      },
+      {
+        "question": "A mund të rezervoj online?",
+        "answer": "Po, çdo makinë ka butonin 'Rezervo tani' që të çon direkt te formulari i rezervimit."
+      },
+      {
+        "question": "Çfarë do të thotë 'I rezervuar'?",
+        "answer": "Makina është e zënë për këto data. Na kontakto për disponueshmërinë në data të tjera."
+      }
+    ],
+    "removeFilter": "Hiq filtrin {{label}}",
+    "seo": {
+      "titleCategory": "Makina {{category}} me Qira Tiranë",
+      "titleDefaultCount": "Flota Jonë — {{count}} Makina",
+      "titleDefaultEmpty": "Flota Jonë — Makina me Qira",
+      "descCategory": "Makina {{category}} me qira në Tiranë. Rezervo online — çmime transparente, marrje nga aeroporti.",
+      "descDefaultCount": "Zgjidhni nga {{count}} modele makinash me qira në Tiranë. Filtro sipas kategorisë, çmimit dhe transmetimit.",
+      "descDefaultEmpty": "Zgjidhni nga flota jonë e makinave me qira në Tiranë. Filtro sipas kategorisë, çmimit dhe transmetimit.",
+      "keywords": "flota makinave qira tirane, makina ekonomike, SUV, luksoze me qira shqiperi"
+    },
+    "transmissionFilter": "Transmision",
+    "fuelFilter": "Karburanti"
+  },
+  "carCard": {
+    "popular": "Popullar",
+    "luxury": "Luks ✨",
+    "seats": "{{count}} vende",
+    "luggage": "{{count}} valixhe",
+    "verifiedCar": "Makinë e verifikuar",
+    "available": "✓ E disponueshme",
+    "perDay": "/ditë",
+    "perWeek": "/javë",
+    "details": "Detajet",
+    "book": "Rezervo",
+    "startingFrom": "Duke filluar nga"
+  },
+  "carDetail": {
+    "back": "Flota",
+    "breadcrumb": {
+      "home": "Kryefaqja",
+      "fleet": "Flota"
+    },
+    "loading": "Duke ngarkuar detajet...",
+    "notFound": "Makina nuk u gjet",
+    "backToFleet": "Kthehu te flota",
+    "from": "Nga",
+    "perDay": "/ditë",
+    "weekly": "Javore (~)",
+    "monthly": "Mujore (~)",
+    "tabs": {
+      "specs": "Specifikimet",
+      "features": "Pajisjet",
+      "policy": "Politika"
+    },
+    "specs": {
+      "transmission": "Transmetimi",
+      "fuel": "Karburanti",
+      "seats": "Vende",
+      "luggage": "Bagazhi",
+      "category": "Kategoria",
+      "insurance": "Sigurimi",
+      "insuranceValue": "Bazë i përfshirë"
+    },
+    "features": {
+      "title": "Pajisjet standarde që vijnë me {{brand}} {{model}}:",
+      "extras": "Ekstras disponibël",
+      "extrasNote": "Ekstrasat mund t'i zgjidhni gjatë rezervimit"
+    },
+    "policy": {
+      "age": {
+        "title": "Kushtet e moshës",
+        "text": "Mosha minimale 21 vjeç. Drejtuesit 21–25 vjeç mund të kenë tarifë shtesë për shoferë të rinj."
+      },
+      "license": {
+        "title": "Patentë shoferi",
+        "text": "Patenta duhet të jetë mbajtur të paktën 1 vit. Pranohen edhe patentat ndërkombëtare."
+      },
+      "fuel": {
+        "title": "Karburanti",
+        "text": "Makina dorëzohet me serbator plot dhe duhet kthyer plot, përndryshe paguhet tarifa e rimbushjes."
+      },
+      "mileage": {
+        "title": "Kilometrazhi",
+        "text": "Kilometrazh i pakufizuar për qira mbi 3 ditë. Për 1–2 ditë vlen 300 km/ditë."
+      },
+      "cancellation": {
+        "title": "Anulimi",
+        "text": "Anulim pa pagesë deri 48 orë para marrjes; pas këtij afati mbahet 30% e shumës."
+      }
+    },
+    "about": {
+      "title": "Rreth kësaj makine",
+      "text": "{{brand}} {{model}} ({{year}}) është një zgjedhje e shkëlqyer për të lëvizur në Tiranë e mbarë Shqipërinë. Kategoria {{category}} me {{transmission}} dhe karburant {{fuel}} — e rehatshme në qytet, autostradë dhe udhëtime mes qytetesh. Me {{seats}} ulëse dhe {{luggage}} valixhe hapësirë, u përshtatet grupeve dhe familjeve."
+    },
+    "reviews": {
+      "title": "Vlerësimet e klientëve",
+      "count": "{{count}} vlerësime"
+    },
+    "support": {
+      "question": "Keni pyetje rreth kësaj makine?",
+      "available": "Ekipi ynë rri në dispozicion 24/7 për të të ndihmuar",
+      "phone": "Telefon",
+      "whatsapp": "WhatsApp"
+    },
+    "booking": {
+      "bookNow": "Rezervo tani",
+      "departure": "Nisja",
+      "return": "Kthimi",
+      "pickupLocation": "Vendi i marrjes",
+      "airportFree": "Pickup falas nga aeroporti i përfshirë",
+      "unavailable": "Momentalisht e rezervuar",
+      "chooseDates": "Zgjidhni data tjera",
+      "reserve": "Rezervo tani",
+      "instant": "Konfirmim i menjëhershëm · Pa tarifë anulimi",
+      "totalLabel": "Totali",
+      "basePrice": "€{{price}} × {{days}} ditë",
+      "insuranceFree": "Falas",
+      "serviceFree": "Falas",
+      "insurance": "Sigurimi bazë",
+      "serviceFee": "Tarifa shërbimi",
+      "freeDays": "Makina është e lirë — {{days}} ditë",
+      "dateTaken": "Makina është e zënë në datat e zgjedhura",
+      "urgency": "Kjo makinë shikohet shpesh — rezervoje para se ta marrë dikush tjetër!"
+    },
+    "support2": {
+      "title": "Ndihmë e menjëhershme",
+      "call": "Thirr"
+    },
+    "pricing": {
+      "daily": "Ditor",
+      "weekly": "Javor",
+      "monthly": "Mujor",
+      "daysAt": "ditë ×",
+      "youSave": "Kurseni"
+    },
+    "share": {
+      "label": "Ndaj",
+      "text": "Shiko {{brand}} {{model}} — nga €{{price}}/ditë te Rent Ride!",
+      "copied": "Linku u kopjua!"
+    },
+    "related": {
+      "title": "Makina të ngjashme",
+      "subtitle": "Kategoria {{category}} — alternativa tjera",
+      "viewAll": "Shiko të gjitha"
+    },
+    "faqTitle": "Pyetje rreth kësaj makine",
+    "faqItems": [
+      {
+        "question": "A përfshihet sigurimi?",
+        "answer": "Po — të gjitha makinat vijnë me sigurim bazë të përfshirë. Sigurim shtesë mund ta shtosh gjatë rezervimit."
+      },
+      {
+        "question": "Çfarë ndodh me dëmtimet?",
+        "answer": "Çdo makinë ka një depozitë sigurie. Dëmet e vogla i mbulon sigurimi; këshillojmë mbulimin e plotë."
+      },
+      {
+        "question": "A mund ta marr makinën nga aeroporti?",
+        "answer": "Po, ofrojmë marrje falas nga Aeroporti Ndërkombëtar i Tiranës. Rezervoje te faqja e rezervimit."
+      }
+    ],
+    "trust": {
+      "verified": "Verifikuar & i pastër",
+      "instant": "Konfirmim i menjëhershëm",
+      "support": "Mbështetje 24/7",
+      "insurance": "Sigurim i përfshirë"
+    },
+    "floatingBtn": "Rezervo {{brand}} {{model}}",
+    "aria": {
+      "closeGallery": "Mbyll galerinë",
+      "prevPhoto": "Foto e mëparshme",
+      "nextPhoto": "Foto tjetër",
+      "openGallery": "Hap galerinë e fotove",
+      "zoomIn": "Zmadho foton",
+      "zoomOut": "Zvogëlo foton"
+    },
+    "seo": {
+      "title": "{{brand}} {{model}} {{year}} me Qira në Tiranë — nga €{{price}}/ditë | Rent Ride",
+      "description": "Merr me qira {{brand}} {{model}} ({{year}}) në Tiranë nga €{{price}}/ditë. {{category}}, {{transmission}}, karburant {{fuel}}. Marrje falas nga aeroporti, 24/7.",
+      "keywords": "{{brand}} {{model}} me qira tirane, {{category}} me qira shqiperi, qira {{brand}} tirana airport",
+      "fallbackTitle": "Makina me Qira Tiranë",
+      "fallbackDesc": "Shërbimi nr.1 i makinave me qira në Tiranë."
+    },
+    "availability": {
+      "booked": "I rezervuar",
+      "maintenance": "Në mirëmbajtje",
+      "dateTaken": "Zënë në këto data",
+      "available": "Në dispozicion",
+      "invalidRange": "Zgjidh një interval datash të vlefshëm."
+    },
+    "hero": {
+      "seats": "{{count}} vende",
+      "luggage": "{{count}} valixhe",
+      "gallery": "Galeri",
+      "morePhotos": "+foto",
+      "photoAlt": "{{brand}} {{model}} foto {{index}}"
+    },
+    "bookingCard": {
+      "fromLabel": "nga",
+      "perDayShort": "/ditë"
+    },
+    "reviewsCount": "{{count}} vlerësime",
+    "featuresList": [
+      "Klimë A/C me temperaturë duale",
+      "Radio/Bluetooth/USB",
+      "Ngrohje ndenjëse",
+      "Kamera parkimi",
+      "Sensor parkimi (para/prapa)",
+      "Tempomat (cruise control)",
+      "Airbag të shumtë",
+      "ABS + ESP elektronik",
+      "Sistemë navigacioni",
+      "Xhama elektrik",
+      "Pasqyra elektrike me ngrohje"
+    ],
+    "luggageSize": "{{count}} valixhe madhësi M",
+    "extrasLabels": {
+      "ac": "Klimë A/C",
+      "cruise": "Tempomat",
+      "heating": "Ngrohje",
+      "parking": "Parking Sensor"
+    },
+    "pickupLocations": [
+      {
+        "value": "Tiranë - Qendër",
+        "label": "Tiranë - Qendër",
+        "icon": "🏙️"
+      },
+      {
+        "value": "Aeroporti Ndërkombëtar",
+        "label": "Aeroporti Ndërkombëtar",
+        "icon": "✈️"
+      },
+      {
+        "value": "Tiranë - Bulevardi Zogu I",
+        "label": "Tiranë - Bulevardi Zogu I",
+        "icon": "📍"
+      },
+      {
+        "value": "Durrës - Plazh",
+        "label": "Durrës - Plazh",
+        "icon": "🏖️"
+      },
+      {
+        "value": "Shkodër",
+        "label": "Shkodër",
+        "icon": "🏔️"
+      },
+      {
+        "value": "Vlorë",
+        "label": "Vlorë",
+        "icon": "⛵"
+      }
+    ],
+    "staticReviews": [
+      {
+        "authorName": "Endri Muka",
+        "rating": 5,
+        "text": "Shërbim i shkëlqyer! Makina e pastër dhe ekipi shumë i sjellshëm. E rekomandoj pa hezitim.",
+        "date": "2 javë më parë"
+      },
+      {
+        "authorName": "Sara Hoxha",
+        "rating": 5,
+        "text": "Rezervova online dhe gjithçka shkoi si orë. Marrja te aeroporti ishte shumë e lehtë.",
+        "date": "1 muaj më parë"
+      },
+      {
+        "authorName": "Arben Daci",
+        "rating": 5,
+        "text": "Çmime të arsyeshme dhe makinë në gjendje shumë të mirë. Kilometrazhi pa limit ishte plus i madh!",
+        "date": "3 javë më parë"
+      }
+    ]
+  },
+  "booking": {
+    "title": "Rezervo makinën",
+    "subtitle": "Plotëso formularin për të finalizuar rezervimin tënd",
+    "youAreBooking": "Po rezervoni makinën",
+    "orSimilar": "ose e ngjashme",
+    "loading": "Duke ngarkuar...",
+    "confirmed": {
+      "title": "Rezervimi u konfirmua!",
+      "subtitle": "Emailin e konfirmimit do ta marrësh brenda pak minutash.",
+      "redirecting": "Po ju ridrejtojmë..."
+    },
+    "locationDates": "Vendndodhja dhe datat",
+    "pickup": "Tërhiqni nga *",
+    "dropoff": "Ktheni në *",
+    "selectPlace": "Zgjidhni vendin",
+    "centerTirana": "Tiranë Qendër",
+    "airport": "Aeroporti Nënë Tereza",
+    "departureDatetime": "Data dhe ora e nisjes *",
+    "returnDatetime": "Data dhe ora e kthimit *",
+    "yourInfo": "Informacioni juaj",
+    "firstName": "Emri *",
+    "lastName": "Mbiemri *",
+    "firstNamePlaceholder": "Emri juaj",
+    "lastNamePlaceholder": "Mbiemri juaj",
+    "phone": "Telefoni *",
+    "phonePlaceholder": "+355 69 ...",
+    "email": "Email *",
+    "emailPlaceholder": "email@juaj.com",
+    "extrasInsurance": "Shtesa dhe sigurimi",
+    "insuranceType": "Lloji i sigurimit",
+    "perDay": "/ditë",
+    "free": "Falas",
+    "seasonalPrices": "Çmimet sezonale",
+    "currentlyLabel": "Aktualisht:",
+    "priceInfo": "Tarifat ndryshojnë sipas sezonit. Baza për këtë makinë është €{{price}}/ditë.",
+    "discountCode": "Kodi i zbritjes",
+    "discountPlaceholder": "Shkruani kodin (p.sh. TIRANA10)",
+    "apply": "Apliko",
+    "codeApplied": "Kodi u aplikua!",
+    "contract": {
+      "title": "Kontrata & Nënshkrimi",
+      "subtitle": "Lexo kushtet e qirasë dhe firmos kontratën dixhitale për të vazhduar.",
+      "termsTitle": "KUSHTET E QIRASË SË AUTOMJETIT",
+      "acceptLabel": "Kam lexuar dhe pranoj Kushtet e Qirasë dhe autorizoj nënshkrimin dixhital si të vlefshëm ligjërisht.",
+      "mustAccept": "Duhet të pranoni kushtet para se të nënshkruani",
+      "signatureLabel": "Nënshkrimi juaj *",
+      "signatureRequired": "Nënshkrimi është i detyrueshëm për të vazhduar",
+      "downloadTitle": "Shkarko kontratën e nënshkruar",
+      "downloadSubtitle": "Krijo PDF-në me të gjitha të dhënat dhe firmën tënde dixhitale.",
+      "downloadedTitle": "✅ Kontrata u shkarkua",
+      "downloadedSubtitle": "Kontrata PDF është gati — mund ta shkarkosh sërish kur të duash.",
+      "downloadBtn": "Shkarko PDF",
+      "clauses": [
+        {
+          "label": "Dorëzimi dhe kthimi",
+          "text": "Klienti merr përsipër të kthejë automjetin në gjendjen që e ka marrë, në vendin e dakordësuar dhe brenda orarit të caktuar."
+        },
+        {
+          "label": "Shoferi",
+          "text": "Automjeti mund të përdoret vetëm nga shoferi i regjistruar në kontratë, me leje drejtimi të vlefshme. Shoferi duhet të ketë mbushur 21 vjeç."
+        },
+        {
+          "label": "Sigurimi",
+          "text": "Automjeti është i mbuluar me sigurimin e zgjedhur gjatë rezervimit. Dëmet që nuk mbulohen nga sigurimi janë përgjegjësi e klientit."
+        },
+        {
+          "label": "Karburanti",
+          "text": "Automjeti dorëzohet me rezervuar të plotë dhe duhet kthyer me rezervuar të plotë, përndryshe aplikohet tarifë shtesë."
+        },
+        {
+          "label": "Trafiku dhe gjobat",
+          "text": "Klienti mban përgjegjësi për çdo gjobë trafiku të kryer gjatë periudhës së qirasë."
+        },
+        {
+          "label": "Ndotja dhe dëmtimi",
+          "text": "Dëmtimet e brendshme (ndotja e tepërt, dëme nga pirja e duhanit) tarifohen shtesë. Dëmtimet e jashtme raportohen menjëherë."
+        },
+        {
+          "label": "Depozita",
+          "text": "Një shumë garanci mund të bllokohet në kartën e klientit gjatë periudhës së qirasë dhe lirohet pa kushte pas kthimit të automjetit pa dëme."
+        },
+        {
+          "label": "Anulimi",
+          "text": "Anulimi 48+ orë para tërheqjes është falas. Anulimi me vonesë mund të tarifohet deri në 50% të vlerës totale."
+        },
+        {
+          "label": "Ligji",
+          "text": "Kjo kontratë rregullohet nga ligjet e Republikës së Shqipërisë. Çdo mosmarrëveshje i nënshtrohet Gjykatës së Tiranës."
+        }
+      ],
+      "clausesFooter": "Duke nënshkruar, klienti pranon të gjitha kushtet e mësipërme dhe konfirmon se i ka lexuar dhe kuptuar ato."
+    },
+    "carUnavailable": "Makina nuk është e disponueshme",
+    "carUnavailableDetail": "Kjo makinë aktualisht është {{status}} dhe s'rezervohet dot. Shih flotën për alternativa.",
+    "dateConflict": "Makina është e zënë në këto data",
+    "dateConflictDetail": "Kjo makinë është rezervuar për datat e zgjedhura. Provo data të tjera ose shih flotën për alternativa.",
+    "submit": "Konfirmo rezervimin",
+    "submitting": "Duke ruajtur...",
+    "unavailableBtn": "Makina nuk disponueshme",
+    "summary": "Përmbledhja e rezervimit",
+    "summaryTitle": "Përmbledhja",
+    "days": "ditë",
+    "hours": "orë totale · tarifë ditore aplikohet",
+    "extras": {
+      "perDay": "/ditë",
+      "perRental": "/rezervim",
+      "oneTime": "Një herë",
+      "seasonalPrices": "Çmimet sezonale",
+      "seasonalInfo": "Tarifat ndryshojnë sipas sezonit. Baza për këtë makinë është €{{price}}/ditë.",
+      "currentSeason": "Aktual",
+      "pickupFee": "Tarifë dërgese",
+      "dropoffFee": "Tarifë kthimi",
+      "locationFee": "Tarifë lokacioni",
+      "pickupAndDropoff": "tërhiqje + kthim",
+      "monthsShort": [
+        "Jan",
+        "Shk",
+        "Mar",
+        "Pri",
+        "Maj",
+        "Qer",
+        "Kor",
+        "Gus",
+        "Sht",
+        "Tet",
+        "Nën",
+        "Dhj"
+      ]
+    },
+    "insurance2": "Sigurimi",
+    "discount": "Zbritja (10%)",
+    "total": "Totali",
+    "selectDateNote": "Zgjidh datat dhe oraret që të shohësh çmimin total",
+    "validation": {
+      "pickup": "Zgjidhni vendin e tërhieves",
+      "dropoff": "Zgjidhni vendin e kthimit",
+      "startDate": "Zgjidhni datën e nisjes",
+      "endDate": "Zgjidhni datën e kthimit",
+      "endDateAfter": "Data e kthimit duhet të jetë pas nisjes",
+      "startDatePast": "Data dhe ora e nisjes s'mund të jenë në të shkuarën.",
+      "firstName": "Emri është i detyrueshëm",
+      "lastName": "Mbiemri është i detyrueshëm",
+      "phone": "Telefoni është i detyrueshëm",
+      "email": "Email i pavlefshëm",
+      "minDays": "Minimumi i rezervimit është {{count}} ditë."
+    },
+    "seo": {
+      "title": "Rezervo Makinën Online — Konfirmim i Menjëhershëm | Rent Ride",
+      "description": "Rezervo makinën tënde me qira online: plotëso formularin, zgjidh sigurimin e shtesat dhe firmos kontratën dixhitale. Konfirmim i menjëhershëm me email.",
+      "keywords": "rezervo makinë online tirana, booking car hire tirana, car rental reservation albania"
+    },
+    "categories": {
+      "insurance": {
+        "name": "Sigurim",
+        "description": "Zgjidh nivelin e mbulimit"
+      },
+      "equipment": {
+        "name": "Pajisje",
+        "description": "GPS, sedilje fëmijësh, Wi-Fi & më shumë"
+      },
+      "service": {
+        "name": "Shërbime",
+        "description": "Cross-border, dorëzim, kthim me vonesë"
+      },
+      "addon": {
+        "name": "Shtesa",
+        "description": "Shofer shtesë, karburant, km të pakufizuara"
+      }
+    },
+    "priceType": {
+      "perDay": "/ditë",
+      "perRental": "/rezervim"
+    },
+    "extrasSubtitle": "Përshtate qiranë me sigurim dhe shtesa sipas dëshirës.",
+    "flightNumber": "Numri i fluturimit (opsional)",
+    "flightNumberPlaceholder": "p.sh. W6 3015",
+    "contractPdf": {
+      "contractTitle": "KONTRATË QIRAJE",
+      "serviceSubtitle": "Shërbim qiraje automjetesh",
+      "signedBadge": "E NËNSHKRUAR",
+      "dateLabel": "Datë",
+      "clientSection": "Të dhënat e klientit",
+      "fullName": "Emri i plotë",
+      "email": "Email",
+      "phone": "Telefon",
+      "carSection": "Automjeti",
+      "rentalSection": "Detaje rezervimi",
+      "pickupLoc": "Vendi i tërheqjes",
+      "dropoffLoc": "Vendi i kthimit",
+      "startDateTime": "Data & Ora e nisjes",
+      "endDateTime": "Data & Ora e kthimit",
+      "daysLabel": "Numri i ditëve",
+      "daysUnit": "ditë",
+      "extrasLabel": "Shtesa",
+      "noneLabel": "Asnjë",
+      "insuranceLabel": "Sigurimi",
+      "priceSection": "Çmimi",
+      "baseRent": "Qiraja bazë",
+      "extrasRow": "Shtesa",
+      "insuranceRow": "Sigurimi",
+      "discountRow": "Zbritje",
+      "totalRow": "TOTALI",
+      "termsSection": "Kushtet kryesore të qirasë",
+      "signaturesSection": "Nënshkrimet",
+      "clientSignature": "Nënshkrimi i klientit",
+      "companySignature": "Nënshkrimi i kompanisë",
+      "authorizedBy": "Autorizuar nga",
+      "footer1": "Ky dokument është gjeneruar automatikisht nga sistemi i rezervimeve të {company}.",
+      "footer2": "Kontratë e vlefshme ligjërisht sipas legjislacionit të Republikës së Shqipërisë · Gjykata kompetente: Tiranë",
+      "popupBlocked": "Lejo dritaret pop-up për të shkarkuar PDF-in."
+    },
+    "signature": {
+      "signed": "Kontrata u nënshkrua",
+      "hint": "Firmos këtu me mouse ose gisht",
+      "clear": "Fshi dhe rifirmos",
+      "confirm": "Konfirmo firmën"
+    },
+    "detailsBtn": "Detajet",
+    "includedTitle": "Çfarë përfshihet",
+    "pickupReturn": "Marrja dhe kthimi",
+    "pickupLabel": "Marrja",
+    "returnLabel": "Kthimi",
+    "included": [
+      "Kilometra të pakufizuara të përfshira",
+      "Pa depozitë (Zero depozitë)",
+      "Paguaj me para në dorë ose kartë",
+      "Pa kosto të fshehura – çmim transparent"
+    ],
+    "close": "Mbylle"
+  },
+  "contactPage": {
+    "badge": "NA KONTAKTONI",
+    "heroTitle": "Si mund t'ju ndihmojmë?",
+    "heroSubtitle": "Na shkruaj për çdo gjë rreth rezervimeve, çmimeve apo flotës. Të përgjigjemi brenda 2 orësh.",
+    "infoTitle": "Informacioni ynë",
+    "addresses": "Adresat",
+    "addressAirport": "Aeroporti",
+    "addressCenter": "Qendër",
+    "addressOffice": "Zyra",
+    "hoursTitle": "Orari i punës",
+    "openNow": "Jemi hapur tani",
+    "followUs": "Na ndiqni",
+    "ctaTitle": "Rezervo tani",
+    "ctaSubtitle": "Gati për të nisur? Shfleto flotën dhe rezervo në çast.",
+    "ctaBtn": "Shiko flotën",
+    "viewMap": "Na gjeni në hartë",
+    "viewMapSubtitle": "Shiko zyrat tona në Google Maps",
+    "formTitle": "Dërgoni mesazh",
+    "formSubtitle": "Plotëso formularin dhe të kthejmë përgjigje sa më shpejt.",
+    "name": "Emri dhe Mbiemri",
+    "namePlaceholder": "p.sh. Artan Kelmendi",
+    "email": "Email",
+    "emailPlaceholder": "email@juaj.com",
+    "phoneOptional": "(opsional)",
+    "phonePlaceholder": "+355 6X XXX XXXX",
+    "subject": "Tema",
+    "subjectPlaceholder": "Zgjidh temën…",
+    "message": "Mesazhi",
+    "messagePlaceholder": "Shkruani mesazhin tuaj këtu…",
+    "characters": "karaktere",
+    "privacyNote": "Duke dërguar këtë formular, pranoni",
+    "privacyLink": "politikën e privatësisë",
+    "privacyAfter": "tonë. Të dhënat e tua nuk i ndajmë me palë të treta.",
+    "submit": "Dërgo mesazhin",
+    "sending": "Duke dërguar…",
+    "sentTitle": "Mesazhi u dërgua!",
+    "sentBody": "Faleminderit <strong>{{name}}</strong>! Të kontaktojmë te <strong>{{email}}</strong> brenda 2 orësh.",
+    "sendAgain": "Dërgo sërisht",
+    "goHome": "Shko në kryefaqe",
+    "subjects": {
+      "booking": "Rezervim / Pyetje mbi çmimin",
+      "cancel": "Anulim rezervimi",
+      "fleet": "Informacion mbi flotën",
+      "complaint": "Ankesë / Problem",
+      "business": "Bashkëpunim biznesi",
+      "other": "Tjetër"
+    },
+    "validation": {
+      "nameRequired": "Emri është i detyrueshëm",
+      "emailInvalid": "Email-i nuk është i vlefshëm",
+      "subjectRequired": "Zgjidh temën",
+      "messageTooShort": "Mesazhi duhet të ketë të paktën 10 karaktere"
+    },
+    "errors": {
+      "submitFailed": "Dërgimi dështoi.",
+      "submitGeneric": "Dërgimi nuk u krye. Provo sërish ose na kontakto drejtpërdrejt."
+    },
+    "hoursRows": {
+      "weekdays": "E Hënë – E Premte",
+      "saturday": "E Shtunë",
+      "sunday": "E Diel"
+    },
+    "hoursAllDays": "Çdo ditë",
+    "seo": {
+      "title": "Na Kontaktoni — Rent Ride",
+      "description": "Kontaktoni Rent Ride për rezervime, pyetje, ose ndihmë. Telefon +355 69 81 45 803, email, ose formulari online. Disponueshëm 24/7.",
+      "keywords": "kontakt car hire tirana, telefon makina me qira, email car rental albania, na kontaktoni",
+      "breadcrumbHome": "Kryefaqja",
+      "breadcrumbContact": "Kontakt"
+    }
+  },
+  "reviews": {
+    "title": "Vlerësimet e klientëve",
+    "ratingCount": "{{count}} vlerësime",
+    "loading": "Duke ngarkuar...",
+    "writeTitle": "Lër vlerësimin tuaj",
+    "thankYou": "Faleminderit!",
+    "thankYouSub": "Vlerësimi juaj u dërgua për rishikim.",
+    "overallRating": "Vlerësimi overall *",
+    "yourName": "Emri juaj *",
+    "namePlaceholder": "p.sh. Artan H.",
+    "comment": "Komenti juaj *",
+    "commentPlaceholder": "Ndani eksperiencën tuaj...",
+    "submit": "Dërgo vlerësimin",
+    "submitting": "Duke dërguar...",
+    "noReviews": "Nuk ka vlerësime të aprovuara ende.",
+    "beFirst": "Jini i pari që lini një vlerësim!",
+    "aspects": {
+      "carCondition": "Gjendja e makinës",
+      "staffService": "Shërbimi i stafit",
+      "valueForMoney": "Çmimi / Vlera",
+      "bookingEase": "Lehtësia e rezervimit"
+    },
+    "seo": {
+      "title": "Vlerësimet e Klientëve — 4.9★ nga mbi 500 Klientë | Rent Ride",
+      "description": "Shiko çfarë thonë klientët tanë: mbi 500 vlerësime reale me mesatare 4.9/5 për makinat me qira në Tiranë. Lër edhe ti përvojën tënde.",
+      "keywords": "vleresime makina me qira tirane, reviews car hire tirana, pervoja klientesh car rental albania"
+    },
+    "faqSchema": [
+      {
+        "question": "Si mund ta lë një vlerësim?",
+        "answer": "Kliko 'Lër vlerësimin tuaj', zgjidh yjet dhe shkruaj përshtypjen tënde. Çdo vlerësim kalon aprovimin brenda 24 orësh."
+      },
+      {
+        "question": "A janë vlerësimet reale?",
+        "answer": "Po — të gjitha vijnë nga klientë realë që kanë marrë makinë me qira tek ne dhe verifikohen një nga një."
+      }
+    ]
+  },
+  "account": {
+    "title": "Llogaria Ime",
+    "loginPrompt": "Hyr për të parë rezervimet dhe historikun e qirave të tua.",
+    "loginBtn": "Kyçu tani",
+    "noAccount": "Nuk keni llogari?",
+    "registerFree": "Regjistrohu falas",
+    "administrator": "Administrator",
+    "adminPanel": "Admin Panel",
+    "logout": "Dil",
+    "stats": {
+      "active": "Aktive",
+      "pending": "Në pritje",
+      "completed": "Të kryera"
+    },
+    "reservationsTitle": "Rezervimet e Mia ({{count}})",
+    "unknownCar": "Makinë e panjohur",
+    "noReservations": "Nuk keni asnjë rezervim ende.",
+    "viewFleet": "Shiko flotën",
+    "status": {
+      "Pending": "Në pritje",
+      "Confirmed": "Konfirmuar",
+      "Active": "Aktive",
+      "Completed": "Përfunduar",
+      "Cancelled": "Anuluar"
+    },
+    "errors": {
+      "resendFailed": "Dërgimi dështoi. Provoni sërisht.",
+      "connectionProblem": "Problem me lidhjen. Provoni sërisht.",
+      "cancelFailed": "Anulimi dështoi."
+    },
+    "resending": "Duke dërguar...",
+    "resend": "Ridërgo"
+  },
+  "notFoundPage": {
+    "title": "Faqja nuk u gjet!",
+    "description": "Faqja që kërkon nuk ekziston ose është zhvendosur. Mos vallë e shtype gabim adresën?",
+    "redirecting": "Po të kthejmë automatikisht te kryefaqja pas",
+    "seconds": "sekondash...",
+    "home": "Kryefaqja",
+    "viewCars": "Shiko makinat",
+    "goBack": "Kthehu prapa",
+    "recommended": "Makina të rekomanduara",
+    "viewAll": "Shiko të gjithë flotën",
+    "perDay": "/ditë"
+  },
+  "skipToContent": "Përmbajtja kryesore",
+  "errors": {
+    "bookingFailed": "Rezervimi dështoi. Provoni përsëri.",
+    "loginFailed": "Email ose fjalëkalimi i gabuar",
+    "generic": "Ndodhi një gabim"
+  },
+  "data": {
+    "category": {
+      "Ekonomike": "Ekonomike",
+      "SUV": "SUV",
+      "Luksoze": "Luksoze",
+      "Familjare": "Familjare",
+      "Automatike": "Automatike"
+    },
+    "transmission": {
+      "Automatike": "Automatike",
+      "Manuale": "Manuale"
+    },
+    "fuel": {
+      "Benzinë": "Benzinë",
+      "Naftë": "Naftë",
+      "Hibrid": "Hibrid",
+      "Elektrik": "Elektrik"
+    },
+    "status": {
+      "Në dispozicion": "Në dispozicion",
+      "I rezervuar": "I rezervuar",
+      "Në mirëmbajtje": "Në mirëmbajtje"
+    }
+  }
+}

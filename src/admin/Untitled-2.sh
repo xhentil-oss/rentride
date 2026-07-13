@@ -1,0 +1,1 @@
+cd ~/rent-car-tirana && git pull origin main && rm -rf backend/public/* && cp -r dist/* backend/public/

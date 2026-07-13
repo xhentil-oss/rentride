@@ -1,0 +1,13 @@
+---
+deployment:
+  tasks:
+    # App-i (Passenger) e shërben frontend-in nga backend/public (shih server.js).
+    # Deploy = kopjo dist/ → backend/public/ (rrugë relative te repo-ja e klonuar).
+    - /bin/rm -rf backend/public/assets
+    - /bin/cp -R dist/assets backend/public/assets
+    - /bin/cp dist/index.html backend/public/index.html
+    - /bin/cp dist/placeholder-car.svg backend/public/placeholder-car.svg
+    - /bin/cp dist/robots.txt backend/public/robots.txt
+    # Rinis app-in Passenger
+    - /bin/mkdir -p backend/tmp
+    - /bin/touch backend/tmp/restart.txt

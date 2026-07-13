@@ -1,0 +1,1053 @@
+{
+  "cookieConsent": {
+    "message": "Nous utilisons des cookies pour analyser le trafic et améliorer votre expérience.",
+    "accept": "Accepter",
+    "decline": "Refuser",
+    "learnMore": "En savoir plus"
+  },
+  "header": {
+    "fleet": "Flotte",
+    "reviews": "Avis",
+    "about": "À propos",
+    "contact": "Contact",
+    "phone": "+355 69 81 45 803",
+    "bookNow": "Réserver",
+    "loginGoogle": "Se connecter avec Google",
+    "myReservations": "Mes réservations",
+    "adminPanel": "Panneau admin",
+    "logout": "Se déconnecter",
+    "login": "Connexion",
+    "user": "Utilisateur",
+    "trustClients": "500+ clients satisfaits",
+    "trustNoFees": "Aucun frais caché",
+    "trustSupport": "Support 24/7",
+    "errors": {
+      "googleSignIn": "La connexion avec Google a échoué",
+      "googleLoad": "Impossible de charger Google Sign-In",
+      "loginFailed": "La connexion a échoué",
+      "otpWrong": "Le code OTP est incorrect",
+      "requestFailed": "La demande a échoué",
+      "nameRequired": "Le nom est obligatoire",
+      "invalidEmail": "E-mail invalide",
+      "passwordMismatch": "Les mots de passe ne correspondent pas",
+      "passwordTooShort": "Le mot de passe doit comporter au moins 8 caractères",
+      "registerFailed": "L'inscription a échoué"
+    }
+  },
+  "footer": {
+    "tagline": "Service de location de voitures n°1 à Tirana. Flotte moderne, tarifs transparents, service 24/7.",
+    "navigation": "Navigation",
+    "services": "Services",
+    "contactTitle": "Contact",
+    "nav": {
+      "fleet": "Notre flotte",
+      "book": "Réserver",
+      "reviews": "Avis",
+      "account": "Mon compte",
+      "sitemap": "Plan du site"
+    },
+    "seo": {
+      "tirana": "Location voiture Tirana",
+      "airport": "Location aéroport",
+      "suv": "Location SUV",
+      "luxury": "Voitures de luxe",
+      "automatic": "Voitures automatiques"
+    },
+    "address": "Rruga Nënë Tereza, Tirana 1504",
+    "addresses": [
+      "Rruga Nënë Tereza, Tirana 1504"
+    ],
+    "email": "rentcaralbania23@gmail.com",
+    "accepts": "Nous acceptons :",
+    "trustRating": "basé sur 500+ avis",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions de service",
+    "rights": "Tous droits réservés."
+  },
+  "home": {
+    "promoBanner": "<strong>Offre de dernière minute :</strong> Réservez sous 24 h et économisez <strong>-10%</strong> avec le code",
+    "hero": {
+      "title": "Location voiture Aéroport de Tirana.",
+      "titleHighlight": "Prise en charge gratuite. Confirmation immédiate.",
+      "subtitle": "Location de voiture à l'aéroport de Tirana (TIA) et en ville, avec prise en charge gratuite. Tarifs clairs dès 25 €/jour — sans frais cachés, confirmation immédiate.",
+      "pickupFrom": "Prise en charge à",
+      "returnTo": "Retour à",
+      "selectPlace": "Sélectionnez un lieu",
+      "centerTirana": "Centre de Tirana",
+      "airport": "Aéroport Mère Teresa",
+      "departureDate": "Date de départ",
+      "returnDate": "Date de retour",
+      "searchBtn": "Rechercher"
+    },
+    "trustStats": {
+      "clients": "Clients satisfaits",
+      "rating": "Note moyenne",
+      "support": "Support disponible",
+      "locations": "Emplacements (TIA + Tirana)"
+    },
+    "featuredCars": {
+      "title": "Voitures en vedette",
+      "subtitle": "Les modèles les plus demandés par nos clients",
+      "viewAll": "Voir tout"
+    },
+    "categories": {
+      "title": "Nos catégories",
+      "subtitle": "Trouvez la voiture idéale pour chaque besoin",
+      "ekonomike": {
+        "name": "Économique",
+        "desc": "Idéale pour la ville, faible consommation"
+      },
+      "suv": {
+        "name": "SUV",
+        "desc": "Spacieuse, adaptée à tous les terrains"
+      },
+      "luksoze": {
+        "name": "Luxe",
+        "desc": "Élégance et confort maximal"
+      },
+      "familjare": {
+        "name": "Familiale",
+        "desc": "Parfaite pour familles et groupes"
+      },
+      "automatike": {
+        "name": "Automatique",
+        "desc": "Conduite facile, technologie moderne"
+      }
+    },
+    "howItWorks": {
+      "title": "Comment ça marche ?",
+      "subtitle": "Obtenez votre voiture en 3 étapes",
+      "steps": [
+        {
+          "title": "Choisissez votre voiture",
+          "desc": "Parcourez toute la flotte et filtrez par catégorie (économique, SUV, luxe, automatique), tarif journalier et disponibilité à vos dates. Chaque voiture affiche ses caractéristiques complètes, ses équipements, ses options d'assurance et un prix unique tout compris — sans surprise."
+        },
+        {
+          "title": "Confirmez la réservation",
+          "desc": "Remplissez le formulaire en ligne avec vos informations, le lieu de prise en charge (aéroport de Tirana ou centre-ville), les dates et le niveau d'assurance. Vérifiez le total, ajoutez un code promo et signez le contrat numérique — le tout en moins de 2 minutes, depuis n'importe quel appareil."
+        },
+        {
+          "title": "Récupérez vos clés",
+          "desc": "Dès votre atterrissage à l'aéroport de Tirana, notre représentant vous accueille à l'arrivée avec une pancarte à votre nom. Nous inspectons la voiture ensemble, vous prenez les clés et vous êtes prêt à découvrir l'Albanie."
+        }
+      ],
+      "cta": "Réservez maintenant — quelques minutes suffisent"
+    },
+    "whyUs": {
+      "title": "Pourquoi choisir Rent Ride ?",
+      "subtitle": "Nous opérons directement à l'aéroport international de Tirana (TIA) et au centre-ville. Une flotte moderne, des prix sans surprise et une équipe disponible en continu font de nous le premier choix de milliers de voyageurs chaque année.",
+      "items": [
+        {
+          "title": "Tarifs clairs",
+          "desc": "Aucun frais caché — jamais. Chaque devis inclut l'assurance de base et les taxes routières. Le prix affiché en ligne est exactement celui que vous payez à la prise en charge : sans supplément aéroport, sans piège de prépaiement carburant, sans frais surprise sur votre carte."
+        },
+        {
+          "title": "Support 24/7",
+          "desc": "Nous sommes toujours là quand vous en avez besoin. Que ce soit pour une arrivée tardive à l'aéroport de Tirana, une question sur votre réservation ou une assistance routière urgente partout en Albanie — notre équipe répond à toute heure, jour et nuit."
+        },
+        {
+          "title": "Assurance incluse",
+          "desc": "Chaque voiture inclut l'assurance de base (CDW) sans frais supplémentaires, couvrant les dommages au-delà de la franchise standard. À la réservation, vous pouvez passer à la couverture Super CDW sans franchise — particulièrement recommandée pour les routes de montagne et du littoral."
+        },
+        {
+          "title": "Flexibilité",
+          "desc": "Prenez la voiture à l'aéroport de Tirana et rendez-la en ville, ou inversement — sans frais supplémentaires. Nous sommes ouverts 24h/24, 7j/7. Locations aller simple, tarifs mensuels longue durée et réservations de dernière minute : tout est possible."
+        }
+      ]
+    },
+    "guarantees": [
+      {
+        "title": "Garantie de prix",
+        "desc": "Vous trouvez un prix plus bas ailleurs ? Nous l'alignons, sans condition."
+      },
+      {
+        "title": "Aucun frais caché",
+        "desc": "Le prix final comprend tout : taxes, assurance de base et livraison."
+      },
+      {
+        "title": "Annulation gratuite",
+        "desc": "Annulation gratuite jusqu'à 48 h avant la prise en charge. Sans risque, sans pénalité."
+      }
+    ],
+    "airportSection": {
+      "title": "Location voiture à l'aéroport de Tirana — prise en charge gratuite incluse",
+      "badge": "Aéroport international de Tirana — TIA",
+      "body": "Vous cherchez à louer une voiture à l'aéroport de Tirana ? Nous proposons une prise en charge et une restitution gratuites directement à l'aéroport international Mère Teresa (TIA), disponibles jour et nuit, 7j/7. Nous garantissons des prix tout compris sans frais d'aéroport cachés, une flotte moderne entièrement entretenue et un représentant qui vous attend à l'arrivée. Que vous ayez besoin d'une voiture pour une escapade en ville, un road trip sur la Riviera albanaise ou un trajet transfrontalier, nous avons la bonne voiture au bon prix. Réserver en ligne, atterrir et rouler n'a jamais été aussi simple.",
+      "features": [
+        "Prise en charge gratuite à l'aéroport de Tirana (TIA) — accueil à la sortie",
+        "Disponible 24h/24 — vols de jour comme de nuit",
+        "Un prix unique tout compris, sans frais cachés",
+        "Confirmation en ligne immédiate en moins de 2 minutes"
+      ],
+      "cta": "Réserver la prise en charge"
+    },
+    "destinations": {
+      "title": "Explorez l'Albanie avec votre location depuis l'aéroport",
+      "subtitle": "Depuis l'aéroport Mère Teresa (TIA), toute l'Albanie est à portée de main",
+      "intro": "Votre location à l'aéroport de Tirana ouvre la porte à l'un des pays les plus beaux et les moins explorés d'Europe. L'Albanie vous accueille avec des plages limpides sur l'Adriatique et la mer Ionienne, des villes au patrimoine UNESCO, d'anciennes ruines illyriennes et des montagnes spectaculaires — le tout à quelques heures de route de l'aéroport. Voici les destinations préférées de nos clients :",
+      "places": [
+        {
+          "name": "Durrës — 35 km · 30 min",
+          "desc": "La principale ville côtière d'Albanie et sa destination balnéaire la plus prisée. Promenez-vous le long des larges plages de sable de l'Adriatique, visitez l'un des plus grands amphithéâtres romains des Balkans et profitez de la promenade animée du front de mer. Parfait pour une excursion d'une journée depuis l'aéroport de Tirana."
+        },
+        {
+          "name": "Berat — 120 km · 1h 30",
+          "desc": "Ville classée au patrimoine mondial de l'UNESCO et l'une des plus photographiées d'Albanie, surnommée la « ville aux mille fenêtres ». Sa vieille ville bien préservée longe la rivière Osum, dominée par un château médiéval offrant une vue panoramique sur la vallée."
+        },
+        {
+          "name": "Vlorë — 150 km · 2h",
+          "desc": "La porte de la Riviera albanaise, où l'indépendance fut proclamée en 1912. Entourée des eaux limpides de l'Adriatique et de la mer Ionienne, Vlora est la base idéale pour explorer le col de Llogara, la péninsule de Karaburun et les villages côtiers du sud."
+        },
+        {
+          "name": "Shkodër — 110 km · 1h 20",
+          "desc": "Capitale culturelle du nord et porte des Alpes albanaises. Montez au château de Rozafa pour la vue sur le lac, flânez dans le bazar historique et faites de Shkodër votre base pour les Alpes maudites — parmi les dernières étendues sauvages d'Europe."
+        },
+        {
+          "name": "Sarandë — 280 km · 3h 30",
+          "desc": "Le joyau de la Riviera albanaise et l'un des secrets les mieux gardés de la Méditerranée. Découvrez les ruines antiques de Butrint (UNESCO), plongez dans les eaux turquoise de la source de l'Œil Bleu et détendez-vous sur les plages de sable blanc de Ksamil. Idéal pour un road trip de 4 à 5 jours depuis l'aéroport de Tirana."
+        }
+      ]
+    },
+    "rentalGuide": {
+      "title": "Guide complet pour louer une voiture à l'aéroport de Tirana",
+      "subtitle": "Tout ce que vous devez savoir avant de récupérer vos clés",
+      "items": [
+        {
+          "title": "Documents requis",
+          "desc": "Pour louer une voiture à l'aéroport de Tirana, trois choses suffisent : un permis de conduire détenu depuis au moins un an, une carte d'identité ou un passeport, et une carte de crédit ou de débit pour la caution remboursable. Les permis de l'UE et internationaux sont acceptés, sans formalités supplémentaires pour la plupart des nationalités."
+        },
+        {
+          "title": "Âge minimum et politique jeune conducteur",
+          "desc": "L'âge minimum pour louer à l'aéroport de Tirana est de 21 ans. Les conducteurs de 21 à 25 ans peuvent payer un supplément jeune conducteur selon la catégorie du véhicule. Aucune limite d'âge maximale. Chaque conducteur doit présenter un permis valide et figurer sur le contrat."
+        },
+        {
+          "title": "Assurance et couverture",
+          "desc": "Chaque voiture de notre flotte à l'aéroport de Tirana inclut l'assurance de base CDW sans frais, couvrant les dommages au-delà de la franchise standard. À la réservation en ligne, vous pouvez passer au Super CDW sans franchise — vivement conseillé pour les routes de montagne et du littoral albanais."
+        },
+        {
+          "title": "Conduire en Albanie",
+          "desc": "Les routes principales d'Albanie sont modernes et bien entretenues. L'autoroute SH2 relie l'aéroport de Tirana au centre-ville en environ 20 minutes. Les routes côtières de la Riviera et les cols de montagne sont plus étroits — un SUV est conseillé pour les itinéraires hors des sentiers battus. La signalisation suit les normes européennes."
+        }
+      ]
+    },
+    "reviews": {
+      "title": "Ce que disent nos clients",
+      "subtitle": "Plus de 500 clients satisfaits chaque année"
+    },
+    "seoText": "Rent Ride propose la location de voitures dans toute l'Albanie, avec une présence directe à l'aéroport international de Tirana (aéroport Mère Teresa — TIA) et au centre-ville. Que vous cherchiez à louer une voiture pour un voyage d'affaires, des vacances en famille sur la Riviera albanaise ou un long road trip à travers les Balkans occidentaux, notre flotte moderne, nos prix clairs tout compris et notre service d'accueil à l'aéroport ont fait de nous le choix de milliers de voyageurs chaque année. Nous accueillons des clients d'Italie, d'Allemagne, du Royaume-Uni, des États-Unis, du Kosovo et d'ailleurs. Réservez en ligne en moins de 2 minutes — annulation gratuite, confirmation immédiate, sans frais cachés.",
+    "faq": {
+      "items": [
+        {
+          "question": "Comment fonctionne la réservation ?",
+          "answer": "Choisissez votre voiture, remplissez le formulaire avec vos dates et vos informations, puis confirmez. Votre e-mail de confirmation arrive aussitôt."
+        },
+        {
+          "question": "Quels documents sont requis ?",
+          "answer": "Il vous faut un permis de conduire valide (au moins 1 an), une carte d'identité ou un passeport, et une carte de crédit/débit pour la caution."
+        },
+        {
+          "question": "Puis-je récupérer la voiture à l'aéroport ?",
+          "answer": "Oui ! La prise en charge et la restitution à l'aéroport international Mère Teresa (TIA) sont gratuites. Notre équipe vous accueille à l'arrivée — sans frais ni attente."
+        },
+        {
+          "question": "Y a-t-il des frais supplémentaires pour la prise en charge à l'aéroport ?",
+          "answer": "Non. La prise en charge et la restitution à l'aéroport de Tirana sont entièrement gratuites, sans supplément. Le prix affiché à la réservation est le prix total."
+        },
+        {
+          "question": "Comment vous trouver à l'aéroport ?",
+          "answer": "Après l'atterrissage, dirigez-vous vers le hall d'arrivée. Notre représentant vous y attend avec une pancarte à votre nom. Vous pouvez aussi nous appeler 24h/24 au +355 69 81 45 803."
+        },
+        {
+          "question": "Que faire en cas de panne ?",
+          "answer": "Nous proposons une assistance 24h/24. Nous vous envoyons de l'aide ou une voiture de remplacement immédiatement, sans frais supplémentaires."
+        },
+        {
+          "question": "Puis-je annuler ma réservation ?",
+          "answer": "Oui, vous pouvez annuler gratuitement jusqu'à 24 h avant la prise en charge. Au-delà, des frais d'annulation s'appliquent."
+        },
+        {
+          "question": "Quels types de voitures sont disponibles ?",
+          "answer": "Notre flotte à l'aéroport de Tirana va des voitures économiques dès 25 €/jour aux SUV familiaux spacieux, véhicules de luxe et automatiques modernes. Chaque véhicule est entretenu régulièrement, nettoyé avant chaque location et a moins de 4 ans. Filtrez la flotte par catégorie, transmission et prix."
+        },
+        {
+          "question": "Puis-je retourner la voiture à l'aéroport à tout moment ?",
+          "answer": "Oui, nous acceptons les restitutions à l'aéroport international de Tirana 24h/24, 7j/7 — jours fériés inclus. Indiquez votre vol retour à la réservation et nous nous occupons du reste. Aucun supplément pour les retours de nuit, tôt le matin ou le week-end."
+        },
+        {
+          "question": "Y a-t-il un supplément aéroport sur le prix ?",
+          "answer": "Aucun — nous ne facturons aucun supplément aéroport. Nos prix sont identiques que vous preniez la voiture à l'aéroport ou à notre agence du centre-ville, ce qui fait de nous l'un des rares loueurs avec une tarification vraiment transparente aux deux endroits."
+        },
+        {
+          "question": "À quelle distance se trouve l'aéroport du centre-ville ?",
+          "answer": "L'aéroport international Mère Teresa (TIA) se trouve à environ 17 km au nord-ouest du centre de Tirana. Par l'autoroute SH2, le trajet dure 20 à 25 minutes en trafic normal. Avec notre service, vous évitez les taxis coûteux et les bus bondés pour rejoindre directement votre destination."
+        }
+      ]
+    },
+    "registerCta": {
+      "title": "Créez votre compte gratuit",
+      "subtitle": "Inscrivez-vous pour gérer vos réservations, contrats et historique de location — tout au même endroit.",
+      "btn": "S'inscrire",
+      "fleet": "Voir la flotte",
+      "f1": "Gratuit",
+      "f2": "Gérer réservations",
+      "f3": "Historique complet"
+    },
+    "cta": {
+      "title": "Des questions ? Contactez-nous !",
+      "subtitle": "Nous sommes là 24h/24 pour vous aider",
+      "whatsapp": "WhatsApp",
+      "whatsappMsg": "Bonjour ! Je souhaite réserver une voiture.",
+      "contactUs": "Nous contacter"
+    },
+    "seo": {
+      "title": "Location de Voiture Tirana Aéroport — Prise en Charge Gratuite | Rent Ride",
+      "description": "Location de voiture à Tirana et à l'aéroport Mère Teresa (TIA) avec prise en charge gratuite. Tarifs dès 25 €/jour, sans frais cachés, réservation en ligne en 2 minutes.",
+      "keywords": "location voiture tirana, location voiture aéroport tirana, louer voiture tirana, car hire tirana, location voiture albanie"
+    },
+    "airportBadges": [
+      {
+        "label": "Prise en Charge Gratuite",
+        "sub": "Mother Teresa TIA"
+      },
+      {
+        "label": "Disponible 24h/24",
+        "sub": "Vols jour et nuit"
+      },
+      {
+        "label": "Sans Frais Cachés",
+        "sub": "Prix tout compris"
+      },
+      {
+        "label": "Assurance Incluse",
+        "sub": "Couverture de base gratuite"
+      }
+    ],
+    "testimonialsFallback": [
+      {
+        "name": "Endrit Leka",
+        "location": "Tirana",
+        "text": "La prise en charge à l'aéroport s'est faite sans problème et la voiture était comme neuve. Aucun frais surprise à la fin — je reviendrai sans hésiter."
+      },
+      {
+        "name": "Sara Malaj",
+        "location": "Durrës",
+        "text": "J'ai réservé en ligne en quelques minutes et la confirmation est arrivée immédiatement. Personnel aimable et très rapide."
+      },
+      {
+        "name": "Klaudio Nikolla",
+        "location": "Vlorë",
+        "text": "Excellent rapport qualité-prix et communication claire du début à la fin. Je le recommande sans hésiter."
+      }
+    ]
+  },
+  "fleet": {
+    "title": "Notre flotte",
+    "subtitle": "Choisissez la voiture idéale parmi {{count}} modèles disponibles",
+    "filterLabel": "Filtrer :",
+    "maxPrice": "Prix max : {{price}} €/jour",
+    "sort": {
+      "label": "Tri : Par défaut",
+      "default": "Tri : Par défaut",
+      "price_asc": "Prix : croissant",
+      "price_desc": "Prix : décroissant",
+      "name_asc": "Nom : A → Z"
+    },
+    "clearFilters": "Effacer les filtres",
+    "carsFound": "{{count}} voitures trouvées",
+    "noResults": "Aucune voiture trouvée avec les filtres sélectionnés.",
+    "prev": "Précédent",
+    "next": "Suivant",
+    "faqTitle": "FAQ sur la flotte",
+    "faqItems": [
+      {
+        "question": "Comment filtrer les voitures ?",
+        "answer": "Utilisez les filtres au-dessus de la liste pour choisir la catégorie, la transmission, le carburant et le prix souhaité."
+      },
+      {
+        "question": "Puis-je réserver en ligne ?",
+        "answer": "Oui, chaque voiture a un bouton « Réserver » qui vous mène directement au formulaire."
+      },
+      {
+        "question": "Que signifie « Réservée » ?",
+        "answer": "La voiture n'est actuellement pas disponible aux dates choisies. Vous pouvez nous contacter pour d'autres dates."
+      }
+    ],
+    "removeFilter": "Retirer le filtre {{label}}",
+    "seo": {
+      "titleCategory": "Voitures {{category}} en Location à Tirana",
+      "titleDefaultCount": "Notre Flotte — {{count}} Voitures",
+      "titleDefaultEmpty": "Notre Flotte — Voitures en Location",
+      "descCategory": "Voitures {{category}} en location à Tirana. Réservez en ligne — prix transparents, prise en charge à l'aéroport.",
+      "descDefaultCount": "Choisissez parmi {{count}} modèles de voitures en location à Tirana. Filtrez par catégorie, prix et transmission.",
+      "descDefaultEmpty": "Choisissez dans notre flotte de voitures en location à Tirana. Filtrez par catégorie, prix et transmission.",
+      "keywords": "flotte voitures location tirana, voitures économiques, SUV, voitures de luxe location albanie"
+    },
+    "transmissionFilter": "Transmission",
+    "fuelFilter": "Carburant"
+  },
+  "carCard": {
+    "popular": "Populaire",
+    "luxury": "Luxe ✨",
+    "seats": "{{count}} places",
+    "luggage": "{{count}} valises",
+    "verifiedCar": "Voiture vérifiée",
+    "available": "✓ Disponible",
+    "perDay": "/jour",
+    "perWeek": "/semaine",
+    "details": "Détails",
+    "book": "Réserver",
+    "startingFrom": "À partir de"
+  },
+  "carDetail": {
+    "back": "Flotte",
+    "breadcrumb": {
+      "home": "Accueil",
+      "fleet": "Flotte"
+    },
+    "loading": "Chargement des détails…",
+    "notFound": "Voiture introuvable",
+    "backToFleet": "Retour à la flotte",
+    "from": "À partir de",
+    "perDay": "/jour",
+    "weekly": "Hebdomadaire (~)",
+    "monthly": "Mensuel (~)",
+    "tabs": {
+      "specs": "Spécifications",
+      "features": "Équipements",
+      "policy": "Politique"
+    },
+    "specs": {
+      "transmission": "Transmission",
+      "fuel": "Carburant",
+      "seats": "Places",
+      "luggage": "Bagages",
+      "category": "Catégorie",
+      "insurance": "Assurance",
+      "insuranceValue": "De base incluse"
+    },
+    "features": {
+      "title": "Équipement standard inclus avec {{brand}} {{model}} :",
+      "extras": "Extras disponibles",
+      "extrasNote": "Les extras peuvent être sélectionnés lors de la réservation"
+    },
+    "policy": {
+      "age": {
+        "title": "Âge requis",
+        "text": "21 ans minimum. Les conducteurs de 21 à 25 ans peuvent avoir un supplément jeune conducteur."
+      },
+      "license": {
+        "title": "Permis de conduire",
+        "text": "Le permis doit être détenu depuis au moins 1 an. Les permis internationaux sont acceptés."
+      },
+      "fuel": {
+        "title": "Carburant",
+        "text": "La voiture est livrée avec le plein. Le client doit la rendre pleine ou payer des frais de carburant."
+      },
+      "mileage": {
+        "title": "Kilométrage",
+        "text": "Kilométrage illimité pour les locations de plus de 3 jours. 1-2 jours : 300 km/jour."
+      },
+      "cancellation": {
+        "title": "Annulation",
+        "text": "Annulation gratuite jusqu'à 48 h avant la prise en charge. Ensuite, des frais de 30 % s'appliquent."
+      }
+    },
+    "about": {
+      "title": "À propos de cette voiture",
+      "text": "{{brand}} {{model}} ({{year}}) est un excellent choix pour la location à Tirana et en Albanie. Catégorie {{category}} avec {{transmission}} et carburant {{fuel}} — confortable pour la ville, l'autoroute et les trajets intercités. Avec {{seats}} places et {{luggage}} valises, adaptée aux groupes et familles."
+    },
+    "reviews": {
+      "title": "Avis clients",
+      "count": "{{count}} avis"
+    },
+    "support": {
+      "question": "Des questions sur cette voiture ?",
+      "available": "Notre équipe est disponible 24/7 pour vous aider",
+      "phone": "Téléphone",
+      "whatsapp": "WhatsApp"
+    },
+    "booking": {
+      "bookNow": "Réserver",
+      "departure": "Départ",
+      "return": "Retour",
+      "pickupLocation": "Lieu de prise en charge",
+      "airportFree": "Prise en charge gratuite à l'aéroport incluse",
+      "unavailable": "Actuellement réservée",
+      "chooseDates": "Choisir d'autres dates",
+      "reserve": "Réserver",
+      "instant": "Confirmation immédiate · Pas de frais d'annulation",
+      "totalLabel": "Total",
+      "basePrice": "{{price}} € × {{days}} jours",
+      "insuranceFree": "Gratuit",
+      "serviceFree": "Gratuit",
+      "insurance": "Assurance de base",
+      "serviceFee": "Frais de service",
+      "freeDays": "Voiture gratuite — {{days}} jours",
+      "dateTaken": "Voiture indisponible aux dates choisies",
+      "urgency": "Cette voiture est très demandée — réservez avant qu'elle ne soit prise !"
+    },
+    "support2": {
+      "title": "Aide immédiate",
+      "call": "Appeler"
+    },
+    "pricing": {
+      "daily": "Journalier",
+      "weekly": "Hebdomadaire",
+      "monthly": "Mensuel",
+      "daysAt": "jours ×",
+      "youSave": "Vous économisez"
+    },
+    "share": {
+      "label": "Partager",
+      "text": "Découvrez {{brand}} {{model}} — à partir de {{price}} €/jour chez Rent Ride !",
+      "copied": "Lien copié !"
+    },
+    "related": {
+      "title": "Voitures similaires",
+      "subtitle": "Catégorie {{category}} — autres alternatives",
+      "viewAll": "Voir tout"
+    },
+    "faqTitle": "FAQ sur cette voiture",
+    "faqItems": [
+      {
+        "question": "L'assurance est-elle incluse ?",
+        "answer": "Oui, toutes nos voitures incluent l'assurance de base. Vous pouvez ajouter une assurance complémentaire lors de la réservation."
+      },
+      {
+        "question": "Que se passe-t-il en cas de dommage ?",
+        "answer": "Chaque voiture a un dépôt de garantie. Les dommages mineurs sont couverts par l'assurance. Nous recommandons la couverture complète."
+      },
+      {
+        "question": "Puis-je récupérer la voiture à l'aéroport ?",
+        "answer": "Oui, nous offrons la prise en charge gratuite à l'aéroport international de Tirana. Réservez sur la page de réservation."
+      }
+    ],
+    "trust": {
+      "verified": "Vérifiée & propre",
+      "instant": "Confirmation immédiate",
+      "support": "Support 24/7",
+      "insurance": "Assurance incluse"
+    },
+    "floatingBtn": "Réserver {{brand}} {{model}}",
+    "aria": {
+      "closeGallery": "Fermer la galerie",
+      "prevPhoto": "Photo précédente",
+      "nextPhoto": "Photo suivante",
+      "openGallery": "Ouvrir la galerie",
+      "zoomIn": "Zoomer",
+      "zoomOut": "Dézoomer"
+    },
+    "seo": {
+      "title": "{{brand}} {{model}} {{year}} location Tirana — {{price}} €/jour",
+      "description": "Louez {{brand}} {{model}} ({{year}}) à Tirana à partir de {{price}} €/jour. Catégorie {{category}}, {{transmission}}, {{fuel}}. Disponible 24/7 — prise en charge à l'aéroport.",
+      "keywords": "{{brand}} {{model}} location tirana, {{category}} location albanie, louer {{brand}} tirana",
+      "fallbackTitle": "Location voiture Tirana",
+      "fallbackDesc": "Le service de location de voitures n°1 à Tirana."
+    },
+    "availability": {
+      "booked": "Réservée",
+      "maintenance": "En maintenance",
+      "dateTaken": "Indisponible à ces dates",
+      "available": "Disponible",
+      "invalidRange": "Sélectionnez une plage de dates valide."
+    },
+    "hero": {
+      "seats": "{{count}} places",
+      "luggage": "{{count}} valises",
+      "gallery": "Galerie",
+      "morePhotos": "+photos",
+      "photoAlt": "{{brand}} {{model}} photo {{index}}"
+    },
+    "bookingCard": {
+      "fromLabel": "à partir de",
+      "perDayShort": "/jour"
+    },
+    "reviewsCount": "{{count}} avis",
+    "featuresList": [
+      "Climatisation bi-zone",
+      "Radio/Bluetooth/USB",
+      "Sièges chauffants",
+      "Caméra de recul",
+      "Capteurs de stationnement (av/ar)",
+      "Régulateur de vitesse",
+      "Airbags multiples",
+      "ABS + ESP électronique",
+      "Système de navigation",
+      "Vitres électriques",
+      "Rétroviseurs électriques chauffants"
+    ],
+    "luggageSize": "{{count}} valises taille M",
+    "extrasLabels": {
+      "ac": "Climatisation",
+      "cruise": "Régulateur",
+      "heating": "Chauffage",
+      "parking": "Capteur stationnement"
+    },
+    "pickupLocations": [
+      {
+        "value": "Tiranë - Qendër",
+        "label": "Tirana - Centre",
+        "icon": "🏙️"
+      },
+      {
+        "value": "Aeroporti Ndërkombëtar",
+        "label": "Aéroport international",
+        "icon": "✈️"
+      },
+      {
+        "value": "Tiranë - Bulevardi Zogu I",
+        "label": "Tirana - Bd Zogu I",
+        "icon": "📍"
+      },
+      {
+        "value": "Durrës - Plazh",
+        "label": "Durrës - Plage",
+        "icon": "🏖️"
+      },
+      {
+        "value": "Shkodër",
+        "label": "Shkodër",
+        "icon": "🏔️"
+      },
+      {
+        "value": "Vlorë",
+        "label": "Vlorë",
+        "icon": "⛵"
+      }
+    ],
+    "staticReviews": [
+      {
+        "authorName": "Endri Muka",
+        "rating": 5,
+        "text": "Excellent service ! Voiture propre et équipe très sympathique. Je recommande vivement.",
+        "date": "il y a 2 semaines"
+      },
+      {
+        "authorName": "Sara Hoxha",
+        "rating": 5,
+        "text": "Réservation en ligne parfaite. La prise en charge à l'aéroport a été très facile.",
+        "date": "il y a 1 mois"
+      },
+      {
+        "authorName": "Arben Daci",
+        "rating": 5,
+        "text": "Prix raisonnables et voiture en excellent état. Le kilométrage illimité a été un grand plus !",
+        "date": "il y a 3 semaines"
+      }
+    ]
+  },
+  "booking": {
+    "title": "Réservez votre voiture",
+    "subtitle": "Remplissez le formulaire pour confirmer votre réservation",
+    "youAreBooking": "Vous réservez la voiture",
+    "orSimilar": "ou similaire",
+    "loading": "Chargement…",
+    "confirmed": {
+      "title": "Réservation confirmée !",
+      "subtitle": "Vous recevrez un e-mail de confirmation dans quelques minutes.",
+      "redirecting": "Redirection…"
+    },
+    "locationDates": "Lieu et dates",
+    "pickup": "Prise en charge à *",
+    "dropoff": "Retour à *",
+    "selectPlace": "Sélectionnez un lieu",
+    "centerTirana": "Centre de Tirana",
+    "airport": "Aéroport Mère Teresa",
+    "departureDatetime": "Date et heure de départ *",
+    "returnDatetime": "Date et heure de retour *",
+    "yourInfo": "Vos informations",
+    "firstName": "Prénom *",
+    "lastName": "Nom *",
+    "firstNamePlaceholder": "Votre prénom",
+    "lastNamePlaceholder": "Votre nom",
+    "phone": "Téléphone *",
+    "phonePlaceholder": "+33 6 ...",
+    "email": "E-mail *",
+    "emailPlaceholder": "votre@email.com",
+    "extrasInsurance": "Extras et assurance",
+    "insuranceType": "Type d'assurance",
+    "perDay": "/jour",
+    "free": "Gratuit",
+    "seasonalPrices": "Prix saisonniers",
+    "currentlyLabel": "Actuellement :",
+    "priceInfo": "Les prix varient selon la saison. Prix de base de cette voiture : {{price}} €/jour.",
+    "discountCode": "Code promo",
+    "discountPlaceholder": "Entrez le code (ex. TIRANA10)",
+    "apply": "Appliquer",
+    "codeApplied": "Code appliqué !",
+    "contract": {
+      "title": "Contrat & Signature",
+      "subtitle": "Veuillez lire les conditions de location et signer le contrat numérique pour continuer.",
+      "termsTitle": "CONDITIONS DE LOCATION DE VOITURE",
+      "acceptLabel": "J'ai lu et j'accepte les conditions de location et j'autorise la signature numérique comme légalement valide.",
+      "mustAccept": "Vous devez accepter les conditions avant de signer",
+      "signatureLabel": "Votre signature *",
+      "signatureRequired": "La signature est requise pour continuer",
+      "downloadTitle": "Télécharger le contrat signé",
+      "downloadSubtitle": "Générer un PDF avec toutes vos données et la signature numérique.",
+      "downloadedTitle": "✅ Contrat téléchargé",
+      "downloadedSubtitle": "Le contrat PDF est prêt. Vous pouvez le télécharger à nouveau.",
+      "downloadBtn": "Télécharger le PDF",
+      "clauses": [
+        {
+          "label": "Remise et restitution",
+          "text": "Le client s'engage à restituer le véhicule dans l'état où il l'a reçu, au lieu convenu et dans les délais convenus."
+        },
+        {
+          "label": "Conducteur",
+          "text": "Le véhicule ne peut être conduit que par le conducteur enregistré au contrat, titulaire d'un permis valide. Le conducteur doit avoir au moins 21 ans."
+        },
+        {
+          "label": "Assurance",
+          "text": "Le véhicule est couvert par l'assurance choisie lors de la réservation. Les dommages non couverts par l'assurance sont à la charge du client."
+        },
+        {
+          "label": "Carburant",
+          "text": "Le véhicule est livré avec le plein et doit être restitué avec le plein, faute de quoi des frais supplémentaires s'appliquent."
+        },
+        {
+          "label": "Circulation et amendes",
+          "text": "Le client est responsable de toute amende de circulation encourue pendant la période de location."
+        },
+        {
+          "label": "Propreté et dommages",
+          "text": "Les dommages intérieurs (saleté excessive, dommages dus au tabac) sont facturés en supplément. Les dommages extérieurs doivent être signalés immédiatement."
+        },
+        {
+          "label": "Caution",
+          "text": "Un montant de garantie peut être bloqué sur la carte du client pendant la location et est libéré sans condition après la restitution du véhicule sans dommage."
+        },
+        {
+          "label": "Annulation",
+          "text": "L'annulation 48 h et plus avant la prise en charge est gratuite. Une annulation tardive peut être facturée jusqu'à 50 % du montant total."
+        },
+        {
+          "label": "Droit applicable",
+          "text": "Ce contrat est régi par les lois de la République d'Albanie. Tout litige relève du Tribunal de Tirana."
+        }
+      ],
+      "clausesFooter": "En signant, le client accepte toutes les conditions ci-dessus et confirme les avoir lues et comprises."
+    },
+    "carUnavailable": "Voiture non disponible",
+    "carUnavailableDetail": "Cette voiture est actuellement {{status}} et ne peut pas être réservée. Allez à la flotte pour des alternatives.",
+    "dateConflict": "Voiture indisponible à ces dates",
+    "dateConflictDetail": "Cette voiture est réservée aux dates choisies. Choisissez d'autres dates ou voyez la flotte pour des alternatives.",
+    "submit": "Confirmer la réservation",
+    "submitting": "Enregistrement…",
+    "unavailableBtn": "Voiture non disponible",
+    "summary": "Récapitulatif de la réservation",
+    "summaryTitle": "Récapitulatif",
+    "days": "jours",
+    "hours": "heures au total · tarif journalier appliqué",
+    "extras": {
+      "perDay": "/jour",
+      "perRental": "/location",
+      "oneTime": "Unique",
+      "seasonalPrices": "Tarifs saisonniers",
+      "seasonalInfo": "Les prix varient selon la saison. Prix de base : {{price}} €/jour.",
+      "currentSeason": "Actuelle",
+      "pickupFee": "Frais de prise en charge",
+      "dropoffFee": "Frais de retour",
+      "locationFee": "Frais de lieu",
+      "pickupAndDropoff": "prise + retour",
+      "monthsShort": [
+        "jan",
+        "fév",
+        "mar",
+        "avr",
+        "mai",
+        "juin",
+        "juil",
+        "août",
+        "sept",
+        "oct",
+        "nov",
+        "déc"
+      ]
+    },
+    "insurance2": "Assurance",
+    "discount": "Remise (10 %)",
+    "total": "Total",
+    "selectDateNote": "Sélectionnez les dates et heures pour voir le prix total",
+    "validation": {
+      "pickup": "Sélectionnez le lieu de prise en charge",
+      "dropoff": "Sélectionnez le lieu de retour",
+      "startDate": "Sélectionnez la date de départ",
+      "endDate": "Sélectionnez la date de retour",
+      "endDateAfter": "La date de retour doit être après le départ",
+      "startDatePast": "La date et l'heure de prise en charge ne peuvent pas être dans le passé.",
+      "firstName": "Le prénom est requis",
+      "lastName": "Le nom est requis",
+      "phone": "Le téléphone est requis",
+      "email": "E-mail invalide",
+      "minDays": "Réservation minimale : {{count}} jour(s)."
+    },
+    "seo": {
+      "title": "Réservez Votre Voiture en Ligne — Confirmation Immédiate | Rent Ride",
+      "description": "Réservez votre voiture de location en ligne : remplissez le formulaire, choisissez l'assurance et les options, et signez le contrat numérique. Confirmation immédiate par e-mail.",
+      "keywords": "réserver voiture en ligne tirana, booking location voiture tirana, réservation location voiture albanie"
+    },
+    "categories": {
+      "insurance": {
+        "name": "Assurance",
+        "description": "Choisissez votre niveau de couverture"
+      },
+      "equipment": {
+        "name": "Équipement",
+        "description": "GPS, sièges enfant, Wi-Fi et plus"
+      },
+      "service": {
+        "name": "Services",
+        "description": "Passage frontalier, livraison, retour tardif"
+      },
+      "addon": {
+        "name": "Options",
+        "description": "Conducteur supplémentaire, carburant, km illimités"
+      }
+    },
+    "priceType": {
+      "perDay": "/jour",
+      "perRental": "/location"
+    },
+    "extrasSubtitle": "Personnalisez votre location avec assurance et options.",
+    "flightNumber": "Numéro de vol (optionnel)",
+    "flightNumberPlaceholder": "ex. W6 3015",
+    "contractPdf": {
+      "contractTitle": "CONTRAT DE LOCATION",
+      "serviceSubtitle": "Service de location de voitures",
+      "signedBadge": "SIGNÉ",
+      "dateLabel": "Date",
+      "clientSection": "Coordonnées du client",
+      "fullName": "Nom complet",
+      "email": "Email",
+      "phone": "Téléphone",
+      "carSection": "Véhicule",
+      "rentalSection": "Détails de la réservation",
+      "pickupLoc": "Lieu de prise en charge",
+      "dropoffLoc": "Lieu de restitution",
+      "startDateTime": "Date & heure de départ",
+      "endDateTime": "Date & heure de retour",
+      "daysLabel": "Nombre de jours",
+      "daysUnit": "jours",
+      "extrasLabel": "Suppléments",
+      "noneLabel": "Aucun",
+      "insuranceLabel": "Assurance",
+      "priceSection": "Prix",
+      "baseRent": "Location de base",
+      "extrasRow": "Suppléments",
+      "insuranceRow": "Assurance",
+      "discountRow": "Remise",
+      "totalRow": "TOTAL",
+      "termsSection": "Conditions principales de location",
+      "signaturesSection": "Signatures",
+      "clientSignature": "Signature du client",
+      "companySignature": "Signature de la société",
+      "authorizedBy": "Autorisé par",
+      "footer1": "Ce document a été généré automatiquement par le système de réservation de {company}.",
+      "footer2": "Contrat juridiquement valable selon la législation de la République d'Albanie · Tribunal compétent : Tirana",
+      "popupBlocked": "Veuillez autoriser les fenêtres pop-up pour télécharger le PDF."
+    },
+    "signature": {
+      "signed": "Contrat signé",
+      "hint": "Signez ici avec la souris ou le doigt",
+      "clear": "Effacer et re-signer",
+      "confirm": "Confirmer la signature"
+    },
+    "detailsBtn": "Détails",
+    "includedTitle": "Ce qui est inclus",
+    "pickupReturn": "Prise en charge et restitution",
+    "pickupLabel": "Prise en charge",
+    "returnLabel": "Restitution",
+    "included": [
+      "Kilométrage illimité inclus",
+      "Aucune caution requise",
+      "Payez en espèces ou par carte",
+      "Aucun frais caché – prix transparent"
+    ],
+    "close": "Fermer"
+  },
+  "contactPage": {
+    "badge": "NOUS CONTACTER",
+    "heroTitle": "Comment pouvons-nous vous aider ?",
+    "heroSubtitle": "Nous sommes là pour toute question sur les réservations, les prix ou notre flotte. Nous répondons sous 2 heures.",
+    "infoTitle": "Nos informations",
+    "addresses": "Adresses",
+    "addressAirport": "Aéroport",
+    "addressCenter": "Centre-ville",
+    "addressOffice": "Bureau",
+    "hoursTitle": "Heures d'ouverture",
+    "openNow": "Nous sommes ouverts",
+    "followUs": "Suivez-nous",
+    "ctaTitle": "Réserver",
+    "ctaSubtitle": "Prêt à conduire ? Parcourez notre flotte et réservez en quelques secondes.",
+    "ctaBtn": "Voir la flotte",
+    "viewMap": "Trouvez-nous sur la carte",
+    "viewMapSubtitle": "Voir nos bureaux sur Google Maps",
+    "formTitle": "Envoyez-nous un message",
+    "formSubtitle": "Remplissez le formulaire et nous vous répondrons dès que possible.",
+    "name": "Nom complet",
+    "namePlaceholder": "ex. Jean Dupont",
+    "email": "E-mail",
+    "emailPlaceholder": "vous@exemple.com",
+    "phoneOptional": "(facultatif)",
+    "phonePlaceholder": "+33 6 XX XX XX XX",
+    "subject": "Sujet",
+    "subjectPlaceholder": "Choisissez un sujet…",
+    "message": "Message",
+    "messagePlaceholder": "Tapez votre message ici…",
+    "characters": "caractères",
+    "privacyNote": "En envoyant ce formulaire, vous acceptez notre",
+    "privacyLink": "politique de confidentialité",
+    "privacyAfter": ". Nous ne partageons pas vos données avec des tiers.",
+    "submit": "Envoyer le message",
+    "sending": "Envoi…",
+    "sentTitle": "Message envoyé !",
+    "sentBody": "Merci <strong>{{name}}</strong> ! Nous vous contacterons à <strong>{{email}}</strong> sous 2 heures.",
+    "sendAgain": "Envoyer un autre",
+    "goHome": "Aller à l'accueil",
+    "subjects": {
+      "booking": "Réservation / Question prix",
+      "cancel": "Demande d'annulation",
+      "fleet": "Informations flotte",
+      "complaint": "Plainte / Problème",
+      "business": "Partenariat commercial",
+      "other": "Autre"
+    },
+    "validation": {
+      "nameRequired": "Le nom est requis",
+      "emailInvalid": "L'e-mail n'est pas valide",
+      "subjectRequired": "Choisissez un sujet",
+      "messageTooShort": "Le message doit comporter au moins 10 caractères"
+    },
+    "errors": {
+      "submitFailed": "Échec de l'envoi.",
+      "submitGeneric": "Échec de l'envoi. Veuillez réessayer ou nous contacter directement."
+    },
+    "hoursRows": {
+      "weekdays": "Lun – Ven",
+      "saturday": "Samedi",
+      "sunday": "Dimanche"
+    },
+    "hoursAllDays": "Tous les jours",
+    "seo": {
+      "title": "Contactez-nous — Rent Ride",
+      "description": "Contactez Rent Ride pour vos réservations, questions ou besoin d'aide. Téléphone +355 69 81 45 803, e-mail ou formulaire en ligne. Disponible 24h/24.",
+      "keywords": "contact location voiture tirana, téléphone location voiture, e-mail location voiture albanie, contactez-nous",
+      "breadcrumbHome": "Accueil",
+      "breadcrumbContact": "Contact"
+    }
+  },
+  "reviews": {
+    "title": "Avis clients",
+    "ratingCount": "{{count}} avis",
+    "loading": "Chargement…",
+    "writeTitle": "Laissez votre avis",
+    "thankYou": "Merci !",
+    "thankYouSub": "Votre avis a été envoyé pour modération.",
+    "overallRating": "Note globale *",
+    "yourName": "Votre nom *",
+    "namePlaceholder": "ex. Jean D.",
+    "comment": "Votre commentaire *",
+    "commentPlaceholder": "Partagez votre expérience…",
+    "submit": "Envoyer l'avis",
+    "submitting": "Envoi…",
+    "noReviews": "Aucun avis approuvé pour le moment.",
+    "beFirst": "Soyez le premier à laisser un avis !",
+    "aspects": {
+      "carCondition": "État de la voiture",
+      "staffService": "Service du personnel",
+      "valueForMoney": "Rapport qualité-prix",
+      "bookingEase": "Facilité de réservation"
+    },
+    "seo": {
+      "title": "Avis Clients — 4,9★ de plus de 500 Clients | Rent Ride",
+      "description": "Découvrez ce que disent nos clients : plus de 500 avis réels avec une moyenne de 4,9/5 pour la location de voiture à Tirana. Partagez aussi votre expérience.",
+      "keywords": "avis location voiture tirana, avis clients location voiture, expériences location voiture albanie"
+    },
+    "faqSchema": [
+      {
+        "question": "Comment puis-je laisser un avis ?",
+        "answer": "Cliquez sur « Laissez votre avis », choisissez les étoiles et écrivez votre impression. Chaque avis est approuvé sous 24 heures."
+      },
+      {
+        "question": "Les avis sont-ils réels ?",
+        "answer": "Oui — ils proviennent tous de clients réels qui ont loué une voiture chez nous et sont vérifiés un par un."
+      }
+    ]
+  },
+  "account": {
+    "title": "Mon compte",
+    "loginPrompt": "Connectez-vous pour voir vos réservations et historique.",
+    "loginBtn": "Se connecter",
+    "noAccount": "Pas de compte ?",
+    "registerFree": "S'inscrire gratuitement",
+    "administrator": "Administrateur",
+    "adminPanel": "Panneau admin",
+    "logout": "Se déconnecter",
+    "stats": {
+      "active": "Actives",
+      "pending": "En attente",
+      "completed": "Terminées"
+    },
+    "reservationsTitle": "Mes réservations ({{count}})",
+    "unknownCar": "Voiture inconnue",
+    "noReservations": "Vous n'avez pas encore de réservations.",
+    "viewFleet": "Voir la flotte",
+    "status": {
+      "Pending": "En attente",
+      "Confirmed": "Confirmée",
+      "Active": "Active",
+      "Completed": "Terminée",
+      "Cancelled": "Annulée"
+    },
+    "errors": {
+      "resendFailed": "L'envoi a échoué. Veuillez réessayer.",
+      "connectionProblem": "Problème de connexion. Veuillez réessayer.",
+      "cancelFailed": "L'annulation a échoué."
+    },
+    "resending": "Envoi...",
+    "resend": "Renvoyer"
+  },
+  "notFoundPage": {
+    "title": "Page introuvable !",
+    "description": "La page recherchée n'existe pas ou a été déplacée. Avez-vous saisi la mauvaise adresse ?",
+    "redirecting": "Redirection automatique vers l'accueil dans",
+    "seconds": "secondes…",
+    "home": "Accueil",
+    "viewCars": "Voir les voitures",
+    "goBack": "Retour",
+    "recommended": "Voitures recommandées",
+    "viewAll": "Voir toute la flotte",
+    "perDay": "/jour"
+  },
+  "skipToContent": "Aller au contenu principal",
+  "errors": {
+    "bookingFailed": "Échec de la réservation. Veuillez réessayer.",
+    "loginFailed": "E-mail ou mot de passe incorrect",
+    "generic": "Une erreur s'est produite"
+  },
+  "data": {
+    "category": {
+      "Ekonomike": "Économique",
+      "SUV": "SUV",
+      "Luksoze": "Luxe",
+      "Familjare": "Familiale",
+      "Automatike": "Automatique"
+    },
+    "transmission": {
+      "Automatike": "Automatique",
+      "Manuale": "Manuelle"
+    },
+    "fuel": {
+      "Benzinë": "Essence",
+      "Naftë": "Diesel",
+      "Hibrid": "Hybride",
+      "Elektrik": "Électrique"
+    },
+    "status": {
+      "Në dispozicion": "Disponible",
+      "I rezervuar": "Réservé",
+      "Në mirëmbajtje": "En maintenance"
+    }
+  }
+}

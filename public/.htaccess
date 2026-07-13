@@ -1,0 +1,55 @@
+# ─── Passenger / Node.js routing (DO NOT REMOVE) ───
+# cPanel Setup Node.js App generates these. Keep them so /api/* requests
+# reach the Express backend instead of returning 404.
+PassengerAppRoot "/home/rentrideair/rent-car-tirana/backend"
+PassengerBaseURI "/"
+PassengerNodejs "/home/rentrideair/nodevenv/rent-car-tirana/backend/22/bin/node"
+PassengerAppType node
+PassengerStartupFile server.js
+
+# ─── Disable LiteSpeed page cache (LSCache) for the SPA ───
+# Without this, LiteSpeed serves a stale cached copy of index.html for hours,
+# ignoring file mtime and Cache-Control entirely.
+<IfModule LiteSpeed>
+    CacheDisable public /
+    RewriteEngine On
+    RewriteRule .* - [E=Cache-Control:no-cache]
+</IfModule>
+
+<IfModule mod_headers.c>
+    # Long-lived immutable cache for hashed JS/CSS/font/img assets.
+    <FilesMatch "\.(js|css|woff2?|ttf|otf|eot|svg|png|jpg|jpeg|gif|webp|avif|ico)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # NEVER cache the HTML entry point — its content references hashed
+    # bundles that change on each deploy.
+    <FilesMatch "\.(html)$">
+        Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+</IfModule>
+
+# SPA fallback — non-API, non-file paths go to index.html so React Router
+# can handle them.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Don't rewrite real files / directories
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Don't rewrite API requests — Passenger handles them.
+    RewriteRule ^api/ - [L]
+
+    # Everything else → index.html
+    RewriteRule ^ index.html [L]
+</IfModule>
+
+# Compress text responses.
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
