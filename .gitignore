@@ -36,3 +36,9 @@ backend/.env.*
 workspace/
 rent_car_tirana_svxbp0/
 backend/tmp/
+
+# Deploy artifacts — .cpanel.yml kopjon dist/ ketu ne kohe deploy-i
+backend/public/assets/
+backend/public/index.html
+backend/public/placeholder-car.svg
+backend/public/robots.txt
