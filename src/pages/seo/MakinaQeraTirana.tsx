@@ -7,18 +7,18 @@ import Footer from "../../components/Footer";
 import { useSEO, buildFAQSchema, buildLocalBusinessSchema } from "../../hooks/useSEO";
 
 const FAQ_ITEMS = [
-  { question: "Sa kushton një makinë me qira në Tiranë?", answer: "Tarifat nisin nga €25/ditë për klasën ekonomike dhe shkojnë deri rreth €120/ditë për modelet luksoze. Çmimi përcaktohet nga kategoria e automjetit dhe numri i ditëve të qirasë." },
-  { question: "A bëhet marrja e makinës direkt te aeroporti?", answer: "Sigurisht. Të presim te Aeroporti Ndërkombëtar Nënë Tereza dhe ta dorëzojmë makinën pa pritje, çdo orë të ditës apo natës." },
-  { question: "Çfarë dokumentesh më duhen për të marrë makinën?", answer: "Mjafton patenta e shoferit (të paktën 1 vit përvojë), një dokument identiteti ose pasaportë, dhe një kartë krediti apo debiti." },
-  { question: "A përfshihet sigurimi në çmim?", answer: "Po — mbulimi bazë i sigurimit është gjithmonë i përfshirë. Gjatë rezervimit mund të kalosh në mbulim të plotë ose premium nëse dëshiron qetësi maksimale." },
+  { question: "Çfarë çmimi ka një makinë me qira në Tiranë?", answer: "Për një makinë me qira në Tiranë tarifat fillojnë me €25/ditë te klasa ekonomike dhe arrijnë rreth €120/ditë te modelet luksoze. Vlera finale varet nga kategoria që zgjidhni dhe sa ditë e mbani automjetin." },
+  { question: "A mund ta tërheq makinën te aeroporti i Tiranës?", answer: "Patjetër. Ju presim pikërisht te Aeroporti Ndërkombëtar Nënë Tereza dhe ua kalojmë makinën shpejt e pa vonesa, në çdo orar të ditës ose të natës." },
+  { question: "Cilat dokumente kërkohen për të marrë një makinë me qira?", answer: "Ju nevojitet vetëm leja e drejtimit (me së paku 1 vit eksperiencë), një letërnjoftim ose pasaportë, si dhe një kartë krediti a debiti." },
+  { question: "A hyn sigurimi brenda çmimit të qirasë?", answer: "Po — çdo tarifë e ka të përfshirë mbulimin bazë të sigurimit. Nëse doni siguri të plotë, gjatë rezervimit mund të zgjidhni një paketë mbulimi më të gjerë ose premium." },
 ];
 
 export default function MakinaQeraTirana() {
   const { data: cars } = useQuery("Car", { limit: 6 });
 
   useSEO({
-    title: "Makina me Qira Tiranë — Çmime nga €25/ditë | Rent Ride",
-    description: "Merr makinë me qira në Tiranë me tarifa të qarta nga €25/ditë. Rezervim online 24/7, dorëzim te Aeroporti Nënë Tereza ose në qytet, flotë e re 2020–2024.",
+    title: "Makinë me Qira në Tiranë — Nisje nga €25/ditë | Rent Ride",
+    description: "Rezervo makina me qira në Tiranë me çmime transparente që nisin nga €25/ditë. Prenotim online pa ndërprerje, dorëzim te Aeroporti Nënë Tereza apo brenda qytetit, flotë e freskët 2020–2024.",
     keywords: "makina me qira tirane, rent a car tirana, car hire tirana, makinë me qira çmim, makinë me qira online shqiperi",
     canonical: "/makina-me-qira-tirane",
     structuredData: [
@@ -37,17 +37,17 @@ export default function MakinaQeraTirana() {
             <MapPin size={14} /> Tiranë · Shqipëri
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-            Makina me Qira në Tiranë
+            Makinë me Qira në Tiranë
           </h1>
           <p className="text-lg text-white/85 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Zgjidh makinën, rezervo brenda pak minutash dhe merre aty ku të vjen më për dore — te aeroporti ose në qendër të Tiranës. Pa kosto të fshehura, me mbështetje 24/7.
+            Përzgjidh automjetin, kryeje rezervimin për pak minuta dhe tërhiqe atje ku të leverdis më shumë — te aeroporti ose në zemër të Tiranës. Çmime pa kosto të fshehura dhe asistencë në çdo orë, 24/7.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <LLink to="/rezervo" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-primary font-semibold hover:bg-azure transition-colors no-underline text-base">
-              Rezervo Tani <ArrowRight size={18} />
+              Rezervo Menjëherë <ArrowRight size={18} />
             </LLink>
             <LLink to="/flota" className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-white/40 text-white font-medium hover:bg-white/10 transition-colors no-underline text-base">
-              Shiko Flotën
+              Eksploro Flotën
             </LLink>
           </div>
         </div>
@@ -56,15 +56,15 @@ export default function MakinaQeraTirana() {
       {/* Features */}
       <section className="py-14 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl font-semibold text-center text-neutral-900 mb-10">Pse Rent Ride?</h2>
+          <h2 className="text-2xl font-semibold text-center text-neutral-900 mb-10">Përse të zgjidhni Rent Ride?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { icon: CurrencyDollar, title: "Çmime nga €25/ditë", desc: "Tarifa konkurruese në treg, të deklaruara qartë që në fillim — asnjë surprizë në fund." },
-              { icon: MapPin, title: "Dorëzim te Aeroporti", desc: "Të presim direkt te Aeroporti Nënë Tereza dhe ta japim makinën pa pritje e pa tarifë shtesë." },
-              { icon: Clock, title: "Rezervim 24/7 Online", desc: "Rezervo në çdo orë; konfirmimin e merr menjëherë në email." },
-              { icon: ShieldCheck, title: "Sigurim i Përfshirë", desc: "Çdo automjet vjen me mbulim bazë sigurimi; shtoje në premium nëse do qetësi të plotë." },
-              { icon: CheckCircle, title: "Flotë Moderne", desc: "Modele 2020–2024, të servisuara rregullisht dhe me kondicioner në çdo makinë." },
-              { icon: Star, title: "+500 Klientë", desc: "Mbi 500 klientë na kanë besuar, me vlerësim mesatar 4.8 nga 5 yje." },
+              { icon: CurrencyDollar, title: "Nisje nga €25/ditë", desc: "Tarifa të favorshme në treg, të shpallura hapur që në krye — pa asnjë surprizë kur mbyllni rezervimin." },
+              { icon: MapPin, title: "Dorëzim në Aeroport", desc: "Ju presim pikërisht te Aeroporti Nënë Tereza dhe ua japim makinën pa vonesa e pa asnjë pagesë ekstra." },
+              { icon: Clock, title: "Prenotim Online 24/7", desc: "Rezervoni në çfarëdo ore; konfirmimi ju mbërrin sakaq në postën elektronike." },
+              { icon: ShieldCheck, title: "Sigurimi i Përfshirë", desc: "Çdo makinë vjen me mbulim bazë sigurimi; kaloni në premium sa herë kërkoni qetësi të plotë." },
+              { icon: CheckCircle, title: "Flotë e Re", desc: "Modele nga viti 2020 deri 2024, të mirëmbajtura vazhdimisht dhe të pajisura të gjitha me kondicioner." },
+              { icon: Star, title: "Mbi 500 Klientë", desc: "Më shumë se 500 klientë na kanë zgjedhur, me një vlerësim mesatar prej 4.8 nga 5 yjesh." },
             ].map((f) => (
               <div key={f.title} className="flex items-start gap-4 p-5 rounded-xl bg-azure/40 border border-border">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
@@ -83,14 +83,14 @@ export default function MakinaQeraTirana() {
       {/* Cars */}
       <section className="py-14 px-6 bg-background">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl font-semibold text-neutral-900 mb-2">Makina të gatshme në Tiranë</h2>
-          <p className="text-neutral-500 mb-8">Përzgjedhje nga flota jonë e mirëmbajtur, gati për rrugë</p>
+          <h2 className="text-2xl font-semibold text-neutral-900 mb-2">Makina të disponueshme në Tiranë</h2>
+          <p className="text-neutral-500 mb-8">Një përzgjedhje nga flota jonë e mirëmbajtur, e gatshme t'ju çojë kudo</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {(cars ?? []).map((car) => <CarCard key={car.id} car={car} />)}
           </div>
           <div className="text-center mt-8">
             <LLink to="/flota" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-medium hover:opacity-90 transition-opacity no-underline">
-              Shiko të gjitha makinat <ArrowRight size={16} />
+              Shfaq të gjitha automjetet <ArrowRight size={16} />
             </LLink>
           </div>
         </div>
@@ -99,7 +99,7 @@ export default function MakinaQeraTirana() {
       {/* FAQ SEO */}
       <section className="py-14 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-semibold text-neutral-900 mb-8 text-center">Pyetjet e shpeshta</h2>
+          <h2 className="text-2xl font-semibold text-neutral-900 mb-8 text-center">Pyetje që bëhen shpesh</h2>
           <div className="space-y-4">
             {FAQ_ITEMS.map((item) => (
               <details key={item.question} className="bg-neutral-50 rounded-xl border border-border group">
@@ -116,10 +116,10 @@ export default function MakinaQeraTirana() {
 
       {/* CTA */}
       <section className="py-12 px-6 bg-gradient-primary text-white text-center">
-        <h2 className="text-2xl font-bold mb-3">Gati për të nisur udhëtimin?</h2>
-        <p className="text-white/85 mb-6">Rezervo online brenda pak minutash dhe ne kujdesemi për pjesën tjetër</p>
+        <h2 className="text-2xl font-bold mb-3">Gati t'i hipni rrugës?</h2>
+        <p className="text-white/85 mb-6">Kryeni rezervimin online për pak minuta dhe pjesën tjetër e marrim ne përsipër</p>
         <LLink to="/rezervo" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-primary font-semibold hover:bg-azure transition-colors no-underline">
-          Rezervo Pa Pagesë Online <ArrowRight size={18} />
+          Rezervo Online Falas <ArrowRight size={18} />
         </LLink>
       </section>
 

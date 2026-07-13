@@ -7,10 +7,10 @@ import Footer from "../../components/Footer";
 import { useSEO, buildFAQSchema, buildBreadcrumbSchema } from "../../hooks/useSEO";
 
 const FAQ_ITEMS = [
-  { question: "Çfarë SUV-sh mund të marr me qira në Tiranë?", answer: "Flota jonë përfshin modele si Toyota RAV4, BMW X5, Hyundai Tucson, Kia Sportage e të tjera — të gjitha me kondicioner dhe GPS standard." },
-  { question: "Sa është çmimi i një SUV-i në ditë?", answer: "Çmimet nisin nga €45/ditë dhe arrijnë rreth €120/ditë për modelet premium. Tarifa varet nga modeli i zgjedhur dhe sezoni." },
-  { question: "A lejohet të dal jashtë Shqipërisë me SUV?", answer: "Po — me autorizimin përkatës mund të udhëtosh në Kosovë, Maqedoni të Veriut apo Greqi. Na kontakto paraprakisht për dokumentacionin." },
-  { question: "A i keni SUV-t me sistem 4x4?", answer: "Disa nga modelet tona kanë trakcion të plotë 4x4, perfekt për terren malor dhe rrugë të vështira. Shëno preferencën gjatë rezervimit." },
+  { question: "Cilat modele SUV janë në dispozicion për qira në Tiranë?", answer: "Në flotën tonë gjeni Toyota RAV4, BMW X5, Hyundai Tucson, Kia Sportage dhe modele të tjera të ngjashme — secili i pajisur si standard me kondicioner dhe navigator GPS." },
+  { question: "Me sa fillon tarifa ditore për një SUV?", answer: "Fillimi është nga €45/ditë, ndërsa modelet premium shkojnë deri në rreth €120/ditë. Vlera përfundimtare përcaktohet nga modeli që zgjidhni dhe periudha e vitit." },
+  { question: "A mund të kaloj kufirin e Shqipërisë me një SUV?", answer: "Sigurisht — pasi të merrni autorizimin e nevojshëm, udhëtimi drejt Kosovës, Maqedonisë së Veriut ose Greqisë është i mundur. Njoftona më parë që të përgatisim dokumentet." },
+  { question: "A ka mes tyre SUV me tërheqje 4x4?", answer: "Po, një pjesë e modeleve vijnë me sistem 4x4 me katër rrota lëvizëse, ideal për rrugë malore dhe terrene sfiduese. Mjafton ta specifikoni kur bëni rezervimin." },
 ];
 
 export default function MakinaSUV() {
@@ -18,8 +18,8 @@ export default function MakinaSUV() {
   const cars = allCars ?? [];
 
   useSEO({
-    title: "SUV me Qira Tiranë — 4x4 dhe Crossover nga €45/ditë | Rent Ride",
-    description: "Merr SUV ose crossover me qira në Tiranë nga €45/ditë. Modele të reja me kondicioner, GPS dhe sigurim të përfshirë — ideale për mal, bregdet e familje. Rezervo online.",
+    title: "SUV me Qira Tiranë — 4x4 e Crossover nga €45/ditë | Rent Ride",
+    description: "Zgjidh një SUV apo crossover me qira në Tiranë duke nisur nga €45/ditë. Automjete moderne me kondicioner, GPS dhe sigurim brenda çmimit — perfekte për male, plazh dhe udhëtime familjare. Bëj rezervimin online.",
     keywords: "SUV me qira tirane, 4x4 me qira shqiperi, crossover rent tirana, car hire tirana suv, BMW X5 RAV4 Tucson me qira",
     canonical: "/makina-suv-me-qira",
     structuredData: [
@@ -45,14 +45,14 @@ export default function MakinaSUV() {
             SUV me Qira në Tiranë
           </h1>
           <p className="text-lg text-white/85 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Përshko Shqipërinë me SUV-t tanë të fuqishëm — nga rrugicat e qytetit te malet dhe bregdeti. Fuqi, qëndrueshmëri dhe komoditet në çdo kthesë.
+            Zbulo çdo cep të Shqipërisë me SUV-t tanë të gjindshëm — nga trafiku i qendrës e deri lart në male e buzë detit. Forcë, siguri dhe rehati që të shoqërojnë në çdo rrugë.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <LLink to="/flota?kategoria=SUV" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-primary font-semibold hover:bg-azure transition-colors no-underline text-base">
-              Shiko SUV-t disponueshëm <ArrowRight size={18} />
+              Eksploro SUV-t e lira <ArrowRight size={18} />
             </LLink>
             <LLink to="/rezervo" className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-white/40 text-white font-medium hover:bg-white/10 transition-colors no-underline text-base">
-              Rezervo tani
+              Rezervo menjëherë
             </LLink>
           </div>
         </div>
@@ -61,13 +61,13 @@ export default function MakinaSUV() {
       {/* Why SUV */}
       <section className="py-14 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl font-semibold text-center text-neutral-900 mb-3">Kur ia vlen një SUV?</h2>
-          <p className="text-center text-neutral-500 mb-10">Zgjidhja e duhur për familje, grupe dhe udhëtime aventureske</p>
+          <h2 className="text-2xl font-semibold text-center text-neutral-900 mb-3">Përse të zgjedhësh një SUV?</h2>
+          <p className="text-center text-neutral-500 mb-10">Opsioni ideal për familje, shoqëri dhe udhëtime plot aventurë</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { icon: Mountains, title: "Përballon çdo terren", desc: "Trakcion 4x4 dhe distancë e lartë nga toka — i sigurt në male e rrugë pa asfalt." },
-              { icon: Users, title: "Vend për të gjithë", desc: "5–7 ulëse dhe kabinë e gjerë: komoditet i plotë për familjen apo grupin." },
-              { icon: Briefcase, title: "Bagazh i bollshëm", desc: "Deri në 500L hapësirë — mjafton edhe për valixhet e një udhëtimi të gjatë." },
+              { icon: Mountains, title: "I gatshëm për çdo rrugë", desc: "Me tërheqje 4x4 dhe pozicion të ngritur nga toka — i besueshëm në male dhe në shtigje pa asfalt." },
+              { icon: Users, title: "Hapësirë për të gjithë", desc: "Nga 5 deri në 7 vende dhe një kabinë e gjerë që ofron rehati për familjen ose grupin." },
+              { icon: Briefcase, title: "Portobagazh i madh", desc: "Deri në 500L kapacitet — hapësirë e mjaftueshme edhe për valixhet e një pushimi të gjatë." },
             ].map((f) => (
               <div key={f.title} className="text-center p-6 rounded-xl bg-azure/40 border border-border">
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
@@ -86,16 +86,16 @@ export default function MakinaSUV() {
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {[
-              "Kondicioner automatik me dy zona",
-              "Navigim GPS i integruar",
-              "Sigurim i plotë i përfshirë",
-              "Kamera parkimi 360°",
-              "Bluetooth dhe Apple CarPlay",
-              "Ulëse të ngrohura para e prapa",
-              "Sensorë parkimi para e prapa",
-              "Deri në 8 airbag mbrojtës",
-              "ABS, ESP dhe traction control",
-              "Marrje falas nga aeroporti",
+              "Klimë automatike me dy zona",
+              "Sistem navigimi GPS i inkorporuar",
+              "Mbulim i plotë sigurimi në çmim",
+              "Kamerë parkimi me pamje 360°",
+              "Lidhje Bluetooth dhe Apple CarPlay",
+              "Ndenjëse me ngrohje para dhe pas",
+              "Sensorë parkimi ballor dhe të pasëm",
+              "Deri në 8 jastëkë ajri mbrojtës",
+              "Sisteme ABS, ESP dhe kontroll tërheqjeje",
+              "Marrje pa pagesë te aeroporti",
             ].map((f) => (
               <div key={f} className="flex items-center gap-3 p-3 bg-white rounded-lg border border-border">
                 <CheckCircle size={16} weight="fill" className="text-success shrink-0" />
@@ -110,8 +110,8 @@ export default function MakinaSUV() {
       {cars.length > 0 && (
         <section className="py-14 px-6 bg-white">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl font-semibold text-neutral-900 mb-2">SUV të gatshëm tani</h2>
-            <p className="text-neutral-500 mb-8">Rezervo online — konfirmim i menjëhershëm</p>
+            <h2 className="text-2xl font-semibold text-neutral-900 mb-2">SUV të disponueshëm në këtë moment</h2>
+            <p className="text-neutral-500 mb-8">Bëj rezervimin online — konfirmohesh në çast</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {cars.map((car) => <CarCard key={car.id} car={car} />)}
             </div>
@@ -122,7 +122,7 @@ export default function MakinaSUV() {
       {/* FAQ */}
       <section className="py-14 px-6 bg-background">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-semibold text-neutral-900 mb-8 text-center">Pyetjet e shpeshta — SUV me Qira</h2>
+          <h2 className="text-2xl font-semibold text-neutral-900 mb-8 text-center">Pyetje që bëhen shpesh — SUV me Qira</h2>
           <div className="space-y-4">
             {FAQ_ITEMS.map((item) => (
               <details key={item.question} className="bg-white rounded-xl border border-border group">
@@ -139,10 +139,10 @@ export default function MakinaSUV() {
 
       {/* CTA */}
       <section className="py-12 px-6 bg-gradient-primary text-white text-center">
-        <h2 className="text-2xl font-bold mb-3">Gati për aventurën tjetër?</h2>
-        <p className="text-white/85 mb-6">Rezervo SUV-n tënd online — i disponueshëm 24/7</p>
+        <h2 className="text-2xl font-bold mb-3">Të presin aventura të reja?</h2>
+        <p className="text-white/85 mb-6">Rezervo SUV-n tënd online — shërbim i hapur 24/7</p>
         <LLink to="/flota?kategoria=SUV" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-primary font-semibold hover:bg-azure no-underline">
-          Shiko SUV-t <ArrowRight size={18} />
+          Eksploro SUV-t <ArrowRight size={18} />
         </LLink>
       </section>
 
