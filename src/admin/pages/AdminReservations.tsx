@@ -295,6 +295,11 @@ export default function AdminReservations() {
     return name || customerId;
   };
 
+  const getCustomerPhone = (customerId: string) => {
+    const c = (customers ?? []).find(c => c.id === customerId);
+    return (c?.phone ?? "").trim();
+  };
+
   const getCarName = (carId: string) => {
     const c = (cars ?? []).find(c => c.id === carId);
     return c ? `${c.brand} ${c.model}` : carId;
@@ -941,6 +946,11 @@ export default function AdminReservations() {
               {[
                 { label: "ID", value: selectedRes.id },
                 { label: "Klienti", value: getCustomerName(selectedRes.customerId) },
+                ...(getCustomerPhone(selectedRes.customerId) ? [{ label: "Telefoni", value: (
+                  <a href={`tel:${getCustomerPhone(selectedRes.customerId).replace(/\s+/g, "")}`} className="text-primary hover:underline">
+                    {getCustomerPhone(selectedRes.customerId)}
+                  </a>
+                ) }] : []),
                 { label: "Makina", value: getCarName(selectedRes.carId) },
                 { label: "Tërhiqni nga", value: selectedRes.pickupLocation },
                 { label: "Ktheni në", value: selectedRes.dropoffLocation },

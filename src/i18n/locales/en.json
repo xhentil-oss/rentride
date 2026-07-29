@@ -65,11 +65,11 @@
     "rights": "All rights reserved."
   },
   "home": {
-    "promoBanner": "<strong>Last-minute deal:</strong> Reserve in the next 24 hours and take <strong>-10%</strong> off using code",
+    "promoBanner": "<strong>Limited offer:</strong> Book within the next 24 hours to unlock <strong>-10%</strong> with code",
     "hero": {
-      "title": "Rent Ride Airport.",
-      "titleHighlight": "Free Pickup. Instant Confirmation.",
-      "subtitle": "Rent a car at Tirana Airport (TIA) or in the city with free pickup. Straightforward rates starting at €25/day — zero hidden fees and confirmation on the spot.",
+      "title": "Rent Ride at the Airport.",
+      "titleHighlight": "Complimentary Pickup. Confirmed in Seconds.",
+      "subtitle": "Rent a car in the city centre or at Tirana Airport (TIA) with pickup on the house. Transparent rates from only €25/day — nothing hidden and confirmation in an instant.",
       "pickupFrom": "Pick up from",
       "returnTo": "Return to",
       "selectPlace": "Select location",
@@ -86,222 +86,222 @@
       "locations": "Pickup points (TIA + Tirana)"
     },
     "featuredCars": {
-      "title": "Featured Cars",
-      "subtitle": "The models our customers reserve most often",
+      "title": "Our Standout Cars",
+      "subtitle": "The models our guests reserve more than any other",
       "viewAll": "View all"
     },
     "categories": {
-      "title": "Our Categories",
-      "subtitle": "The right car for whatever you need",
+      "title": "Browse by Category",
+      "subtitle": "Whatever your journey, there's a car to match it",
       "ekonomike": {
         "name": "Economy",
-        "desc": "Great around town with light fuel use"
+        "desc": "Ideal for city driving with low fuel costs"
       },
       "suv": {
         "name": "SUV",
-        "desc": "Roomy and ready for any road"
+        "desc": "Spacious and built to handle any road"
       },
       "luksoze": {
         "name": "Luxury",
-        "desc": "Top-tier comfort and style"
+        "desc": "Premium comfort paired with standout style"
       },
       "familjare": {
         "name": "Family",
-        "desc": "Built for families and larger groups"
+        "desc": "Made for families and bigger groups"
       },
       "automatike": {
         "name": "Automatic",
-        "desc": "Effortless driving with up-to-date tech"
+        "desc": "Relaxed driving backed by modern tech"
       }
     },
     "howItWorks": {
-      "title": "How does it work?",
-      "subtitle": "Three simple steps to your car",
+      "title": "How the process works",
+      "subtitle": "Get on the road in three simple steps",
       "steps": [
         {
-          "title": "Choose your car",
-          "desc": "Explore the whole fleet and narrow it down by category (economy, SUV, luxury, automatic), price per day and availability for your travel dates. Each listing shows the complete specifications, the equipment that's included, your insurance choices and one all-inclusive figure — nothing sprung on you at the end."
+          "title": "Pick your car",
+          "desc": "Browse our full lineup and filter by category (economy, SUV, luxury, automatic), daily price and what's free for your travel dates. Every listing lays out the full specs, the included equipment, the insurance options and a single all-inclusive price — with no surprises when you check out."
         },
         {
-          "title": "Confirm booking",
-          "desc": "Complete the online form with your details, your pickup point (Tirana Airport or downtown), your dates and your insurance level. Review the total, apply any discount code and e-sign the contract — the whole thing takes under 2 minutes on any device."
+          "title": "Confirm your booking",
+          "desc": "Fill in the quick online form: your details, where you'll collect the car (Tirana Airport or the city centre), your dates and your chosen insurance. Check the total, add a discount code if you have one and sign the contract digitally — all of it done in under 2 minutes from any device."
         },
         {
-          "title": "Get your keys",
-          "desc": "The moment you touch down at Tirana Airport, our representative is waiting in arrivals with a sign bearing your name. We look over the car together, hand you the keys, and off you go to explore Albania."
+          "title": "Collect your keys",
+          "desc": "As soon as your flight lands at Tirana Airport, you'll find our representative in the arrivals hall holding a sign with your name. We inspect the car side by side, pass you the keys, and you're free to set off and discover Albania."
         }
       ],
-      "cta": "Book now — it's a matter of minutes"
+      "cta": "Reserve now — it only takes minutes"
     },
     "whyUs": {
-      "title": "Why choose Rent Ride?",
-      "subtitle": "We're based directly at Tirana International Airport (TIA) as well as downtown. A current fleet, honest pricing and a team on call around the clock are why thousands of travelers arriving in Albania each year turn to us first.",
+      "title": "Why book with Rent Ride?",
+      "subtitle": "We're based right at Tirana International Airport (TIA) as well as in the city centre. Every year thousands of travellers arriving in Albania make us their first choice for one reason: a modern fleet, honest pricing and a team available at any hour of the day.",
       "items": [
         {
-          "title": "Clear pricing",
-          "desc": "Hidden fees simply don't exist here. Basic insurance and road taxes are baked into every quote. What you see online is precisely what you hand over at pickup: no airport add-on, no prepaid-fuel tricks, no unexpected charges hitting your card."
+          "title": "Transparent pricing",
+          "desc": "There are no hidden fees with us, full stop. Every quote already folds in basic insurance and road taxes. The figure you see online is exactly what you pay at pickup — no airport surcharge, no prepaid-fuel gimmicks and no surprise charges landing on your card."
         },
         {
-          "title": "24/7 support",
-          "desc": "We stay within reach whenever you need us. A midnight arrival at Tirana Airport, a query about your reservation, or urgent help on the road somewhere in Albania — our team picks up any hour, day or night."
+          "title": "Round-the-clock support",
+          "desc": "Whenever something comes up, we're only a call away. Landing at Tirana Airport at midnight, a question about your booking or roadside trouble somewhere in Albania — our team answers at any hour, whether it's day or night."
         },
         {
-          "title": "Insurance included",
-          "desc": "Basic Collision Damage Waiver (CDW) comes with every car free of charge, covering damage beyond the standard excess. When you book you can move up to full Super CDW with zero excess — a smart choice for the mountain and coastal roads in particular."
+          "title": "Insurance as standard",
+          "desc": "Every vehicle includes basic Collision Damage Waiver (CDW) at no cost, protecting you against damage above the standard excess. At the booking stage you can upgrade to full Super CDW with no excess at all — well worth it, especially for coastal and mountain roads."
         },
         {
           "title": "Flexibility",
-          "desc": "Collect at Tirana Airport and return downtown, or the other way around — with no added cost. We're open 24 hours a day, all week long. One-way trips, monthly long-term deals and last-minute reservations are all possible."
+          "desc": "Pick the car up at Tirana Airport and drop it off in the city — or reverse it — at no extra charge. Our doors stay open 24 hours a day, every day of the week. One-way rentals, long-term monthly rates and last-minute bookings are all on the table."
         }
       ]
     },
     "guarantees": [
       {
-        "title": "Price guarantee",
-        "desc": "Spotted a cheaper rate elsewhere? Show us and we'll match it, simple as that."
+        "title": "Best-price guarantee",
+        "desc": "Found a lower price somewhere else? Send it over and we'll match it — no fuss."
       },
       {
-        "title": "No hidden fees",
-        "desc": "One final price includes everything: taxes, basic insurance and delivery."
+        "title": "Zero hidden fees",
+        "desc": "A single all-in price that already covers taxes, basic insurance and delivery."
       },
       {
-        "title": "Free cancellation",
-        "desc": "Cancel at no cost up to 48 hours before pickup. Zero risk and no penalties."
+        "title": "Cancel for free",
+        "desc": "Call it off for free any time up to 48 hours before pickup. No penalties, no risk."
       }
     ],
     "airportSection": {
-      "title": "Rent a Car at Tirana Airport — Free Pickup Included",
+      "title": "Hire a Car at Tirana Airport — Free Pickup Included",
       "badge": "Tirana International Airport — TIA",
-      "body": "Want to rent a car at Tirana Airport? Free meet & greet pickup and return are available right at Mother Teresa International Airport (TIA), day or night, every day of the week. As a top car rental tirana airport service, we promise all-inclusive rates with no sneaky airport charges, a modern and fully-serviced fleet, and a helpful representative ready and waiting in arrivals. Whether you're after tirana airport rent a car for a short city escape, a coastal drive along the Albanian Riviera or a trip across the border, we've matched the right car to the right price. Getting albania rent a car tirana airport sorted couldn't be simpler: reserve online, land, and drive off.",
+      "body": "Looking to rent a car at Tirana Airport? Complimentary meet & greet pickup and return are on offer directly at Mother Teresa International Airport (TIA), around the clock and every day of the week. As a leading car rental tirana airport service, we guarantee all-inclusive rates free of hidden airport charges, a modern and fully-serviced fleet, and a friendly representative waiting for you in arrivals. Whatever your plan for tirana airport rent a car — a quick city break, a coastal drive along the Albanian Riviera or a cross-border journey — we've paired the right car with the right price. Sorting out albania rent a car tirana airport is effortless: book online, arrive, and drive away.",
       "features": [
-        "Complimentary Tirana Airport (TIA) pickup — met right at the exit",
-        "Open around the clock — for both daytime and night flights",
-        "A single all-inclusive rate with nothing hidden",
-        "Instant online confirmation in less than 2 minutes"
+        "Free Tirana Airport (TIA) pickup — we greet you right at the exit",
+        "Available 24/7 — covering daytime arrivals and late-night flights alike",
+        "One all-inclusive rate with nothing tucked away",
+        "Confirmed online instantly, in under 2 minutes"
       ],
-      "cta": "Book Airport Pickup"
+      "cta": "Reserve Airport Pickup"
     },
     "destinations": {
-      "title": "Explore Albania in Your Hire Car from Tirana Airport",
-      "subtitle": "With Mother Teresa Airport (TIA) as your starting point, the whole of Albania is within reach",
-      "intro": "A car rental tirana airport trip opens the door to one of Europe's most stunning and overlooked countries. Albania greets you with sparkling Adriatic and Ionian beaches, UNESCO-listed towns, ancient Illyrian ruins and rugged mountains — each only a few hours by road from the airport. These are the spots our customers return to again and again:",
+      "title": "Discover Albania Behind the Wheel from Tirana Airport",
+      "subtitle": "From Mother Teresa Airport (TIA), every corner of Albania is within easy reach",
+      "intro": "A car rental tirana airport journey unlocks one of Europe's most beautiful yet overlooked destinations. Albania welcomes you with glittering Adriatic and Ionian coastlines, UNESCO-listed towns, ancient Illyrian ruins and wild mountains — all just a few hours' drive from the airport. Here are the places our customers keep coming back to:",
       "places": [
         {
           "name": "Durrës — 35 km · 30 min",
-          "desc": "The country's leading coastal city and its favourite beach escape. Walk the broad Adriatic shoreline, explore one of the Balkans' largest Roman amphitheaters and soak up the buzzing seaside promenade. An easy day trip right from Tirana Airport."
+          "desc": "Albania's biggest seaside city and its go-to beach getaway. Stroll the wide Adriatic shore, visit one of the Balkans' largest Roman amphitheaters and enjoy the lively waterfront promenade. A simple day trip straight from Tirana Airport."
         },
         {
           "name": "Berat — 120 km · 1h 30min",
-          "desc": "A UNESCO World Heritage town and one of the most-photographed corners of Albania, known as the 'City of a Thousand Windows.' Its beautifully preserved old quarter follows the Osum River beneath a medieval hilltop castle with panoramic valley views."
+          "desc": "Nicknamed the 'City of a Thousand Windows,' this UNESCO World Heritage town ranks among Albania's most photographed spots. Its wonderfully preserved old quarter stretches along the Osum River below a medieval hilltop castle that overlooks the whole valley."
         },
         {
           "name": "Vlorë — 150 km · 2h",
-          "desc": "The entry point to the Albanian Riviera and the place where independence was proclaimed in 1912. Set between clear Adriatic and Ionian seas, Vlorë makes a perfect base for the Llogara Pass, the Karaburun Peninsula and the villages of the southern coast."
+          "desc": "The gateway to the Albanian Riviera and the city where independence was declared in 1912. Perched where the clear Adriatic meets the Ionian, Vlorë is an ideal base for exploring the Llogara Pass, the Karaburun Peninsula and the southern coast's seaside villages."
         },
         {
           "name": "Shkodër — 110 km · 1h 20min",
-          "desc": "The cultural heart of northern Albania and the gateway to the Albanian Alps. Hike up to Rozafa Castle for lake views, explore the old bazaar and make Shkodër your launch pad for the Accursed Mountains — some of Europe's last untamed wilderness."
+          "desc": "Northern Albania's cultural capital and the doorway to the Albanian Alps. Climb to Rozafa Castle for sweeping lake views, wander the old bazaar and use Shkodër as your springboard into the Accursed Mountains — among the last truly wild landscapes in Europe."
         },
         {
           "name": "Sarandë — 280 km · 3h 30min",
-          "desc": "The crown of the Albanian Riviera and one of the Mediterranean's hidden gems. Wander the ancient ruins of Butrint (UNESCO), plunge into the turquoise Blue Eye spring and relax on Ksamil's white sands. Perfect for a 4–5 day road trip out of Tirana Airport."
+          "desc": "The jewel of the Albanian Riviera and one of the Mediterranean's best-kept secrets. Explore the ancient ruins of Butrint (UNESCO), dive into the turquoise Blue Eye spring and unwind on the white sands of Ksamil. Ideal for a 4–5 day road trip from Tirana Airport."
         }
       ]
     },
     "rentalGuide": {
-      "title": "What to Know Before You Collect Your Car at the Airport",
+      "title": "Everything to Know Before Picking Up Your Airport Car",
       "subtitle": "A short guide to collecting your car at Tirana Airport",
       "items": [
         {
-          "title": "Documents required for airport car rental",
-          "desc": "Renting a car at Tirana Airport calls for three items: a driving license you've held for at least a year, a national ID or passport, and a credit or debit card for the refundable deposit. We accept EU and international licenses, and most nationalities face no additional paperwork."
+          "title": "Documents you need for airport car rental",
+          "desc": "To rent a car at Tirana Airport you'll need three things: a driving license held for at least one year, a national ID or passport, and a credit or debit card to cover the refundable deposit. EU and international licenses are welcome, and for most nationalities no extra paperwork is required."
         },
         {
-          "title": "Age limits and the young-driver rule",
-          "desc": "You must be at least 21 to rent at Tirana Airport. Those between 21 and 25 might pay a young-driver surcharge that varies with the car category. There is no upper age cap. Each driver needs a valid license and must appear on the rental agreement."
+          "title": "Age requirements and the young-driver rule",
+          "desc": "The minimum age to rent at Tirana Airport is 21. Drivers aged 21 to 25 may be charged a young-driver fee, the amount depending on the car category. No maximum age applies. Every driver must hold a valid license and be listed on the rental agreement."
         },
         {
-          "title": "Insurance and coverage explained",
-          "desc": "Basic CDW insurance is built into every car in our Tirana Airport fleet at no extra charge, covering damage past the standard excess. During online booking you can step up to Super CDW for complete zero-excess protection — highly recommended for Albania's mountain and coastal roads."
+          "title": "Understanding insurance and coverage",
+          "desc": "Every car in our Tirana Airport fleet comes with basic CDW insurance included at no cost, covering damage beyond the standard excess. While booking online you can upgrade to Super CDW for full zero-excess cover — something we strongly suggest for Albania's coastal and mountain roads."
         },
         {
-          "title": "Driving in Albania — what to expect",
-          "desc": "The main roads in Albania are modern and well-maintained. The SH2 highway connects Tirana Airport to downtown in roughly 20 minutes. The Riviera coast roads and mountain passes are gorgeous but narrower, so an SUV is the safer bet for off-the-beaten-path routes. Signs meet European standards; speed limits run 50 km/h in town, 80 on main roads and 110 on highways."
+          "title": "What to expect when driving in Albania",
+          "desc": "Albania's major roads are modern and kept in good shape. The SH2 highway links Tirana Airport with the city centre in about 20 minutes. Coastal Riviera routes and mountain passes are stunning but narrower, so an SUV is the smarter choice for out-of-the-way roads. Signage follows European standards; speed limits are 50 km/h in towns, 80 on main roads and 110 on highways."
         }
       ]
     },
     "reviews": {
-      "title": "What our customers say",
-      "subtitle": "More than 500 satisfied customers a year"
+      "title": "What our clients say",
+      "subtitle": "More than 500 satisfied customers each year"
     },
-    "seoText": "Rent Ride offers car rental throughout Albania, based directly at Tirana International Airport (Mother Teresa Airport — TIA) and downtown. Whether you're looking up rent car tirana airport for business travel, a family break along the Albanian Riviera, or a longer road trip across the Western Balkans, our modern fleet, transparent all-inclusive pricing and dedicated airport meet & greet are why thousands of travelers pick us every year. Visitors from Italy, Germany, the UK, the US, Kosovo and further afield rely on us for dependable, affordable car rental albania tirana airport. Reserve online in under 2 minutes — with free cancellation, instant confirmation and no hidden fees.",
+    "seoText": "Rent Ride provides car rental across the whole of Albania, operating right at Tirana International Airport (Mother Teresa Airport — TIA) and in the city centre. Whether you're searching rent car tirana airport for a business trip, a family holiday along the Albanian Riviera, or an extended road trip through the Western Balkans, thousands of travellers pick us each year for our modern fleet, transparent all-inclusive pricing and dedicated airport meet & greet. Guests from Italy, Germany, the UK, the US, Kosovo and beyond count on us for reliable, affordable car rental albania tirana airport. Book online in under 2 minutes — with free cancellation, instant confirmation and no hidden fees.",
     "faq": {
       "items": [
         {
-          "question": "How does booking work?",
-          "answer": "Pick your car, fill out the booking form with your dates and details, and confirm. The confirmation email lands in your inbox right away."
+          "question": "How do I make a booking?",
+          "answer": "Choose a car, complete the booking form with your dates and details, then confirm. Your confirmation email arrives in your inbox straight away."
         },
         {
           "question": "What documents are required?",
-          "answer": "Bring a valid driver's license (held at least 1 year), an ID card or passport, and a credit/debit card for the deposit."
+          "answer": "You'll need a valid driver's license held for at least 1 year, an ID card or passport, plus a credit/debit card to cover the deposit."
         },
         {
-          "question": "Can I pick up the car from the airport?",
-          "answer": "Absolutely! Pickup and return at Mother Teresa International Airport (TIA) come free of charge. Our team greets you at arrivals — no surcharge and no waiting around."
+          "question": "Can I collect the car at the airport?",
+          "answer": "Of course! Collecting and returning the car at Mother Teresa International Airport (TIA) is completely free. Our team meets you in arrivals — no surcharge and no standing around."
         },
         {
-          "question": "Is there any extra fee for airport pickup?",
-          "answer": "No. Rent car tirana airport pickup and return are entirely free of any surcharge. Whatever price you see at booking is the full amount."
+          "question": "Is there an extra charge for airport pickup?",
+          "answer": "None at all. Rent car tirana airport pickup and return carry no surcharge whatsoever. The price shown when you book is the complete amount."
         },
         {
-          "question": "How do I find you at Tirana Airport?",
-          "answer": "Once you've landed, make your way to the arrivals hall, where our representative is holding a sign with your name. You're also welcome to call us any time at +355 69 81 45 803."
+          "question": "Where will I find you at Tirana Airport?",
+          "answer": "After landing, head to the arrivals hall and look for our representative holding a sign bearing your name. Feel free to reach us any time on +355 69 81 45 803 as well."
         },
         {
-          "question": "What happens if the car breaks down?",
-          "answer": "Assistance is available around the clock. We'll dispatch help or a replacement car straight away, with no extra charge."
+          "question": "What happens if the car breaks down while I have it?",
+          "answer": "Help is on hand 24 hours a day. We'll send assistance or a replacement car right away, at no extra cost to you."
         },
         {
-          "question": "Can I cancel my booking?",
-          "answer": "Yes — cancellation is free up to 24 hours before pickup. Beyond that point a cancellation fee is charged."
+          "question": "Can I cancel my reservation?",
+          "answer": "Yes — you can cancel at no cost up to 24 hours before pickup. After that a cancellation fee applies."
         },
         {
-          "question": "Which cars can I find at the airport?",
-          "answer": "The Tirana Airport fleet spans economy cars from €25/day up to spacious family SUVs, premium luxury models and modern automatics. Each vehicle is regularly serviced, cleaned ahead of every rental and less than 4 years old. On the fleet page you can filter by category, transmission and price."
+          "question": "Which cars can I rent at the airport?",
+          "answer": "Our Tirana Airport fleet runs from economy cars at €25/day all the way to roomy family SUVs, premium luxury models and modern automatics. Every car is serviced regularly, cleaned before each rental and under 4 years old. Head to the fleet page to filter by category, transmission and price."
         },
         {
-          "question": "Can I drop the car off at the airport anytime?",
-          "answer": "Yes — returns at Tirana International Airport are accepted 24/7, holidays included. Just share your return flight when you book and we take care of the rest. No surcharge applies for night, early-morning or weekend returns."
+          "question": "Can I drop the car off at the airport at any hour?",
+          "answer": "Yes — we accept returns at Tirana International Airport 24/7, holidays included. Simply tell us your return flight at booking and we'll handle the rest. There's no surcharge for late-night, early-morning or weekend returns."
         },
         {
           "question": "Does the rental price include an airport surcharge?",
-          "answer": "Not a cent — our airport surcharge is zero. The rate is identical whether you collect at Tirana Airport or our downtown office, which puts us among the few car rental tirana airport companies with genuinely transparent pricing at both locations."
+          "answer": "Nothing extra — there's no airport surcharge at all. You pay the same rate whether you pick up at Tirana Airport or our city-centre office, making us one of the rare car rental tirana airport companies with truly transparent pricing at both sites."
         },
         {
           "question": "How far is the airport from central Tirana?",
-          "answer": "Mother Teresa International Airport (TIA) lies roughly 17 km northwest of central Tirana. Via the SH2 highway the trip takes 20–25 minutes in typical traffic. Our tirana airport rent a car service lets you bypass costly taxis and packed buses and head straight where you're going."
+          "answer": "Mother Teresa International Airport (TIA) sits about 17 km northwest of central Tirana. Taking the SH2 highway, the drive is 20–25 minutes in normal traffic. With our tirana airport rent a car service you skip pricey taxis and crowded buses and go straight to your destination."
         }
       ]
     },
     "registerCta": {
-      "title": "Create Your Free Account",
-      "subtitle": "Sign up to keep your bookings, contracts and rental history together in a single place.",
-      "btn": "Register now",
+      "title": "Set Up Your Free Account",
+      "subtitle": "Sign up to keep all your bookings, contracts and rental history together in one handy place.",
+      "btn": "Sign up now",
       "fleet": "View fleet",
       "f1": "Free",
       "f2": "Manage bookings",
       "f3": "Full history"
     },
     "cta": {
-      "title": "Got questions? Reach out!",
-      "subtitle": "Our team is on hand 24/7 to help",
+      "title": "Have questions? Get in touch!",
+      "subtitle": "Our team is on hand to help you around the clock",
       "whatsapp": "WhatsApp",
       "whatsappMsg": "Hi there! I'd like to rent a car.",
       "contactUs": "Contact us"
     },
     "seo": {
-      "title": "Rent Ride Airport — Free Airport Pickup, Book Online",
-      "description": "Rent a car in Tirana and at Mother Teresa Airport (TIA) with free pickup. From €25/day, no hidden fees, and online booking in just 2 minutes.",
+      "title": "Rent Ride — Car Rental Tirana Airport with Free Pickup",
+      "description": "Book a car rental in Tirana or at Mother Teresa Airport (TIA) with complimentary pickup. Prices start at €25/day, zero hidden fees, and 2-minute online booking.",
       "keywords": "car hire tirana, rent a car tirana airport, car rental tirana airport, tirana airport car hire, car rental albania"
     },
     "airportBadges": [
@@ -326,17 +326,17 @@
       {
         "name": "Endrit Leka",
         "location": "Tirana",
-        "text": "The airport pickup was seamless and the car felt brand new. Nothing extra sprung on me at the end — I'll be booking again for sure."
+        "text": "Pickup at the airport went off without a hitch and the car was practically new. No surprise charges at the end — I'll definitely book with them again."
       },
       {
         "name": "Sara Malaj",
         "location": "Durrës",
-        "text": "Booking online took just a few minutes and my confirmation arrived instantly. The staff were friendly and lightning fast."
+        "text": "The online booking was done in a few minutes and my confirmation came through immediately. The staff were welcoming and incredibly quick."
       },
       {
         "name": "Klaudio Nikolla",
         "location": "Vlorë",
-        "text": "Great bang for your buck and clear communication from start to finish. I'd recommend them without a second thought."
+        "text": "Excellent value for the money and clear communication throughout. I'd recommend them to anyone without hesitation."
       }
     ]
   },
@@ -374,12 +374,12 @@
     ],
     "removeFilter": "Remove filter {{label}}",
     "seo": {
-      "titleCategory": "{{category}} Cars to Rent in Tirana",
-      "titleDefaultCount": "Our Fleet — {{count}} Cars",
-      "titleDefaultEmpty": "Our Fleet — Cars to Rent",
-      "descCategory": "Rent {{category}} cars in Tirana. Reserve online with clear prices and airport pickup.",
-      "descDefaultCount": "Pick from {{count}} car models to rent in Tirana. Filter by category, price and transmission.",
-      "descDefaultEmpty": "Pick from our fleet of cars to rent in Tirana. Filter by category, price and transmission.",
+      "titleCategory": "{{category}} Car Hire in Tirana — Book Online",
+      "titleDefaultCount": "Browse Our Fleet of {{count}} Rental Cars",
+      "titleDefaultEmpty": "Explore Our Car Rental Fleet in Tirana",
+      "descCategory": "Hire {{category}} cars for rent in Tirana. Book online with transparent pricing and free airport pickup.",
+      "descDefaultCount": "Choose among {{count}} rental car models in Tirana. Sort by category, price and transmission to find your match.",
+      "descDefaultEmpty": "Choose from our range of rental cars in Tirana. Sort by category, price and transmission to find the right one.",
       "keywords": "car fleet hire tirana, economy cars, SUV, luxury cars for hire albania"
     },
     "transmissionFilter": "Transmission",
@@ -538,11 +538,11 @@
       "zoomOut": "Zoom out"
     },
     "seo": {
-      "title": "{{brand}} {{model}} {{year}} Rent Ride — from €{{price}}/day | Rent Ride",
-      "description": "Rent a {{brand}} {{model}} ({{year}}) in Tirana starting at €{{price}}/day. {{category}}, {{transmission}}, {{fuel}} fuel. Free airport pickup, on call 24/7.",
+      "title": "Hire {{brand}} {{model}} {{year}} in Tirana — from €{{price}}/day | Rent Ride",
+      "description": "Book a {{brand}} {{model}} ({{year}}) car rental in Tirana from €{{price}}/day. {{category}}, {{transmission}}, {{fuel}} fuel, free airport pickup and 24/7 support.",
       "keywords": "{{brand}} {{model}} car hire tirana, {{category}} car rental albania, hire {{brand}} tirana airport",
-      "fallbackTitle": "Car Rental Tirana",
-      "fallbackDesc": "Tirana's top-rated car rental service."
+      "fallbackTitle": "Car Hire in Tirana",
+      "fallbackDesc": "The highest-rated car rental service in Tirana."
     },
     "availability": {
       "booked": "Reserved",
@@ -783,8 +783,8 @@
       "minDays": "Minimum booking is {{count}} day(s)."
     },
     "seo": {
-      "title": "Book Your Car Online — Instant Confirmation | Rent Ride",
-      "description": "Reserve your rental car online: complete the form, pick your insurance and extras, and e-sign the contract. Instant confirmation straight to your email.",
+      "title": "Reserve a Rental Car Online — Instant Confirmation | Rent Ride",
+      "description": "Book your car rental online in minutes: fill in the form, choose insurance and extras, then e-sign the contract. Get instant confirmation sent to your inbox.",
       "keywords": "book car online tirana, booking car hire tirana, car rental reservation albania"
     },
     "categories": {
@@ -930,8 +930,8 @@
     },
     "hoursAllDays": "Every day",
     "seo": {
-      "title": "Contact Us — Rent Ride",
-      "description": "Get in touch with Rent Ride for bookings, questions or assistance. Reach us by phone at +355 69 81 45 803, by email, or via the online form — 24/7.",
+      "title": "Get in Touch — Rent Ride Car Hire Tirana",
+      "description": "Contact Rent Ride for bookings, questions or support. Call us at +355 69 81 45 803, send an email, or use the online form anytime — available 24/7.",
       "keywords": "contact car hire tirana, car rental phone, car rental email albania, contact us",
       "breadcrumbHome": "Home",
       "breadcrumbContact": "Contact"
@@ -960,8 +960,8 @@
       "bookingEase": "Ease of booking"
     },
     "seo": {
-      "title": "Customer Reviews — 4.9★ from over 500 Clients | Rent Ride",
-      "description": "Read what our clients think: more than 500 genuine reviews averaging 4.9/5 for car hire in Tirana. Add your own experience too.",
+      "title": "Client Reviews — Rated 4.9★ by 500+ Customers | Rent Ride",
+      "description": "See what customers say about car hire in Tirana: over 500 authentic reviews with a 4.9/5 average rating. Share your own experience with us too.",
       "keywords": "reviews car hire tirana, customer reviews car rental tirana, car rental experiences albania"
     },
     "faqSchema": [

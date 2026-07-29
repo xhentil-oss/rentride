@@ -65,11 +65,11 @@
     "rights": "Tutti i diritti riservati."
   },
   "home": {
-    "promoBanner": "<strong>Promo dell'ultimo minuto:</strong> prenota nelle prossime 24 ore e ottieni un <strong>-10%</strong> usando il codice",
+    "promoBanner": "<strong>Offerta last minute:</strong> finalizza la tua prenotazione entro le prossime 24 ore e risparmia il <strong>-10%</strong> inserendo il codice",
     "hero": {
-      "title": "Autonoleggio all'Aeroporto di Tirana.",
-      "titleHighlight": "Consegna senza costi. Conferma in tempo reale.",
-      "subtitle": "Noleggia un'auto all'aeroporto di Tirana (TIA) oppure in centro, con consegna inclusa. Prezzi trasparenti a partire da 25 €/giorno — zero spese occulte e conferma in tempo reale.",
+      "title": "Noleggio auto all'aeroporto di Tirana.",
+      "titleHighlight": "Consegna gratuita. Conferma immediata online.",
+      "subtitle": "Prenota la tua auto direttamente allo scalo di Tirana (TIA) o nel cuore della città, con consegna compresa. Tariffe chiare da 25 €/giorno — nessuna spesa nascosta e conferma immediata.",
       "pickupFrom": "Ritira a",
       "returnTo": "Riconsegna a",
       "selectPlace": "Seleziona un luogo",
@@ -86,206 +86,206 @@
       "locations": "Sedi (TIA + Tirana)"
     },
     "featuredCars": {
-      "title": "Modelli in primo piano",
-      "subtitle": "Le auto che i nostri clienti prenotano più spesso",
+      "title": "Le auto più richieste",
+      "subtitle": "I modelli che i clienti scelgono più di frequente",
       "viewAll": "Vedi tutte"
     },
     "categories": {
-      "title": "Categorie disponibili",
-      "subtitle": "L'auto adatta a qualsiasi necessità",
+      "title": "Le nostre categorie di auto",
+      "subtitle": "Il veicolo giusto per ogni esigenza",
       "ekonomike": {
         "name": "Economica",
-        "desc": "Perfetta in città, bassi consumi"
+        "desc": "Ideale in città, consumi ridotti"
       },
       "suv": {
         "name": "SUV",
-        "desc": "Ampia e pronta a ogni tipo di strada"
+        "desc": "Spaziosa e adatta a ogni percorso"
       },
       "luksoze": {
         "name": "Lusso",
-        "desc": "Raffinatezza e comfort ai massimi livelli"
+        "desc": "Eleganza e comfort di alto livello"
       },
       "familjare": {
         "name": "Familiare",
-        "desc": "Su misura per famiglie e gruppi"
+        "desc": "Pensata per famiglie e gruppi numerosi"
       },
       "automatike": {
         "name": "Automatica",
-        "desc": "Guida semplice e tecnologia aggiornata"
+        "desc": "Guida comoda con tecnologia moderna"
       }
     },
     "howItWorks": {
-      "title": "Come funziona il servizio?",
-      "subtitle": "Bastano 3 semplici passaggi per avere la tua auto",
+      "title": "Come funziona il noleggio?",
+      "subtitle": "Solo 3 passaggi per metterti al volante",
       "steps": [
         {
-          "title": "Individua l'auto giusta",
-          "desc": "Esplora tutta la flotta filtrando per categoria (economica, SUV, lusso, automatica), prezzo giornaliero e disponibilità nelle date che ti servono. Per ciascun modello trovi specifiche dettagliate, dotazioni, scelte assicurative e un prezzo unico tutto compreso — nessuna sorpresa."
+          "title": "Trova l'auto perfetta",
+          "desc": "Sfoglia l'intera flotta usando i filtri per categoria (economica, SUV, lusso, automatica), tariffa al giorno e disponibilità nelle date di tuo interesse. Ogni modello mostra schede tecniche complete, dotazioni, opzioni di copertura e un'unica tariffa tutto incluso — senza brutte sorprese."
         },
         {
-          "title": "Finalizza la prenotazione",
-          "desc": "Inserisci nel modulo online i tuoi dati, il punto di ritiro (aeroporto di Tirana o centro città), le date e il tipo di copertura assicurativa. Verifica l'importo, inserisci un eventuale codice sconto e apponi la firma sul contratto digitale: tutto in meno di 2 minuti, da qualunque dispositivo."
+          "title": "Completa la prenotazione online",
+          "desc": "Compila il form online con i dati personali, il luogo dove ritirare l'auto (aeroporto di Tirana o centro), il periodo e la formula assicurativa preferita. Controlla il totale, aggiungi eventualmente un codice promozionale e firma il contratto digitale: bastano meno di 2 minuti, da qualsiasi dispositivo."
         },
         {
-          "title": "Prendi le chiavi",
-          "desc": "All'arrivo all'aeroporto di Tirana un nostro addetto ti aspetta in sala arrivi con un cartello che riporta il tuo nome. Controlliamo insieme il veicolo, ti consegniamo le chiavi e puoi partire alla scoperta dell'Albania."
+          "title": "Ritira le chiavi",
+          "desc": "Quando atterri all'aeroporto di Tirana, un membro del nostro staff ti accoglie in sala arrivi tenendo un cartello con il tuo nome. Ispezioniamo il veicolo insieme, ti passiamo le chiavi e sei subito pronto a esplorare l'Albania."
         }
       ],
-      "cta": "Prenota subito — ci vogliono pochi minuti"
+      "cta": "Prenota ora — bastano pochi minuti"
     },
     "whyUs": {
-      "title": "Perché affidarti a Rent Ride?",
-      "subtitle": "Siamo presenti in prima persona all'aeroporto internazionale di Tirana (TIA) e nel cuore della città. Flotta recente, tariffe senza sorprese e un'assistenza attiva 24 ore su 24: ecco perché ogni anno migliaia di viaggiatori ci preferiscono.",
+      "title": "Perché scegliere Rent Ride?",
+      "subtitle": "Siamo presenti direttamente allo scalo internazionale di Tirana (TIA) e nel centro della città. Flotta recente, prezzi senza sorprese e assistenza attiva 24 ore su 24: ecco perché migliaia di viaggiatori ci scelgono ogni anno.",
       "items": [
         {
-          "title": "Tariffe trasparenti",
-          "desc": "Mai alcun costo occulto. Ogni preventivo comprende già l'assicurazione base e le tasse stradali. La cifra indicata online coincide esattamente con quella che paghi al ritiro: niente sovrapprezzi aeroportuali, nessun tranello sul carburante prepagato, nessun addebito imprevisto sulla carta."
+          "title": "Prezzi trasparenti",
+          "desc": "Zero spese nascoste, sempre. In ogni preventivo sono già incluse l'assicurazione base e le tasse stradali. Il prezzo che vedi online è identico a quello che salderai al ritiro: niente supplementi aeroportuali, nessuna trappola sul carburante prepagato, nessun addebito inatteso sulla carta."
         },
         {
-          "title": "Assistenza 24/7",
-          "desc": "Ci trovi sempre al tuo fianco nel momento del bisogno. Che sia un atterraggio notturno all'aeroporto di Tirana, un dubbio sulla prenotazione o un soccorso stradale urgente in qualunque punto dell'Albania, il nostro team risponde a ogni ora, di giorno come di notte."
+          "title": "Supporto 24 ore su 24",
+          "desc": "Siamo al tuo fianco ogni volta che ne hai bisogno. Che si tratti di un volo che atterra di notte all'aeroporto di Tirana, di una domanda sulla tua prenotazione o di un soccorso stradale improvviso in qualsiasi zona dell'Albania, il nostro team ti risponde in qualunque momento, giorno e notte."
         },
         {
-          "title": "Copertura assicurativa compresa",
-          "desc": "Ciascuna auto viene fornita con l'assicurazione base (CDW) senza spese extra, che tutela dai danni oltre la franchigia standard. Durante la prenotazione puoi scegliere la Super CDW senza franchigia, particolarmente indicata per i tragitti di montagna e lungo la costa."
+          "title": "Assicurazione già inclusa",
+          "desc": "Ogni veicolo include gratuitamente l'assicurazione base (CDW), che ti protegge dai danni oltre la franchigia prevista. Al momento di prenotare hai la possibilità di aggiungere la Super CDW senza franchigia, consigliata soprattutto per i percorsi in montagna e sulla costa."
         },
         {
-          "title": "Massima flessibilità",
-          "desc": "Ritira il veicolo all'aeroporto di Tirana e restituiscilo in centro, o al contrario, senza alcun sovrapprezzo. Siamo operativi 24 ore su 24, 7 giorni su 7. Noleggi di sola andata, formule mensili di lungo periodo e prenotazioni dell'ultimo minuto: tutto è realizzabile."
+          "title": "Flessibilità totale",
+          "desc": "Prendi l'auto all'aeroporto di Tirana e riportala in centro, oppure viceversa, senza costi aggiuntivi. Il nostro servizio è attivo tutti i giorni, 24 ore su 24. Noleggi one-way, soluzioni mensili per lunghi periodi e prenotazioni last minute: qualunque esigenza è gestibile."
         }
       ]
     },
     "guarantees": [
       {
-        "title": "Prezzo garantito",
-        "desc": "Hai trovato una tariffa più bassa altrove? La eguagliamo, senza vincoli."
+        "title": "Miglior prezzo garantito",
+        "desc": "Se scopri un prezzo inferiore da un altro operatore, noi lo pareggiamo, senza condizioni."
       },
       {
-        "title": "Zero spese occulte",
-        "desc": "Nell'importo finale è già compreso tutto: tasse, assicurazione base e consegna."
+        "title": "Nessun costo nascosto",
+        "desc": "Il totale che paghi include già ogni voce: imposte, assicurazione base e consegna."
       },
       {
-        "title": "Disdetta senza costi",
-        "desc": "Annulla gratuitamente fino a 48 ore prima del ritiro. Nessun rischio e nessuna penale."
+        "title": "Cancellazione gratuita",
+        "desc": "Puoi cancellare senza spese fino a 48 ore prima del ritiro. Zero rischi e nessuna penale."
       }
     ],
     "airportSection": {
-      "title": "Autonoleggio all'aeroporto di Tirana — consegna gratuita compresa",
+      "title": "Noleggio auto all'aeroporto di Tirana — consegna gratuita compresa",
       "badge": "Aeroporto Internazionale di Tirana — TIA",
-      "body": "Cerchi un'auto a noleggio all'aeroporto di Tirana? Ti offriamo consegna e riconsegna gratuite proprio allo scalo internazionale Madre Teresa (TIA), a qualsiasi ora del giorno e della notte, 7 giorni su 7. Assicuriamo prezzi tutto compreso senza sovrapprezzi aeroportuali occulti, una flotta recente e sottoposta a manutenzione e un addetto che ti aspetta agli arrivi. Che tu abbia bisogno di un'auto per un breve soggiorno in città, per un itinerario lungo la Riviera albanese o per un viaggio oltre confine, troviamo il veicolo su misura al giusto prezzo. Prenotare online, atterrare e mettersi in strada non è mai stato tanto immediato.",
+      "body": "Hai bisogno di un'auto a noleggio all'aeroporto di Tirana? Consegniamo e ritiriamo il veicolo gratuitamente proprio all'aeroporto internazionale Madre Teresa (TIA), a ogni ora, di giorno e di notte, tutti i giorni della settimana. Garantiamo tariffe tutto incluso prive di supplementi aeroportuali nascosti, un parco auto recente e regolarmente revisionato e un nostro incaricato che ti attende agli arrivi. Sia che ti serva una vettura per una breve permanenza in città, per un tour lungo la Riviera albanese o per un viaggio all'estero, individuiamo il mezzo giusto al prezzo corretto. Prenotare online, atterrare e partire non è mai stato così semplice.",
       "features": [
-        "Consegna gratuita all'aeroporto di Tirana (TIA) — accoglienza in uscita",
-        "Attivi 24/7 — voli di giorno e di notte",
-        "Prezzo unico tutto compreso, senza spese occulte",
-        "Conferma online in tempo reale in meno di 2 minuti"
+        "Consegna senza costi allo scalo di Tirana (TIA) — ti accogliamo all'uscita",
+        "Servizio 24/7 — voli diurni e notturni",
+        "Tariffa unica tutto incluso, nessuna spesa nascosta",
+        "Conferma online immediata in meno di 2 minuti"
       ],
       "cta": "Prenota la consegna"
     },
     "destinations": {
-      "title": "Scopri l'Albania con la tua auto ritirata in aeroporto",
-      "subtitle": "Partendo dall'aeroporto Madre Teresa (TIA), l'intera Albania è a un passo",
-      "intro": "L'auto che noleggi all'aeroporto di Tirana ti spalanca le porte di uno dei paesi più affascinanti e ancora poco battuti d'Europa. L'Albania ti sorprende con spiagge cristalline sull'Adriatico e sullo Ionio, città inserite nel patrimonio UNESCO, antichi resti illirici e montagne mozzafiato — tutto a poche ore di guida dallo scalo. Ecco le destinazioni più amate dai nostri clienti:",
+      "title": "Esplora l'Albania con l'auto ritirata in aeroporto",
+      "subtitle": "Partendo dall'aeroporto Madre Teresa (TIA), l'intera Albania è a portata di mano",
+      "intro": "Con l'auto ritirata all'aeroporto di Tirana hai accesso a uno dei Paesi più suggestivi e ancora poco esplorati del continente europeo. L'Albania sa stupire con acque limpide sull'Adriatico e sullo Ionio, centri storici tutelati dall'UNESCO, antiche vestigia illiriche e vette da togliere il fiato — il tutto a poche ore di strada dallo scalo. Queste sono le mete che i nostri clienti prediligono:",
       "places": [
         {
           "name": "Durrës — 35 km · 30 min",
-          "desc": "È la più importante città di mare dell'Albania e la sua località balneare più frequentata. Cammina lungo le lunghe distese di sabbia sull'Adriatico, ammira uno dei più grandi anfiteatri romani dei Balcani e lasciati coinvolgere dall'animato lungomare. Ideale per un'escursione in giornata dall'aeroporto di Tirana."
+          "desc": "Principale porto marittimo dell'Albania e meta balneare più gettonata del Paese. Passeggia sulle ampie spiagge sabbiose affacciate sull'Adriatico, visita uno dei più imponenti anfiteatri romani dei Balcani e goditi il vivace lungomare. Perfetta per una gita in giornata partendo dall'aeroporto di Tirana."
         },
         {
           "name": "Berat — 120 km · 1h 30",
-          "desc": "Iscritta nel Patrimonio dell'Umanità UNESCO e tra i luoghi più immortalati dell'Albania, è nota come la «città dalle mille finestre». Il centro storico, splendidamente conservato, si distende lungo il fiume Osum ed è sovrastato da un castello medievale affacciato sull'intera vallata."
+          "desc": "Patrimonio dell'Umanità UNESCO e uno dei luoghi più fotografati d'Albania, è conosciuta come la «città dalle mille finestre». Il suo borgo antico, magnificamente preservato, si sviluppa lungo le rive del fiume Osum, dominato da un castello medievale che si affaccia su tutta la valle."
         },
         {
           "name": "Vlorë — 150 km · 2h",
-          "desc": "È l'ingresso alla Riviera albanese e il luogo in cui nel 1912 venne dichiarata l'indipendenza. Bagnata dalle acque limpide dell'Adriatico e dello Ionio, Valona è il punto di partenza perfetto per raggiungere il passo di Llogara, la penisola di Karaburun e i borghi costieri del sud."
+          "desc": "Porta d'accesso alla Riviera albanese e città in cui nel 1912 fu proclamata l'indipendenza. Affacciata sulle acque cristalline dell'Adriatico e dello Ionio, Valona rappresenta la base ideale per spingersi fino al passo di Llogara, alla penisola di Karaburun e ai villaggi costieri del meridione."
         },
         {
           "name": "Shkodër — 110 km · 1h 20",
-          "desc": "Cuore culturale del nord e soglia delle Alpi albanesi. Raggiungi il castello di Rozafa per la vista sul lago, esplora lo storico bazar e fai di Scutari il tuo punto d'appoggio per le Alpi Maledette, tra le ultime aree di natura intatta del continente."
+          "desc": "Capitale culturale del settentrione e porta d'ingresso alle Alpi albanesi. Sali al castello di Rozafa per godere del panorama sul lago, gira per l'antico bazar e usa Scutari come base per raggiungere le Alpi Maledette, una delle ultime zone di natura incontaminata d'Europa."
         },
         {
           "name": "Sarandë — 280 km · 3h 30",
-          "desc": "È la perla della Riviera albanese e uno dei tesori meno noti del Mediterraneo. Visita gli antichi resti di Butrinto (UNESCO), immergiti nelle acque turchesi della sorgente dell'Occhio Blu e concediti relax sulle spiagge candide di Ksamil. Perfetta per un itinerario di 4-5 giorni dall'aeroporto di Tirana."
+          "desc": "Gioiello della Riviera albanese e uno dei segreti meglio custoditi del Mediterraneo. Esplora le rovine antiche di Butrinto (UNESCO), tuffati nelle acque turchesi della sorgente dell'Occhio Blu e rilassati sulle spiagge bianche di Ksamil. Ideale per un viaggio di 4-5 giorni con partenza dall'aeroporto di Tirana."
         }
       ]
     },
     "rentalGuide": {
-      "title": "Guida definitiva al noleggio auto all'aeroporto di Tirana",
-      "subtitle": "Tutto ciò che ti conviene sapere prima di ricevere le chiavi",
+      "title": "Guida completa al noleggio auto all'aeroporto di Tirana",
+      "subtitle": "Ciò che è utile sapere prima di ritirare le chiavi",
       "items": [
         {
-          "title": "Documenti necessari",
-          "desc": "Per noleggiare un'auto all'aeroporto di Tirana ti servono solo tre cose: una patente in tuo possesso da almeno un anno, un documento d'identità o il passaporto e una carta di credito o debito per la cauzione, poi rimborsata. Le patenti dell'UE e quelle internazionali vengono accettate, senza procedure aggiuntive per la maggior parte delle nazionalità."
+          "title": "Documenti richiesti",
+          "desc": "Per il noleggio di un'auto all'aeroporto di Tirana bastano tre elementi: la patente conseguita da almeno un anno, la carta d'identità o il passaporto e una carta di credito o debito per il deposito, che ti viene poi restituito. Sono ammesse sia le patenti dei Paesi UE sia quelle internazionali, senza formalità extra per gran parte delle nazionalità."
         },
         {
-          "title": "Limiti di età e regole per i giovani conducenti",
-          "desc": "Per noleggiare all'aeroporto di Tirana occorre aver compiuto 21 anni. Chi ha tra i 21 e i 25 anni può essere soggetto a un supplemento giovane conducente in base alla classe del veicolo. Non esiste un tetto massimo di età. Ogni guidatore deve possedere una patente valida ed essere riportato nel contratto."
+          "title": "Requisiti di età e giovani conducenti",
+          "desc": "L'età minima per noleggiare all'aeroporto di Tirana è di 21 anni. Ai conducenti di età compresa tra 21 e 25 anni può essere applicato un supplemento giovane conducente a seconda della categoria dell'auto. Non è previsto alcun limite massimo di età. Ciascun guidatore deve avere una patente in corso di validità ed essere indicato nel contratto."
         },
         {
-          "title": "Assicurazione e coperture",
-          "desc": "Ogni vettura della nostra flotta all'aeroporto di Tirana comprende senza costi l'assicurazione base CDW, che copre i danni oltre la franchigia standard. Prenotando online puoi optare per la Super CDW priva di franchigia, vivamente suggerita per le strade montane e costiere dell'Albania."
+          "title": "Coperture assicurative",
+          "desc": "Tutte le auto del nostro parco all'aeroporto di Tirana includono gratuitamente l'assicurazione base CDW, che protegge dai danni oltre la franchigia prevista. In fase di prenotazione online puoi scegliere la Super CDW senza franchigia, caldamente raccomandata per i tragitti di montagna e lungo la costa albanese."
         },
         {
-          "title": "Mettersi al volante in Albania",
-          "desc": "Le arterie principali dell'Albania sono moderne e in buono stato. L'autostrada SH2 unisce l'aeroporto di Tirana al centro in circa 20 minuti. Le strade della Riviera e i valichi montani risultano più stretti: per i percorsi meno frequentati consigliamo un SUV. La segnaletica rispetta gli standard europei."
+          "title": "Guidare in Albania",
+          "desc": "Le principali vie di comunicazione albanesi sono recenti e ben tenute. L'autostrada SH2 collega l'aeroporto di Tirana al centro in circa 20 minuti. Lungo la Riviera e sui passi di montagna le strade si fanno più strette: per gli itinerari meno battuti suggeriamo un SUV. La segnaletica segue gli standard europei."
         }
       ]
     },
     "reviews": {
-      "title": "La parola ai nostri clienti",
-      "subtitle": "Più di 500 clienti soddisfatti ogni anno"
+      "title": "Cosa dicono i nostri clienti",
+      "subtitle": "Oltre 500 clienti soddisfatti ogni anno"
     },
-    "seoText": "Rent Ride mette a disposizione il noleggio auto in tutta l'Albania, con una presenza diretta allo scalo internazionale di Tirana (aeroporto Madre Teresa — TIA) e nel centro cittadino. Che ti occorra un'auto per una trasferta di lavoro, per una vacanza in famiglia lungo la Riviera albanese o per un lungo itinerario attraverso i Balcani occidentali, la nostra flotta recente, le tariffe trasparenti tutto compreso e l'accoglienza in aeroporto ci hanno resi la scelta di migliaia di viaggiatori ogni anno. Diamo il benvenuto a clienti provenienti da Italia, Germania, Regno Unito, Stati Uniti, Kosovo e non solo. Prenota online in meno di 2 minuti: disdetta gratuita, conferma in tempo reale e nessun costo occulto.",
+    "seoText": "Rent Ride offre il noleggio auto in ogni angolo dell'Albania, con sedi dirette allo scalo internazionale di Tirana (aeroporto Madre Teresa — TIA) e nel centro della città. Che tu abbia bisogno di una vettura per un viaggio di lavoro, per una vacanza con la famiglia lungo la Riviera albanese o per un lungo tour attraverso i Balcani occidentali, il nostro parco auto recente, le tariffe chiare tutto incluso e l'accoglienza allo scalo ci hanno resi la scelta di migliaia di viaggiatori ogni anno. Accogliamo clienti da Italia, Germania, Regno Unito, Stati Uniti, Kosovo e molti altri Paesi. Prenota online in meno di 2 minuti: cancellazione gratuita, conferma immediata e nessuna spesa nascosta.",
     "faq": {
       "items": [
         {
-          "question": "In che modo si prenota?",
-          "answer": "Seleziona l'auto, inserisci nel modulo date e dati personali e conferma. L'e-mail di conferma ti raggiunge in pochi istanti."
+          "question": "Come posso prenotare un'auto?",
+          "answer": "Scegli il modello, compila il form con le date e i tuoi dati, poi conferma. In pochi istanti ricevi l'e-mail di conferma."
         },
         {
-          "question": "Che documenti occorrono?",
-          "answer": "Ti servono una patente valida (posseduta da almeno 1 anno), un documento d'identità o il passaporto e una carta di credito/debito per la cauzione."
+          "question": "Quali documenti sono necessari?",
+          "answer": "Occorrono una patente in corso di validità (conseguita da almeno 1 anno), la carta d'identità o il passaporto e una carta di credito/debito per il deposito."
         },
         {
-          "question": "È possibile ritirare l'auto in aeroporto?",
-          "answer": "Certo! Consegna e riconsegna allo scalo internazionale Madre Teresa (TIA) sono gratuite. Il nostro team ti aspetta agli arrivi, senza spese né tempi di attesa."
+          "question": "Posso ritirare l'auto in aeroporto?",
+          "answer": "Assolutamente sì! La consegna e la riconsegna all'aeroporto internazionale Madre Teresa (TIA) non hanno costi. Il nostro staff ti accoglie agli arrivi, senza supplementi né attese."
         },
         {
-          "question": "Il ritiro in aeroporto comporta costi extra?",
-          "answer": "No. Consegna e riconsegna all'aeroporto di Tirana sono del tutto gratuite, senza alcun supplemento. La cifra mostrata in prenotazione è quella complessiva."
+          "question": "Il ritiro in aeroporto ha costi aggiuntivi?",
+          "answer": "No. Il servizio di consegna e riconsegna all'aeroporto di Tirana è completamente gratuito, senza nessun supplemento. Il prezzo indicato in prenotazione è quello finale."
         },
         {
-          "question": "Come vi raggiungo in aeroporto?",
-          "answer": "Una volta atterrato, dirigiti verso la sala arrivi. Il nostro addetto ti attende con un cartello che riporta il tuo nome. In alternativa puoi chiamarci 24/7 al +355 69 81 45 803."
+          "question": "Dove posso trovarvi in aeroporto?",
+          "answer": "Dopo l'atterraggio, raggiungi la zona arrivi: un nostro incaricato ti aspetta tenendo un cartello con il tuo nome. Se preferisci, puoi contattarci 24/7 al numero +355 69 81 45 803."
         },
         {
           "question": "Cosa faccio se l'auto ha un guasto?",
-          "answer": "Mettiamo a disposizione assistenza 24/7. Ti inviamo subito supporto o un veicolo sostitutivo, senza spese aggiuntive."
+          "answer": "Offriamo assistenza attiva 24/7. Ti facciamo arrivare rapidamente aiuto oppure un'auto sostitutiva, senza costi extra."
         },
         {
           "question": "Posso annullare la prenotazione?",
-          "answer": "Sì, l'annullamento è gratuito fino a 24 ore prima del ritiro. Successivamente viene applicata una penale di disdetta."
+          "answer": "Certo, la cancellazione non ha costi fino a 24 ore prima del ritiro. Dopo questo termine si applica una penale di disdetta."
         },
         {
-          "question": "Che tipologie di auto proponete?",
-          "answer": "La nostra flotta all'aeroporto di Tirana spazia dalle economiche a 25 €/giorno agli ampi SUV familiari, fino ai modelli di lusso e alle automatiche più recenti. Ogni veicolo viene revisionato con regolarità, igienizzato prima di ciascun noleggio e ha meno di 4 anni. Filtra la flotta per categoria, cambio e prezzo."
+          "question": "Che tipi di auto sono disponibili?",
+          "answer": "Il nostro parco auto all'aeroporto di Tirana va dalle utilitarie economiche a 25 €/giorno ai capienti SUV per famiglie, passando per i modelli di lusso e le automatiche di ultima generazione. Ogni vettura è revisionata periodicamente, sanificata prima di ogni noleggio e ha meno di 4 anni. Filtra la flotta per categoria, trasmissione e prezzo."
         },
         {
-          "question": "Posso restituire l'auto in aeroporto in qualsiasi momento?",
-          "answer": "Sì, accogliamo le riconsegne allo scalo internazionale di Tirana 24/7, festivi compresi. Segnalaci il volo di rientro in fase di prenotazione e ci occupiamo di tutto noi. Nessun supplemento per restituzioni notturne, all'alba o nel fine settimana."
+          "question": "Posso restituire l'auto in aeroporto a qualunque orario?",
+          "answer": "Sì, riceviamo le riconsegne all'aeroporto internazionale di Tirana 24/7, giorni festivi inclusi. Indicaci il volo di ritorno quando prenoti e penseremo noi al resto. Nessun sovrapprezzo per le restituzioni di notte, all'alba o durante il weekend."
         },
         {
-          "question": "Esiste un sovrapprezzo aeroportuale?",
-          "answer": "Nessuno: non applichiamo alcun supplemento aeroportuale. Le nostre tariffe restano invariate sia al ritiro in aeroporto sia presso l'ufficio in centro, il che ci colloca tra le poche realtà con prezzi realmente trasparenti in entrambe le sedi."
+          "question": "C'è un supplemento aeroportuale?",
+          "answer": "Nessuno: da noi non esiste alcun sovrapprezzo aeroportuale. I nostri prezzi rimangono gli stessi sia che ritiri all'aeroporto sia presso l'ufficio del centro, e questo ci rende uno dei pochi operatori con tariffe davvero trasparenti in entrambe le sedi."
         },
         {
-          "question": "Che distanza c'è tra l'aeroporto e il centro?",
-          "answer": "L'aeroporto internazionale Madre Teresa (TIA) dista circa 17 km a nord-ovest dal centro di Tirana. Percorrendo l'autostrada SH2 il tragitto richiede 20-25 minuti con traffico regolare. Grazie al nostro servizio eviti taxi cari e autobus affollati e arrivi dritto a destinazione."
+          "question": "Quanto è distante l'aeroporto dal centro?",
+          "answer": "L'aeroporto internazionale Madre Teresa (TIA) si trova a circa 17 km a nord-ovest del centro di Tirana. Seguendo l'autostrada SH2 il percorso dura 20-25 minuti in condizioni di traffico normale. Con il nostro servizio eviti taxi costosi e bus affollati e raggiungi direttamente la tua meta."
         }
       ]
     },
     "registerCta": {
-      "title": "Apri gratis il tuo account",
-      "subtitle": "Iscriviti per tenere sotto controllo prenotazioni, contratti e storico dei noleggi, tutto riunito in un solo posto.",
+      "title": "Crea gratis il tuo account",
+      "subtitle": "Registrati per tenere in un solo posto prenotazioni, contratti e cronologia dei noleggi.",
       "btn": "Registrati",
       "fleet": "Vedi flotta",
       "f1": "Senza costi",
@@ -293,15 +293,15 @@
       "f3": "Storico completo"
     },
     "cta": {
-      "title": "Hai domande? Scrivici!",
-      "subtitle": "Siamo a tua disposizione 24/7",
+      "title": "Hai domande? Contattaci!",
+      "subtitle": "Il nostro team è disponibile 24/7",
       "whatsapp": "WhatsApp",
       "whatsappMsg": "Salve! Vorrei prenotare un'auto.",
       "contactUs": "Contattaci"
     },
     "seo": {
-      "title": "Noleggio Auto Aeroporto Tirana — Consegna Gratuita | Rent Ride",
-      "description": "Autonoleggio a Tirana e allo scalo Madre Teresa (TIA) con consegna gratuita. Tariffe da 25 €/giorno, senza costi nascosti, prenotazione online in 2 minuti.",
+      "title": "Rent Ride — Noleggio Auto all'Aeroporto di Tirana, Consegna Inclusa",
+      "description": "Noleggio auto a Tirana e all'aeroporto Madre Teresa (TIA), consegna inclusa e autonoleggio in tutta l'Albania. Da 25 €/giorno, zero costi occulti, prenoti online in 2 minuti.",
       "keywords": "noleggio auto tirana, noleggio auto aeroporto tirana, autonoleggio tirana, car hire tirana, noleggio auto albania"
     },
     "airportBadges": [
@@ -326,17 +326,17 @@
       {
         "name": "Endrit Leka",
         "location": "Tirana",
-        "text": "Ritiro in aeroporto senza il minimo intoppo e auto praticamente nuova. Alla fine nessuna spesa inaspettata: tornerò senz'altro."
+        "text": "Il ritiro allo scalo è filato liscio e l'auto era come nuova. Nessun costo a sorpresa al momento del saldo: ci tornerò di sicuro."
       },
       {
         "name": "Sara Malaj",
         "location": "Durrës",
-        "text": "Prenotazione online conclusa in pochi minuti e conferma ricevuta all'istante. Personale gentile e davvero rapido."
+        "text": "Ho completato la prenotazione online in pochi minuti e la conferma è arrivata subito. Staff cortese e davvero veloce."
       },
       {
         "name": "Klaudio Nikolla",
         "location": "Vlorë",
-        "text": "Rapporto qualità-prezzo eccellente e comunicazione limpida dall'inizio alla fine. Lo consiglio a occhi chiusi."
+        "text": "Ottimo rapporto qualità-prezzo e comunicazione chiara dal primo all'ultimo momento. Lo raccomando senza esitazioni."
       }
     ]
   },
@@ -374,12 +374,12 @@
     ],
     "removeFilter": "Rimuovi filtro {{label}}",
     "seo": {
-      "titleCategory": "Noleggio Auto {{category}} a Tirana",
-      "titleDefaultCount": "La Nostra Flotta — {{count}} Modelli",
-      "titleDefaultEmpty": "La Nostra Flotta — Auto da Noleggiare",
-      "descCategory": "Noleggia un'auto {{category}} a Tirana. Prenota online: prezzi chiari e consegna in aeroporto.",
-      "descDefaultCount": "Scegli tra {{count}} modelli di auto a noleggio a Tirana. Filtra per categoria, prezzo e cambio.",
-      "descDefaultEmpty": "Seleziona il modello dalla nostra flotta di auto a noleggio a Tirana. Filtra per categoria, prezzo e cambio.",
+      "titleCategory": "Auto {{category}} a Noleggio a Tirana",
+      "titleDefaultCount": "Flotta a Noleggio — {{count}} Auto Disponibili",
+      "titleDefaultEmpty": "Flotta a Noleggio — Scegli la Tua Auto",
+      "descCategory": "Prenota un'auto {{category}} a noleggio a Tirana. Tariffe trasparenti, consegna in aeroporto e conferma online immediata.",
+      "descDefaultCount": "Esplora {{count}} auto a noleggio a Tirana e filtra per categoria, cambio e prezzo per trovare il modello ideale.",
+      "descDefaultEmpty": "Sfoglia la nostra flotta di auto a noleggio a Tirana e filtra per categoria, cambio e prezzo per trovare il modello ideale.",
       "keywords": "flotta auto noleggio tirana, auto economiche, SUV, auto di lusso noleggio albania"
     },
     "transmissionFilter": "Trasmissione",
@@ -538,11 +538,11 @@
       "zoomOut": "Riduci"
     },
     "seo": {
-      "title": "{{brand}} {{model}} {{year}} a noleggio a Tirana — {{price}} €/giorno",
-      "description": "Prendi a noleggio {{brand}} {{model}} ({{year}}) a Tirana da {{price}} €/giorno. Categoria {{category}}, {{transmission}}, {{fuel}}. Attiva 24/7 — consegna in aeroporto.",
+      "title": "Noleggia {{brand}} {{model}} {{year}} a Tirana — {{price}} €/giorno",
+      "description": "{{brand}} {{model}} ({{year}}) disponibile a noleggio a Tirana da {{price}} €/giorno: categoria {{category}}, {{transmission}}, {{fuel}}, consegna in aeroporto e assistenza 24/7.",
       "keywords": "{{brand}} {{model}} noleggio tirana, {{category}} noleggio albania, noleggiare {{brand}} tirana",
-      "fallbackTitle": "Noleggio auto Tirana",
-      "fallbackDesc": "Il servizio di autonoleggio numero 1 a Tirana."
+      "fallbackTitle": "Autonoleggio a Tirana",
+      "fallbackDesc": "Noleggio auto Tirana: il servizio di autonoleggio di riferimento in città."
     },
     "availability": {
       "booked": "Prenotata",
@@ -783,8 +783,8 @@
       "minDays": "Prenotazione minima: {{count}} giorno/i."
     },
     "seo": {
-      "title": "Prenota Online la Tua Auto — Conferma in Tempo Reale | Rent Ride",
-      "description": "Riserva online la tua auto a noleggio: compila il modulo, scegli copertura ed extra e firma il contratto digitale. Conferma in tempo reale via email.",
+      "title": "Rent Ride — Prenotazione Auto Online con Conferma Immediata",
+      "description": "Completa online la prenotazione del tuo noleggio auto a Tirana: inserisci i dati, scegli assicurazione ed extra, firma il contratto digitale e ricevi conferma via email.",
       "keywords": "prenotare auto online tirana, booking noleggio auto tirana, prenotazione noleggio auto albania"
     },
     "categories": {
@@ -930,8 +930,8 @@
     },
     "hoursAllDays": "Ogni giorno",
     "seo": {
-      "title": "Mettiti in Contatto — Rent Ride",
-      "description": "Scrivi a Rent Ride per prenotazioni, domande o supporto. Telefono +355 69 81 45 803, email oppure modulo online. Attivi 24/7.",
+      "title": "Contatti Rent Ride — Assistenza Noleggio Auto Tirana",
+      "description": "Contatta Rent Ride per il tuo noleggio auto a Tirana: prenotazioni, domande e supporto al +355 69 81 45 803, via email o con il modulo online. Ci trovi 24/7.",
       "keywords": "contatto noleggio auto tirana, telefono noleggio auto, email noleggio auto albania, contattaci",
       "breadcrumbHome": "Home",
       "breadcrumbContact": "Contatto"
@@ -960,8 +960,8 @@
       "bookingEase": "Facilità di prenotazione"
     },
     "seo": {
-      "title": "Recensioni dei Clienti — 4,9★ da più di 500 Clienti | Rent Ride",
-      "description": "Leggi le opinioni dei nostri clienti: più di 500 recensioni autentiche con media 4,9/5 sul noleggio auto a Tirana. Racconta anche tu la tua esperienza.",
+      "title": "Rent Ride — Oltre 500 Recensioni Clienti con Media 4,9★",
+      "description": "Scopri cosa dicono i clienti Rent Ride: oltre 500 recensioni verificate con voto medio 4,9/5 sul noleggio auto a Tirana. Condividi anche tu la tua esperienza.",
       "keywords": "recensioni noleggio auto tirana, recensioni clienti noleggio auto, esperienze noleggio auto albania"
     },
     "faqSchema": [
