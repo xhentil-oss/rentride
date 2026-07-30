@@ -13,7 +13,9 @@ const VALID_STATUSES = ['Available', 'Rented', 'Maintenance', 'Out of Service', 
 const toCamel = (r) => ({
   id: r.id, brand: r.brand, model: r.model, year: r.year,
   category: r.category, transmission: r.transmission, fuel: r.fuel,
-  seats: r.seats, luggage: r.luggage, pricePerDay: r.price_per_day,
+  // DECIMAL vjen si string nga mysql2 — kthejeni ne numer, perndryshe `+`
+  // ne frontend behet bashkim tekstesh dhe totali del NaN.
+  seats: r.seats, luggage: r.luggage, pricePerDay: parseFloat(r.price_per_day),
   displayPrice: r.display_price != null ? Number(r.display_price) : null,
   status: r.status, image: r.image, slug: r.slug, featured: !!r.featured,
   quantity: r.quantity ?? 1, description: r.description ?? '',

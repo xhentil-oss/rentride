@@ -59,20 +59,27 @@ interface MonthlyRate { id: string; year: number | null; month: number; appliesT
 function resolveMonthlyRate(rates: MonthlyRate[], carId: string, carCategory: string, month: number, year: number): number | null {
   const matching = rates.filter(r => Number(r.month) === month && (r.year === null || Number(r.year) === year));
   if (matching.length === 0) return null;
-  return (matching.find(r => r.appliesTo === 'car' && r.appliesToValue === carId)
+  const hit = matching.find(r => r.appliesTo === 'car' && r.appliesToValue === carId)
     ?? matching.find(r => r.appliesTo === 'category' && r.appliesToValue === carCategory)
     ?? matching.find(r => r.appliesTo === 'all')
-    ?? null)?.pricePerDay ?? null;
+    ?? null;
+  if (!hit) return null;
+  // Cmimi mund te vije si string nga API — kthejeni gjithnje ne numer.
+  const n = Number(hit.pricePerDay);
+  return Number.isFinite(n) ? n : null;
 }
 function calcMonthlyTotal(rates: MonthlyRate[], carId: string, carCategory: string, basePPD: number, startDate: Date, endDate: Date): number {
   const cur = new Date(startDate); cur.setHours(0,0,0,0);
   const end = new Date(endDate); end.setHours(0,0,0,0);
   const msPerDay = 86400000;
   const days = Math.max(1, Math.ceil((end.getTime() - cur.getTime()) / msPerDay));
+  // Pa kete coercion, nje `pricePerDay` string (kolona DECIMAL) do te bashkohej
+  // si tekst ne `total` dhe rezultati do te ishte NaN.
+  const base = Number.isFinite(Number(basePPD)) ? Number(basePPD) : 0;
   let total = 0;
   for (let i = 0; i < days; i += 1) {
     const r = resolveMonthlyRate(rates, carId, carCategory, cur.getMonth() + 1, cur.getFullYear());
-    total += r !== null ? r : basePPD;
+    total += r !== null ? r : base;
     cur.setDate(cur.getDate() + 1);
   }
   return Math.round(total * 100) / 100;

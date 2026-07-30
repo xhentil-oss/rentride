@@ -35,21 +35,27 @@ export function resolveMonthlyRate(
 
   if (matching.length === 0) return null;
 
+  // Cmimi mund te vije si string nga API — kthejeni gjithnje ne numer.
+  const price = (r: MonthlyRate): number | null => {
+    const n = Number(r.pricePerDay);
+    return Number.isFinite(n) ? n : null;
+  };
+
   // Car-specific (highest priority)
   const carRate = matching.find(
     (r) => r.appliesTo === "car" && r.appliesToValue === carId
   );
-  if (carRate) return carRate.pricePerDay;
+  if (carRate) return price(carRate);
 
   // Category
   const catRate = matching.find(
     (r) => r.appliesTo === "category" && r.appliesToValue === carCategory
   );
-  if (catRate) return catRate.pricePerDay;
+  if (catRate) return price(catRate);
 
   // All
   const allRate = matching.find((r) => r.appliesTo === "all");
-  if (allRate) return allRate.pricePerDay;
+  if (allRate) return price(allRate);
 
   return null;
 }
@@ -75,6 +81,10 @@ export function calcTotalWithMonthlyRates(
   const msPerDay = 24 * 60 * 60 * 1000;
   const days = Math.max(1, Math.ceil((end.getTime() - current.getTime()) / msPerDay));
 
+  // Cmimet mund te vijne si string (kolona DECIMAL) — pa kete coercion `+`
+  // do te bente bashkim tekstesh dhe totali do te dilte NaN.
+  const base = Number.isFinite(Number(basePricePerDay)) ? Number(basePricePerDay) : 0;
+
   let total = 0;
   let usedMonthlyRate = false;
 
@@ -86,13 +96,13 @@ export function calcTotalWithMonthlyRates(
       total += rate;
       usedMonthlyRate = true;
     } else {
-      total += basePricePerDay;
+      total += base;
     }
     current.setDate(current.getDate() + 1);
   }
 
   total = Math.round(total * 100) / 100;
-  const effectiveDailyRate = days > 0 ? Math.round((total / days) * 100) / 100 : basePricePerDay;
+  const effectiveDailyRate = days > 0 ? Math.round((total / days) * 100) / 100 : base;
 
   return { total, effectiveDailyRate, usedMonthlyRate };
 }
