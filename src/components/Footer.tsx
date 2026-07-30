@@ -88,7 +88,9 @@ function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="text-neutral-400 mt-0.5 shrink-0" />
-                <div className="text-sm text-neutral-400 space-y-1">
+                {/* min-w-0 lets the address wrap instead of overflowing the
+                    column — it is a flex item, which defaults to min-width:auto. */}
+                <div className="text-sm text-neutral-400 space-y-1 min-w-0">
                   {addressList.map((addr, i) => (
                     <p key={i} className="leading-snug">{addr}</p>
                   ))}

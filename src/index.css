@@ -87,8 +87,17 @@ body {
     letter-spacing: -0.015em;
   }
 
-  p,
-  li,
+  /*
+   * NOTE: `p` and `li` are deliberately NOT listed here.
+   *
+   * `html, body` already set this exact colour, so p/li inherit it and look
+   * identical on light backgrounds. Naming them directly, however, breaks every
+   * dark section: an inherited value always loses to a direct rule on the
+   * element, so `<div class="text-neutral-400"><p>…</p></div>` rendered the
+   * paragraph near-black on a dark background while a sibling `<a>` carrying the
+   * same utility class directly stayed light. That is how the footer address
+   * became invisible. Colour dark sections via a parent and let p/li inherit.
+   */
   td,
   th,
   label,
