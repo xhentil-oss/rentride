@@ -14,6 +14,7 @@ import {
   FacebookLogo,
   InstagramLogo,
 } from "@phosphor-icons/react";
+import DOMPurify from "dompurify";
 import { useSEO, buildLocalBusinessSchema, buildBreadcrumbSchema } from "../hooks/useSEO";
 import { ADDRESS_LINE } from "../lib/seo";
 
@@ -282,10 +283,17 @@ export default function ContactPage() {
                     <CheckCircle size={40} weight="fill" className="text-green-500" />
                   </div>
                   <h3 className="text-xl font-bold text-neutral-800 mb-2">{t("contactPage.sentTitle")}</h3>
+                  {/* The translation carries <strong> markup, so it has to go in as
+                      HTML — but i18next runs with escapeValue:false, which means
+                      `name`/`email` (raw form input) were interpolated unescaped
+                      straight into innerHTML. Sanitise before inserting. */}
                   <p
                     className="text-neutral-500 text-sm max-w-sm mb-8"
                     dangerouslySetInnerHTML={{
-                      __html: t("contactPage.sentBody", { name: form.name, email: form.email }),
+                      __html: DOMPurify.sanitize(
+                        t("contactPage.sentBody", { name: form.name, email: form.email }),
+                        { ALLOWED_TAGS: ["strong", "em", "br"], ALLOWED_ATTR: [] },
+                      ),
                     }}
                   />
                   <div className="flex gap-3">

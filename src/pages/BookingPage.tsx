@@ -604,6 +604,10 @@ export default function BookingPage() {
       const reservation = await createReservation({
         carId: car.id,
         customerId: customer.id,
+        // Sent so the server can verify that the customer record it resolved
+        // actually belongs to the person filling this form. Without it the
+        // identity guard in POST /api/reservations was skipped entirely.
+        customerEmail: form.email.trim(),
         pickupLocation: form.pickup,
         dropoffLocation: form.dropoff,
         startDate: form.startDate,

@@ -151,15 +151,24 @@ async function fetchReservationExtras(reservationId) {
 
 router.get('/:id', authenticate, async (req, res) => {
   try {
-    const [rows] = await pool.query('SELECT * FROM reservations WHERE id = ?', [req.params.id]);
+    // Resolve ownership via JOIN rather than by looking up "the" customer row for
+    // this user. A user can legitimately own more than one customer record, and
+    // picking custRows[0] rejected their own reservation with a 403 whenever the
+    // reservation belonged to any of their other records — while GET / (which
+    // JOINs) happily listed it. Same pattern as POST /:id/cancel.
+    const [rows] = await pool.query(
+      `SELECT r.*, c.user_id AS owner_user_id
+         FROM reservations r
+         LEFT JOIN customers c ON c.id = r.customer_id
+        WHERE r.id = ?`,
+      [req.params.id],
+    );
     if (!rows.length) return res.status(404).json({ error: 'Rezervimi nuk u gjet.' });
-    // Non-admin can only see their own reservation
-    if (!ADMIN_ROLES.includes(req.user.role)) {
-      const [custRows] = await pool.query('SELECT id FROM customers WHERE user_id = ?', [req.user.id]);
-      const custId = custRows.length ? custRows[0].id : null;
-      if (rows[0].customer_id !== custId) return res.status(403).json({ error: 'Nuk keni leje.' });
+    const { owner_user_id: ownerUserId, ...reservation } = rows[0];
+    if (!ADMIN_ROLES.includes(req.user.role) && ownerUserId !== req.user.id) {
+      return res.status(403).json({ error: 'Nuk keni leje.' });
     }
-    const out = fmt(rows[0]);
+    const out = fmt(reservation);
     out.extrasDetail = await fetchReservationExtras(req.params.id);
     res.json(out);
   } catch (err) { console.error(err); res.status(500).json({ error: 'Gabim i brendshëm.' }); }
@@ -184,7 +193,10 @@ router.post('/', async (req, res) => {
     // Verify customerId matches a real customer, and if customerEmail provided, that they match
     const [custCheck] = await pool.query('SELECT id, email FROM customers WHERE id = ?', [customerId]);
     if (!custCheck.length) return res.status(400).json({ error: 'Klient i pavlefshëm.' });
-    if (customerEmail && custCheck[0].email.toLowerCase() !== String(customerEmail).toLowerCase()) {
+    // Trim both sides — a stored address with stray whitespace would otherwise
+    // fail this check and block a legitimate booking with a 403.
+    if (customerEmail &&
+        String(custCheck[0].email).trim().toLowerCase() !== String(customerEmail).trim().toLowerCase()) {
       return res.status(403).json({ error: 'Klient i pavlefshëm.' });
     }
 
