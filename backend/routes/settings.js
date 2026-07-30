@@ -98,7 +98,7 @@ router.get('/public', async (req, res) => {
       data.location_modes = modes || {};
     } catch (_) { /* non-fatal */ }
 
-    res.set('Cache-Control', 'public, max-age=300');
+    res.set('Cache-Control', 'no-store, no-cache, must-revalidate'); // ndryshimet e admin-it te reflektohen menjehere
     res.json(data);
   } catch (err) { console.error(err); res.status(500).json({ error: 'Gabim i brendshëm.' }); }
 });
