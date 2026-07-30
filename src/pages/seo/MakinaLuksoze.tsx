@@ -18,7 +18,7 @@ export default function MakinaLuksoze() {
   const cars = allCars ?? [];
 
   useSEO({
-    title: "Qira Makinash Luksoze në Tiranë — BMW, Mercedes, Audi nga €80/ditë | Rent Ride",
+    title: "Makina luksoze me qira në Tiranë — BMW, Mercedes, Audi nga €80/ditë",
     description: "Merr me qira në Tiranë automjete premium: BMW, Mercedes-Benz, Audi dhe Porsche duke nisur nga €80/ditë. Perfekte për dasma, evente dhe transferta VIP, me konfirmim të shpejtë.",
     keywords: "makina luksoze me qira tirane, qira BMW Mercedes tirana, luxury car rental albania, car hire tirana luxury, VIP car rental tirana",
     canonical: "/makina-luksoze-me-qira",
@@ -27,7 +27,7 @@ export default function MakinaLuksoze() {
       buildBreadcrumbSchema([
         { name: "Kryefaqja", url: "/" },
         { name: "Flota", url: "/flota" },
-        { name: "Qira Makinash Luksoze", url: "/makina-luksoze-me-qira" },
+        { name: "Makina luksoze me qira", url: "/makina-luksoze-me-qira" },
       ]),
     ],
   });
@@ -43,7 +43,7 @@ export default function MakinaLuksoze() {
             <Crown size={16} weight="fill" /> Premium &amp; Luxury Fleet
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-            Qira Makinash Luksoze<br />
+            Makina luksoze me qira<br />
             <span className="text-primary">BMW · Mercedes · Audi</span>
           </h1>
           <p className="text-lg text-neutral-300 mb-8 max-w-2xl mx-auto leading-relaxed">

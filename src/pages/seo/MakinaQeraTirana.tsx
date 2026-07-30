@@ -17,7 +17,7 @@ export default function MakinaQeraTirana() {
   const { data: cars } = useQuery("Car", { limit: 6 });
 
   useSEO({
-    title: "Makinë me Qira në Tiranë — Nisje nga €25/ditë | Rent Ride",
+    title: "Makina me qira në Tiranë — nga €25/ditë",
     description: "Rezervo makina me qira në Tiranë me çmime transparente që nisin nga €25/ditë. Prenotim online pa ndërprerje, dorëzim te Aeroporti Nënë Tereza apo brenda qytetit, flotë e freskët 2020–2024.",
     keywords: "makina me qira tirane, rent a car tirana, car hire tirana, makinë me qira çmim, makinë me qira online shqiperi",
     canonical: "/makina-me-qira-tirane",
@@ -37,7 +37,7 @@ export default function MakinaQeraTirana() {
             <MapPin size={14} /> Tiranë · Shqipëri
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-            Makinë me Qira në Tiranë
+            Makina me qira në Tiranë
           </h1>
           <p className="text-lg text-white/85 mb-8 max-w-2xl mx-auto leading-relaxed">
             Përzgjidh automjetin, kryeje rezervimin për pak minuta dhe tërhiqe atje ku të leverdis më shumë — te aeroporti ose në zemër të Tiranës. Çmime pa kosto të fshehura dhe asistencë në çdo orë, 24/7.

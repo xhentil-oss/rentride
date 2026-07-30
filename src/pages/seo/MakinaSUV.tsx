@@ -18,7 +18,7 @@ export default function MakinaSUV() {
   const cars = allCars ?? [];
 
   useSEO({
-    title: "SUV me Qira Tiranë — 4x4 e Crossover nga €45/ditë | Rent Ride",
+    title: "SUV me qira në Tiranë — 4x4 dhe crossover nga €45/ditë",
     description: "Zgjidh një SUV apo crossover me qira në Tiranë duke nisur nga €45/ditë. Automjete moderne me kondicioner, GPS dhe sigurim brenda çmimit — perfekte për male, plazh dhe udhëtime familjare. Bëj rezervimin online.",
     keywords: "SUV me qira tirane, 4x4 me qira shqiperi, crossover rent tirana, car hire tirana suv, BMW X5 RAV4 Tucson me qira",
     canonical: "/makina-suv-me-qira",
@@ -27,7 +27,7 @@ export default function MakinaSUV() {
       buildBreadcrumbSchema([
         { name: "Kryefaqja", url: "/" },
         { name: "Flota", url: "/flota" },
-        { name: "SUV me Qira", url: "/makina-suv-me-qira" },
+        { name: "SUV me qira", url: "/makina-suv-me-qira" },
       ]),
     ],
   });
@@ -42,7 +42,7 @@ export default function MakinaSUV() {
             <Mountains size={16} weight="fill" /> SUV &amp; 4x4 — Tiranë
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-            SUV me Qira në Tiranë
+            SUV me qira në Tiranë
           </h1>
           <p className="text-lg text-white/85 mb-8 max-w-2xl mx-auto leading-relaxed">
             Zbulo çdo cep të Shqipërisë me SUV-t tanë të gjindshëm — nga trafiku i qendrës e deri lart në male e buzë detit. Forcë, siguri dhe rehati që të shoqërojnë në çdo rrugë.

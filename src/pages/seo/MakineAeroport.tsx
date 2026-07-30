@@ -20,7 +20,7 @@ const STEPS = [
 
 export default function MakineAeroport() {
   useSEO({
-    title: "Makinë me Qira te Aeroporti Nënë Tereza — Pa Tarifë, 24/7 | Rent Ride",
+    title: "Makina me qira te Aeroporti Nënë Tereza — pa tarifë, 24/7",
     description: "Rezervo makinën me qira dhe merre pikërisht te Aeroporti Ndërkombëtar Nënë Tereza. Ekipi ynë të pret te terminali me emrin tënd, në çdo orë të ditës e pa kosto shtesë. Kryeje rezervimin online sot.",
     keywords: "makinë me qira aeroport tirana, rent a car tirana airport, car hire tirana airport, makine aeroport nene tereza, car rental tirana international airport albania",
     canonical: "/makine-me-qira-aeroport",
@@ -28,7 +28,7 @@ export default function MakineAeroport() {
       buildFAQSchema(AIRPORT_FAQ),
       buildBreadcrumbSchema([
         { name: "Kryefaqja", url: "/" },
-        { name: "Makinë me Qira te Aeroporti", url: "/makine-me-qira-aeroport" },
+        { name: "Makina me qira te aeroporti", url: "/makine-me-qira-aeroport" },
       ]),
     ],
   });
@@ -42,7 +42,7 @@ export default function MakineAeroport() {
             <AirplaneTilt size={16} /> Aeroporti Ndërkombëtar Nënë Tereza
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Makinë me Qira te Aeroporti i Tiranës
+            Makina me qira te Aeroporti i Tiranës
           </h1>
           <p className="text-lg text-neutral-200 mb-8 max-w-2xl mx-auto">
             Merre dhe ktheje automjetin pa ndërprerje, gjatë gjithë ditës e natës, pikërisht te Aeroporti Ndërkombëtar Nënë Tereza. Asnjë rresht pritjeje, asnjë siklet — thjesht rrëmbe çelësat dhe vazhdo udhëtimin.

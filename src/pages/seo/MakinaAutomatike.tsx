@@ -18,8 +18,8 @@ export default function MakinaAutomatike() {
   const cars = allCars ?? [];
 
   useSEO({
-    title: "Makina Automatike me Qira Tiranë — çmime nga €35/ditë | Rent Ride",
-    description: "Qira makinash automatike në Tiranë duke filluar nga €35/ditë. Zgjidh mes kutive DSG, CVT dhe versioneve hibride — komode në trafik dhe perfekte për vizitorët nga jashtë. Bëje rezervimin online.",
+    title: "Makina automatike me qira në Tiranë — nga €35/ditë",
+    description: "Makina automatike me qira në Tiranë nga €35/ditë. Zgjidh mes kutive DSG, CVT dhe versioneve hibride — komode në trafik dhe perfekte për vizitorët nga jashtë. Bëje rezervimin online.",
     keywords: "makina automatike me qira tirane, automatic car rental tirana, car hire tirana automatic, makinë DSG qira shqiperi, hibrid me qira tirana",
     canonical: "/makina-automatike-me-qira",
     structuredData: [
@@ -27,7 +27,7 @@ export default function MakinaAutomatike() {
       buildBreadcrumbSchema([
         { name: "Kryefaqja", url: "/" },
         { name: "Flota", url: "/flota" },
-        { name: "Qira Makinash Automatike", url: "/makina-automatike-me-qira" },
+        { name: "Makina automatike me qira", url: "/makina-automatike-me-qira" },
       ]),
     ],
   });
@@ -42,7 +42,7 @@ export default function MakinaAutomatike() {
             <Gear size={16} weight="fill" /> Kuti Marshi Automatike
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-            Makina Automatike me Qira
+            Makina automatike me qira
           </h1>
           <p className="text-lg text-white/85 mb-8 max-w-2xl mx-auto leading-relaxed">
             Ngasje pa tension në Tiranë dhe në çdo cep të Shqipërisë. Falë kutive automatike DSG e CVT, çdo rrugëtim rrjedh butësisht — si në trafikun e qytetit, ashtu edhe në autostradë.

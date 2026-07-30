@@ -67,8 +67,8 @@
   "home": {
     "promoBanner": "<strong>Ofertë flash:</strong> Rezervo brenda 24 orëve dhe kurse <strong>-10%</strong> me kodin",
     "hero": {
-      "title": "Qira Makinash — Aeroporti i Tiranës (TIA).",
-      "titleHighlight": "Marrje Falas. Konfirmim në Çast.",
+      "title": "Makina me qira në Tiranë dhe në aeroport",
+      "titleHighlight": "Marrja falas, konfirmim në çast",
       "subtitle": "Rezervo makinën tënde me qira direkt te Aeroporti i Tiranës (TIA) ose brenda qytetit — marrja mbetet pa pagesë. Nis nga €25/ditë me çmime krejt transparente, konfirmim në çast dhe asnjë shpenzim të fshehur.",
       "pickupFrom": "Merrni nga",
       "returnTo": "Dorëzoni në",
@@ -296,7 +296,7 @@
       "contactUs": "Na kontaktoni"
     },
     "seo": {
-      "title": "Qira Makinash në Tiranë dhe Aeroport — Marrje pa Pagesë | Rent Ride",
+      "title": "Makina me qira në Tiranë dhe aeroport — marrja falas",
       "description": "Merr makinë me qira në Tiranë dhe Aeroportin Nënë Tereza (TIA), marrje pa pagesë. Çmime nga €25/ditë, zero kosto të fshehura dhe rezervim online brenda 2 minutave.",
       "keywords": "makina me qira tirane, car hire tirana, makinë me qira aeroport, qira makine tirana airport, rent a car tirana"
     },
@@ -370,9 +370,9 @@
     ],
     "removeFilter": "Hiq filtrin {{label}}",
     "seo": {
-      "titleCategory": "Qira Makinash {{category}} në Tiranë",
-      "titleDefaultCount": "Zgjidh nga {{count}} Makina — Flota Jonë",
-      "titleDefaultEmpty": "Flota Jonë e Makinave me Qira",
+      "titleCategory": "Makina {{category}} me qira në Tiranë",
+      "titleDefaultCount": "Zgjidh nga {{count}} makina me qira — flota jonë",
+      "titleDefaultEmpty": "Flota jonë e makinave me qira",
       "descCategory": "Merr me qira makina {{category}} në Tiranë. Rezervim online, çmime të qarta dhe marrje nga aeroporti.",
       "descDefaultCount": "Shfleto {{count}} modele makinash me qira në Tiranë dhe filtroji sipas kategorisë, çmimit e transmetimit.",
       "descDefaultEmpty": "Shfleto flotën tonë të makinave me qira në Tiranë dhe filtroji sipas kategorisë, çmimit e transmetimit.",
@@ -534,10 +534,10 @@
       "zoomOut": "Zvogëlo foton"
     },
     "seo": {
-      "title": "Qira {{brand}} {{model}} {{year}} në Tiranë — nga €{{price}}/ditë | Rent Ride",
+      "title": "{{brand}} {{model}} {{year}} me qira në Tiranë — nga €{{price}}/ditë",
       "description": "Rezervo {{brand}} {{model}} ({{year}}) me qira në Tiranë nga €{{price}}/ditë. {{category}}, {{transmission}}, karburant {{fuel}} dhe marrje falas nga aeroporti, 24/7.",
       "keywords": "{{brand}} {{model}} me qira tirane, {{category}} me qira shqiperi, qira {{brand}} tirana airport",
-      "fallbackTitle": "Qira Makinash në Tiranë",
+      "fallbackTitle": "Makina me qira në Tiranë",
       "fallbackDesc": "Shërbimi kryesor për makina me qira në Tiranë."
     },
     "availability": {
@@ -779,7 +779,7 @@
       "minDays": "Minimumi i rezervimit është {{count}} ditë."
     },
     "seo": {
-      "title": "Rezervim Online i Makinës — Konfirmim në Çast | Rent Ride",
+      "title": "Rezervo makinën online — konfirmim në çast",
       "description": "Përfundo rezervimin e makinës me qira online: plotëso të dhënat, zgjidh sigurimin e shtesat dhe firmos kontratën dixhitale. Merr konfirmimin në çast me email.",
       "keywords": "rezervo makinë online tirana, booking car hire tirana, car rental reservation albania"
     },
@@ -926,7 +926,7 @@
     },
     "hoursAllDays": "Çdo ditë",
     "seo": {
-      "title": "Kontaktoni Rent Ride",
+      "title": "Kontakt — telefon, email dhe formular",
       "description": "Kontakto Rent Ride për rezervime, pyetje ose ndihmë. Na shkruaj në telefon +355 69 81 45 803, me email apo formularin online. Të pranishëm 24/7.",
       "keywords": "kontakt car hire tirana, telefon makina me qira, email car rental albania, na kontaktoni",
       "breadcrumbHome": "Kryefaqja",

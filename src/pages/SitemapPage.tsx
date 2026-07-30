@@ -45,7 +45,7 @@ function priorityColor(p: string) {
 
 export default function SitemapPage() {
   useSEO({
-    title: "Harta e Faqes (Sitemap) — Rent Ride",
+    title: "Harta e faqes",
     description: "Lista e plotë e të gjitha faqeve të Rent Ride. Sitemap dinamik me të gjitha makinat dhe faqet SEO.",
     canonical: "/sitemap",
   });

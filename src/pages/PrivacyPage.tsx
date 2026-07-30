@@ -5,7 +5,7 @@ import { ADDRESS_LINE } from "../lib/seo";
 
 export default function PrivacyPage() {
   useSEO({
-    title: "Politika e Privatësisë — Rent Ride",
+    title: "Politika e privatësisë",
     description: "Si Rent Ride mbledh, përdor dhe mbron të dhënat tuaja personale. Sipas GDPR dhe ligjit shqiptar për mbrojtjen e të dhënave.",
     keywords: "politika privatesi, mbrojtja te dhenave, GDPR, rent car tirana",
     canonical: "/privatesie",

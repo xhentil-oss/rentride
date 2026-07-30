@@ -4,7 +4,7 @@ import { useSEO } from "../hooks/useSEO";
 
 export default function TermsPage() {
   useSEO({
-    title: "Kushtet e Shërbimit — Rent Ride",
+    title: "Kushtet e shërbimit",
     description: "Lexoni kushtet e shërbimit të Rent Ride: rregullat e qirasë, politikat e faturimit, dhe të drejtat e klientit.",
     keywords: "kushtet e sherbimit, makinë me qira kushte, car hire tirana kushte",
     canonical: "/termat-e-sherbimit",

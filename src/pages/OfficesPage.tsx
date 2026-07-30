@@ -64,7 +64,7 @@ function getDirectionsUrl(office: Office): string {
 
 export default function OfficesPage() {
   useSEO({
-    title: "Zyra jonë — Rent Ride",
+    title: "Zyra jonë te Aeroporti i Tiranës",
     description: `Na gjen te Aeroporti Ndërkombëtar Nënë Tereza — ${ADDRESS_LINE}. Shih hartën, drejtimet dhe orarin 24/7.`,
     keywords:
       "zyra car hire tirana, vendndodhja, harta, car hire aeroporti tirana, drejtimet",
