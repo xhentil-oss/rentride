@@ -180,8 +180,8 @@ Nëse ndonjë dispozitë e këtyre kushteve çmohet e paligjshme ose e pazbatues
         <div className="mt-12 p-5 bg-primary/5 border border-primary/20 rounded-xl">
           <p className="text-sm text-neutral-700">
             <strong>Pyetje rreth këtyre kushteve?</strong> Kontaktoni departamentin tonë ligjor në{" "}
-            <a href="mailto:rentcaralbania23@gmail.com" className="text-primary hover:underline no-underline">
-              rentcaralbania23@gmail.com
+            <a href="mailto:info@rentride.al" className="text-primary hover:underline no-underline">
+              info@rentride.al
             </a>{" "}
             ose vizitoni faqen tonë të{" "}
             <LLink to="/kontakt" className="text-primary hover:underline no-underline">

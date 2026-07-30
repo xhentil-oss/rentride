@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Rent Ride">
+  <title>Rent Ride</title>
+  <defs>
+    <linearGradient id="i" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff531b"/>
+      <stop offset="1" stop-color="#ffa31a"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#i)"/>
+  <g transform="translate(96 96) scale(5)">
+    <path d="M15 40h34l-5 11H10l5-11z" fill="#ffffff" opacity=".95"/>
+    <path d="M16 22h32a10 10 0 0 1 9 7l3 9H13l-3-9a10 10 0 0 1 6-7z" fill="#ffffff"/>
+    <circle cx="22" cy="45" r="5.5" fill="#ff531b"/>
+    <circle cx="45" cy="45" r="5.5" fill="#ff531b"/>
+  </g>
+</svg>

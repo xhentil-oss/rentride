@@ -168,11 +168,32 @@ app.get('/sitemap.xml', async (req, res) => {
     const BASE = 'https://rentride.al';
     const today = new Date().toISOString().slice(0, 10);
 
-    const [cars]  = await pool.query("SELECT slug, updated_at FROM cars WHERE status != 'Deleted' ORDER BY created_at");
-    const [posts] = await pool.query("SELECT slug, updated_at FROM blog_posts WHERE status = 'published' ORDER BY created_at DESC").catch(() => [[]]);
+    const [cars]  = await pool.query("SELECT slug, brand, model, year, image, updated_at FROM cars WHERE status != 'Deleted' ORDER BY created_at");
+    const [posts] = await pool.query("SELECT slug, title_sq, cover_image, updated_at FROM blog_posts WHERE status = 'published' ORDER BY created_at DESC").catch(() => [[]]);
 
     const escXml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     const fmtDate = (d) => d ? new Date(d).toISOString().slice(0, 10) : today;
+
+    // Only absolute http(s) URLs are valid in an image sitemap. Uploads are
+    // stored as site-relative paths, and base64 data URLs must be skipped.
+    const absImage = (src) => {
+      if (!src || typeof src !== 'string') return null;
+      if (src.startsWith('data:')) return null;
+      if (/^https?:\/\//i.test(src)) return src;
+      if (src.startsWith('/')) return BASE + src;
+      return null;
+    };
+
+    const imageBlock = (src, title, caption) => {
+      const url = absImage(src);
+      if (!url) return '';
+      return `
+    <image:image>
+      <image:loc>${escXml(url)}</image:loc>
+      <image:title>${escXml(title)}</image:title>
+      <image:caption>${escXml(caption)}</image:caption>
+    </image:image>`;
+    };
 
     const LANGS = ['sq', 'en', 'fr', 'es', 'it'];
 
@@ -198,16 +219,19 @@ app.get('/sitemap.xml', async (req, res) => {
       LANGS.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${escXml(BASE + slugs[l])}" />`).join('\n') +
       `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${escXml(BASE + slugs.sq)}" />`;
 
-    const urlEntry = ({ loc, slugs, lastmod, freq, pri }) => `
+    const urlEntry = ({ loc, slugs, lastmod, freq, pri, images = '' }) => `
   <url>
     <loc>${escXml(BASE + loc)}</loc>
 ${hreflangLinks(slugs)}
     <lastmod>${lastmod}</lastmod>
     <changefreq>${freq}</changefreq>
-    <priority>${pri}</priority>
+    <priority>${pri}</priority>${images}
   </url>`;
 
-    let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n`;
+    // The image namespace turns every car photo into an indexable asset —
+    // Google Images is a meaningful discovery surface for a rental fleet, and
+    // it costs nothing beyond declaring the images we already serve.
+    let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n`;
 
     // Static pages — one <url> per language
     for (const { slugs, pri, freq } of staticUrls) {
@@ -219,7 +243,13 @@ ${hreflangLinks(slugs)}
       const s = escXml(car.slug);
       const slugs = { sq: `/makina/${s}`, en: `/en/car/${s}`, fr: `/fr/voiture/${s}`, es: `/es/coche/${s}`, it: `/it/auto/${s}` };
       const lastmod = fmtDate(car.updated_at);
-      for (const l of LANGS) xml += urlEntry({ loc: slugs[l], slugs, lastmod, freq: 'weekly', pri: '0.8' });
+      const label = `${car.brand} ${car.model} ${car.year}`.trim();
+      const images = imageBlock(
+        car.image,
+        `${label} — makinë me qira në Tiranë`,
+        `${label} me qira nga Rent Ride, e disponueshme në Tiranë dhe Aeroportin Nënë Tereza.`,
+      );
+      for (const l of LANGS) xml += urlEntry({ loc: slugs[l], slugs, lastmod, freq: 'weekly', pri: '0.8', images });
     }
 
     // Blog posts
@@ -227,7 +257,8 @@ ${hreflangLinks(slugs)}
       const s = escXml(post.slug);
       const slugs = { sq: `/blog/${s}`, en: `/en/blog/${s}`, fr: `/fr/blog/${s}`, es: `/es/blog/${s}`, it: `/it/blog/${s}` };
       const lastmod = fmtDate(post.updated_at);
-      for (const l of LANGS) xml += urlEntry({ loc: slugs[l], slugs, lastmod, freq: 'monthly', pri: '0.7' });
+      const images = imageBlock(post.cover_image, post.title_sq || 'Rent Ride blog', post.title_sq || 'Rent Ride blog');
+      for (const l of LANGS) xml += urlEntry({ loc: slugs[l], slugs, lastmod, freq: 'monthly', pri: '0.7', images });
     }
 
     xml += `\n</urlset>`;

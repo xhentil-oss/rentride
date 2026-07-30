@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import LLink from "../components/LLink";
 import { useLocale } from "../hooks/useLocale";
 import { useTranslation } from "react-i18next";
-import { useSEO, buildCarProductSchema, buildBreadcrumbSchema } from "../hooks/useSEO";
+import { useSEO, buildCarProductSchema, buildBreadcrumbSchema, SITE_URL } from "../hooks/useSEO";
 import {
   Users,
   Briefcase,
@@ -258,6 +258,22 @@ export default function CarDetailPage() {
     return seasonalPricePerDay;
   }, [car?.id, car?.category, car?.pricePerDay, monthlyRatesPublic, seasonalPricePerDay, startDateObj]);
 
+  // Rating for Product schema — real review data only (Google Places first, then
+  // approved DB reviews). Never the i18n placeholder reviews and never a
+  // hardcoded score: fabricated aggregateRating is a Google spam-policy
+  // violation and risks losing rich results across the whole domain.
+  const schemaRating = useMemo(() => {
+    const gd = googleData as { rating?: number; totalRatings?: number } | null;
+    if (gd?.rating && gd.rating > 0 && (gd.totalRatings ?? 0) > 0) {
+      return { value: gd.rating, count: gd.totalRatings as number };
+    }
+    if (dbReviews && dbReviews.length > 0) {
+      const sum = dbReviews.reduce((s, r) => s + (r.rating || 0), 0);
+      return { value: sum / dbReviews.length, count: dbReviews.length };
+    }
+    return null;
+  }, [googleData, dbReviews]);
+
   // Dynamic SEO per car — called unconditionally (hooks rule)
   useSEO(
     car
@@ -269,15 +285,15 @@ export default function CarDetailPage() {
           ogImage: car.image,
           ogType: "product",
           structuredData: [
-            // Use the global business rating as a sensible default for per-car
-            // schema (matches LocalBusiness aggregateRating); when per-car
-            // reviews are loaded later, the page-level UI shows them.
-            buildCarProductSchema({ ...car, rating: { value: 4.9, count: 500 } }),
-            buildBreadcrumbSchema([
-              { name: t("carDetail.breadcrumb.home"), url: "/" },
-              { name: t("carDetail.breadcrumb.fleet"), url: "/flota" },
-              { name: `${car.brand} ${car.model}`, url: `/makina/${car.slug}` },
-            ]),
+            buildCarProductSchema({ ...car, rating: schemaRating }),
+            buildBreadcrumbSchema(
+              [
+                { name: t("carDetail.breadcrumb.home"), url: "/" },
+                { name: t("carDetail.breadcrumb.fleet"), url: "/flota" },
+                { name: `${car.brand} ${car.model}`, url: `/makina/${car.slug}` },
+              ],
+              `${SITE_URL}/makina/${car.slug}`,
+            ),
           ],
         }
       : {

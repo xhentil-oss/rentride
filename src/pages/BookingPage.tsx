@@ -183,14 +183,21 @@ function SeasonalPriceTable({ basePrice }: { basePrice: number }) {
 
 export default function BookingPage() {
   const { t, i18n } = useTranslation();
+  const [searchParams] = useSearchParams();
+
+  // The bare /rezervo landing page is a legitimate entry point and stays
+  // indexable. Pre-filled variants (?car=&pickup=&start=…) are near-infinite
+  // permutations of the same form, so they are noindexed and canonicalised back
+  // to /rezervo — otherwise Googlebot burns crawl budget on duplicate checkouts.
+  const isPrefilledCheckout = searchParams.toString().length > 0;
   useSEO({
     title: t("booking.seo.title"),
     description: t("booking.seo.description"),
     keywords: t("booking.seo.keywords"),
     canonical: "/rezervo",
+    noindex: isPrefilledCheckout,
   });
 
-  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const { localePath } = useLocale();
   const { data: allCars } = useQuery("Car");

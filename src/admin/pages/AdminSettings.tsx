@@ -28,7 +28,7 @@ const SECTIONS: { id: string; title: string; icon: React.ElementType; descriptio
     description: "Informacione bazë të biznesit që shfaqen në faqe, kontratë, dhe emaile.",
     fields: [
       { key: "company_name", label: "Emri i kompanisë", placeholder: "Rent Ride" },
-      { key: "company_email", label: "Email kontakti", type: "email", placeholder: "rentcaralbania23@gmail.com" },
+      { key: "company_email", label: "Email kontakti", type: "email", placeholder: "info@rentride.al" },
       { key: "company_phone", label: "Numri telefonit", placeholder: "+355 69 81 45 803" },
       { key: "company_address", label: "Adresa", placeholder: "Rruga e Durrësit, Tiranë, Shqipëri" },
       { key: "company_website", label: "Website", placeholder: "https://rentride.al" },

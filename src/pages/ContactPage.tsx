@@ -15,6 +15,7 @@ import {
   InstagramLogo,
 } from "@phosphor-icons/react";
 import { useSEO, buildLocalBusinessSchema, buildBreadcrumbSchema } from "../hooks/useSEO";
+import { ADDRESS_LINE } from "../lib/seo";
 
 type FormState = {
   name: string;
@@ -161,7 +162,7 @@ export default function ContactPage() {
                     <p className="text-xs font-semibold text-neutral-500 uppercase tracking-wide mb-1.5">{t("contactPage.addresses")}</p>
                     <ul className="space-y-1.5">
                       <li className="text-sm text-neutral-700 leading-snug">
-                        Rruga Nënë Tereza, Tiranë 1504
+                        {ADDRESS_LINE}
                       </li>
                     </ul>
                   </div>
@@ -183,8 +184,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs font-semibold text-neutral-500 uppercase tracking-wide mb-0.5">Email</p>
-                <a href="mailto:rentcaralbania23@gmail.com" className="text-sm text-neutral-700 hover:text-primary transition-colors no-underline">
-                rentcaralbania23@gmail.com
+                <a href="mailto:info@rentride.al" className="text-sm text-neutral-700 hover:text-primary transition-colors no-underline">
+                info@rentride.al
                     </a>
                   </div>
                 </li>

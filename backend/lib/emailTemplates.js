@@ -1,7 +1,7 @@
 const COMPANY = {
   name: 'Rent Ride',
   phone: '+355 69 81 45 803',
-  email: 'rentcaralbania23@gmail.com',
+  email: 'info@rentride.al',
   website: 'https://rentride.al',
 };
 

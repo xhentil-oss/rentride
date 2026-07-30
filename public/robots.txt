@@ -1,11 +1,91 @@
+# ─── Rent Ride — rentride.al ──────────────────────────────────────────────
+# Crawl policy. Anything that must stay out of the index also carries a
+# meta robots=noindex (see src/hooks/useSEO.ts): a Disallow only blocks
+# crawling, it does NOT remove a URL Google already knows about.
+
 User-agent: *
 Allow: /
+
+# Admin & API — no crawl value, and the API answers JSON.
+Disallow: /admin
 Disallow: /admin/
+Disallow: /api/
+
+# Authenticated / transactional areas (all languages).
 Disallow: /llogaria
 Disallow: /en/my-account
+Disallow: /fr/mon-compte
+Disallow: /es/mi-cuenta
+Disallow: /it/account
 Disallow: /faleminderit
 Disallow: /en/thank-you
+Disallow: /fr/merci
+Disallow: /es/gracias
+Disallow: /it/grazie
 Disallow: /reset-password
 Disallow: /en/reset-password
+Disallow: /fr/reset-password
+Disallow: /es/reset-password
+Disallow: /it/reset-password
+
+# Pre-filled checkout permutations — near-infinite duplicates of one form.
+Disallow: /rezervo?
+Disallow: /en/book?
+Disallow: /fr/reserver?
+Disallow: /es/reservar?
+Disallow: /it/prenota?
+
+# Tracking / session parameters. These never change the page, they only
+# multiply it — the classic way a site burns its crawl budget.
+Disallow: /*?*utm_source=
+Disallow: /*?*utm_medium=
+Disallow: /*?*utm_campaign=
+Disallow: /*?*gclid=
+Disallow: /*?*fbclid=
+Disallow: /*?*msclkid=
+
+# Assets crawlers must be able to fetch — blocking these breaks Google's
+# ability to render the SPA and judge mobile-friendliness.
+Allow: /assets/
+Allow: /uploads/
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.svg$
+Allow: /*.webp$
+Allow: /*.jpg$
+Allow: /*.png$
+
+# ─── AI / assistant crawlers ──────────────────────────────────────────────
+# Allowed on purpose: assistant answers are a real referral channel for local
+# car rental. Switch any of these to `Disallow: /` if the business decides
+# it does not want its content used for training or grounding.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# ─── Aggressive SEO scrapers ──────────────────────────────────────────────
+# Server load with no traffic in return.
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
 
 Sitemap: https://rentride.al/sitemap.xml

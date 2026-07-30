@@ -10,6 +10,7 @@ import {
   Buildings,
 } from "@phosphor-icons/react";
 import { useSEO, buildLocalBusinessSchema, buildBreadcrumbSchema } from "../hooks/useSEO";
+import { ADDRESS_LINE, NAP, CONTACT } from "../lib/seo";
 
 type Office = {
   badge: string;
@@ -29,14 +30,17 @@ const OFFICES: Office[] = [
   {
     badge: "Aeroporti i Tiranës",
     name: "Rent Ride — Aeroporti Nënë Tereza",
-    address: "Rruga Nënë Tereza, Tiranë 1504",
+    address: ADDRESS_LINE,
     hours: "Çdo ditë · 24/7",
-    lat: 41.4162848,
-    lng: 19.709965,
+    lat: Number(NAP.latitude),
+    lng: Number(NAP.longitude),
     zoom: 15,
-    query: "Rent Ride Airport Rruga Nënë Tereza",
-    phone: "+355698145803",
-    embedSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.0568396123613!2d19.709965000000004!3d41.4162848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13502d88a88e9d61%3A0xd3d7157ebb2db8b8!2sRental%20Car%20Albania!5e0!3m2!1sen!2s!4v1781871963210!5m2!1sen!2s",
+    query: `Rent Ride, ${ADDRESS_LINE}`,
+    phone: CONTACT.phone,
+    // Built from the address instead of a baked-in Google place ID: the previous
+    // hardcoded embed pinned a *different* company's listing, which both misled
+    // visitors and tied this page's local signals to another brand's entity.
+    embedSrc: `https://www.google.com/maps?q=${encodeURIComponent(`Rent Ride, ${ADDRESS_LINE}`)}&z=15&output=embed`,
   },
 ];
 
@@ -61,8 +65,7 @@ function getDirectionsUrl(office: Office): string {
 export default function OfficesPage() {
   useSEO({
     title: "Zyra jonë — Rent Ride",
-    description:
-      "Na gjen te Aeroporti Ndërkombëtar Nënë Tereza, Rruga Nënë Tereza, Tiranë 1504. Shih hartën, drejtimet dhe orarin 24/7.",
+    description: `Na gjen te Aeroporti Ndërkombëtar Nënë Tereza — ${ADDRESS_LINE}. Shih hartën, drejtimet dhe orarin 24/7.`,
     keywords:
       "zyra car hire tirana, vendndodhja, harta, car hire aeroporti tirana, drejtimet",
     canonical: "/zyrat",

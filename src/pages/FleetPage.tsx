@@ -1,6 +1,12 @@
 import React, { useState, useMemo, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useSEO } from "../hooks/useSEO";
+import {
+  useSEO,
+  buildItemListSchema,
+  buildFAQSchema,
+  buildBreadcrumbSchema,
+  SITE_URL,
+} from "../hooks/useSEO";
 import { X, FunnelSimple, SortAscending, CaretDown } from "@phosphor-icons/react";
 import { useQuery } from "../hooks/useApi";
 import { useTranslation } from "react-i18next";
@@ -95,13 +101,6 @@ export default function FleetPage() {
     ? t("fleet.seo.descDefaultCount", { count: cars.length })
     : t("fleet.seo.descDefaultEmpty");
 
-  useSEO({
-    title: fleetTitle,
-    description: fleetDesc,
-    keywords: t("fleet.seo.keywords"),
-    canonical: "/flota",
-  });
-
   const categories = ["Ekonomike", "SUV", "Luksoze", "Familjare", "Automatike"];
   const transmissions = ["Automatike", "Manuale"];
   const fuels = ["Benzinë", "Naftë", "Hibrid", "Elektrik"];
@@ -127,6 +126,48 @@ export default function FleetPage() {
     (page - 1) * ITEMS_PER_PAGE,
     page * ITEMS_PER_PAGE,
   );
+
+  // Listing schema — an ItemList of the visible cars is what makes this page
+  // eligible for Google's product carousel instead of a plain blue link.
+  const itemListSchema = useMemo(
+    () =>
+      buildItemListSchema({
+        name: fleetTitle,
+        items: paginated.map((car) => ({
+          name: `${car.brand} ${car.model} ${car.year}`,
+          url: `/makina/${car.slug}`,
+          image: car.image,
+          price: car.pricePerDay,
+        })),
+      }),
+    [paginated, fleetTitle],
+  );
+
+  // Only `kategoria` and `transmision` live in the URL, so those are the only
+  // crawlable facets. Every facet view canonicalises to /flota; two-facet combos
+  // are additionally noindexed since dedicated landing pages
+  // (/makina-suv-me-qira, /makina-automatike-me-qira, …) already target those
+  // queries far better and shouldn't compete with a filtered listing.
+  const isFacetCombo = Boolean(activeCategory && activeTransmission);
+
+  useSEO({
+    title: fleetTitle,
+    description: fleetDesc,
+    keywords: t("fleet.seo.keywords"),
+    canonical: "/flota",
+    noindex: isFacetCombo,
+    structuredData: [
+      itemListSchema,
+      buildFAQSchema(faqItems),
+      buildBreadcrumbSchema(
+        [
+          { name: t("carDetail.breadcrumb.home", { defaultValue: "Kryefaqja" }), url: "/" },
+          { name: t("carDetail.breadcrumb.fleet", { defaultValue: "Flota" }), url: "/flota" },
+        ],
+        `${SITE_URL}/flota`,
+      ),
+    ],
+  });
 
   const clearFilters = () => {
     setActiveCategory("");

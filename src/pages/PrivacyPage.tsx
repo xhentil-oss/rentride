@@ -1,6 +1,7 @@
 import LLink from "../components/LLink";
 import { ArrowLeft, Lock, Eye, Database, Bell, Trash } from "@phosphor-icons/react";
 import { useSEO } from "../hooks/useSEO";
+import { ADDRESS_LINE } from "../lib/seo";
 
 export default function PrivacyPage() {
   useSEO({
@@ -20,9 +21,9 @@ export default function PrivacyPage() {
   const sections = [
     {
       title: "1. Kontrolluesi i të Dhënave",
-      content: `Rent Ride, me adresë Rruga Nënë Tereza, Tiranë 1504, Shqipëri, është kontrollues i të dhënave personale sipas Ligjit Nr. 9887 "Për Mbrojtjen e të Dhënave Personale" dhe Rregullores (BE) 2016/679 (GDPR).
+      content: `Rent Ride, me adresë ${ADDRESS_LINE}, Shqipëri, është kontrollues i të dhënave personale sipas Ligjit Nr. 9887 "Për Mbrojtjen e të Dhënave Personale" dhe Rregullores (BE) 2016/679 (GDPR).
 
-Mund të na kontaktoni për çdo pyetje mbi privatësinë në: rentcaralbania23@gmail.com`,
+Mund të na kontaktoni për çdo pyetje mbi privatësinë në: info@rentride.al`,
     },
     {
       title: "2. Të Dhënat që Mbledhim",
@@ -114,7 +115,7 @@ Pas skadimit të periudhës, të dhënat fshihen ose anonim izohen automatikisht
 📦 Portabilitetit: Të merrni të dhënat tuaja në format të lexueshëm mashinë
 ❌ Kundërshtimit: Të kundërshtoni procesimin për marketing direkt
 
-Për të ushtruar këto të drejta, dërgoni email tek: rentcaralbania23@gmail.com
+Për të ushtruar këto të drejta, dërgoni email tek: info@rentride.al
 
 Do t'ju përgjigjemi brenda 30 ditëve. Nëse jeni të pakënaqur me përgjigjen, mund të ankoheni tek Komisioneri për të Drejtën e Informimit dhe Mbrojtjen e të Dhënave (KDIM): www.idp.al`,
     },
@@ -242,8 +243,8 @@ Vazhdimi i përdorimit të shërbimeve tona pas ndryshimeve nënkupton pranimin 
         <div className="mt-12 p-5 bg-blue-50 border border-blue-200 rounded-xl">
           <p className="text-sm text-neutral-700">
             <strong>Kontakt DPO (Data Protection Officer):</strong>{" "}
-            <a href="mailto:rentcaralbania23@gmail.com" className="text-primary hover:underline no-underline">
-              rentcaralbania23@gmail.com
+            <a href="mailto:info@rentride.al" className="text-primary hover:underline no-underline">
+              info@rentride.al
             </a>
             {" "}— Ankesa tek KDIM:{" "}
             <a href="https://www.idp.al" target="_blank" rel="noreferrer" className="text-primary hover:underline no-underline">

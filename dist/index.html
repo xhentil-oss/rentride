@@ -4,13 +4,36 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Default SEO (overridden dynamically per page via useSEO hook) -->
-    <title>Makina me Qira Tiranë & Aeroport | Rent Ride</title>
-    <meta name="description" content="Merr makinë me qira në Tiranë me marrje falas nga aeroporti ose qyteti. Tarifa të qarta nga €25/ditë, rezervim online 24/7, pa kosto të fshehura." />
-    <meta name="keywords" content="makina me qira tirane, car hire tirana, makinë me qira aeroport, qira makine shqiperi, rent a car tirana" />
-    <meta name="robots" content="index, follow" />
+    <!--
+      Rent Ride — static head.
+      Page-level tags (title/description/canonical/hreflang/JSON-LD) are replaced
+      at runtime by src/hooks/useSEO.ts. What lives here is (a) the crawl-time
+      fallback for bots that don't execute JS, and (b) the site-wide entity graph.
+
+      ⚠️  Keep the JSON-LD @graph below in sync with src/lib/seo.ts (buildSiteGraph).
+      It is static on purpose: the Organization/WebSite/AutoRental identity must be
+      present in the raw HTML response, before any JavaScript runs.
+    -->
+
+    <!-- Default SEO (overridden per page via useSEO) -->
+    <title>Makina me Qira në Tiranë & Aeroport — nga €25/ditë | Rent Ride</title>
+    <meta
+      name="description"
+      content="Rent Ride jep makina me qira në Tiranë dhe Aeroportin Nënë Tereza (TIA), me dorëzim pa pagesë. Çmime të deklaruara paraprakisht nga €25/ditë, sigurim i përfshirë, rezervim online 24/7."
+    />
+    <meta
+      name="keywords"
+      content="makina me qira tirane, rent ride, makinë me qira aeroport nënë tereza, qira makine shqiperi, rent a car tirana, makina automatike me qira"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="author" content="Rent Ride" />
+    <meta name="publisher" content="Rent Ride" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="format-detection" content="telephone=yes" />
     <link rel="canonical" href="https://rentride.al/" />
+
+    <!-- Hreflang cluster -->
     <link rel="alternate" hreflang="sq" href="https://rentride.al/" />
     <link rel="alternate" hreflang="en" href="https://rentride.al/en" />
     <link rel="alternate" hreflang="fr" href="https://rentride.al/fr" />
@@ -18,80 +41,226 @@
     <link rel="alternate" hreflang="it" href="https://rentride.al/it" />
     <link rel="alternate" hreflang="x-default" href="https://rentride.al/" />
 
+    <!-- Brand / PWA -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icon-512.svg" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#ff531b" />
+    <meta name="apple-mobile-web-app-title" content="Rent Ride" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Rent Ride" />
+
+    <!-- Connection warm-up for the image + font origins used above the fold.
+         Saves a full DNS+TLS round trip on LCP, which feeds Core Web Vitals. -->
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Makina me Qira Tiranë & Aeroport | Rent Ride" />
-    <meta property="og:description" content="Makinë me qira në Tiranë me marrje falas nga aeroporti. Tarifa nga €25/ditë, rezervim online 24/7." />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200&q=80" />
+    <meta property="og:title" content="Makina me Qira në Tiranë & Aeroport — nga €25/ditë | Rent Ride" />
+    <meta
+      property="og:description"
+      content="Dorëzim pa pagesë në Aeroportin Nënë Tereza dhe brenda Tiranës. Çmime të deklaruara paraprakisht nga €25/ditë, sigurim i përfshirë, rezervim online 24/7."
+    />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&h=630&fit=crop&q=80" />
+    <meta property="og:image:secure_url" content="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&h=630&fit=crop&q=80" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="Makina me qira Rent Ride — flotë moderne në Tiranë dhe Aeroportin Nënë Tereza" />
     <meta property="og:url" content="https://rentride.al/" />
     <meta property="og:site_name" content="Rent Ride" />
     <meta property="og:locale" content="sq_AL" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="it_IT" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta property="og:locale:alternate" content="es_ES" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Makina me Qira Tiranë & Aeroport | Rent Ride" />
-    <meta name="twitter:description" content="Makinë me qira në Tiranë nga €25/ditë — marrje falas nga aeroporti, 24/7." />
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200&q=80" />
+    <meta name="twitter:title" content="Makina me Qira në Tiranë & Aeroport — nga €25/ditë | Rent Ride" />
+    <meta
+      name="twitter:description"
+      content="Dorëzim pa pagesë në Aeroportin Nënë Tereza. Çmime nga €25/ditë, sigurim i përfshirë, rezervim online 24/7."
+    />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&h=630&fit=crop&q=80" />
+    <meta name="twitter:image:alt" content="Makina me qira Rent Ride në Tiranë" />
 
     <!-- Geo targeting -->
     <meta name="geo.region" content="AL-11" />
-    <meta name="geo.placename" content="Tiranë" />
+    <meta name="geo.placename" content="Rinas, Tiranë" />
     <meta name="geo.position" content="41.4162848;19.709965" />
     <meta name="ICBM" content="41.4162848, 19.709965" />
 
-    <!-- Static LocalBusiness + WebSite Schema (always present) -->
+    <!--
+      Site-wide entity graph. One connected @graph with stable @id URIs beats a
+      pile of standalone LocalBusiness blocks: Google can resolve
+      Organization → WebSite → AutoRental as a single knowledge subgraph scoped
+      to this domain, which is also what keeps Rent Ride from being merged with
+      the sibling rental brands that run on the same codebase.
+
+      Note: no aggregateRating here. Self-declared review scores on a business
+      entity are ignored by Google (and can trigger a manual action) unless
+      they are backed by real, on-page, user-generated reviews. Ratings are
+      emitted per page from live review data instead.
+    -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Rent Ride",
-      "description": "Makina me qira në Tiranë me marrje falas nga aeroporti dhe qyteti, tarifa të qarta nga €25/ditë.",
-      "url": "https://rentride.al",
-      "telephone": "+355698145803",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Rruga Nënë Tereza",
-        "addressLocality": "Tiranë",
-        "postalCode": "1504",
-        "addressCountry": "AL"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "41.4162848",
-        "longitude": "19.709965"
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-        "opens": "00:00",
-        "closes": "23:59"
-      },
-      "priceRange": "€€",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "500",
-        "bestRating": "5"
-      }
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://rentride.al/#organization",
+          "name": "Rent Ride",
+          "legalName": "Rent Ride",
+          "url": "https://rentride.al",
+          "logo": {
+            "@type": "ImageObject",
+            "@id": "https://rentride.al/#logo",
+            "url": "https://rentride.al/logo-rent-ride.svg",
+            "contentUrl": "https://rentride.al/logo-rent-ride.svg"
+          },
+          "image": { "@id": "https://rentride.al/#logo" },
+          "email": "info@rentride.al",
+          "telephone": "+355698145803",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rruga e Aeroportit, Nd. 8",
+            "addressLocality": "Rinas",
+            "addressRegion": "Tiranë",
+            "postalCode": "1054",
+            "addressCountry": "AL"
+          },
+          "sameAs": ["https://wa.me/355698145803", "https://www.google.com/search?kgmid=/g/11s33pp4rs"],
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+355698145803",
+              "email": "info@rentride.al",
+              "contactType": "customer service",
+              "areaServed": "AL",
+              "availableLanguage": ["sq", "en", "it", "fr", "es"],
+              "hoursAvailable": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+                "opens": "00:00",
+                "closes": "23:59"
+              }
+            }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://rentride.al/#website",
+          "url": "https://rentride.al",
+          "name": "Rent Ride",
+          "publisher": { "@id": "https://rentride.al/#organization" },
+          "inLanguage": ["sq", "en", "fr", "es", "it"],
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://rentride.al/flota?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "AutoRental",
+          "@id": "https://rentride.al/#autorental",
+          "name": "Rent Ride",
+          "description": "Rent Ride jep makina me qira në Tiranë dhe Aeroportin Ndërkombëtar Nënë Tereza, me dorëzim pa pagesë, çmime të deklaruara paraprakisht dhe asistencë 24/7.",
+          "url": "https://rentride.al",
+          "telephone": "+355698145803",
+          "email": "info@rentride.al",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rruga e Aeroportit, Nd. 8",
+            "addressLocality": "Rinas",
+            "addressRegion": "Tiranë",
+            "postalCode": "1054",
+            "addressCountry": "AL"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "41.4162848",
+            "longitude": "19.709965"
+          },
+          "parentOrganization": { "@id": "https://rentride.al/#organization" },
+          "image": { "@id": "https://rentride.al/#logo" },
+          "priceRange": "€€",
+          "currenciesAccepted": "EUR, ALL",
+          "paymentAccepted": "Cash, Credit Card, Debit Card",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+              "opens": "00:00",
+              "closes": "23:59"
+            }
+          ],
+          "areaServed": [
+            { "@type": "City", "name": "Tiranë" },
+            { "@type": "City", "name": "Durrës" },
+            { "@type": "City", "name": "Vlorë" },
+            { "@type": "City", "name": "Sarandë" },
+            { "@type": "City", "name": "Shkodër" },
+            { "@type": "Country", "name": "Shqipëri" }
+          ],
+          "availableLanguage": ["sq", "en", "it", "fr", "es"],
+          "hasMap": "https://www.google.com/maps/search/?api=1&query=41.4162848,19.709965",
+          "sameAs": ["https://wa.me/355698145803", "https://www.google.com/search?kgmid=/g/11s33pp4rs"],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Kategoritë e makinave me qira — Rent Ride",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "Makina ekonomike me qira", "serviceType": "Car rental" },
+                "url": "https://rentride.al/flota",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "SUV me qira", "serviceType": "Car rental" },
+                "url": "https://rentride.al/makina-suv-me-qira",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "Makina automatike me qira", "serviceType": "Car rental" },
+                "url": "https://rentride.al/makina-automatike-me-qira",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "Makina luksoze me qira", "serviceType": "Car rental" },
+                "url": "https://rentride.al/makina-luksoze-me-qira",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "Makinë me qira në aeroport", "serviceType": "Car rental" },
+                "url": "https://rentride.al/makine-me-qira-aeroport",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock"
+              }
+            ]
+          }
+        }
+      ]
     }
     </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Rent Ride",
-      "url": "https://rentride.al",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://rentride.al/flota?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-    <script type="module" crossorigin src="/assets/index-l1ugn0Kh.js"></script>
+    <script type="module" crossorigin src="/assets/index-4c82z5Ce.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-BsV6gefr.css">
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app"></div>
   </body>
 </html>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="160" viewBox="0 0 640 160" role="img" aria-label="Rent Ride">
+  <title>Rent Ride</title>
+  <defs>
+    <linearGradient id="rrBrand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff531b"/>
+      <stop offset="1" stop-color="#ffa31a"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="160" fill="#ffffff"/>
+  <!-- Mark: rounded tile with a forward motion glyph -->
+  <rect x="16" y="24" width="112" height="112" rx="28" fill="url(#rrBrand)"/>
+  <path d="M44 96h56l-9 20H35l9-20z" fill="#ffffff" opacity=".95"/>
+  <path d="M44 66h56a16 16 0 0 1 15 11l5 15H39l-5-15A16 16 0 0 1 44 66z" fill="#ffffff"/>
+  <circle cx="56" cy="104" r="9" fill="#ff531b"/>
+  <circle cx="104" cy="104" r="9" fill="#ff531b"/>
+  <rect x="48" y="50" width="14" height="6" rx="3" fill="#ffffff" opacity=".7"/>
+  <rect x="32" y="50" width="10" height="6" rx="3" fill="#ffffff" opacity=".45"/>
+  <!-- Wordmark -->
+  <text x="156" y="76" font-family="Poppins, Inter, system-ui, sans-serif" font-size="44" font-weight="700" fill="#2b211c" letter-spacing="-.5">Rent</text>
+  <text x="156" y="126" font-family="Poppins, Inter, system-ui, sans-serif" font-size="44" font-weight="700" fill="#ff531b" letter-spacing="-.5">Ride</text>
+  <rect x="156" y="86" width="120" height="4" rx="2" fill="url(#rrBrand)"/>
+</svg>

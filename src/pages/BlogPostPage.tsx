@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useSEO } from "../hooks/useSEO";
+import { useSEO, buildArticleSchema, buildBreadcrumbSchema, SITE_URL } from "../hooks/useSEO";
 import { useLocale } from "../hooks/useLocale";
 import { CalendarBlank, ArrowLeft, Tag, Clock } from "@phosphor-icons/react";
 import LLink from "../components/LLink";
@@ -34,28 +34,37 @@ export default function BlogPostPage() {
   const metaTitle = post ? (isEn && post.metaTitleEn ? post.metaTitleEn : post.metaTitleSq || title) : "";
   const metaDesc = post ? (isEn && post.metaDescEn ? post.metaDescEn : post.metaDescSq || (post.excerptSq ?? "").slice(0, 160)) : "";
 
+  const postUrl = `${SITE_URL}${localePath(`/blog/${slug}`)}`;
+
   useSEO({
     title: metaTitle || "Blog",
     description: metaDesc,
     canonical: `/blog/${slug}`,
-    ogImage: post?.coverImage,
+    ogImage: post?.coverImage || undefined,
     ogType: "article",
-    structuredData: post ? {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": title,
-      "description": metaDesc,
-      "image": post.coverImage || undefined,
-      "datePublished": post.publishedAt,
-      "dateModified": post.updatedAt || post.publishedAt,
-      "author": { "@type": "Organization", "name": "Rent Ride" },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Rent Ride",
-        "url": "https://rentride.al"
-      },
-      "mainEntityOfPage": `https://rentride.al${localePath(`/blog/${slug}`)}`
-    } : undefined,
+    publishedTime: post?.publishedAt,
+    modifiedTime: post?.updatedAt || post?.publishedAt,
+    structuredData: post
+      ? [
+          buildArticleSchema({
+            url: postUrl,
+            headline: title,
+            description: metaDesc,
+            image: post.coverImage || undefined,
+            datePublished: post.publishedAt,
+            dateModified: post.updatedAt || post.publishedAt,
+            lang: isEn ? "en" : "sq",
+          }),
+          buildBreadcrumbSchema(
+            [
+              { name: isEn ? "Home" : "Kryefaqja", url: "/" },
+              { name: "Blog", url: "/blog" },
+              { name: title, url: `/blog/${slug}` },
+            ],
+            postUrl,
+          ),
+        ]
+      : undefined,
   });
 
   if (loading) {

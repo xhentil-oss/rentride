@@ -6,12 +6,24 @@ import { trackEvent } from "../lib/track";
 import { CheckCircle, Car, CalendarBlank, MapPin, ArrowRight } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
 import Footer from "../components/Footer";
+import { useSEO } from "../hooks/useSEO";
 
 export default function ThankYouPage() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
   const [countdown, setCountdown] = useState(15);
+
+  // Post-conversion page: never index. It carries reservation data, has no search
+  // value, and indexing it would leak confirmation URLs into the SERPs.
+  useSEO({
+    title: t("thankYou.seo.title", { defaultValue: "Rezervimi u konfirmua" }),
+    description: t("thankYou.seo.description", {
+      defaultValue: "Faleminderit! Rezervimi juaj u regjistrua dhe konfirmimi u dërgua me email.",
+    }),
+    canonical: "/faleminderit",
+    noindex: true,
+  });
 
   const state = (location.state as Record<string, string>) || {};
   const { localePath } = useLocale();

@@ -87,7 +87,7 @@ export function downloadContractPdf(data: ContractData): void {
 
   const companyName    = (data.companyName    || "Rent Ride").trim();
   const companyPhone   = (data.companyPhone   || "").trim();
-  const companyEmail   = (data.companyEmail   || "rentcaralbania23@gmail.com").trim();
+  const companyEmail   = (data.companyEmail   || "info@rentride.al").trim();
   const companyAddress = (data.companyAddress || "Tiranë, Shqipëri").trim();
   const contactLine = [
     companyPhone ? `Tel: ${companyPhone}` : null,

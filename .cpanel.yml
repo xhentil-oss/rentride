@@ -8,6 +8,12 @@ deployment:
     - /bin/cp dist/index.html backend/public/index.html
     - /bin/cp dist/placeholder-car.svg backend/public/placeholder-car.svg
     - /bin/cp dist/robots.txt backend/public/robots.txt
+    # SEO/brand assets. logo-rent-ride.svg is the URL the Organization JSON-LD
+    # points at — if it 404s, Google drops the logo from the knowledge panel.
+    - /bin/cp dist/favicon.svg backend/public/favicon.svg
+    - /bin/cp dist/icon-512.svg backend/public/icon-512.svg
+    - /bin/cp dist/logo-rent-ride.svg backend/public/logo-rent-ride.svg
+    - /bin/cp dist/manifest.webmanifest backend/public/manifest.webmanifest
     # Rinis app-in Passenger
     - /bin/mkdir -p backend/tmp
     - /bin/touch backend/tmp/restart.txt

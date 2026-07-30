@@ -42,3 +42,7 @@ backend/public/assets/
 backend/public/index.html
 backend/public/placeholder-car.svg
 backend/public/robots.txt
+backend/public/favicon.svg
+backend/public/icon-512.svg
+backend/public/logo-rent-ride.svg
+backend/public/manifest.webmanifest

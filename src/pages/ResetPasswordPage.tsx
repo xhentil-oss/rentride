@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { LockKey, CheckCircle, Warning } from "@phosphor-icons/react";
+import { useSEO } from "../hooks/useSEO";
 
 export default function ResetPasswordPage() {
   const [params] = useSearchParams();
   const navigate = useNavigate();
   const token = params.get("token") || "";
+
+  // Token-bearing utility page — must stay out of the index entirely.
+  useSEO({
+    title: "Rivendos fjalëkalimin",
+    description: "Vendos një fjalëkalim të re për llogarinë tënde Rent Ride.",
+    noindex: true,
+  });
 
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");

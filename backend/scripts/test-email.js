@@ -4,7 +4,7 @@
  * notifications don't arrive.
  *
  * Run on the server (inside the Node venv):
- *   node backend/scripts/test-email.js rentcaralbania23@gmail.com
+ *   node backend/scripts/test-email.js info@rentride.al
  * If no recipient is given, it uses ADMIN_EMAIL (or MAIL_USER).
  */
 const path = require('path');

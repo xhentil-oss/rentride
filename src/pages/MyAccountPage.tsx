@@ -18,6 +18,7 @@ import { useAuth, useQuery } from "../hooks/useApi";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
+import { useSEO } from "../hooks/useSEO";
 
 const CANCELLABLE_STATUSES = new Set(["Pending", "Confirmed"]);
 
@@ -27,6 +28,17 @@ function fmt(d: Date | string) {
 
 export default function MyAccountPage() {
   const { t } = useTranslation();
+
+  // Authenticated-only area: no crawl value and it would surface personal
+  // reservation data in search results.
+  useSEO({
+    title: t("account.seo.title", { defaultValue: "Llogaria ime" }),
+    description: t("account.seo.description", {
+      defaultValue: "Shiko dhe menaxho rezervimet e tua në Rent Ride.",
+    }),
+    canonical: "/llogaria",
+    noindex: true,
+  });
 
   const STATUS_CONFIG: Record<string, { label: string; color: string; icon: React.ReactNode }> = {
     Pending:   { label: t("account.status.Pending"),   color: "bg-yellow-100 text-yellow-700 border-yellow-200", icon: <Clock size={13} weight="fill" /> },

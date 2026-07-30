@@ -15,11 +15,23 @@ import {
   Warning,
 } from "@phosphor-icons/react";
 import Footer from "../components/Footer";
+import { useSEO } from "../hooks/useSEO";
 
 export default function NotFoundPage() {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const { localePath } = useLocale();
+
+  // A SPA can't return a 404 status from the client, so noindex is the only way
+  // to stop soft-404s from accumulating in the index and dragging site quality down.
+  useSEO({
+    title: t("notFound.seo.title", { defaultValue: "Faqja nuk u gjet (404)" }),
+    description: t("notFound.seo.description", {
+      defaultValue: "Kjo faqe nuk ekziston. Shfleto flotën e makinave me qira ose kthehu në kryefaqe.",
+    }),
+    noindex: true,
+  });
+
   const { data: featuredCars } = useQuery("Car", {
     where: { featured: true, status: "Disponueshëm" },
     limit: 3,

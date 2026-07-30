@@ -1,0 +1,39 @@
+{
+  "name": "Rent Ride — Makina me qira në Tiranë",
+  "short_name": "Rent Ride",
+  "description": "Rezervo makinë me qira në Tiranë dhe Aeroportin Nënë Tereza. Çmime të deklaruara paraprakisht, dorëzim pa pagesë, asistencë 24/7.",
+  "lang": "sq",
+  "dir": "ltr",
+  "start_url": "/?utm_source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#faf7f4",
+  "theme_color": "#ff531b",
+  "categories": ["travel", "business"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Flota e makinave",
+      "url": "/flota",
+      "description": "Shfleto makinat e disponueshme"
+    },
+    {
+      "name": "Rezervo tani",
+      "url": "/rezervo",
+      "description": "Nis një rezervim të re"
+    }
+  ]
+}

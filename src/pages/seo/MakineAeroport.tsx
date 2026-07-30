@@ -106,7 +106,7 @@ export default function MakineAeroport() {
             <div>
               <h3 className="font-semibold text-neutral-900 mb-2">Aeroporti Ndërkombëtar Nënë Tereza</h3>
               <p className="text-sm text-neutral-600 leading-relaxed">
-                Rinas, Tiranë 1504. Vendi i takimit është dalja e Terminalit Ndërkombëtar (P1) — përfaqësuesi ynë të pret me një tabelë ku shkruhet emri yt, prandaj na dallon me një sy.
+                Rruga e Aeroportit, Nd. 8, Rinas 1054. Vendi i takimit është dalja e Terminalit Ndërkombëtar (P1) — përfaqësuesi ynë të pret me një tabelë ku shkruhet emri yt, prandaj na dallon me një sy.
               </p>
               <div className="flex items-center gap-2 mt-3">
                 <Clock size={14} className="text-neutral-400" />
