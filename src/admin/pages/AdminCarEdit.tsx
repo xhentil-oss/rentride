@@ -230,19 +230,21 @@ export default function AdminCarEdit() {
           <div className="bg-white rounded-xl border border-border p-5">
             <p className="text-sm font-semibold text-neutral-700 mb-4 pb-3 border-b border-border">Identiteti i makinës</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Brand — dropdown */}
+              {/* Brand — combobox (zgjidh nga lista ose shkruaj çdo markë) */}
               <div>
                 <label className="block text-xs font-medium text-neutral-600 mb-1.5">Marka</label>
-                <select
+                <input
+                  list="car-brand-list"
                   value={form.brand}
                   onChange={(e) => setField("brand", e.target.value)}
+                  placeholder="Zgjidh ose shkruaj markën"
                   className="w-full px-3 py-2.5 rounded-lg border border-border text-sm text-neutral-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
-                >
-                  <option value="">— Zgjidh markën —</option>
-                  {["Volkswagen", "Skoda", "Fiat", "Audi", "Mercedes-Benz", "BMW", "Opel", "Toyota", "Hyundai", "Kia", "Renault", "Peugeot", "Citroën", "Ford", "Seat", "Dacia"].map((b) => (
-                    <option key={b} value={b}>{b}</option>
+                />
+                <datalist id="car-brand-list">
+                  {["Volkswagen", "Skoda", "Fiat", "Audi", "Mercedes-Benz", "BMW", "Opel", "Toyota", "Hyundai", "Kia", "Renault", "Peugeot", "Citroën", "Ford", "Seat", "Dacia", "Porsche", "Range Rover", "Land Rover", "Jeep", "Nissan", "Volvo", "Mini", "Tesla", "Cupra"].map((b) => (
+                    <option key={b} value={b} />
                   ))}
-                </select>
+                </datalist>
               </div>
               {/* Model — text */}
               <div>

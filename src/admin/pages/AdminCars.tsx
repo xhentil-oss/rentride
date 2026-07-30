@@ -650,9 +650,11 @@ export default function AdminCars() {
                 <label htmlFor="drawer-brand" className="block text-sm font-medium text-neutral-700 mb-1.5">
                   Marka <span className="text-error">*</span>
                 </label>
-                <select
+                <input
                   id="drawer-brand"
+                  list="drawer-brand-list"
                   value={form.brand}
+                  placeholder="Zgjidh ose shkruaj markën"
                   onChange={(e) => {
                     setForm(prev => ({ ...prev, brand: e.target.value }));
                     if (formErrors.brand) setFormErrors(prev => ({ ...prev, brand: undefined }));
@@ -660,12 +662,12 @@ export default function AdminCars() {
                   className={`w-full px-3 py-2.5 rounded-md border text-sm text-neutral-800 bg-white focus:outline-none focus:ring-2 transition-colors ${
                     formErrors.brand ? "border-error focus:ring-error/30 focus:border-error" : "border-border focus:ring-primary/40 focus:border-primary"
                   }`}
-                >
-                  <option value="">— Zgjidh markën —</option>
-                  {["Volkswagen", "Skoda", "Fiat", "Audi", "Mercedes-Benz", "BMW", "Opel", "Toyota", "Hyundai", "Kia", "Renault", "Peugeot", "Citroën", "Ford", "Seat", "Dacia"].map((b) => (
-                    <option key={b} value={b}>{b}</option>
+                />
+                <datalist id="drawer-brand-list">
+                  {["Volkswagen", "Skoda", "Fiat", "Audi", "Mercedes-Benz", "BMW", "Opel", "Toyota", "Hyundai", "Kia", "Renault", "Peugeot", "Citroën", "Ford", "Seat", "Dacia", "Porsche", "Range Rover", "Land Rover", "Jeep", "Nissan", "Volvo", "Mini", "Tesla", "Cupra"].map((b) => (
+                    <option key={b} value={b} />
                   ))}
-                </select>
+                </datalist>
                 {formErrors.brand && <p className="mt-1 text-xs text-error font-medium">{formErrors.brand}</p>}
               </div>
               {/* Model, Year, Price — text inputs */}
