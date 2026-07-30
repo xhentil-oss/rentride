@@ -140,7 +140,7 @@ export default function CarDetailPage() {
   const [heroVisible, setHeroVisible] = useState(false);
   const [cardVisible, setCardVisible] = useState(false);
   // Unified locations from /api/settings/public (single source of truth).
-  const { options: locationOptions, defaultLocation, computeFee } = useLocations(
+  const { options: locationOptions, pickupOptions, dropoffOptions, defaultLocation, computeFee } = useLocations(
     (i18n?.language === "en" ? "en" : "sq") as "sq" | "en",
   );
   const [pickupLocation, setPickupLocation] = useState(defaultLocation);
@@ -1243,7 +1243,7 @@ export default function CarDetailPage() {
                           onChange={(e) => setPickupLocation(e.target.value)}
                           className="w-full px-4 py-3 rounded-xl border border-border text-sm text-neutral-800 bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary focus:bg-white transition-all duration-200 appearance-none cursor-pointer pr-8"
                         >
-                          {locationOptions.map((loc) => (
+                          {pickupOptions.map((loc) => (
                             <option key={loc.value} value={loc.value}>
                               {formatLocationOption(loc)}
                             </option>
@@ -1271,7 +1271,7 @@ export default function CarDetailPage() {
                           onChange={(e) => setDropoffLocation(e.target.value)}
                           className="w-full px-4 py-3 rounded-xl border border-border text-sm text-neutral-800 bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary focus:bg-white transition-all duration-200 appearance-none cursor-pointer pr-8"
                         >
-                          {locationOptions.map((loc) => (
+                          {dropoffOptions.map((loc) => (
                             <option key={loc.value} value={loc.value}>
                               {formatLocationOption(loc)}
                             </option>

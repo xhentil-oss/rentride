@@ -20,9 +20,13 @@ import {
 
 const STORAGE_KEY = "rct_locations_v2";
 
+type LocationMode = { pickup: boolean; dropoff: boolean };
+type LocationModes = Record<string, LocationMode>;
+
 interface CachedShape {
   fees: Record<string, number>;
   free: string[];
+  modes?: LocationModes;
   fetchedAt: number;
 }
 
@@ -46,13 +50,24 @@ function readLocalStorageCache(): CachedShape | null {
   return null;
 }
 
-function writeLocalStorageCache(fees: Record<string, number>, free: string[]) {
+function writeLocalStorageCache(fees: Record<string, number>, free: string[], modes: LocationModes) {
   if (typeof localStorage === "undefined") return;
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ fees, free, fetchedAt: Date.now() }));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ fees, free, modes, fetchedAt: Date.now() }));
   } catch {
     /* quota exceeded / disabled — ignore */
   }
+}
+
+// Sanitize location_modes: keep only { name: { pickup, dropoff } } with booleans.
+function cleanModes(raw: unknown): LocationModes {
+  const out: LocationModes = {};
+  if (!raw || typeof raw !== "object" || Array.isArray(raw)) return out;
+  for (const [name, m] of Object.entries(raw as Record<string, any>)) {
+    if (!name || !m || typeof m !== "object") continue;
+    out[name.trim()] = { pickup: m.pickup !== false, dropoff: m.dropoff !== false };
+  }
+  return out;
 }
 
 // Sanitize fees object: drop entries with invalid values, trim names.
@@ -81,6 +96,7 @@ function cleanFree(raw: unknown): string[] | null {
 const seed = readLocalStorageCache();
 let cachedFees: Record<string, number> = seed?.fees ?? { ...DEFAULT_LOCATION_FEES };
 let cachedFree: string[] = seed?.free ?? [...DEFAULT_FREE_LOCATIONS];
+let cachedModes: LocationModes = seed?.modes ?? {};
 let inFlight: Promise<void> | null = null;
 const subscribers = new Set<() => void>();
 
@@ -115,8 +131,9 @@ async function fetchPublicSettings(): Promise<void> {
       // the source of truth.
       cachedFees = apiFees ?? {};
       cachedFree = apiFree ?? [];
+      cachedModes = cleanModes(json.location_modes);
 
-      writeLocalStorageCache(cachedFees, cachedFree);
+      writeLocalStorageCache(cachedFees, cachedFree, cachedModes);
       notifySubscribers();
     } catch {
       // Network/JSON failure — keep whatever cache we have (last good or
@@ -141,6 +158,7 @@ async function fetchPublicSettings(): Promise<void> {
 export function useLocations(lang: "sq" | "en" = "sq") {
   const [fees, setFees] = useState<Record<string, number>>(cachedFees);
   const [free, setFree] = useState<string[]>(cachedFree);
+  const [modes, setModes] = useState<LocationModes>(cachedModes);
 
   useEffect(() => {
     let cancelled = false;
@@ -148,6 +166,7 @@ export function useLocations(lang: "sq" | "en" = "sq") {
       if (cancelled) return;
       setFees(cachedFees);
       setFree(cachedFree);
+      setModes(cachedModes);
     };
 
     subscribers.add(sync);
@@ -160,13 +179,20 @@ export function useLocations(lang: "sq" | "en" = "sq") {
   }, []);
 
   const options: LocationOption[] = buildLocationOptions(fees, free, lang);
+  // A location shows in the pickup / drop-off dropdown only when enabled for
+  // that mode. Missing entry ⇒ enabled for both (backward compatible).
+  const pickupOptions = options.filter((o) => modes[o.value]?.pickup !== false);
+  const dropoffOptions = options.filter((o) => modes[o.value]?.dropoff !== false);
 
   return {
     fees,
     free,
+    modes,
     options,
-    /** Default starting value for a fresh form (first free location). */
-    defaultLocation: free[0] || options[0]?.value || "",
+    pickupOptions,
+    dropoffOptions,
+    /** Default starting value for a fresh form (first free pickup location). */
+    defaultLocation: (pickupOptions.find((o) => o.fee === 0) || pickupOptions[0])?.value || free[0] || options[0]?.value || "",
     computeFee: (pickup: string, dropoff: string) =>
       computeLocationFee(pickup, dropoff, fees),
   };

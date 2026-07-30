@@ -411,7 +411,7 @@ export default function BookingPage() {
     return getDominantSeason(start, end);
   }, [form.startDate, form.endDate, form.startTime, form.endTime]);
 
-  const { options: locationOptions, computeFee: computeLocFee } = useLocations(
+  const { options: locationOptions, pickupOptions, dropoffOptions, computeFee: computeLocFee } = useLocations(
     (i18n?.language === "en" ? "en" : "sq") as "sq" | "en",
   );
   const { pickupFee, dropoffFee, total: locationFeeTotal } = computeLocFee(form.pickup, form.dropoff);
@@ -812,7 +812,7 @@ export default function BookingPage() {
                       className="w-full pl-9 pr-3 py-3 rounded-full border border-border text-sm text-neutral-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary appearance-none"
                     >
                       <option value="">{t("booking.selectPlace")}</option>
-                      {locationOptions.map((loc) => (
+                      {pickupOptions.map((loc) => (
                         <option key={loc.value} value={loc.value}>
                           {formatLocationOption(loc)}
                         </option>
@@ -852,7 +852,7 @@ export default function BookingPage() {
                       className="w-full pl-9 pr-3 py-3 rounded-full border border-border text-sm text-neutral-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary appearance-none"
                     >
                       <option value="">{t("booking.selectPlace")}</option>
-                      {locationOptions.map((loc) => (
+                      {dropoffOptions.map((loc) => (
                         <option key={loc.value} value={loc.value}>
                           {formatLocationOption(loc)}
                         </option>

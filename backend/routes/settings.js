@@ -5,7 +5,7 @@ const { loadLocations, invalidateLocationCache } = require('../lib/locations');
 
 // Settings keys whose value is a JSON object/array — stored as JSON strings
 // in the DB so frontend can edit them structurally.
-const JSON_SETTING_KEYS = new Set(['location_fees', 'free_locations']);
+const JSON_SETTING_KEYS = new Set(['location_fees', 'free_locations', 'location_modes']);
 
 // GET all settings (admin only)
 router.get('/', authenticate, requireRole('admin', 'manager'), async (req, res) => {
@@ -92,9 +92,10 @@ router.get('/public', async (req, res) => {
     // Single source of truth for location fees — always read live (DB-backed,
     // 60s cache) so admin updates propagate to the booking UI within a minute.
     try {
-      const { fees, free } = await loadLocations();
+      const { fees, free, modes } = await loadLocations();
       data.location_fees = fees;
       data.free_locations = free;
+      data.location_modes = modes || {};
     } catch (_) { /* non-fatal */ }
 
     res.set('Cache-Control', 'public, max-age=300');

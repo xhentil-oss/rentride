@@ -39,39 +39,42 @@ router.post('/', async (req, res) => {
     // Honeypot bot protection
     if (website) return res.status(400).json({ error: 'Gabim.' });
     if (!email || !email.trim()) return res.status(400).json({ error: 'Email është i detyrueshëm.' });
+    // Normalise ONCE and use the normalised value everywhere below. Validating
+    // `email.trim()` while looking up and inserting the raw `email` let
+    // " a@b.com" pass the format check, miss the stored "a@b.com", and land as a
+    // second record — which in turn broke the identity guard in reservations.
+    const safeEmail = String(email).trim().slice(0, 255);
     // Basic email format check
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) return res.status(400).json({ error: 'Email format i pavlefshëm.' });
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(safeEmail)) return res.status(400).json({ error: 'Email format i pavlefshëm.' });
     if (name && name.length > 255) return res.status(400).json({ error: 'Emri shumë i gjatë.' });
 
     // phone is NOT NULL in DB — coerce to empty string if missing
     const safePhone = (phone || '').toString().trim().slice(0, 30);
 
-    // Reuse existing customer by email (most common — return user signed up before)
+    // Reuse existing customer by email (most common — returning customer).
+    // The column collation is case-insensitive, so this also matches "A@b.com".
     const [existingByEmail] = await pool.query(
-      'SELECT id FROM customers WHERE email = ?', [email]
+      'SELECT id FROM customers WHERE email = ?', [safeEmail]
     );
     if (existingByEmail.length) {
       // Identical shape/status to prevent email enumeration
       return res.status(201).json({ id: existingByEmail[0].id });
     }
 
-    // Reuse existing customer by phone — same person booking again with a
-    // different email (or a typo) shouldn't fragment into multiple records.
-    if (safePhone) {
-      const [existingByPhone] = await pool.query(
-        'SELECT id FROM customers WHERE phone = ?', [safePhone]
-      );
-      if (existingByPhone.length) {
-        return res.status(201).json({ id: existingByPhone[0].id });
-      }
-    }
+    // NOTE: reuse-by-phone was removed deliberately. It only ever fired when the
+    // email did NOT match (an email match returns above), so it attached one
+    // person's booking to another person's customer record whenever a phone was
+    // shared (couples, company lines) or mistyped. The reservation was then filed
+    // under the wrong identity and the confirmation email went to the wrong
+    // person, exposing their booking details. Avoiding duplicate records is not
+    // worth misdelivering a booking — duplicates can be merged by an admin.
 
     const id = uuidv4();
     const createdBy = req.user ? req.user.id : null;
-    const safeName = name || `${firstName || ''} ${lastName || ''}`.trim() || email;
+    const safeName = name || `${firstName || ''} ${lastName || ''}`.trim() || safeEmail;
     await pool.query(
       'INSERT INTO customers (id, name, first_name, last_name, email, phone, type, created_by) VALUES (?,?,?,?,?,?,?,?)',
-      [id, safeName, firstName || '', lastName || '', email, safePhone, type, createdBy]
+      [id, safeName, firstName || '', lastName || '', safeEmail, safePhone, type, createdBy]
     );
     return res.status(201).json({ id });
   } catch (err) { console.error(err); res.status(500).json({ error: 'Gabim i brendshëm.' }); }

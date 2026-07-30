@@ -120,7 +120,7 @@ export default function AdminSettings() {
   // (no surcharge). The full list is persisted as two JSON settings:
   //   - `location_fees`    → { "<name>": <fee>, ... }  (ALL locations live here)
   //   - `free_locations`   → [ "<name>", ... ]         (derived: rows with fee = 0)
-  type LocationRow = { name: string; fee: number };
+  type LocationRow = { name: string; fee: number; pickup: boolean; dropoff: boolean };
   const [locationRows, setLocationRows] = useState<LocationRow[]>([]);
   const [locationsDirty, setLocationsDirty] = useState(false);
 
@@ -157,17 +157,23 @@ export default function AdminSettings() {
       .then((j) => {
         const fees: Record<string, number> = (j && j.location_fees) || {};
         const free: string[] = (j && Array.isArray(j.free_locations) ? j.free_locations : []) as string[];
+        const modes: Record<string, { pickup?: boolean; dropoff?: boolean }> = (j && j.location_modes) || {};
+        const mk = (name: string, fee: number): LocationRow => ({
+          name, fee,
+          pickup: modes[name]?.pickup !== false,   // missing ⇒ enabled
+          dropoff: modes[name]?.dropoff !== false,
+        });
         const seen = new Set<string>();
         const rows: LocationRow[] = [];
         for (const name of free) {
           if (!name || seen.has(name)) continue;
           seen.add(name);
-          rows.push({ name, fee: 0 });
+          rows.push(mk(name, 0));
         }
         for (const [name, fee] of Object.entries(fees)) {
           if (!name || seen.has(name)) continue;
           seen.add(name);
-          rows.push({ name, fee: Number(fee) || 0 });
+          rows.push(mk(name, Number(fee) || 0));
         }
         setLocationRows(rows);
       })
@@ -226,7 +232,7 @@ export default function AdminSettings() {
       // Build payload from regular text settings plus the structured locations.
       const payload: Record<string, unknown> = { ...settings };
       // Validate & serialize locations.
-      const cleaned: { name: string; fee: number }[] = [];
+      const cleaned: { name: string; fee: number; pickup: boolean; dropoff: boolean }[] = [];
       const seen = new Set<string>();
       for (const row of locationRows) {
         const name = (row.name || "").trim();
@@ -234,21 +240,28 @@ export default function AdminSettings() {
         if (seen.has(name)) {
           throw new Error(`Lokacion i përsëritur: “${name}”.`);
         }
+        // A location must be usable somewhere — block "off for both".
+        if (row.pickup === false && row.dropoff === false) {
+          throw new Error(`“${name}” duhet të jetë të paktën Marrje ose Kthim.`);
+        }
         seen.add(name);
         const fee = Number.isFinite(row.fee) && row.fee >= 0 ? Math.round(row.fee * 100) / 100 : 0;
-        cleaned.push({ name, fee });
+        cleaned.push({ name, fee, pickup: row.pickup !== false, dropoff: row.dropoff !== false });
       }
       if (cleaned.length === 0) {
         throw new Error("Duhet të keni të paktën një lokacion.");
       }
       const fees: Record<string, number> = {};
       const free: string[] = [];
-      for (const { name, fee } of cleaned) {
+      const modes: Record<string, { pickup: boolean; dropoff: boolean }> = {};
+      for (const { name, fee, pickup, dropoff } of cleaned) {
         if (fee > 0) fees[name] = fee;
         else free.push(name);
+        modes[name] = { pickup, dropoff };
       }
       payload.location_fees = fees;
       payload.free_locations = free;
+      payload.location_modes = modes;
 
       const res = await fetch(`${API_BASE}/settings`, {
         method: "PUT",
@@ -362,13 +375,13 @@ export default function AdminSettings() {
                     Lokacionet e tërheqjes / kthimit
                   </h3>
                   <p className="text-xs text-neutral-500 mt-0.5">
-                    Vendos çmimet e tarifës për çdo lokacion. Tarifa <strong>0</strong> do të thotë falas (Tiranë Qendër, etj.). Lista shfaqet automatikisht në faqen e rezervimit dhe detajeve të makinës.
+                    Vendos çmimet e tarifës për çdo lokacion. Tarifa <strong>0</strong> do të thotë falas (Tiranë Qendër, etj.). Me <strong>Marrje</strong> / <strong>Kthim</strong> zgjedh nëse lokacioni shfaqet te tërheqja, kthimi, ose të dyja. Lista shfaqet automatikisht në faqen e rezervimit dhe detajeve të makinës.
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => {
-                    setLocationRows((prev) => [...prev, { name: "", fee: 0 }]);
+                    setLocationRows((prev) => [...prev, { name: "", fee: 0, pickup: true, dropoff: true }]);
                     setLocationsDirty(true);
                     setSaved(false);
                   }}
@@ -416,6 +429,34 @@ export default function AdminSettings() {
                         className="w-full pl-7 pr-2 py-2 text-sm border border-border rounded-md outline-none focus:border-primary transition-colors text-right"
                       />
                     </div>
+                    <label className="flex items-center gap-1 text-xs text-neutral-600 cursor-pointer select-none" title="Shfaqet te 'Tërheqja'">
+                      <input
+                        type="checkbox"
+                        checked={row.pickup !== false}
+                        onChange={(e) => {
+                          const v = e.target.checked;
+                          setLocationRows((prev) => prev.map((r, i) => i === idx ? { ...r, pickup: v } : r));
+                          setLocationsDirty(true);
+                          setSaved(false);
+                        }}
+                        className="w-3.5 h-3.5 accent-primary"
+                      />
+                      Marrje
+                    </label>
+                    <label className="flex items-center gap-1 text-xs text-neutral-600 cursor-pointer select-none" title="Shfaqet te 'Kthimi'">
+                      <input
+                        type="checkbox"
+                        checked={row.dropoff !== false}
+                        onChange={(e) => {
+                          const v = e.target.checked;
+                          setLocationRows((prev) => prev.map((r, i) => i === idx ? { ...r, dropoff: v } : r));
+                          setLocationsDirty(true);
+                          setSaved(false);
+                        }}
+                        className="w-3.5 h-3.5 accent-primary"
+                      />
+                      Kthim
+                    </label>
                     <button
                       type="button"
                       onClick={() => {

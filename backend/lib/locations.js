@@ -37,12 +37,22 @@ async function loadLocations() {
   if (cache && (Date.now() - cache.loadedAt) < CACHE_TTL_MS) return cache;
   let fees = DEFAULT_LOCATION_FEES;
   let free = DEFAULT_FREE_LOCATIONS;
+  let modes = {}; // { "<name>": { pickup: bool, dropoff: bool } } — missing entry ⇒ both true
   try {
     const [rows] = await pool.query(
-      "SELECT setting_key, setting_value FROM settings WHERE setting_key IN ('location_fees', 'free_locations')"
+      "SELECT setting_key, setting_value FROM settings WHERE setting_key IN ('location_fees', 'free_locations', 'location_modes')"
     );
     for (const row of rows) {
-      if (row.setting_key === 'location_fees') {
+      if (row.setting_key === 'location_modes') {
+        const v = parseJsonSetting(row.setting_value, null);
+        if (v && typeof v === 'object' && !Array.isArray(v)) {
+          modes = {};
+          for (const [name, m] of Object.entries(v)) {
+            if (!name || !m || typeof m !== 'object') continue;
+            modes[String(name).trim()] = { pickup: m.pickup !== false, dropoff: m.dropoff !== false };
+          }
+        }
+      } else if (row.setting_key === 'location_fees') {
         const v = parseJsonSetting(row.setting_value, null);
         if (v && typeof v === 'object' && !Array.isArray(v)) {
           // Coerce values to numbers, drop NaN/negative.
@@ -63,7 +73,7 @@ async function loadLocations() {
     // Non-fatal: fall back to defaults.
     console.error('loadLocations: falling back to defaults', err.message);
   }
-  cache = { fees, free, loadedAt: Date.now() };
+  cache = { fees, free, modes, loadedAt: Date.now() };
   return cache;
 }
 
