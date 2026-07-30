@@ -57,8 +57,10 @@ function isMaintenanceStatus(status?: string): boolean {
 }
 
 export default function AdminReservations() {
-  const { options: locationOptions } = useLocations("sq");
+  const { options: locationOptions, pickupOptions, dropoffOptions } = useLocations("sq");
   const locations = locationOptions.map((o) => o.value);
+  const pickupLocations = pickupOptions.map((o) => o.value);
+  const dropoffLocations = dropoffOptions.map((o) => o.value);
   const { data: reservations, isPending: resLoading, refetch: refetchReservations } = useQuery("Reservation", { orderBy: { createdAt: "desc" } });
   const { data: customers, refetch: refetchCustomers } = useQuery("Customer");
   const { data: cars } = useQuery("Car");
@@ -865,13 +867,13 @@ export default function AdminReservations() {
                 <div>
                   <label className="flex items-center gap-2 text-sm font-medium text-neutral-700 mb-2"><MapPin size={16} className="text-neutral-400" />Merre nga</label>
                   <select value={formData.pickupLocation} onChange={(e) => setFormData((prev) => ({ ...prev, pickupLocation: e.target.value }))} className="w-full px-4 py-2.5 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary">
-                    {locations.map((loc) => <option key={loc} value={loc}>{loc}</option>)}
+                    {pickupLocations.map((loc) => <option key={loc} value={loc}>{loc}</option>)}
                   </select>
                 </div>
                 <div>
                   <label className="flex items-center gap-2 text-sm font-medium text-neutral-700 mb-2"><MapPin size={16} className="text-neutral-400" />Ktheje në</label>
                   <select value={formData.dropoffLocation} onChange={(e) => setFormData((prev) => ({ ...prev, dropoffLocation: e.target.value }))} className="w-full px-4 py-2.5 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary">
-                    {locations.map((loc) => <option key={loc} value={loc}>{loc}</option>)}
+                    {dropoffLocations.map((loc) => <option key={loc} value={loc}>{loc}</option>)}
                   </select>
                 </div>
               </div>

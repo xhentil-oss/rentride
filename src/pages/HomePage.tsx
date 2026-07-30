@@ -95,7 +95,7 @@ export default function HomePage() {
 
   const { data: allCars } = useQuery("Car");
   const { data: pricingRules } = useQuery("PricingRule");
-  const { options: locationOptions } = useLocations(
+  const { options: locationOptions, pickupOptions, dropoffOptions } = useLocations(
     (i18n?.language === "en" ? "en" : "sq") as "sq" | "en",
   );
   const [featuredCarIds, setFeaturedCarIds] = useState<string[]>([]);
@@ -275,7 +275,7 @@ export default function HomePage() {
                     className="w-full pl-9 pr-3 py-3 rounded-full border border-border text-sm text-neutral-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary appearance-none"
                   >
                     <option value="">{t("home.hero.selectPlace")}</option>
-                    {locationOptions.map((loc) => (
+                    {pickupOptions.map((loc) => (
                       <option key={loc.value} value={loc.value}>
                         {formatLocationName(loc)}
                       </option>
@@ -297,7 +297,7 @@ export default function HomePage() {
                     className="w-full pl-9 pr-3 py-3 rounded-full border border-border text-sm text-neutral-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary appearance-none"
                   >
                     <option value="">{t("home.hero.selectPlace")}</option>
-                    {locationOptions.map((loc) => (
+                    {dropoffOptions.map((loc) => (
                       <option key={loc.value} value={loc.value}>
                         {formatLocationName(loc)}
                       </option>
