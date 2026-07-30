@@ -27,6 +27,39 @@ if (!process.env.JWT_REFRESH_SECRET || process.env.JWT_REFRESH_SECRET.length < 3
 
 // ─── MIDDLEWARE ───────────────────────────────────────────────
 app.set('trust proxy', 1); // Trust cPanel reverse proxy — fixes req.ip and rate limiting
+
+// ─── CANONICAL HOST (SEO) ─────────────────────────────────────
+// Without this, www.rentride.al and rentride.al both serve the site on distinct
+// URLs, so Google splits link equity between them and picks a canonical itself.
+// This has to live here rather than in .htaccess: LiteSpeed routes every request
+// to this app, and the repo's .htaccess is never deployed (its Passenger paths
+// belong to a different server — do not copy it).
+//
+// The host is derived from FRONTEND_URL so there is no second setting to keep in
+// sync; if FRONTEND_URL is unset (local dev) the whole block is skipped.
+const canonicalHost = (() => {
+  try { return new URL(process.env.FRONTEND_URL).hostname.toLowerCase(); }
+  catch { return null; }
+})();
+
+app.use((req, res, next) => {
+  if (!canonicalHost) return next();
+  // Never redirect preflight — a 301 on OPTIONS breaks CORS.
+  if (req.method === 'OPTIONS') return next();
+
+  const host = String(req.headers.host || '').split(':')[0].toLowerCase();
+  if (!host || host === 'localhost' || host === '127.0.0.1') return next();
+
+  // Only trust an explicit proxy header. Inferring "not https" without it would
+  // loop forever when the header is absent.
+  const fwdProto = String(req.headers['x-forwarded-proto'] || '').split(',')[0].trim();
+  const insecure = fwdProto === 'http';
+
+  if (host !== canonicalHost || insecure) {
+    return res.redirect(301, `https://${canonicalHost}${req.originalUrl}`);
+  }
+  next();
+});
 app.use(helmet({
   contentSecurityPolicy: {
     directives: {

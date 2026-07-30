@@ -1,11 +1,23 @@
-# ─── Passenger / Node.js routing (DO NOT REMOVE) ───
-# cPanel Setup Node.js App generates these. Keep them so /api/* requests
-# reach the Express backend instead of returning 404.
-PassengerAppRoot "/home/rentrideair/rent-car-tirana/backend"
-PassengerBaseURI "/"
-PassengerNodejs "/home/rentrideair/nodevenv/rent-car-tirana/backend/22/bin/node"
-PassengerAppType node
-PassengerStartupFile server.js
+# ╔════════════════════════════════════════════════════════════════════════╗
+# ║  ⚠️  DO NOT COPY THIS FILE TO THE SERVER.                              ║
+# ║                                                                        ║
+# ║  cPanel → Setup Node.js App writes the real .htaccess into the app     ║
+# ║  root, with the paths of THAT account. The paths below belong to a      ║
+# ║  different account on a different server and are kept only as a         ║
+# ║  reference for the directive shape.                                     ║
+# ║                                                                        ║
+# ║  Overwriting the server's .htaccess with this one makes Passenger/      ║
+# ║  LiteSpeed unable to find the app → 503, site down.                     ║
+# ║                                                                        ║
+# ║  `.cpanel.yml` deliberately does NOT copy this file. Keep it that way.  ║
+# ╚════════════════════════════════════════════════════════════════════════╝
+#
+# Reference only — actual values are generated per account by cPanel:
+#   PassengerAppRoot      "/home2/<account>/repositories/rentride/backend"
+#   PassengerBaseURI      "/"
+#   PassengerNodejs       "/home2/<account>/nodevenv/repositories/rentride/backend/22/bin/node"
+#   PassengerAppType      node
+#   PassengerStartupFile  server.js
 
 # ─── Disable LiteSpeed page cache (LSCache) for the SPA ───
 # Without this, LiteSpeed serves a stale cached copy of index.html for hours,
@@ -16,44 +28,14 @@ PassengerStartupFile server.js
     RewriteRule .* - [E=Cache-Control:no-cache]
 </IfModule>
 
-# ─── Canonical host + scheme (SEO) ────────────────────────────────────────
-# Without this, https://www.rentride.al, http://rentride.al and index.html all
-# serve the same content on distinct URLs — link equity gets split across four
-# hostnames and Google picks a canonical for us. Runs before the SPA fallback.
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-
-    # Force HTTPS (respects the proxy header cPanel/LiteSpeed sets).
-    RewriteCond %{HTTPS} !=on
-    RewriteCond %{HTTP:X-Forwarded-Proto} !https
-    RewriteRule ^ https://rentride.al%{REQUEST_URI} [R=301,L]
-
-    # Strip the www. host.
-    RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-    RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
-
-    # /index.html → /
-    RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
-    RewriteRule ^index\.html$ / [R=301,L]
-</IfModule>
+# NOTE: canonical-host redirect and security headers are NOT here.
+#   - Canonical host (www → non-www, http → https): Express middleware in
+#     backend/server.js. LiteSpeed routes every request to the Node app, so a
+#     rewrite here would never run.
+#   - Security headers: already set by `helmet` in backend/server.js.
+# They were briefly duplicated here and had no effect. Don't re-add them.
 
 <IfModule mod_headers.c>
-    # Baseline security headers. Not a ranking factor on their own, but a
-    # leaked referrer or a MIME-sniffed response is a real trust/privacy issue.
-    Header always set X-Content-Type-Options "nosniff"
-    Header always set Referrer-Policy "strict-origin-when-cross-origin"
-    Header always set X-Frame-Options "SAMEORIGIN"
-    Header always set Permissions-Policy "geolocation=(self), microphone=(), camera=()"
-
-    # Correct types for the SEO/PWA files so crawlers parse them.
-    <FilesMatch "\.webmanifest$">
-        Header set Content-Type "application/manifest+json"
-        Header set Cache-Control "public, max-age=86400"
-    </FilesMatch>
-    <FilesMatch "^robots\.txt$">
-        Header set Cache-Control "public, max-age=3600"
-    </FilesMatch>
-
     # Long-lived immutable cache for hashed JS/CSS/font/img assets.
     <FilesMatch "\.(js|css|woff2?|ttf|otf|eot|svg|png|jpg|jpeg|gif|webp|avif|ico)$">
         Header set Cache-Control "public, max-age=31536000, immutable"

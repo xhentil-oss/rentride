@@ -50,9 +50,9 @@ fi
 
 if [ "$HTACCESS_CHANGED" -gt "0" ]; then
   echo ""
-  echo "  ⚠️  .htaccess ndryshoi — kërkohet ribashkim me Passenger config:"
-  echo "  1. cp dist/.htaccess \$DOCROOT/.htaccess"
-  echo "  2. cPanel → Setup Node.js App → Stop → Start"
+  echo "  ⚠️  public/.htaccess ndryshoi — NUK kopjohet ne server."
+  echo "  cPanel e gjeneron vete .htaccess-in e app-it, me rruget e llogarise."
+  echo "  Kopjimi i ketij skedari e rrezon app-in (503). Lexo koken e skedarit."
 fi
 
 echo ""
