@@ -41,6 +41,12 @@ const canonicalHost = (() => {
   try { return new URL(process.env.FRONTEND_URL).hostname.toLowerCase(); }
   catch { return null; }
 })();
+// Logged on purpose: a stale FRONTEND_URL would 301 every visitor to the wrong
+// host, which looks like a total outage. This line makes that visible in the
+// app log the moment it starts, instead of after the traffic is gone.
+console.log(canonicalHost
+  ? `🔗 Canonical host: ${canonicalHost} (redirecting other hosts + http)`
+  : '🔗 Canonical host: off (FRONTEND_URL unset) — no host redirect');
 
 app.use((req, res, next) => {
   if (!canonicalHost) return next();
