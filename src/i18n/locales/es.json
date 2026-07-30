@@ -484,7 +484,8 @@
       "serviceFee": "Tarifa de servicio",
       "freeDays": "Coche gratis — {{days}} días",
       "dateTaken": "Coche no disponible en las fechas elegidas",
-      "urgency": "¡Este coche es muy solicitado — reserva antes de que se vaya!"
+      "urgency": "¡Este coche es muy solicitado — reserva antes de que se vaya!",
+      "dropoffLocation": "Devolver en"
     },
     "support2": {
       "title": "Ayuda inmediata",
@@ -634,7 +635,10 @@
         "text": "Precios razonables y coche en excelente estado. ¡El kilometraje ilimitado fue un gran plus!",
         "date": "hace 3 semanas"
       }
-    ]
+    ],
+    "similarCar": {
+      "suggestion": "Este modelo no está disponible. Puedes encontrar algo similar en el coche de abajo:"
+    }
   },
   "booking": {
     "title": "Reserva tu coche",
@@ -740,6 +744,7 @@
     "days": "días",
     "hours": "horas en total · se aplica tarifa diaria",
     "extras": {
+      "label": "Extras",
       "perDay": "/día",
       "perRental": "/alquiler",
       "oneTime": "Una vez",
@@ -864,7 +869,14 @@
       "Paga en efectivo o con tarjeta",
       "Sin costes ocultos – precio transparente"
     ],
-    "close": "Cerrar"
+    "close": "Cerrar",
+    "summaryTotal": "Total",
+    "country": "País",
+    "realBookingHint": "Esta es una reserva real, no una consulta de precios. Para ver solo los precios, consulta la ",
+    "confirmTitle": "Estás haciendo una reserva real",
+    "confirmBody": "No es una consulta de precios: estás enviando una solicitud de reserva y nuestro equipo te contactará. ¿Continuar?",
+    "confirmCancel": "No, solo precios",
+    "confirmOk": "Sí, reservar"
   },
   "contactPage": {
     "badge": "CONTÁCTANOS",
@@ -1006,7 +1018,18 @@
       "cancelFailed": "La cancelación falló."
     },
     "resending": "Enviando...",
-    "resend": "Reenviar"
+    "resend": "Reenviar",
+    "cancel": "Cancelar",
+    "cancelTitle": "Cancelar reserva",
+    "cancelIrreversible": "Esta acción no se puede deshacer.",
+    "cancelConfirm": "¿Seguro que quieres cancelar esta reserva?",
+    "keep": "Mantener",
+    "cancelling": "Cancelando…",
+    "cancelYes": "Sí, cancelar",
+    "seo": {
+      "title": "Mi cuenta",
+      "description": "Consulta y gestiona tus reservas de Rent Ride."
+    }
   },
   "notFoundPage": {
     "title": "¡Página no encontrada!",
@@ -1048,6 +1071,27 @@
       "Në dispozicion": "Disponible",
       "I rezervuar": "Reservado",
       "Në mirëmbajtje": "En mantenimiento"
+    }
+  },
+  "thankyou": {
+    "title": "¡Gracias!",
+    "subtitle": "Tu reserva se registró correctamente.",
+    "refId": "ID de ref.",
+    "name": "Nombre",
+    "total": "Total",
+    "statusInfo": "Tu reserva está pendiente. Recibirás un correo de confirmación en cuanto nuestro equipo la verifique.",
+    "myAccount": "Mi cuenta",
+    "backHome": "Volver al inicio",
+    "redirect": "Redirección automática a tu cuenta en",
+    "seo": {
+      "title": "Reserva confirmada",
+      "description": "¡Gracias! Tu reserva se registró y la confirmación se envió por correo."
+    }
+  },
+  "notFound": {
+    "seo": {
+      "title": "Página no encontrada (404)",
+      "description": "Esta página no existe. Explora nuestra flota o vuelve al inicio."
     }
   }
 }

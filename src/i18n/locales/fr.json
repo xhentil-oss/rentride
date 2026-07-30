@@ -484,7 +484,8 @@
       "serviceFee": "Frais de service",
       "freeDays": "Voiture gratuite — {{days}} jours",
       "dateTaken": "Voiture indisponible aux dates choisies",
-      "urgency": "Cette voiture est très demandée — réservez avant qu'elle ne soit prise !"
+      "urgency": "Cette voiture est très demandée — réservez avant qu'elle ne soit prise !",
+      "dropoffLocation": "Restituer à"
     },
     "support2": {
       "title": "Aide immédiate",
@@ -634,7 +635,10 @@
         "text": "Prix raisonnables et voiture en excellent état. Le kilométrage illimité a été un grand plus !",
         "date": "il y a 3 semaines"
       }
-    ]
+    ],
+    "similarCar": {
+      "suggestion": "Ce modèle n'est pas disponible. Vous trouverez peut-être un équivalent avec la voiture ci-dessous :"
+    }
   },
   "booking": {
     "title": "Réservez votre voiture",
@@ -740,6 +744,7 @@
     "days": "jours",
     "hours": "heures au total · tarif journalier appliqué",
     "extras": {
+      "label": "Suppléments",
       "perDay": "/jour",
       "perRental": "/location",
       "oneTime": "Unique",
@@ -864,7 +869,14 @@
       "Payez en espèces ou par carte",
       "Aucun frais caché – prix transparent"
     ],
-    "close": "Fermer"
+    "close": "Fermer",
+    "summaryTotal": "Total",
+    "country": "Pays",
+    "realBookingHint": "Il s'agit d'une réservation réelle, pas d'une simulation de prix. Pour voir uniquement les tarifs, consultez la ",
+    "confirmTitle": "Vous effectuez une réservation réelle",
+    "confirmBody": "Ce n'est pas une simulation de prix — vous envoyez une demande de réservation et notre équipe vous contactera. Continuer ?",
+    "confirmCancel": "Non, juste les tarifs",
+    "confirmOk": "Oui, réserver"
   },
   "contactPage": {
     "badge": "NOUS CONTACTER",
@@ -1006,7 +1018,18 @@
       "cancelFailed": "L'annulation a échoué."
     },
     "resending": "Envoi...",
-    "resend": "Renvoyer"
+    "resend": "Renvoyer",
+    "cancel": "Annuler",
+    "cancelTitle": "Annuler la réservation",
+    "cancelIrreversible": "Cette action est irréversible.",
+    "cancelConfirm": "Voulez-vous vraiment annuler cette réservation ?",
+    "keep": "Conserver",
+    "cancelling": "Annulation…",
+    "cancelYes": "Oui, annuler",
+    "seo": {
+      "title": "Mon compte",
+      "description": "Consultez et gérez vos réservations Rent Ride."
+    }
   },
   "notFoundPage": {
     "title": "Page introuvable !",
@@ -1048,6 +1071,27 @@
       "Në dispozicion": "Disponible",
       "I rezervuar": "Réservé",
       "Në mirëmbajtje": "En maintenance"
+    }
+  },
+  "thankyou": {
+    "title": "Merci !",
+    "subtitle": "Votre réservation a bien été enregistrée.",
+    "refId": "Réf. ID",
+    "name": "Nom",
+    "total": "Total",
+    "statusInfo": "Votre réservation est en attente. Vous recevrez un e-mail de confirmation dès que notre équipe l'aura vérifiée.",
+    "myAccount": "Mon compte",
+    "backHome": "Retour à l'accueil",
+    "redirect": "Redirection automatique vers votre compte dans",
+    "seo": {
+      "title": "Réservation confirmée",
+      "description": "Merci ! Votre réservation a été enregistrée et une confirmation vous a été envoyée par e-mail."
+    }
+  },
+  "notFound": {
+    "seo": {
+      "title": "Page introuvable (404)",
+      "description": "Cette page n'existe pas. Parcourez notre flotte ou revenez à l'accueil."
     }
   }
 }

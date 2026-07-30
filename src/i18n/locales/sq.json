@@ -480,7 +480,8 @@
       "serviceFee": "Tarifa shërbimi",
       "freeDays": "Makina është e lirë — {{days}} ditë",
       "dateTaken": "Makina është e zënë në datat e zgjedhura",
-      "urgency": "Kjo makinë shikohet shpesh — rezervoje para se ta marrë dikush tjetër!"
+      "urgency": "Kjo makinë shikohet shpesh — rezervoje para se ta marrë dikush tjetër!",
+      "dropoffLocation": "Ktheje në"
     },
     "support2": {
       "title": "Ndihmë e menjëhershme",
@@ -630,7 +631,10 @@
         "text": "Çmime të arsyeshme dhe makinë në gjendje shumë të mirë. Kilometrazhi pa limit ishte plus i madh!",
         "date": "3 javë më parë"
       }
-    ]
+    ],
+    "similarCar": {
+      "suggestion": "Ky model nuk është i disponueshëm. Mund të gjeni diçka të ngjashme tek makina e mëposhtme:"
+    }
   },
   "booking": {
     "title": "Rezervo makinën",
@@ -736,6 +740,7 @@
     "days": "ditë",
     "hours": "orë totale · tarifë ditore aplikohet",
     "extras": {
+      "label": "Shtesat",
       "perDay": "/ditë",
       "perRental": "/rezervim",
       "oneTime": "Një herë",
@@ -860,7 +865,14 @@
       "Paguaj me para në dorë ose kartë",
       "Pa kosto të fshehura – çmim transparent"
     ],
-    "close": "Mbylle"
+    "close": "Mbylle",
+    "summaryTotal": "Totali",
+    "country": "Shteti",
+    "realBookingHint": "Ky është një rezervim real, jo kontroll çmimi. Për të parë vetëm çmimet, shiko ",
+    "confirmTitle": "Po bën një rezervim real",
+    "confirmBody": "Ky nuk është kontroll çmimi — po dërgon një kërkesë rezervimi dhe ekipi do të të kontaktojë. Dëshiron të vazhdosh?",
+    "confirmCancel": "Jo, vetëm çmimet",
+    "confirmOk": "Po, rezervo"
   },
   "contactPage": {
     "badge": "NA KONTAKTONI",
@@ -1002,7 +1014,18 @@
       "cancelFailed": "Anulimi dështoi."
     },
     "resending": "Duke dërguar...",
-    "resend": "Ridërgo"
+    "resend": "Ridërgo",
+    "cancel": "Anulo",
+    "cancelTitle": "Anulo rezervimin",
+    "cancelIrreversible": "Ky veprim nuk mund të kthehet.",
+    "cancelConfirm": "Jeni i sigurt që dëshironi të anuloni këtë rezervim?",
+    "keep": "Mbaje",
+    "cancelling": "Duke anuluar...",
+    "cancelYes": "Po, anulo",
+    "seo": {
+      "title": "Llogaria ime",
+      "description": "Shiko dhe menaxho rezervimet e tua në Rent Ride."
+    }
   },
   "notFoundPage": {
     "title": "Faqja nuk u gjet!",
@@ -1044,6 +1067,27 @@
       "Në dispozicion": "Në dispozicion",
       "I rezervuar": "I rezervuar",
       "Në mirëmbajtje": "Në mirëmbajtje"
+    }
+  },
+  "thankyou": {
+    "title": "Faleminderit!",
+    "subtitle": "Rezervimi juaj u regjistrua me sukses.",
+    "refId": "Ref. ID",
+    "name": "Emri",
+    "total": "Totali",
+    "statusInfo": "Rezervimi juaj është në pritje. Do të merrni një email konfirmimi sapo ekipi ynë ta verifikojë.",
+    "myAccount": "Paneli im",
+    "backHome": "Kthehu në kryefaqe",
+    "redirect": "Ridrejtim automatik te paneli juaj për",
+    "seo": {
+      "title": "Rezervimi u konfirmua",
+      "description": "Faleminderit! Rezervimi juaj u regjistrua dhe konfirmimi u dërgua me email."
+    }
+  },
+  "notFound": {
+    "seo": {
+      "title": "Faqja nuk u gjet (404)",
+      "description": "Kjo faqe nuk ekziston. Shfleto flotën e makinave me qira ose kthehu në kryefaqe."
     }
   }
 }

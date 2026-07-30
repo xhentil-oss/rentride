@@ -25,7 +25,7 @@ export default function NotFoundPage() {
   // A SPA can't return a 404 status from the client, so noindex is the only way
   // to stop soft-404s from accumulating in the index and dragging site quality down.
   useSEO({
-    title: t("notFound.seo.title", { defaultValue: "Faqja nuk u gjet (404)" }),
+    title: t("notFound.seo.title"),
     description: t("notFound.seo.description", {
       defaultValue: "Kjo faqe nuk ekziston. Shfleto flotën e makinave me qira ose kthehu në kryefaqe.",
     }),

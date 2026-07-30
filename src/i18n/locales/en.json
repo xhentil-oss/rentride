@@ -484,7 +484,8 @@
       "serviceFee": "Service fee",
       "freeDays": "Car is free — {{days}} days",
       "dateTaken": "Car is taken on the selected dates",
-      "urgency": "This car gets a lot of views — book it before someone else does!"
+      "urgency": "This car gets a lot of views — book it before someone else does!",
+      "dropoffLocation": "Return to"
     },
     "support2": {
       "title": "Immediate help",
@@ -634,7 +635,10 @@
         "text": "Fair prices and a car in great condition. The unlimited mileage was a real bonus!",
         "date": "3 weeks ago"
       }
-    ]
+    ],
+    "similarCar": {
+      "suggestion": "This model isn't available. You may find something similar in the car below:"
+    }
   },
   "booking": {
     "title": "Book your car",
@@ -740,6 +744,7 @@
     "days": "days",
     "hours": "total hours · daily rate applies",
     "extras": {
+      "label": "Extras",
       "perDay": "/day",
       "perRental": "/rental",
       "oneTime": "One-time",
@@ -864,7 +869,14 @@
       "Pay cash or card",
       "No hidden costs – transparent pricing"
     ],
-    "close": "Close"
+    "close": "Close",
+    "summaryTotal": "Total",
+    "country": "Country",
+    "realBookingHint": "This is a real booking, not a price check. To see prices only, browse the ",
+    "confirmTitle": "You're making a real booking",
+    "confirmBody": "This isn't a price check — you're sending a booking request and our team will contact you. Continue?",
+    "confirmCancel": "No, just prices",
+    "confirmOk": "Yes, book it"
   },
   "contactPage": {
     "badge": "CONTACT US",
@@ -1006,7 +1018,18 @@
       "cancelFailed": "Cancellation failed."
     },
     "resending": "Sending...",
-    "resend": "Resend"
+    "resend": "Resend",
+    "cancel": "Cancel",
+    "cancelTitle": "Cancel reservation",
+    "cancelIrreversible": "This action cannot be undone.",
+    "cancelConfirm": "Are you sure you want to cancel this reservation?",
+    "keep": "Keep it",
+    "cancelling": "Cancelling…",
+    "cancelYes": "Yes, cancel",
+    "seo": {
+      "title": "My account",
+      "description": "View and manage your Rent Ride bookings."
+    }
   },
   "notFoundPage": {
     "title": "Page not found!",
@@ -1048,6 +1071,27 @@
       "Në dispozicion": "Available",
       "I rezervuar": "Booked",
       "Në mirëmbajtje": "Under maintenance"
+    }
+  },
+  "thankyou": {
+    "title": "Thank you!",
+    "subtitle": "Your booking was submitted successfully.",
+    "refId": "Ref. ID",
+    "name": "Name",
+    "total": "Total",
+    "statusInfo": "Your booking is pending. You'll receive a confirmation email as soon as our team verifies it.",
+    "myAccount": "My account",
+    "backHome": "Back to home",
+    "redirect": "Automatic redirect to your account in",
+    "seo": {
+      "title": "Booking confirmed",
+      "description": "Thank you! Your booking was recorded and a confirmation was sent by email."
+    }
+  },
+  "notFound": {
+    "seo": {
+      "title": "Page not found (404)",
+      "description": "This page doesn't exist. Browse our rental fleet or return to the homepage."
     }
   }
 }

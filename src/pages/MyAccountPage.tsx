@@ -32,7 +32,7 @@ export default function MyAccountPage() {
   // Authenticated-only area: no crawl value and it would surface personal
   // reservation data in search results.
   useSEO({
-    title: t("account.seo.title", { defaultValue: "Llogaria ime" }),
+    title: t("account.seo.title"),
     description: t("account.seo.description", {
       defaultValue: "Shiko dhe menaxho rezervimet e tua në Rent Ride.",
     }),

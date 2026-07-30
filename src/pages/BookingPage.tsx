@@ -1641,7 +1641,7 @@ export default function BookingPage() {
                   )}
                   {extrasTotal > 0 && (
                     <div className="flex justify-between text-sm text-neutral-700">
-                      <span>{t("booking.extras")}</span>
+                      <span>{t("booking.extras.label")}</span>
                       <span>€{extrasTotal}</span>
                     </div>
                   )}

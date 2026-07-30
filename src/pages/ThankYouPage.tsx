@@ -17,10 +17,8 @@ export default function ThankYouPage() {
   // Post-conversion page: never index. It carries reservation data, has no search
   // value, and indexing it would leak confirmation URLs into the SERPs.
   useSEO({
-    title: t("thankYou.seo.title", { defaultValue: "Rezervimi u konfirmua" }),
-    description: t("thankYou.seo.description", {
-      defaultValue: "Faleminderit! Rezervimi juaj u regjistrua dhe konfirmimi u dërgua me email.",
-    }),
+    title: t("thankyou.seo.title"),
+    description: t("thankyou.seo.description"),
     canonical: "/faleminderit",
     noindex: true,
   });
