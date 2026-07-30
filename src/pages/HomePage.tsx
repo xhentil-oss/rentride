@@ -115,7 +115,9 @@ export default function HomePage() {
   }, [pricingRules, startDate, endDate]);
 
   const minDaysViolation = selectedDays > 0 && globalMinDays > 0 && selectedDays < globalMinDays;
-  const [bannerAbout, setBannerAbout] = useState("https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=800&q=80");
+  // Makinë në rrugë bregdetare buzë detit. Kërkohet me h=400&fit=crop sepse
+  // kutia është 800×400 — pa këtë, shkarkohet foto e gjatë e pritet me CSS.
+  const [bannerAbout, setBannerAbout] = useState("https://images.unsplash.com/photo-1723375383253-7171af1d398f?w=800&h=400&fit=crop&q=80");
   const [heroSlides, setHeroSlides] = useState([
     { src: "https://images.unsplash.com/photo-1614414826781-b4911a00298f?w=1600&q=80", alt: "Makina me qira në rrugë bregdetare buzë detit — Rent Ride Shqipëri, qira makine Tiranë & Aeroport" },
     { src: "https://images.unsplash.com/photo-1678410843387-4f52cecd0dca?w=1600&q=80", alt: "Makinë me qira në rrugën bregdetare buzë detit — rent a car tirana airport Albania" },
@@ -592,7 +594,7 @@ export default function HomePage() {
             >
               <img
                 src={bannerAbout}
-                alt="Happy customer standing by rented car"
+                alt="Makinë me qira Rent Ride në rrugë bregdetare buzë detit në Shqipëri"
                 loading="lazy"
                 width={800}
                 height={400}

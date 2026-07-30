@@ -90,7 +90,7 @@ const SECTIONS: { id: string; title: string; icon: React.ElementType; descriptio
     description: "Vendosni URL-të e imazheve kryesore (hero) për faqet e ndryshme.",
     fields: [
       { key: "banner_hero", label: "Hero i Faqes Kryesore", placeholder: "https://images.unsplash.com/photo-1485291571150-772bcfc10da5?w=1200&q=80" },
-      { key: "banner_about", label: "Seksioni 'Rreth Nesh'", placeholder: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=800&q=80" },
+      { key: "banner_about", label: "Seksioni 'Rreth Nesh'", placeholder: "https://images.unsplash.com/photo-1723375383253-7171af1d398f?w=800&h=400&fit=crop&q=80" },
     ],
   },
   {
