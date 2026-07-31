@@ -100,3 +100,29 @@ export function daysBetween(
   const diff = endDate.getTime() - startDate.getTime();
   return Math.max(0, Math.round(diff / (1000 * 60 * 60 * 24)));
 }
+
+/**
+ * Normalize a stored pickup/return time to "HH:MM".
+ * The DB columns are VARCHAR(10) holding "09:00", but tolerate "9:00" and
+ * "09:00:00" so a row written by an older path still renders.
+ */
+export function formatTime(value?: string | null): string {
+  if (!value) return "";
+  const match = String(value).match(/^(\d{1,2}):(\d{2})/);
+  if (!match) return "";
+  return `${match[1].padStart(2, "0")}:${match[2]}`;
+}
+
+/**
+ * "31.07.2026, 09:00" — the date alone when no time is stored, so reservations
+ * predating the time fields don't render a dangling separator.
+ */
+export function formatDateWithTime(
+  date?: string | Date | null,
+  time?: string | null,
+): string {
+  const datePart = formatLocalDate(date);
+  const timePart = formatTime(time);
+  if (!datePart) return timePart;
+  return timePart ? `${datePart}, ${timePart}` : datePart;
+}

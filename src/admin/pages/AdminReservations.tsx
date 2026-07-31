@@ -13,6 +13,7 @@ import {
   parseLocalDate,
   buildLocalDateTime,
   formatDateInputValue,
+  formatDateWithTime,
 } from "../../lib/dateHelpers";
 import { usePagination } from "../../hooks/usePagination";
 import Pagination from "../../components/ui/Pagination";
@@ -575,7 +576,8 @@ export default function AdminReservations() {
                 <StatusBadge status={res.status} />
               </div>
               <div className="text-xs text-neutral-600 mb-2">
-                {new Date(res.startDate).toLocaleDateString("sq-AL")} → {new Date(res.endDate).toLocaleDateString("sq-AL")}
+                <span className="block">Marrja: {formatDateWithTime(res.startDate, res.startTime)}</span>
+                <span className="block">Kthimi: {formatDateWithTime(res.endDate, res.endTime)}</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-sm font-bold text-neutral-900">€{res.totalPrice}</span>
@@ -633,8 +635,9 @@ export default function AdminReservations() {
                     {getCarName(res.carId)}
                     <ReservationExtrasChips res={res} />
                   </td>
-                  <td className="px-4 py-3 text-xs text-neutral-600">
-                    {new Date(res.startDate).toLocaleDateString("sq-AL")} → {new Date(res.endDate).toLocaleDateString("sq-AL")}
+                  <td className="px-4 py-3 text-xs text-neutral-600 whitespace-nowrap">
+                    <span className="block">{formatDateWithTime(res.startDate, res.startTime)}</span>
+                    <span className="block text-neutral-500">→ {formatDateWithTime(res.endDate, res.endTime)}</span>
                   </td>
                   <td className="px-4 py-3 text-sm font-medium text-neutral-800">€{res.totalPrice}</td>
                   <td className="px-4 py-3"><StatusBadge status={res.status} /></td>
@@ -963,8 +966,8 @@ export default function AdminReservations() {
                 { label: "Ktheni në", value: selectedRes.dropoffLocation },
                 ...(selectedRes.flightNumber ? [{ label: "Numri i fluturimit", value: selectedRes.flightNumber }] : []),
                 ...((selectedRes as any).customerCountry ? [{ label: "Shteti (klienti)", value: (selectedRes as any).customerCountry }] : []),
-                { label: "Data e nisjes", value: new Date(selectedRes.startDate).toLocaleDateString("sq-AL") },
-                { label: "Data e kthimit", value: new Date(selectedRes.endDate).toLocaleDateString("sq-AL") },
+                { label: "Marrja (data / ora)", value: formatDateWithTime(selectedRes.startDate, selectedRes.startTime) },
+                { label: "Kthimi (data / ora)", value: formatDateWithTime(selectedRes.endDate, selectedRes.endTime) },
                 { label: "Çmimi total", value: `€${selectedRes.totalPrice}` },
                 ...((selectedRes as any).metaCountry ? [{ label: "Shteti (IP)", value: (selectedRes as any).metaCountry }] : []),
                 ...((selectedRes as any).metaIp ? [{ label: "IP", value: (selectedRes as any).metaIp }] : []),

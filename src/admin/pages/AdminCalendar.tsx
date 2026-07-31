@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CaretLeft, CaretRight, X, Car, User, MapPin, CalendarBlank, CurrencyEur } from "@phosphor-icons/react";
 import { useQuery } from "../../hooks/useApi";
 import { ReservationExtrasBreakdown, type ReservationExtra } from "../components/ReservationExtras";
+import { formatTime } from "../../lib/dateHelpers";
 
 type Reservation = {
   id: string;
@@ -12,6 +13,8 @@ type Reservation = {
   status: string;
   pickupLocation: string;
   dropoffLocation: string;
+  startTime?: string;
+  endTime?: string;
   totalPrice: number;
   insurance: string;
   extras?: string;
@@ -324,7 +327,12 @@ export default function AdminCalendar() {
                 <div>
                   <p className="text-xs text-neutral-500">Periudha</p>
                   <p className="text-sm font-medium text-neutral-800">
-                    {fmt(selectedRes.startDate)} → {fmt(selectedRes.endDate)}
+                    Marrja: {fmt(selectedRes.startDate)}
+                    {selectedRes.startTime && `, ${formatTime(selectedRes.startTime)}`}
+                  </p>
+                  <p className="text-sm font-medium text-neutral-800">
+                    Kthimi: {fmt(selectedRes.endDate)}
+                    {selectedRes.endTime && `, ${formatTime(selectedRes.endTime)}`}
                   </p>
                 </div>
               </div>

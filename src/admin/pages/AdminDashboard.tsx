@@ -10,6 +10,7 @@ import {
 } from "@phosphor-icons/react";
 import { useQuery } from "../../hooks/useApi";
 import { useCountUp } from "../../hooks/useCountUp";
+import { formatDateWithTime } from "../../lib/dateHelpers";
 import StatusBadge from "../../components/StatusBadge";
 
 function KpiCard({
@@ -154,7 +155,7 @@ export default function AdminDashboard() {
                   </p>
                   <p className="text-xs text-neutral-500">
                     {getCarName(res.carId)} ·{" "}
-                    {new Date(res.startDate).toLocaleDateString("sq-AL")}
+                    {formatDateWithTime(res.startDate, res.startTime)}
                   </p>
                 </div>
                 <div className="flex items-center gap-3">

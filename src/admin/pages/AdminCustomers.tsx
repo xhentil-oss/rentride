@@ -14,6 +14,7 @@ import CopyButton from "../../components/ui/CopyButton";
 import { calculateTier, nextTierProgress } from "../../lib/loyaltyTier";
 import { usePagination } from "../../hooks/usePagination";
 import Pagination from "../../components/ui/Pagination";
+import { formatDateWithTime } from "../../lib/dateHelpers";
 
 const SCORING_TIERS = ["Bronze", "Silver", "Gold", "Platinum", "Diamond"];
 
@@ -604,7 +605,7 @@ export default function AdminCustomers() {
                         <span className="text-sm font-semibold text-primary">€{res.totalPrice}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-xs text-neutral-500">{new Date(res.startDate).toLocaleDateString("sq-AL")} → {new Date(res.endDate).toLocaleDateString("sq-AL")}</span>
+                        <span className="text-xs text-neutral-500">{formatDateWithTime(res.startDate, res.startTime)} → {formatDateWithTime(res.endDate, res.endTime)}</span>
                         <span className={`text-xs px-2 py-0.5 rounded-full ${res.status === "Active" ? "bg-success text-success-foreground" : res.status === "Confirmed" ? "bg-info text-info-foreground" : res.status === "Pending" ? "bg-warning text-warning-foreground" : "bg-neutral-200 text-neutral-700"}`}>{res.status}</span>
                       </div>
                     </div>
