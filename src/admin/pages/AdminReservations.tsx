@@ -16,6 +16,7 @@ import {
 } from "../../lib/dateHelpers";
 import { usePagination } from "../../hooks/usePagination";
 import Pagination from "../../components/ui/Pagination";
+import { ReservationExtrasChips, ReservationExtrasBreakdown } from "../components/ReservationExtras";
 
 interface NewReservationForm {
   customerId: string;
@@ -568,6 +569,7 @@ export default function AdminReservations() {
                     {res.createdAt && (
                       <p className="text-[11px] text-neutral-400">Rezervuar më {new Date(res.createdAt).toLocaleDateString("sq-AL")}</p>
                     )}
+                    <ReservationExtrasChips res={res} />
                   </div>
                 </div>
                 <StatusBadge status={res.status} />
@@ -627,7 +629,10 @@ export default function AdminReservations() {
                       <span className="block text-[11px] font-normal text-neutral-400">Rezervuar më {new Date(res.createdAt).toLocaleDateString("sq-AL")}</span>
                     )}
                   </td>
-                  <td className="px-4 py-3 text-sm text-neutral-700">{getCarName(res.carId)}</td>
+                  <td className="px-4 py-3 text-sm text-neutral-700">
+                    {getCarName(res.carId)}
+                    <ReservationExtrasChips res={res} />
+                  </td>
                   <td className="px-4 py-3 text-xs text-neutral-600">
                     {new Date(res.startDate).toLocaleDateString("sq-AL")} → {new Date(res.endDate).toLocaleDateString("sq-AL")}
                   </td>
@@ -939,7 +944,7 @@ export default function AdminReservations() {
       {selectedRes && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true">
           <div className="absolute inset-0 bg-neutral-900/55" onClick={() => setSelectedResId(null)} />
-          <div className="relative bg-white rounded-xl p-6 max-w-md w-full">
+          <div className="relative bg-white rounded-xl p-6 max-w-md w-full max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-medium text-neutral-900">Detajet e rezervimit</h2>
               <button onClick={() => setSelectedResId(null)} className="p-2 rounded-md text-neutral-500 hover:bg-secondary transition-colors duration-200 cursor-pointer"><X size={20} /></button>
@@ -970,7 +975,8 @@ export default function AdminReservations() {
                   <span className="text-sm font-medium text-neutral-800">{value}</span>
                 </div>
               ))}
-              <div className="flex justify-between py-2">
+              <ReservationExtrasBreakdown res={selectedRes} />
+              <div className="flex justify-between py-2 border-t border-border">
                 <span className="text-sm text-neutral-500">Statusi</span>
                 <StatusBadge status={selectedRes.status} />
               </div>

@@ -127,26 +127,54 @@ router.get('/', authenticate, async (req, res) => {
     sql += ' ORDER BY r.created_at DESC LIMIT ? OFFSET ?';
     params.push(...safePagination(limit, offset, 200));
     const [rows] = await pool.query(sql, params);
-    res.json(rows.map(fmt));
+    const out = rows.map(fmt);
+    // Attach the purchased extras (insurance / equipment / add-ons) to every row
+    // in one batched query, so the admin list can show what the customer bought
+    // without an extra request per reservation.
+    const extrasByReservation = await fetchExtrasForReservations(out.map((r) => r.id));
+    for (const r of out) r.extrasDetail = extrasByReservation.get(r.id) || [];
+    res.json(out);
   } catch (err) { console.error(err); res.status(500).json({ error: 'Gabim i brendshëm.' }); }
 });
 
+const mapExtraRow = (r) => ({
+  id: r.id,
+  extraId: r.extra_id,
+  code: r.extra_code,
+  name: r.extra_name,
+  category: r.category,
+  quantity: r.quantity,
+  unitPrice: Number(r.unit_price),
+  priceType: r.price_type,
+  totalPrice: Number(r.total_price),
+});
+
+const EXTRAS_COLUMNS =
+  'id, extra_id, extra_code, extra_name, category, quantity, unit_price, price_type, total_price';
+
 async function fetchReservationExtras(reservationId) {
   const [rows] = await pool.query(
-    'SELECT id, extra_id, extra_code, extra_name, category, quantity, unit_price, price_type, total_price FROM reservation_extras WHERE reservation_id = ? ORDER BY category, extra_name',
+    `SELECT ${EXTRAS_COLUMNS} FROM reservation_extras WHERE reservation_id = ? ORDER BY category, extra_name`,
     [reservationId]
   );
-  return rows.map((r) => ({
-    id: r.id,
-    extraId: r.extra_id,
-    code: r.extra_code,
-    name: r.extra_name,
-    category: r.category,
-    quantity: r.quantity,
-    unitPrice: Number(r.unit_price),
-    priceType: r.price_type,
-    totalPrice: Number(r.total_price),
-  }));
+  return rows.map(mapExtraRow);
+}
+
+// Batched variant for list endpoints — returns Map<reservationId, extras[]>.
+async function fetchExtrasForReservations(reservationIds) {
+  const grouped = new Map();
+  if (!reservationIds.length) return grouped;
+  const placeholders = reservationIds.map(() => '?').join(',');
+  const [rows] = await pool.query(
+    `SELECT reservation_id, ${EXTRAS_COLUMNS} FROM reservation_extras WHERE reservation_id IN (${placeholders}) ORDER BY category, extra_name`,
+    reservationIds
+  );
+  for (const r of rows) {
+    const list = grouped.get(r.reservation_id) || [];
+    list.push(mapExtraRow(r));
+    grouped.set(r.reservation_id, list);
+  }
+  return grouped;
 }
 
 router.get('/:id', authenticate, async (req, res) => {

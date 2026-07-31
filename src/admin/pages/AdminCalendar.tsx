@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CaretLeft, CaretRight, X, Car, User, MapPin, CalendarBlank, CurrencyEur } from "@phosphor-icons/react";
 import { useQuery } from "../../hooks/useApi";
+import { ReservationExtrasBreakdown, type ReservationExtra } from "../components/ReservationExtras";
 
 type Reservation = {
   id: string;
@@ -13,6 +14,8 @@ type Reservation = {
   dropoffLocation: string;
   totalPrice: number;
   insurance: string;
+  extras?: string;
+  extrasDetail?: ReservationExtra[];
 };
 
 const STATUS_COLORS: Record<string, { cell: string; dot: string; label: string }> = {
@@ -344,15 +347,12 @@ export default function AdminCalendar() {
                 </div>
               </div>
 
-              {selectedRes.insurance && (
-                <div className="flex items-start gap-3">
-                  <span className="text-neutral-400 mt-0.5 shrink-0 text-base">🛡️</span>
-                  <div>
-                    <p className="text-xs text-neutral-500">Sigurimi</p>
-                    <p className="text-sm font-medium text-neutral-800">{selectedRes.insurance}</p>
-                  </div>
+              <div className="flex items-start gap-3">
+                <span className="text-neutral-400 mt-0.5 shrink-0 text-base">🛡️</span>
+                <div className="min-w-0 flex-1">
+                  <ReservationExtrasBreakdown res={selectedRes} />
                 </div>
-              )}
+              </div>
             </div>
 
             <div className="px-5 pb-5">
