@@ -349,6 +349,11 @@ const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log(`📦 Environment: ${process.env.NODE_ENV || 'development'}`);
+  // Mail config at boot: env vars are read once per process, so this line is the
+  // proof that a .env edit was actually picked up by the restart.
+  const mc = require('./lib/mailer').mailConfig();
+  console.log(`✉️  Mail: ${mc.configured ? 'i konfiguruar' : '❌ MUNGON MAIL_USER/MAIL_PASS'} | ${mc.host}:${mc.port} secure=${mc.secure} | user=${mc.user || '—'}`);
+  console.log(`🔔 Njoftimet e adminit → ${mc.adminRecipients.join(', ') || '❌ asnjë marrës'}${mc.adminEmailRaw ? '' : ' (ADMIN_EMAIL pa vendosur → fallback MAIL_USER)'}`);
 });
 
 // ─── GRACEFUL SHUTDOWN ────────────────────────────────────────

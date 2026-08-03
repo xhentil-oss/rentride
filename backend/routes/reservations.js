@@ -3,7 +3,7 @@ const { v4: uuidv4 } = require('uuid');
 const pool = require('../database/db');
 const { authenticate, requireRole, logActivity, ADMIN_ROLES } = require('../middleware/auth');
 const { safePagination } = require('../lib/helpers');
-const { sendMail } = require('../lib/mailer');
+const { sendMail, adminRecipients, mailErrorDetail } = require('../lib/mailer');
 const { getClientIp, countryFromHeaders, parseDevice, lookupCountry } = require('../lib/requestMeta');
 const { surchargeForBooking } = require('../lib/pricingRules');
 const tpl = require('../lib/emailTemplates');
@@ -456,12 +456,19 @@ router.post('/', async (req, res) => {
             insurance: insurance || null,
             reservationId: id,
           })
-        ).catch((e) => console.error('[Email] booking confirmation failed:', e));
+        ).catch((e) => console.error('[Email] konfirmimi i klientit dështoi:', mailErrorDetail(e)));
       }
 
       // ── Admin notification ──
-      const adminEmail = process.env.ADMIN_EMAIL || process.env.MAIL_USER;
-      if (adminEmail) {
+      // adminRecipients() reads ADMIN_EMAIL (comma-separated list allowed) and
+      // falls back to MAIL_USER. Logged either way so the server log always says
+      // whether a new booking tried to notify anyone, and whom.
+      const adminEmail = adminRecipients();
+      if (!adminEmail.length) {
+        console.warn('⚠️  [Email] Rezervim i ri', id, '— asnjë marrës admin (ADMIN_EMAIL/MAIL_USER bosh ose i pavlefshëm)');
+      }
+      if (adminEmail.length) {
+        console.log('→ [Email] Njoftim admini për rezervimin', id, '→', adminEmail.join(', '));
         const frontendUrl = process.env.FRONTEND_URL || 'https://rentride.al';
         // Resolve the visitor's country from IP (best-effort, non-blocking) and
         // persist it, then send the admin email with all device/connection meta.
@@ -501,7 +508,7 @@ router.post('/', async (req, res) => {
               adminPanelUrl: `${frontendUrl}/admin/rezervime`,
             })
           );
-        })().catch((e) => console.error('[Email] admin notification failed:', e));
+        })().catch((e) => console.error('[Email] njoftimi i adminit dështoi:', mailErrorDetail(e)));
       }
 
       const outBody = fmt(rows[0]);
