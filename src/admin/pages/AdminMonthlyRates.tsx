@@ -155,11 +155,17 @@ export default function AdminMonthlyRates() {
   }, [periodRates, year]);
 
   function isMonthOverridden(rowKey: string, month: number, row: Row): boolean {
-    // A period on a broader scope still affects this row, so check up the chain.
+    // Mirror the resolver: walk scopes most-specific first, and stop at the one
+    // that decides. A broader period only reaches this row when no nearer scope
+    // has priced the month at all.
     const keys = [rowKey];
     if (rowKey.startsWith("car:") && row.category) keys.push(`category:${row.category}`);
     if (rowKey !== "all") keys.push("all");
-    return keys.some(k => overriddenMonths.get(k)?.has(month));
+    for (const key of keys) {
+      if (overriddenMonths.get(key)?.has(month)) return true; // period wins here
+      if (findRate(key, month)) return false;                 // month rate wins here
+    }
+    return false;
   }
 
   // Color coding: relative to other months in the same row
@@ -447,7 +453,7 @@ export default function AdminMonthlyRates() {
               Periudha me çmim të veçantë
             </h2>
             <p className="text-xs text-neutral-500 mt-1">
-              Çmim për një interval datash — p.sh. 25 Gusht → 10 Shtator. Ka përparësi mbi çmimin e muajit.
+              Çmim për një interval datash — p.sh. 25 Gusht → 10 Shtator. Ka përparësi mbi çmimin mujor të <strong>të njëjtit nivel</strong>.
             </p>
           </div>
           <button
@@ -617,8 +623,9 @@ export default function AdminMonthlyRates() {
           <p className="font-semibold mb-1.5">Si funksionojnë çmimet:</p>
           <ol className="list-decimal ml-4 space-y-1">
             <li><strong>Kliko</strong> mbi çdo qelizë për të vendosur çmimin e ditës (€/ditë) për atë muaj të plotë</li>
-            <li><strong>Periudhat</strong> mbulojnë një interval datash (p.sh. 25 Gusht → 10 Shtator) dhe kanë përparësi mbi çmimin e muajit</li>
-            <li><strong>Prioriteti:</strong> Periudhë {">"} Muaj; brenda secilit: Makina specifike {">"} Kategoria {">"} Të gjitha makinat</li>
+            <li><strong>Periudhat</strong> mbulojnë një interval datash (p.sh. 25 Gusht → 10 Shtator)</li>
+            <li><strong>Prioriteti:</strong> së pari niveli — Makina specifike {">"} Kategoria {">"} Të gjitha makinat; brenda të njëjtit nivel, Periudha {">"} Muaji</li>
+            <li>Një periudhë globale <strong>nuk</strong> shtyp çmimin e vendosur mbi një makinë ose kategori — për ta ulur atë, vendos periudhë mbi të njëjtin nivel</li>
             <li>Kur dy periudha mbivendosen në të njëjtin nivel, fiton ajo më e ngushta</li>
             <li>Çmimi llogaritet <strong>ditë për ditë</strong> — një rezervim që kalon nga një periudhë/muaj në tjetrin paguan çmimin e secilës ditë</li>
             <li>Nëse asnjë çmim nuk mbulon një ditë, përdoret çmimi bazë i makinës</li>

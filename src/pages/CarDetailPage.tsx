@@ -56,7 +56,8 @@ import { parseLocalDate, buildLocalDateTime, formatDateInputValue } from "../lib
 
 // Inline monthly/period rate resolution (avoids shared-module TDZ in Rollup bundle).
 // Mirrors src/lib/monthlyRates.ts — a rate is either a whole MONTH or a PERIOD
-// (an arbitrary date window like 25 Gusht → 10 Shtator, which wins over months).
+// (an arbitrary date window like 25 Gusht → 10 Shtator). Scope decides first
+// (car > category > all); only within one scope does a period beat its month rate.
 interface MonthlyRate {
   id: string; year: number | null; month: number | null;
   startDate?: string | null; endDate?: string | null;
@@ -69,31 +70,40 @@ function normDay(v?: string | null): string | null {
 function dayKeyOf(d: Date): string {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
-function pickScoped(list: MonthlyRate[], carId: string, carCategory: string): MonthlyRate | null {
-  return list.find(r => r.appliesTo === 'car' && r.appliesToValue === carId)
-    ?? list.find(r => r.appliesTo === 'category' && r.appliesToValue === carCategory)
-    ?? list.find(r => r.appliesTo === 'all')
-    ?? null;
-}
-function priceOf(r: MonthlyRate | null): number | null {
+function priceOf(r: MonthlyRate | null | undefined): number | null {
   if (!r) return null;
   const n = Number(r.pricePerDay);
   return Number.isFinite(n) ? n : null;
 }
+function spanOf(r: MonthlyRate): number {
+  return Date.parse(`${normDay(r.endDate)}T00:00:00Z`) - Date.parse(`${normDay(r.startDate)}T00:00:00Z`);
+}
 function resolveRateForDate(rates: MonthlyRate[], carId: string, carCategory: string, date: Date): number | null {
   const key = dayKeyOf(date);
-  const periods = rates
-    .filter(r => { const s = normDay(r.startDate), e = normDay(r.endDate); return !!(s && e && s <= key && key <= e); })
-    // narrowest window wins among periods of the same scope
-    .sort((a, b) => (Date.parse(`${normDay(a.endDate)}T00:00:00Z`) - Date.parse(`${normDay(a.startDate)}T00:00:00Z`))
-                  - (Date.parse(`${normDay(b.endDate)}T00:00:00Z`) - Date.parse(`${normDay(b.startDate)}T00:00:00Z`)));
-  const periodPrice = priceOf(pickScoped(periods, carId, carCategory));
-  if (periodPrice !== null) return periodPrice;
-
   const month = date.getMonth() + 1, year = date.getFullYear();
-  const months = rates.filter(r => !(normDay(r.startDate) && normDay(r.endDate))
-    && Number(r.month) === month && (r.year === null || r.year === undefined || Number(r.year) === year));
-  return priceOf(pickScoped(months, carId, carCategory));
+  const chain: Array<(r: MonthlyRate) => boolean> = [
+    r => r.appliesTo === 'car' && r.appliesToValue === carId,
+    r => r.appliesTo === 'category' && r.appliesToValue === carCategory,
+    r => r.appliesTo === 'all',
+  ];
+
+  for (const inScope of chain) {
+    const scoped = rates.filter(inScope);
+    if (!scoped.length) continue;
+
+    const period = scoped
+      .filter(r => { const s = normDay(r.startDate), e = normDay(r.endDate); return !!(s && e && s <= key && key <= e); })
+      .sort((a, b) => spanOf(a) - spanOf(b))[0]; // narrowest window wins
+    const periodPrice = priceOf(period);
+    if (periodPrice !== null) return periodPrice;
+
+    const monthRate = scoped.find(r => !(normDay(r.startDate) && normDay(r.endDate))
+      && Number(r.month) === month && (r.year === null || r.year === undefined || Number(r.year) === year));
+    const monthPrice = priceOf(monthRate);
+    if (monthPrice !== null) return monthPrice;
+  }
+
+  return null;
 }
 function calcMonthlyTotal(rates: MonthlyRate[], carId: string, carCategory: string, basePPD: number, startDate: Date, endDate: Date): number {
   const cur = new Date(startDate); cur.setHours(0,0,0,0);

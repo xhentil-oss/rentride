@@ -4,11 +4,14 @@
 // A rate row is one of two kinds:
 //   • MONTH  — `month` set (+ optional `year`), startDate/endDate null
 //   • PERIOD — `startDate` + `endDate` set, `month` null
-// A period covers an arbitrary window (e.g. 25 Gusht → 10 Shtator) and wins
-// over the month rates it overlaps, so an admin can price a peak stretch
-// without touching either whole month. Within the same kind the usual scope
-// priority applies: car > category > all; among overlapping periods of equal
-// scope the narrowest window wins.
+// A period covers an arbitrary window (e.g. 25 Gusht → 10 Shtator), letting an
+// admin price a peak stretch without touching either whole month.
+//
+// SCOPE decides first, then kind: car > category > all, and only within one
+// scope does a period beat that scope's month rate. So a global period never
+// silently undercuts a price set on one specific car — to discount that car you
+// set a period on the car itself. Among overlapping periods of equal scope the
+// narrowest window wins.
 // Mirrored on the server by backend/lib/monthlyRates.js — keep both in sync.
 // =========================================================
 
@@ -69,9 +72,19 @@ function pickByScope(candidates: MonthlyRate[], carId: string, carCategory: stri
   );
 }
 
+// Scope tests, most specific first — the order the resolver walks.
+function scopeChain(carId: string, carCategory: string): Array<(r: MonthlyRate) => boolean> {
+  return [
+    (r) => r.appliesTo === "car" && r.appliesToValue === carId,
+    (r) => r.appliesTo === "category" && r.appliesToValue === carCategory,
+    (r) => r.appliesTo === "all",
+  ];
+}
+
 /**
  * Price per day applicable to a specific calendar day, or null if nothing covers it.
- * Periods take priority over whole-month rates.
+ * Walks scopes from most to least specific; the first scope that has anything to
+ * say decides, preferring its period over its month rate.
  */
 export function resolveRateForDate(
   rates: MonthlyRate[],
@@ -80,27 +93,33 @@ export function resolveRateForDate(
   date: Date
 ): number | null {
   const key = dayKeyOf(date);
-
-  const periods = rates
-    .filter((r) => {
-      const s = normDay(r.startDate);
-      const e = normDay(r.endDate);
-      return Boolean(s && e && s <= key && key <= e);
-    })
-    .sort((a, b) => spanDays(a) - spanDays(b)); // narrowest window wins
-  const period = pickByScope(periods, carId, carCategory);
-  if (period) {
-    const p = priceOf(period);
-    if (p !== null) return p;
-  }
-
   const month = date.getMonth() + 1;
   const year = date.getFullYear();
-  const months = rates.filter(
-    (r) => !isPeriodRate(r) && Number(r.month) === month && (r.year === null || r.year === undefined || Number(r.year) === year)
-  );
-  const monthRate = pickByScope(months, carId, carCategory);
-  if (monthRate) return priceOf(monthRate);
+
+  for (const inScope of scopeChain(carId, carCategory)) {
+    const scoped = rates.filter(inScope);
+    if (!scoped.length) continue;
+
+    const period = scoped
+      .filter((r) => {
+        const s = normDay(r.startDate);
+        const e = normDay(r.endDate);
+        return Boolean(s && e && s <= key && key <= e);
+      })
+      .sort((a, b) => spanDays(a) - spanDays(b))[0]; // narrowest window wins
+    if (period) {
+      const p = priceOf(period);
+      if (p !== null) return p;
+    }
+
+    const monthRate = scoped.find(
+      (r) => !isPeriodRate(r) && Number(r.month) === month && (r.year === null || r.year === undefined || Number(r.year) === year)
+    );
+    if (monthRate) {
+      const p = priceOf(monthRate);
+      if (p !== null) return p;
+    }
+  }
 
   return null;
 }
