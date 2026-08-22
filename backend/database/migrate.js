@@ -401,11 +401,16 @@ const TABLES = [
     FOREIGN KEY (created_by) REFERENCES users(id) ON DELETE SET NULL
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
 
-  // MONTHLY RATES — per-month price overrides per category or car
+  // MONTHLY RATES — price overrides per category or car. A row is either a
+  // MONTH rate (`month` set, dates NULL) or a PERIOD rate (`start_date` +
+  // `end_date` set, `month` NULL) for an arbitrary window like 25 Gusht–10 Shtator.
   `CREATE TABLE IF NOT EXISTS monthly_rates (
     id                CHAR(36) NOT NULL,
     year              SMALLINT DEFAULT NULL,
-    month             TINYINT NOT NULL,
+    month             TINYINT DEFAULT NULL,
+    start_date        DATE DEFAULT NULL,
+    end_date          DATE DEFAULT NULL,
+    label             VARCHAR(150) DEFAULT NULL,
     applies_to        VARCHAR(30) NOT NULL DEFAULT 'all',
     applies_to_value  VARCHAR(255) DEFAULT NULL,
     price_per_day     DECIMAL(10,2) NOT NULL,
@@ -586,6 +591,13 @@ const ALTERS = [
   `ALTER TABLE users ADD COLUMN IF NOT EXISTS profile_picture_url VARCHAR(512) NULL`,
   // Make password nullable so Google-only accounts don't need a local password.
   `ALTER TABLE users MODIFY COLUMN password VARCHAR(255) NULL`,
+  // ── Monthly rates: custom date ranges (e.g. 25 Gusht → 10 Shtator) alongside
+  // whole-month rates. `month` becomes nullable because a period rate has none.
+  `ALTER TABLE monthly_rates ADD COLUMN IF NOT EXISTS start_date DATE DEFAULT NULL`,
+  `ALTER TABLE monthly_rates ADD COLUMN IF NOT EXISTS end_date DATE DEFAULT NULL`,
+  `ALTER TABLE monthly_rates ADD COLUMN IF NOT EXISTS label VARCHAR(150) DEFAULT NULL`,
+  `ALTER TABLE monthly_rates MODIFY COLUMN month TINYINT DEFAULT NULL`,
+  'CREATE INDEX idx_mr_period ON monthly_rates (start_date, end_date)',
   // ── Index for slug lookups on cars (slug already UNIQUE → auto-indexed, but explicit) ──
   'CREATE INDEX idx_car_slug ON cars (slug)',
   // ── Additional FK indices: speed up DELETE-by-parent + JOINs in lists/reports ──

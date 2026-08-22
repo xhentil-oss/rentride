@@ -37,7 +37,7 @@ import {
 } from "../lib/seasonalPricing";
 import { applyPricingRules, RULE_TYPE_LABELS, getMinDaysRequirement, doesRuleMatch } from "../lib/pricingRules";
 import type { PricingRule } from "../lib/pricingRules";
-import { calcTotalWithMonthlyRates, resolveMonthlyRate } from "../lib/monthlyRates";
+import { calcTotalWithMonthlyRates, resolveRateForDate } from "../lib/monthlyRates";
 import type { MonthlyRate } from "../lib/monthlyRates";
 import { useLocations } from "../hooks/useLocations";
 import { formatLocationOption, formatLocationName } from "../lib/locations";
@@ -525,7 +525,7 @@ export default function BookingPage() {
     const rates = (monthlyRatesRaw ?? []) as MonthlyRate[];
     if (rates.length > 0) {
       const ref = startDateObj ?? new Date();
-      const monthly = resolveMonthlyRate(rates, car.id, car.category, ref.getMonth() + 1, ref.getFullYear());
+      const monthly = resolveRateForDate(rates, car.id, car.category, ref);
       if (monthly !== null) base = monthly;
     }
     // Reflect any active surcharge in the per-day label so it matches the total.

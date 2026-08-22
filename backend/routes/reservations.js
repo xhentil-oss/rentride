@@ -6,6 +6,7 @@ const { safePagination } = require('../lib/helpers');
 const { sendMail, adminRecipients, mailErrorDetail } = require('../lib/mailer');
 const { getClientIp, countryFromHeaders, parseDevice, lookupCountry } = require('../lib/requestMeta');
 const { surchargeForBooking } = require('../lib/pricingRules');
+const { sumRateForRange } = require('../lib/monthlyRates');
 const tpl = require('../lib/emailTemplates');
 const {
   loadLocations,
@@ -319,37 +320,19 @@ router.post('/', async (req, res) => {
       const carQuantity = Number(carRows[0].quantity) || 1;
       const carCategory = carRows[0].category;
 
-      // Monthly rate override (car-specific > category > all), resolved PER DAY so
-      // a booking spanning two months is charged each month's own rate
-      // (e.g. 29 Jun–10 Jul = June rate × June days + July rate × July days).
+      // Rate override (period > month, each car-specific > category > all),
+      // resolved PER DAY so a booking spanning two months — or a custom window
+      // like 25 Gusht–10 Shtator — is charged each day's own rate.
       const [allMonthlyRates] = await conn.query(
-        'SELECT applies_to, applies_to_value, price_per_day, month, year FROM monthly_rates'
+        'SELECT applies_to, applies_to_value, price_per_day, month, year, start_date, end_date FROM monthly_rates'
       );
-      const rateForDay = (month, year) => {
-        const matching = allMonthlyRates.filter(
-          (r) => Number(r.month) === month && (r.year === null || Number(r.year) === year)
-        );
-        const car = matching.find((r) => r.applies_to === 'car' && r.applies_to_value === carId);
-        if (car) return Number(car.price_per_day);
-        const cat = matching.find((r) => r.applies_to === 'category' && r.applies_to_value === carCategory);
-        if (cat) return Number(cat.price_per_day);
-        const all = matching.find((r) => r.applies_to === 'all');
-        if (all) return Number(all.price_per_day);
-        return basePricePerDay;
-      };
 
       const msPerDay = 86400000;
       // Daily rental: any partial day = full day (industry standard). 5h = 1 day, 25h = 2 days.
       const days = Math.max(1, Math.ceil((endDateTime.getTime() - startDateTime.getTime()) / msPerDay));
-      // Sum each day at its own month's rate.
-      let rentalSubtotal = 0;
-      const dayCursor = new Date(startDateTime);
-      dayCursor.setHours(0, 0, 0, 0);
-      for (let i = 0; i < days; i += 1) {
-        rentalSubtotal += rateForDay(dayCursor.getMonth() + 1, dayCursor.getFullYear());
-        dayCursor.setDate(dayCursor.getDate() + 1);
-      }
-      rentalSubtotal = Math.round(rentalSubtotal * 100) / 100;
+      const { total: rentalSubtotal } = sumRateForRange(
+        allMonthlyRates, carId, carCategory, basePricePerDay, startDateTime, days
+      );
       const locationFee = await getLocationFee(pickupLocation, dropoffLocation);
 
       // ── Resolve selected extras server-side (never trust client prices) ──
@@ -732,36 +715,19 @@ router.put('/:id', authenticate, requireRole('admin', 'manager'), async (req, re
           return res.status(409).json({ error: 'Makina nuk është e disponueshme për këto data.' });
         }
         }
-        // Monthly rate override for new dates — resolved PER DAY so a booking
-        // spanning two months charges each month's own rate.
+        // Rate override for the new dates — resolved PER DAY so a booking
+        // spanning two months, or a custom period window, charges each day's own rate.
         const basePrice = Number(carRows[0].price_per_day);
         const newCategory = carRows[0].category;
         const [allMonthlyRates] = await conn.query(
-          'SELECT applies_to, applies_to_value, price_per_day, month, year FROM monthly_rates'
+          'SELECT applies_to, applies_to_value, price_per_day, month, year, start_date, end_date FROM monthly_rates'
         );
-        const rateForDay = (month, year) => {
-          const matching = allMonthlyRates.filter(
-            (r) => Number(r.month) === month && (r.year === null || Number(r.year) === year)
-          );
-          const car = matching.find((r) => r.applies_to === 'car' && r.applies_to_value === newCarId);
-          if (car) return Number(car.price_per_day);
-          const cat = matching.find((r) => r.applies_to === 'category' && r.applies_to_value === newCategory);
-          if (cat) return Number(cat.price_per_day);
-          const all = matching.find((r) => r.applies_to === 'all');
-          if (all) return Number(all.price_per_day);
-          return basePrice;
-        };
 
         const msPerDay = 86400000;
         const days = Math.max(1, Math.ceil((newEndDateTime.getTime() - newStartDateTime.getTime()) / msPerDay));
-        let rentalSubtotal = 0;
-        const dayCursor = new Date(newStartDateTime);
-        dayCursor.setHours(0, 0, 0, 0);
-        for (let i = 0; i < days; i += 1) {
-          rentalSubtotal += rateForDay(dayCursor.getMonth() + 1, dayCursor.getFullYear());
-          dayCursor.setDate(dayCursor.getDate() + 1);
-        }
-        rentalSubtotal = Math.round(rentalSubtotal * 100) / 100;
+        const { total: rentalSubtotal } = sumRateForRange(
+          allMonthlyRates, newCarId, newCategory, basePrice, newStartDateTime, days
+        );
         const newPickup = fields.pickup_location || current.pickup_location;
         const newDropoff = fields.dropoff_location || current.dropoff_location;
         const newLocationFee = await getLocationFee(newPickup, newDropoff);

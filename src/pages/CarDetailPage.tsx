@@ -54,31 +54,56 @@ import { categoryLabel, transmissionLabel, fuelLabel } from "../i18n/dataLabels"
 import { formatLocationOption } from "../lib/locations";
 import { parseLocalDate, buildLocalDateTime, formatDateInputValue } from "../lib/dateHelpers";
 
-// Inline monthly rate resolution (avoids shared-module TDZ in Rollup bundle)
-interface MonthlyRate { id: string; year: number | null; month: number; appliesTo: string; appliesToValue: string | null; pricePerDay: number; }
-function resolveMonthlyRate(rates: MonthlyRate[], carId: string, carCategory: string, month: number, year: number): number | null {
-  const matching = rates.filter(r => Number(r.month) === month && (r.year === null || Number(r.year) === year));
-  if (matching.length === 0) return null;
-  const hit = matching.find(r => r.appliesTo === 'car' && r.appliesToValue === carId)
-    ?? matching.find(r => r.appliesTo === 'category' && r.appliesToValue === carCategory)
-    ?? matching.find(r => r.appliesTo === 'all')
+// Inline monthly/period rate resolution (avoids shared-module TDZ in Rollup bundle).
+// Mirrors src/lib/monthlyRates.ts — a rate is either a whole MONTH or a PERIOD
+// (an arbitrary date window like 25 Gusht → 10 Shtator, which wins over months).
+interface MonthlyRate {
+  id: string; year: number | null; month: number | null;
+  startDate?: string | null; endDate?: string | null;
+  appliesTo: string; appliesToValue: string | null; pricePerDay: number;
+}
+function normDay(v?: string | null): string | null {
+  const m = String(v ?? '').trim().match(/^(\d{4})-(\d{2})-(\d{2})/);
+  return m ? `${m[1]}-${m[2]}-${m[3]}` : null;
+}
+function dayKeyOf(d: Date): string {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+function pickScoped(list: MonthlyRate[], carId: string, carCategory: string): MonthlyRate | null {
+  return list.find(r => r.appliesTo === 'car' && r.appliesToValue === carId)
+    ?? list.find(r => r.appliesTo === 'category' && r.appliesToValue === carCategory)
+    ?? list.find(r => r.appliesTo === 'all')
     ?? null;
-  if (!hit) return null;
-  // Cmimi mund te vije si string nga API — kthejeni gjithnje ne numer.
-  const n = Number(hit.pricePerDay);
+}
+function priceOf(r: MonthlyRate | null): number | null {
+  if (!r) return null;
+  const n = Number(r.pricePerDay);
   return Number.isFinite(n) ? n : null;
+}
+function resolveRateForDate(rates: MonthlyRate[], carId: string, carCategory: string, date: Date): number | null {
+  const key = dayKeyOf(date);
+  const periods = rates
+    .filter(r => { const s = normDay(r.startDate), e = normDay(r.endDate); return !!(s && e && s <= key && key <= e); })
+    // narrowest window wins among periods of the same scope
+    .sort((a, b) => (Date.parse(`${normDay(a.endDate)}T00:00:00Z`) - Date.parse(`${normDay(a.startDate)}T00:00:00Z`))
+                  - (Date.parse(`${normDay(b.endDate)}T00:00:00Z`) - Date.parse(`${normDay(b.startDate)}T00:00:00Z`)));
+  const periodPrice = priceOf(pickScoped(periods, carId, carCategory));
+  if (periodPrice !== null) return periodPrice;
+
+  const month = date.getMonth() + 1, year = date.getFullYear();
+  const months = rates.filter(r => !(normDay(r.startDate) && normDay(r.endDate))
+    && Number(r.month) === month && (r.year === null || r.year === undefined || Number(r.year) === year));
+  return priceOf(pickScoped(months, carId, carCategory));
 }
 function calcMonthlyTotal(rates: MonthlyRate[], carId: string, carCategory: string, basePPD: number, startDate: Date, endDate: Date): number {
   const cur = new Date(startDate); cur.setHours(0,0,0,0);
   const end = new Date(endDate); end.setHours(0,0,0,0);
   const msPerDay = 86400000;
   const days = Math.max(1, Math.ceil((end.getTime() - cur.getTime()) / msPerDay));
-  // Pa kete coercion, nje `pricePerDay` string (kolona DECIMAL) do te bashkohej
-  // si tekst ne `total` dhe rezultati do te ishte NaN.
   const base = Number.isFinite(Number(basePPD)) ? Number(basePPD) : 0;
   let total = 0;
   for (let i = 0; i < days; i += 1) {
-    const r = resolveMonthlyRate(rates, carId, carCategory, cur.getMonth() + 1, cur.getFullYear());
+    const r = resolveRateForDate(rates, carId, carCategory, cur);
     total += r !== null ? r : base;
     cur.setDate(cur.getDate() + 1);
   }
@@ -259,7 +284,7 @@ export default function CarDetailPage() {
     const rates = (monthlyRatesPublic ?? []) as MonthlyRate[];
     if (rates.length > 0) {
       const ref = startDateObj ?? new Date();
-      const monthly = resolveMonthlyRate(rates, car.id, car.category, ref.getMonth() + 1, ref.getFullYear());
+      const monthly = resolveRateForDate(rates, car.id, car.category, ref);
       if (monthly !== null) return monthly;
     }
     return seasonalPricePerDay;
@@ -411,7 +436,7 @@ export default function CarDetailPage() {
     const rates = (monthlyRatesPublic ?? []) as MonthlyRate[];
     if (rates.length === 0) return false;
     const ref = startDateObj;
-    return resolveMonthlyRate(rates, car.id, car.category, ref.getMonth() + 1, ref.getFullYear()) !== null;
+    return resolveRateForDate(rates, car.id, car.category, ref) !== null;
   }, [car?.id, car?.category, monthlyRatesPublic, startDateObj]);
 
   // Smart pricing: monthly rates (priority) or seasonal + discount rules only

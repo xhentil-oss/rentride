@@ -1,24 +1,113 @@
 // =========================================================
-// MONTHLY RATES HELPER
+// MONTHLY / PERIOD RATES HELPER
 // =========================================================
-// Resolves the applicable monthly rate for a car/category/all,
-// with priority: car-specific > category > all.
-// Returns the price per day, or null if no monthly rate set.
+// A rate row is one of two kinds:
+//   • MONTH  — `month` set (+ optional `year`), startDate/endDate null
+//   • PERIOD — `startDate` + `endDate` set, `month` null
+// A period covers an arbitrary window (e.g. 25 Gusht → 10 Shtator) and wins
+// over the month rates it overlaps, so an admin can price a peak stretch
+// without touching either whole month. Within the same kind the usual scope
+// priority applies: car > category > all; among overlapping periods of equal
+// scope the narrowest window wins.
+// Mirrored on the server by backend/lib/monthlyRates.js — keep both in sync.
 // =========================================================
 
 export interface MonthlyRate {
   id: string;
+  kind?: "month" | "period";
   year: number | null;
-  month: number;
+  month: number | null;
+  startDate?: string | null; // YYYY-MM-DD
+  endDate?: string | null; // YYYY-MM-DD
+  label?: string | null;
   appliesTo: string; // "all" | "category" | "car"
   appliesToValue: string | null; // category name or car id
   pricePerDay: number;
   notes?: string;
 }
 
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+/** Local calendar day of a Date as YYYY-MM-DD — matches the day the admin picked. */
+export function dayKeyOf(date: Date): string {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
+
+function normDay(value?: string | null): string | null {
+  if (!value) return null;
+  const match = String(value).trim().match(/^(\d{4})-(\d{2})-(\d{2})/);
+  return match ? `${match[1]}-${match[2]}-${match[3]}` : null;
+}
+
+export function isPeriodRate(r: MonthlyRate): boolean {
+  return Boolean(normDay(r.startDate) && normDay(r.endDate));
+}
+
+function spanDays(r: MonthlyRate): number {
+  const s = normDay(r.startDate);
+  const e = normDay(r.endDate);
+  if (!s || !e) return Number.MAX_SAFE_INTEGER;
+  return Math.round((Date.parse(`${e}T00:00:00Z`) - Date.parse(`${s}T00:00:00Z`)) / DAY_MS);
+}
+
+// Prices can arrive as strings from the API (DECIMAL column) — always coerce.
+function priceOf(r: MonthlyRate): number | null {
+  const n = Number(r.pricePerDay);
+  return Number.isFinite(n) ? n : null;
+}
+
+// car > category > all
+function pickByScope(candidates: MonthlyRate[], carId: string, carCategory: string): MonthlyRate | null {
+  return (
+    candidates.find((r) => r.appliesTo === "car" && r.appliesToValue === carId)
+    ?? candidates.find((r) => r.appliesTo === "category" && r.appliesToValue === carCategory)
+    ?? candidates.find((r) => r.appliesTo === "all")
+    ?? null
+  );
+}
+
 /**
- * Find the best monthly rate for a given car, month and year.
- * Priority: car-specific > category > all
+ * Price per day applicable to a specific calendar day, or null if nothing covers it.
+ * Periods take priority over whole-month rates.
+ */
+export function resolveRateForDate(
+  rates: MonthlyRate[],
+  carId: string,
+  carCategory: string,
+  date: Date
+): number | null {
+  const key = dayKeyOf(date);
+
+  const periods = rates
+    .filter((r) => {
+      const s = normDay(r.startDate);
+      const e = normDay(r.endDate);
+      return Boolean(s && e && s <= key && key <= e);
+    })
+    .sort((a, b) => spanDays(a) - spanDays(b)); // narrowest window wins
+  const period = pickByScope(periods, carId, carCategory);
+  if (period) {
+    const p = priceOf(period);
+    if (p !== null) return p;
+  }
+
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  const months = rates.filter(
+    (r) => !isPeriodRate(r) && Number(r.month) === month && (r.year === null || r.year === undefined || Number(r.year) === year)
+  );
+  const monthRate = pickByScope(months, carId, carCategory);
+  if (monthRate) return priceOf(monthRate);
+
+  return null;
+}
+
+/**
+ * Backwards-compatible month/year lookup — ignores period rates, since a whole
+ * month is not a single day. Prefer resolveRateForDate for anything price-facing.
  */
 export function resolveMonthlyRate(
   rates: MonthlyRate[],
@@ -27,43 +116,17 @@ export function resolveMonthlyRate(
   month: number,
   year: number
 ): number | null {
-  const matching = rates.filter(
-    (r) =>
-      Number(r.month) === month &&
-      (r.year === null || Number(r.year) === year)
+  const months = rates.filter(
+    (r) => !isPeriodRate(r) && Number(r.month) === month && (r.year === null || r.year === undefined || Number(r.year) === year)
   );
-
-  if (matching.length === 0) return null;
-
-  // Cmimi mund te vije si string nga API — kthejeni gjithnje ne numer.
-  const price = (r: MonthlyRate): number | null => {
-    const n = Number(r.pricePerDay);
-    return Number.isFinite(n) ? n : null;
-  };
-
-  // Car-specific (highest priority)
-  const carRate = matching.find(
-    (r) => r.appliesTo === "car" && r.appliesToValue === carId
-  );
-  if (carRate) return price(carRate);
-
-  // Category
-  const catRate = matching.find(
-    (r) => r.appliesTo === "category" && r.appliesToValue === carCategory
-  );
-  if (catRate) return price(catRate);
-
-  // All
-  const allRate = matching.find((r) => r.appliesTo === "all");
-  if (allRate) return price(allRate);
-
-  return null;
+  const rate = pickByScope(months, carId, carCategory);
+  return rate ? priceOf(rate) : null;
 }
 
 /**
- * Calculate total price for a date range using monthly rates.
- * If a monthly rate exists for a given day's month, uses it instead of base price.
- * Returns { total, usedMonthlyRate: true/false, effectiveDailyRate }.
+ * Calculate total price for a date range, charging each day at its own
+ * applicable rate (period > month > car base price).
+ * Returns { total, usedMonthlyRate, effectiveDailyRate }.
  */
 export function calcTotalWithMonthlyRates(
   rates: MonthlyRate[],
@@ -78,20 +141,17 @@ export function calcTotalWithMonthlyRates(
   const end = new Date(endDate);
   end.setHours(0, 0, 0, 0);
 
-  const msPerDay = 24 * 60 * 60 * 1000;
-  const days = Math.max(1, Math.ceil((end.getTime() - current.getTime()) / msPerDay));
+  const days = Math.max(1, Math.ceil((end.getTime() - current.getTime()) / DAY_MS));
 
-  // Cmimet mund te vijne si string (kolona DECIMAL) — pa kete coercion `+`
-  // do te bente bashkim tekstesh dhe totali do te dilte NaN.
+  // Prices may arrive as strings (DECIMAL column) — without this coercion `+`
+  // would concatenate text and the total would come out NaN.
   const base = Number.isFinite(Number(basePricePerDay)) ? Number(basePricePerDay) : 0;
 
   let total = 0;
   let usedMonthlyRate = false;
 
   for (let i = 0; i < days; i += 1) {
-    const month = current.getMonth() + 1;
-    const year = current.getFullYear();
-    const rate = resolveMonthlyRate(rates, carId, carCategory, month, year);
+    const rate = resolveRateForDate(rates, carId, carCategory, current);
     if (rate !== null) {
       total += rate;
       usedMonthlyRate = true;
