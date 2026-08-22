@@ -610,7 +610,10 @@ export default function AdminMonthlyRates() {
       </div>
 
       {/* ── Period rates ────────────────────────────────────── */}
-      <div className="bg-white rounded-lg border border-border overflow-hidden">
+      {/* No overflow-hidden here: it would clip the scope picker's dropdown
+          whenever the list below is short. The inner table wrapper rounds its
+          own bottom corners instead. */}
+      <div className="bg-white rounded-lg border border-border">
         <div className="flex items-start justify-between gap-4 flex-wrap px-4 py-3.5 border-b border-border">
           <div>
             <h2 className="text-base font-medium text-neutral-900 flex items-center gap-2">
@@ -726,7 +729,7 @@ export default function AdminMonthlyRates() {
             Ende s'ka periudha. Shto një për të vendosur çmim mbi një interval datash.
           </p>
         ) : (
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto rounded-b-lg">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-border bg-neutral-50">
