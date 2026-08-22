@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { CaretLeft, CaretRight, Info, X, Plus, PencilSimple, Trash, CalendarBlank } from "@phosphor-icons/react";
+import { CaretLeft, CaretRight, CaretDown, Info, X, Plus, PencilSimple, Trash, CalendarBlank } from "@phosphor-icons/react";
 import { useQuery, useMutation } from "../../hooks/useApi";
 import { TableSkeleton } from "../../components/ui/Skeleton";
 
@@ -60,14 +60,147 @@ function parseScope(scope: string): { appliesTo: string; appliesToValue?: string
 const scopeKeyOf = (r: any) => (r.appliesTo === "all" ? "all" : `${r.appliesTo}:${r.appliesToValue}`);
 
 interface PeriodForm {
-  id: string | null;
+  ids: string[];      // rows being replaced when editing a group; empty when creating
   startDate: string;
   endDate: string;
-  scope: string;
+  scopes: string[];   // ["all"] or any mix of "category:X" / "car:<id>"
   pricePerDay: string;
   label: string;
 }
-const emptyPeriodForm = (): PeriodForm => ({ id: null, startDate: "", endDate: "", scope: "all", pricePerDay: "", label: "" });
+const emptyPeriodForm = (): PeriodForm => ({ ids: [], startDate: "", endDate: "", scopes: ["all"], pricePerDay: "", label: "" });
+
+// Rows created together share these four values, which is what makes them one
+// group in the list — no extra column needed to tie them.
+const groupKeyOf = (r: any) => `${r.startDate}|${r.endDate}|${Number(r.pricePerDay)}|${r.label ?? ""}`;
+
+// ── Scope picker ─────────────────────────────────────────────
+// One price often covers several cars, so this replaces the single-choice
+// dropdown: pick "all", or any mix of categories and individual cars.
+function ScopePicker({
+  value, onChange, cars, disabled,
+}: {
+  value: string[];
+  onChange: (next: string[]) => void;
+  cars: any[];
+  disabled?: boolean;
+}) {
+  const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const boxRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    if (!open) return;
+    const onDocDown = (e: MouseEvent) => {
+      if (boxRef.current && !boxRef.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    document.addEventListener("mousedown", onDocDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDocDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  const isAll = value.length === 1 && value[0] === "all";
+
+  const toggle = (key: string) => {
+    if (key === "all") { onChange(["all"]); return; }
+    // "All" and a narrower pick are mutually exclusive — the narrower one wins.
+    const base = value.filter(v => v !== "all");
+    onChange(base.includes(key) ? base.filter(v => v !== key) : [...base, key]);
+  };
+
+  const summary = () => {
+    if (isAll) return "Të gjitha makinat";
+    const cats = value.filter(v => v.startsWith("category:")).map(v => v.slice(9));
+    const carCount = value.filter(v => v.startsWith("car:")).length;
+    if (!cats.length && !carCount) return "Asnjë zgjedhje";
+    const parts: string[] = [];
+    if (cats.length) parts.push(cats.length <= 2 ? cats.join(", ") : `${cats.length} kategori`);
+    if (carCount) parts.push(`${carCount} ${carCount === 1 ? "makinë" : "makina"}`);
+    return parts.join(" + ");
+  };
+
+  const q = query.trim().toLowerCase();
+  const shownCars = q
+    ? cars.filter(c => `${c.brand} ${c.model} ${c.category}`.toLowerCase().includes(q))
+    : cars;
+
+  const allCarKeys = shownCars.map(c => `car:${c.id}`);
+  const allShownSelected = allCarKeys.length > 0 && allCarKeys.every(k => value.includes(k));
+
+  return (
+    <div className="relative" ref={boxRef}>
+      <button
+        type="button"
+        disabled={disabled}
+        onClick={() => setOpen(o => !o)}
+        className="w-full flex items-center justify-between gap-2 px-3 py-2 border border-border rounded-lg text-sm bg-white text-left cursor-pointer hover:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary disabled:opacity-50"
+      >
+        <span className={isAll || value.length ? "text-neutral-900" : "text-neutral-400"}>{summary()}</span>
+        <CaretDown size={14} className="text-neutral-400 shrink-0" />
+      </button>
+
+      {open && (
+        <div className="absolute z-30 mt-1 w-full min-w-[280px] bg-white border border-border rounded-lg shadow-lg max-h-[22rem] overflow-y-auto">
+          <label className="flex items-center gap-2 px-3 py-2.5 hover:bg-neutral-50 cursor-pointer border-b border-border">
+            <input type="checkbox" checked={isAll} onChange={() => toggle("all")} className="cursor-pointer" />
+            <span className="text-sm font-medium text-primary">Të gjitha makinat</span>
+          </label>
+
+          <p className="px-3 pt-3 pb-1 text-[11px] font-medium text-neutral-400 uppercase tracking-wide">Kategoritë</p>
+          {CATEGORIES.map(c => {
+            const key = `category:${c}`;
+            return (
+              <label key={key} className="flex items-center gap-2 px-3 py-1.5 hover:bg-neutral-50 cursor-pointer">
+                <input type="checkbox" checked={value.includes(key)} onChange={() => toggle(key)} className="cursor-pointer" />
+                <span className="text-sm text-neutral-700">{c}</span>
+              </label>
+            );
+          })}
+
+          <div className="px-3 pt-3 pb-1 flex items-center justify-between gap-2">
+            <p className="text-[11px] font-medium text-neutral-400 uppercase tracking-wide">Makinat</p>
+            {shownCars.length > 0 && (
+              <button
+                type="button"
+                onClick={() => {
+                  const base = value.filter(v => v !== "all" && !allCarKeys.includes(v));
+                  onChange(allShownSelected ? base : [...base, ...allCarKeys]);
+                }}
+                className="text-[11px] text-primary hover:underline cursor-pointer bg-transparent border-0 p-0"
+              >
+                {allShownSelected ? "Hiq të gjitha" : q ? "Zgjidh rezultatet" : "Zgjidh të gjitha"}
+              </button>
+            )}
+          </div>
+          <div className="px-3 pb-1.5">
+            <input
+              type="text"
+              value={query}
+              onChange={e => setQuery(e.target.value)}
+              placeholder="Kërko markë ose model…"
+              className="w-full px-2.5 py-1.5 border border-border rounded-md text-xs focus:outline-none focus:border-primary"
+            />
+          </div>
+          {shownCars.length === 0 ? (
+            <p className="px-3 py-2 text-xs text-neutral-400">Asnjë makinë nuk përputhet.</p>
+          ) : shownCars.map(c => {
+            const key = `car:${c.id}`;
+            return (
+              <label key={key} className="flex items-center gap-2 px-3 py-1.5 hover:bg-neutral-50 cursor-pointer">
+                <input type="checkbox" checked={value.includes(key)} onChange={() => toggle(key)} className="cursor-pointer" />
+                <span className="text-sm text-neutral-700">{c.brand} {c.model}</span>
+                <span className="text-xs text-neutral-400 ml-auto">{c.category}</span>
+              </label>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function AdminMonthlyRates() {
   const [year, setYear] = useState(new Date().getFullYear());
@@ -76,10 +209,12 @@ export default function AdminMonthlyRates() {
   const [periodForm, setPeriodForm] = useState<PeriodForm | null>(null);
   const [periodError, setPeriodError] = useState<string | null>(null);
   const [savingPeriod, setSavingPeriod] = useState(false);
+  const [expandedGroup, setExpandedGroup] = useState<string | null>(null);
 
   const { data: rawRates, isPending: ratesLoading, refetch } = useQuery("MonthlyRate");
   const { data: carsData, isPending: carsLoading } = useQuery("Car");
-  const { create, update, remove } = useMutation("MonthlyRate");
+  const { create, remove } = useMutation("MonthlyRate");
+  const { create: saveBulk } = useMutation("MonthlyRateBulk");
 
   const rates: any[] = rawRates ?? [];
   const cars: any[] = carsData ?? [];
@@ -91,6 +226,19 @@ export default function AdminMonthlyRates() {
     [rates]
   );
 
+  // Rows that share dates + price + label were created as one action, so the
+  // list shows them as one entry instead of repeating the same window N times.
+  const periodGroups = useMemo(() => {
+    const map = new Map<string, any[]>();
+    for (const r of periodRates) {
+      const key = groupKeyOf(r);
+      if (!map.has(key)) map.set(key, []);
+      map.get(key)!.push(r);
+    }
+    return Array.from(map.values())
+      .sort((a, b) => String(a[0].startDate).localeCompare(String(b[0].startDate)));
+  }, [periodRates]);
+
   const scopeLabel = React.useCallback((r: any): string => {
     if (r.appliesTo === "category") return r.appliesToValue;
     if (r.appliesTo === "car") {
@@ -99,6 +247,17 @@ export default function AdminMonthlyRates() {
     }
     return "Të gjitha makinat";
   }, [cars]);
+
+  // Collapses a group into one readable line: "SUV + 4 makina".
+  const groupScopeSummary = React.useCallback((group: any[]): string => {
+    if (group.some(r => r.appliesTo === "all")) return "Të gjitha makinat";
+    const cats = group.filter(r => r.appliesTo === "category").map(r => r.appliesToValue);
+    const carCount = group.filter(r => r.appliesTo === "car").length;
+    const parts: string[] = [];
+    if (cats.length) parts.push(cats.length <= 2 ? cats.join(", ") : `${cats.length} kategori`);
+    if (carCount) parts.push(`${carCount} ${carCount === 1 ? "makinë" : "makina"}`);
+    return parts.join(" + ") || "—";
+  }, []);
 
   // Find month rate for a given row/month/year
   function findRate(rowKey: string, month: number): any | null {
@@ -217,31 +376,43 @@ export default function AdminMonthlyRates() {
 
   // ── Period rates ──────────────────────────────────────────
   const openNewPeriod = () => { setPeriodError(null); setPeriodForm(emptyPeriodForm()); };
-  const openEditPeriod = (r: any) => {
+
+  // Editing works on the whole group, so every scope in it comes back into the picker.
+  const openEditPeriod = (group: any[]) => {
     setPeriodError(null);
+    const first = group[0];
     setPeriodForm({
-      id: r.id,
-      startDate: r.startDate,
-      endDate: r.endDate,
-      scope: scopeKeyOf(r),
-      pricePerDay: String(r.pricePerDay),
-      label: r.label ?? "",
+      ids: group.map(r => r.id),
+      startDate: first.startDate,
+      endDate: first.endDate,
+      scopes: group.map(scopeKeyOf),
+      pricePerDay: String(first.pricePerDay),
+      label: first.label ?? "",
     });
   };
 
   const savePeriod = async () => {
     if (!periodForm) return;
-    const { id, startDate, endDate, scope, pricePerDay, label } = periodForm;
+    const { ids, startDate, endDate, scopes, pricePerDay, label } = periodForm;
     const price = parseFloat(pricePerDay);
 
     if (!startDate || !endDate) return setPeriodError("Zgjidh datën e fillimit dhe të mbarimit.");
     if (endDate < startDate) return setPeriodError("Data e mbarimit duhet të jetë e njëjtë ose pas datës së fillimit.");
     if (!pricePerDay || isNaN(price) || price <= 0) return setPeriodError("Vendos një çmim pozitiv për ditë.");
+    if (!scopes.length) return setPeriodError("Zgjidh të paktën një makinë ose kategori.");
 
-    const payload = { ...parseScope(scope), startDate, endDate, pricePerDay: price, label: label.trim() || null };
     setSavingPeriod(true);
     try {
-      if (id) await update(id, payload); else await create(payload);
+      // One transactional call: replaces the edited group and writes the new set,
+      // so a failure can't leave half the cars priced.
+      await saveBulk({
+        startDate,
+        endDate,
+        pricePerDay: price,
+        label: label.trim() || null,
+        scopes: scopes.map(parseScope),
+        replaceIds: ids,
+      });
       setPeriodForm(null);
       setPeriodError(null);
       await refetch();
@@ -252,8 +423,8 @@ export default function AdminMonthlyRates() {
     }
   };
 
-  const deletePeriod = async (id: string) => {
-    await remove(id);
+  const deletePeriodGroup = async (group: any[]) => {
+    for (const r of group) await remove(r.id);
     await refetch();
   };
 
@@ -267,23 +438,17 @@ export default function AdminMonthlyRates() {
   const stats = useMemo(() => {
     const yearMonthRates = monthRates.filter(r => r.year === year || r.year === null);
     const prices = yearMonthRates.map(r => Number(r.pricePerDay)).filter(Number.isFinite);
-    if (!prices.length) return { count: 0, avg: null, min: null, max: null, periods: periodRates.length };
+    if (!prices.length) return { count: 0, avg: null, min: null, max: null, periods: periodGroups.length };
     return {
       count: yearMonthRates.length,
       avg: Math.round(prices.reduce((a, b) => a + b, 0) / prices.length),
       min: Math.min(...prices),
       max: Math.max(...prices),
-      periods: periodRates.length,
+      periods: periodGroups.length,
     };
-  }, [monthRates, periodRates, year]);
+  }, [monthRates, periodGroups, year]);
 
   const currentMonth = new Date().getMonth() + 1;
-
-  const scopeOptions = useMemo(() => [
-    { value: "all", label: "Të gjitha makinat" },
-    ...CATEGORIES.map(c => ({ value: `category:${c}`, label: `Kategoria — ${c}` })),
-    ...cars.map(c => ({ value: `car:${c.id}`, label: `Makina — ${c.brand} ${c.model}` })),
-  ], [cars]);
 
   const inputCls = "w-full px-3 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary";
   const labelCls = "block text-xs font-medium text-neutral-500 mb-1.5";
@@ -489,13 +654,12 @@ export default function AdminMonthlyRates() {
               </div>
               <div>
                 <label className={labelCls}>Zbatohet për</label>
-                <select
-                  value={periodForm.scope}
-                  onChange={e => setPeriodForm(f => f && { ...f, scope: e.target.value })}
-                  className={inputCls}
-                >
-                  {scopeOptions.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
-                </select>
+                <ScopePicker
+                  value={periodForm.scopes}
+                  onChange={next => setPeriodForm(f => f && { ...f, scopes: next })}
+                  cars={cars}
+                  disabled={savingPeriod}
+                />
               </div>
               <div>
                 <label className={labelCls}>Çmimi €/ditë</label>
@@ -528,6 +692,9 @@ export default function AdminMonthlyRates() {
                 {periodForm.pricePerDay && !isNaN(parseFloat(periodForm.pricePerDay)) && (
                   <> · totali për gjithë periudhën: <strong>€{daysBetween(periodForm.startDate, periodForm.endDate) * parseFloat(periodForm.pricePerDay)}</strong></>
                 )}
+                {periodForm.scopes.length > 1 && (
+                  <> · zbatohet mbi <strong>{periodForm.scopes.length} zgjedhje</strong></>
+                )}
               </p>
             )}
 
@@ -539,7 +706,7 @@ export default function AdminMonthlyRates() {
                 disabled={savingPeriod}
                 className="px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:opacity-90 transition-opacity cursor-pointer disabled:opacity-50"
               >
-                {savingPeriod ? "Duke ruajtur…" : periodForm.id ? "Ruaj ndryshimet" : "Shto periudhën"}
+                {savingPeriod ? "Duke ruajtur…" : periodForm.ids.length ? "Ruaj ndryshimet" : "Shto periudhën"}
               </button>
               <button
                 onClick={() => { setPeriodForm(null); setPeriodError(null); }}
@@ -554,7 +721,7 @@ export default function AdminMonthlyRates() {
         {/* List */}
         {ratesLoading ? (
           <div className="p-4"><TableSkeleton rows={3} columns={5} /></div>
-        ) : periodRates.length === 0 ? (
+        ) : periodGroups.length === 0 ? (
           <p className="px-4 py-8 text-sm text-neutral-400 text-center">
             Ende s'ka periudha. Shto një për të vendosur çmim mbi një interval datash.
           </p>
@@ -569,45 +736,73 @@ export default function AdminMonthlyRates() {
                 </tr>
               </thead>
               <tbody>
-                {periodRates.map(r => {
-                  const status = periodStatus(r);
+                {periodGroups.map(group => {
+                  const first = group[0];
+                  const status = periodStatus(first);
+                  const key = groupKeyOf(first);
+                  const expanded = expandedGroup === key;
                   return (
-                    <tr key={r.id} className="border-b border-border last:border-0 hover:bg-neutral-50/50 transition-colors">
-                      <td className="px-4 py-3">
-                        <p className="text-sm font-medium text-neutral-800">
-                          {formatDay(r.startDate)} <span className="text-neutral-400">→</span> {formatDay(r.endDate)}
-                        </p>
-                        {r.label && <p className="text-xs text-neutral-400 mt-0.5">{r.label}</p>}
-                      </td>
-                      <td className="px-4 py-3 text-sm text-neutral-600 text-right tabular-nums">
-                        {daysBetween(r.startDate, r.endDate)}
-                      </td>
-                      <td className="px-4 py-3 text-sm text-neutral-600">{scopeLabel(r)}</td>
-                      <td className="px-4 py-3 text-sm font-semibold text-neutral-900 text-right tabular-nums">
-                        €{Number(r.pricePerDay)}<span className="text-xs font-normal text-neutral-400">/ditë</span>
-                      </td>
-                      <td className="px-4 py-3">
-                        <span className={`inline-block px-2 py-0.5 rounded text-xs font-medium ${status.cls}`}>{status.text}</span>
-                      </td>
-                      <td className="px-4 py-3">
-                        <div className="flex items-center justify-end gap-1">
-                          <button
-                            onClick={() => openEditPeriod(r)}
-                            title="Ndrysho"
-                            className="p-1.5 rounded hover:bg-neutral-100 text-neutral-500 hover:text-neutral-800 transition-colors cursor-pointer"
-                          >
-                            <PencilSimple size={15} />
-                          </button>
-                          <button
-                            onClick={() => deletePeriod(r.id)}
-                            title="Fshi"
-                            className="p-1.5 rounded hover:bg-red-50 text-neutral-400 hover:text-red-600 transition-colors cursor-pointer"
-                          >
-                            <Trash size={15} />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
+                    <React.Fragment key={key}>
+                      <tr className="border-b border-border last:border-0 hover:bg-neutral-50/50 transition-colors">
+                        <td className="px-4 py-3">
+                          <p className="text-sm font-medium text-neutral-800">
+                            {formatDay(first.startDate)} <span className="text-neutral-400">→</span> {formatDay(first.endDate)}
+                          </p>
+                          {first.label && <p className="text-xs text-neutral-400 mt-0.5">{first.label}</p>}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-neutral-600 text-right tabular-nums">
+                          {daysBetween(first.startDate, first.endDate)}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-neutral-600">
+                          {group.length === 1 ? scopeLabel(first) : (
+                            <button
+                              onClick={() => setExpandedGroup(expanded ? null : key)}
+                              className="flex items-center gap-1.5 text-primary hover:underline cursor-pointer bg-transparent border-0 p-0 text-sm"
+                            >
+                              {groupScopeSummary(group)}
+                              <CaretDown size={12} className={`transition-transform ${expanded ? "rotate-180" : ""}`} />
+                            </button>
+                          )}
+                        </td>
+                        <td className="px-4 py-3 text-sm font-semibold text-neutral-900 text-right tabular-nums">
+                          €{Number(first.pricePerDay)}<span className="text-xs font-normal text-neutral-400">/ditë</span>
+                        </td>
+                        <td className="px-4 py-3">
+                          <span className={`inline-block px-2 py-0.5 rounded text-xs font-medium ${status.cls}`}>{status.text}</span>
+                        </td>
+                        <td className="px-4 py-3">
+                          <div className="flex items-center justify-end gap-1">
+                            <button
+                              onClick={() => openEditPeriod(group)}
+                              title={group.length > 1 ? `Ndrysho të ${group.length}` : "Ndrysho"}
+                              className="p-1.5 rounded hover:bg-neutral-100 text-neutral-500 hover:text-neutral-800 transition-colors cursor-pointer"
+                            >
+                              <PencilSimple size={15} />
+                            </button>
+                            <button
+                              onClick={() => deletePeriodGroup(group)}
+                              title={group.length > 1 ? `Fshi të ${group.length}` : "Fshi"}
+                              className="p-1.5 rounded hover:bg-red-50 text-neutral-400 hover:text-red-600 transition-colors cursor-pointer"
+                            >
+                              <Trash size={15} />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                      {expanded && (
+                        <tr className="border-b border-border bg-neutral-50/60">
+                          <td colSpan={6} className="px-4 py-3">
+                            <div className="flex flex-wrap gap-1.5">
+                              {group.map(r => (
+                                <span key={r.id} className="inline-block px-2 py-0.5 bg-white border border-border rounded text-xs text-neutral-600">
+                                  {scopeLabel(r)}
+                                </span>
+                              ))}
+                            </div>
+                          </td>
+                        </tr>
+                      )}
+                    </React.Fragment>
                   );
                 })}
               </tbody>

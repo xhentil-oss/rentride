@@ -139,6 +139,89 @@ router.post('/', authenticate, requireRole('admin', 'manager'), async (req, res)
   } catch (err) { console.error(err); res.status(500).json({ error: 'Gabim i brendshëm.' }); }
 });
 
+// Bulk: apply one price to many scopes at once — "these 8 cars share this rate"
+// is a single action instead of eight rows typed by hand. `replaceIds` lets the
+// editor swap a whole group; the delete and the inserts share one transaction so
+// a half-written group can never survive a failure.
+const MAX_BULK_SCOPES = 300;
+
+router.post('/bulk', authenticate, requireRole('admin', 'manager'), async (req, res) => {
+  const { scopes, replaceIds } = req.body;
+  if (!Array.isArray(scopes) || scopes.length === 0) {
+    return res.status(400).json({ error: 'Zgjidh të paktën një makinë ose kategori.' });
+  }
+  if (scopes.length > MAX_BULK_SCOPES) {
+    return res.status(400).json({ error: `Maksimumi ${MAX_BULK_SCOPES} zgjedhje njëherësh.` });
+  }
+
+  // Same scope twice would create duplicate rows that resolve identically.
+  const seen = new Set();
+  const unique = [];
+  for (const s of scopes) {
+    const at = s && s.appliesTo ? String(s.appliesTo) : 'all';
+    const atv = s && s.appliesToValue ? String(s.appliesToValue) : null;
+    const key = `${at}:${atv ?? ''}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    unique.push({ appliesTo: at, appliesToValue: atv });
+  }
+
+  // Validate every scope before touching the database.
+  const prepared = [];
+  for (const sc of unique) {
+    const parsed = parseRatePayload({ ...req.body, appliesTo: sc.appliesTo, appliesToValue: sc.appliesToValue });
+    if (parsed.error) return res.status(400).json({ error: parsed.error });
+    prepared.push(parsed.values);
+  }
+
+  const conn = await pool.getConnection();
+  try {
+    await conn.beginTransaction();
+
+    if (Array.isArray(replaceIds) && replaceIds.length) {
+      await conn.query('DELETE FROM monthly_rates WHERE id IN (?)', [replaceIds]);
+    }
+
+    const ids = [];
+    for (const v of prepared) {
+      if (!v.isPeriod) {
+        await conn.query(
+          'DELETE FROM monthly_rates WHERE month = ? AND start_date IS NULL AND applies_to = ? AND (year <=> ?) AND (applies_to_value <=> ?)',
+          [v.month, v.appliesTo, v.year, v.appliesToValue]
+        );
+      }
+      const id = uuidv4();
+      await conn.query(
+        `INSERT INTO monthly_rates
+           (id, year, month, start_date, end_date, label, applies_to, applies_to_value, price_per_day, notes, created_by)
+         VALUES (?,?,?,?,?,?,?,?,?,?,?)`,
+        [id, v.year, v.month, v.startDate, v.endDate, v.label, v.appliesTo, v.appliesToValue, v.price, v.notes, req.user.id]
+      );
+      ids.push(id);
+    }
+
+    await conn.commit();
+    conn.release();
+
+    const [rows] = await pool.query('SELECT * FROM monthly_rates WHERE id IN (?)', [ids]);
+    const first = prepared[0];
+    await logActivity({
+      userId: req.user.id,
+      action: replaceIds && replaceIds.length ? 'UPDATE' : 'CREATE',
+      entity: 'MonthlyRate',
+      entityId: ids[0],
+      description: `${first.isPeriod ? 'Çmim periudhe' : 'Çmim mujor'} për ${ids.length} zgjedhje: ${describe(first)}`,
+      ipAddress: req.ip,
+    });
+    res.status(201).json(rows.map(fmt));
+  } catch (err) {
+    await conn.rollback();
+    conn.release();
+    console.error(err);
+    res.status(500).json({ error: 'Gabim i brendshëm.' });
+  }
+});
+
 // Update an existing rate in place (used by the period editor)
 router.put('/:id', authenticate, requireRole('admin', 'manager'), async (req, res) => {
   try {

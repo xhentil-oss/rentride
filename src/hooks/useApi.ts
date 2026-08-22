@@ -41,6 +41,7 @@ const ENTITY_MAP: Record<string, string> = {
   Extra: "/extras",
   ExtraAdmin: "/extras/admin",
   MonthlyRate: "/monthly-rates",
+  MonthlyRateBulk: "/monthly-rates/bulk",
   MonthlyRatePublic: "/monthly-rates/public",
   UserAdminProfile: "/users",
   Invoice: "/invoices",
