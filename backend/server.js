@@ -95,7 +95,8 @@ app.use(helmet({
         "https://pagead2.googlesyndication.com",
         "https://accounts.google.com",
       ],
-      frameSrc: ["'self'", "https://accounts.google.com", "https://td.doubleclick.net", "https://www.googletagmanager.com"],
+      // tagassistant.google.com is needed for GTM Preview / Tag Assistant debug mode
+      frameSrc: ["'self'", "https://accounts.google.com", "https://td.doubleclick.net", "https://www.googletagmanager.com", "https://tagassistant.google.com"],
     },
   },
 }));

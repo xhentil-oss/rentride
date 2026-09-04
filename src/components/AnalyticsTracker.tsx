@@ -1,17 +1,17 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { initGA, trackPageView } from "../lib/analytics";
+import { initTagManager, trackPageView } from "../lib/analytics";
 import { trackPageview as trackPageviewFP } from "../lib/track";
 
 /**
- * Initializes GA4 once and reports a page_view on every SPA route change.
+ * Loads Google Tag Manager once and pushes a page_view on every SPA route change.
  * Renders nothing. Must live inside <BrowserRouter>.
  */
 export default function AnalyticsTracker() {
   const location = useLocation();
 
   useEffect(() => {
-    initGA();
+    initTagManager();
   }, []);
 
   useEffect(() => {

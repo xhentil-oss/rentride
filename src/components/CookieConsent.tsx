@@ -6,7 +6,7 @@ import { getConsent, setConsent, gaEnabled } from "../lib/analytics";
 
 /**
  * GDPR cookie consent banner. Shows once until the visitor accepts or declines.
- * Accepting boots GA4 (see analytics.setConsent). Renders nothing if analytics
+ * Accepting grants Consent Mode for the GTM tags (see analytics.setConsent). Renders nothing if analytics
  * is not configured or a choice has already been made.
  */
 export default function CookieConsent() {
