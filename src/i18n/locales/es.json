@@ -396,7 +396,8 @@
     "perWeek": "/semana",
     "details": "Detalles",
     "book": "Reservar",
-    "startingFrom": "Desde"
+    "startingFrom": "Desde",
+    "orSimilar": "o similar"
   },
   "carDetail": {
     "back": "Flota",

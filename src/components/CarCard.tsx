@@ -73,7 +73,8 @@ function CarCard({ car, className = "" }: CarCardProps) {
               {t("carCard.luxury")}
             </span>
           </div>
-        )}n      </LLink>
+        )}
+      </LLink>
 
       <div className="p-6">
         <div className="mb-3">
@@ -82,7 +83,8 @@ function CarCard({ car, className = "" }: CarCardProps) {
           </span>
           <LLink to={`/makina/${car.slug}`} className="block no-underline group">
             <h3 className="text-lg font-medium text-neutral-900 mt-0.5 group-hover:text-primary transition-colors duration-200">
-              {car.brand} {car.model}
+              {car.brand} {car.model}{" "}
+              <span className="text-sm font-normal text-neutral-400 whitespace-nowrap">{t("carCard.orSimilar")}</span>
             </h3>
           </LLink>
           <span className="text-xs text-neutral-500">{car.year}</span>

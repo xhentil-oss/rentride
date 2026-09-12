@@ -392,7 +392,8 @@
     "perWeek": "/javë",
     "details": "Detajet",
     "book": "Rezervo",
-    "startingFrom": "Duke filluar nga"
+    "startingFrom": "Duke filluar nga",
+    "orSimilar": "ose e ngjashme"
   },
   "carDetail": {
     "back": "Flota",
