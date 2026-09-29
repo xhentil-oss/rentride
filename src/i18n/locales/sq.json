@@ -739,7 +739,6 @@
     "summary": "Përmbledhja e rezervimit",
     "summaryTitle": "Përmbledhja",
     "days": "ditë",
-    "dayRule": "Dita e qirasë = 24 orë nga ora e marrjes, me {{minutes}} min tolerancë. Mbi tolerancën llogaritet një ditë shtesë.",
     "hours": "orë totale · tarifë ditore aplikohet",
     "extras": {
       "label": "Shtesat",

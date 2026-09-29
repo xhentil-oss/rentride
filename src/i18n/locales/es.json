@@ -743,7 +743,6 @@
     "summary": "Resumen de la reserva",
     "summaryTitle": "Resumen",
     "days": "días",
-    "dayRule": "Un día de alquiler = 24 horas desde la hora de recogida, con {{minutes}} min de tolerancia. Pasado ese margen se cobra un día más.",
     "hours": "horas en total · se aplica tarifa diaria",
     "extras": {
       "label": "Extras",

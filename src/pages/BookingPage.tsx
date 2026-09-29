@@ -1627,11 +1627,6 @@ export default function BookingPage() {
                       <span>€{basePrice}</span>
                     </div>
                   )}
-                  {days > 0 && (
-                    <p className="text-[11px] text-neutral-400 leading-snug">
-                      {t("booking.dayRule", { minutes: graceMinutes })}
-                    </p>
-                  )}
                   {!monthlyRatesCalc?.usedMonthlyRate && dominantSeason.multiplier !== 1 && days > 0 && (
                     <div className={`text-xs px-2 py-1 rounded-md border inline-flex items-center gap-1 ${dominantSeason.badgeColor}`}>
                       <Tag size={11} weight="bold" />

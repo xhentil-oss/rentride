@@ -743,7 +743,6 @@
     "summary": "Récapitulatif de la réservation",
     "summaryTitle": "Récapitulatif",
     "days": "jours",
-    "dayRule": "Une journée de location = 24 h à partir de l'heure de prise en charge, avec {{minutes}} min de tolérance. Au-delà, une journée supplémentaire est facturée.",
     "hours": "heures au total · tarif journalier appliqué",
     "extras": {
       "label": "Suppléments",
