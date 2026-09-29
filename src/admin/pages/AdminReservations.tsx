@@ -1,7 +1,8 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { Check, X, Eye, Plus, MagnifyingGlass, Calendar, Car, User, MapPin, CurrencyEur, Note, UserPlus, Phone, Envelope, Tag, PencilSimple, Trash, CheckSquare, Square } from "@phosphor-icons/react";
 import { useQuery, useMutation, useLazyQuery } from "../../hooks/useApi";
-import { calculateSeasonalTotal, getDominantSeason } from "../../lib/seasonalPricing";
+import { calcTotalWithMonthlyRates, type MonthlyRate } from "../../lib/monthlyRates";
+import { billableDays, graceMinutesFromSettings, DEFAULT_GRACE_MINUTES } from "../../lib/billing";
 import { TableSkeleton } from "../../components/ui/Skeleton";
 import { EmptyState } from "../../components/ui/EmptyState";
 import StatusBadge from "../../components/StatusBadge";
@@ -66,6 +67,18 @@ export default function AdminReservations() {
   const { data: reservations, isPending: resLoading, refetch: refetchReservations } = useQuery("Reservation", { orderBy: { createdAt: "desc" } });
   const { data: customers, refetch: refetchCustomers } = useQuery("Customer");
   const { data: cars } = useQuery("Car");
+  // Same price sources as the public booking page: monthly/period rates and
+  // the 24h-block + grace day rule, so admin and website quote the same total.
+  const { data: monthlyRatesRaw } = useQuery("MonthlyRatePublic", { where: { year: new Date().getFullYear() } });
+  const [graceMinutes, setGraceMinutes] = useState(DEFAULT_GRACE_MINUTES);
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/settings/public")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((j) => { if (!cancelled && j) setGraceMinutes(graceMinutesFromSettings(j.booking_grace_minutes)); })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, []);
   const { create: createReservation, update: updateReservation, remove: removeReservation, isPending: isMutating } = useMutation("Reservation");
   const { create: createCustomer } = useMutation("Customer");
   const log = useActivityLog();
@@ -158,17 +171,18 @@ export default function AdminReservations() {
     const end = buildLocalDateTime(formData.endDate, formData.endTime);
     if (!start || !end) return null;
     if (end <= start) return null;
-    const days = Math.max(1, Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)));
-    const seasonal = calculateSeasonalTotal(selectedCar.pricePerDay, start, end);
-    const dominantSeason = getDominantSeason(start, end);
+    const days = billableDays(start, end, graceMinutes);
+    const calc = calcTotalWithMonthlyRates(
+      (monthlyRatesRaw ?? []) as MonthlyRate[], selectedCar.id, selectedCar.category, selectedCar.pricePerDay, start, end, days
+    );
     return {
       days,
       pricePerDay: selectedCar.pricePerDay,
-      total: seasonal.total,
-      breakdown: seasonal.breakdown,
-      dominantSeason,
+      total: calc.total,
+      effectiveDailyRate: calc.effectiveDailyRate,
+      usedMonthlyRate: calc.usedMonthlyRate,
     };
-  }, [formData.startDate, formData.endDate, formData.startTime, formData.endTime, selectedCar]);
+  }, [formData.startDate, formData.endDate, formData.startTime, formData.endTime, selectedCar, monthlyRatesRaw, graceMinutes]);
 
   const validateNewCustomer = (): boolean => {
     const errors: Partial<Record<keyof NewCustomerForm, string>> = {};
@@ -898,34 +912,23 @@ export default function AdminReservations() {
                       <CurrencyEur size={18} className="text-primary" />
                       <h3 className="font-medium text-neutral-800">Çmimi</h3>
                     </div>
-                    <span className={`text-xs font-medium px-2.5 py-1 rounded-full border flex items-center gap-1 ${calculatedPrice.dominantSeason.badgeColor}`}>
-                      <Tag size={11} weight="bold" />
-                      {calculatedPrice.dominantSeason.emoji} {calculatedPrice.dominantSeason.label}
-                    </span>
+                    {calculatedPrice.usedMonthlyRate && (
+                      <span className="text-xs font-medium px-2.5 py-1 rounded-full border flex items-center gap-1 bg-indigo-50 text-indigo-700 border-indigo-200">
+                        <Tag size={11} weight="bold" />
+                        Tarifë mujore/periudhe
+                      </span>
+                    )}
                   </div>
                   <div className="space-y-1.5">
-                    {calculatedPrice.breakdown.length > 1 ? (
-                      calculatedPrice.breakdown.map((b) => (
-                        <div key={b.season.id} className="flex justify-between text-sm">
-                          <span className="text-neutral-600">{b.season.emoji} {b.days} ditë × €{b.pricePerDay}</span>
-                          <span className="text-neutral-800">€{b.subtotal}</span>
-                        </div>
-                      ))
-                    ) : (
-                      <div className="flex justify-between text-sm">
-                        <span className="text-neutral-600">
-                          {calculatedPrice.dominantSeason.emoji} {calculatedPrice.days} ditë × €{calculatedPrice.breakdown[0]?.pricePerDay ?? calculatedPrice.pricePerDay}
-                        </span>
-                        <span className="text-neutral-800">€{calculatedPrice.total}</span>
-                      </div>
-                    )}
-                    {calculatedPrice.dominantSeason.multiplier !== 1 && (
-                      <p className="text-xs text-neutral-500 pl-0.5">
-                        {calculatedPrice.dominantSeason.multiplier > 1
-                          ? `Çmim i bazë €${calculatedPrice.pricePerDay}/ditë + ${Math.round((calculatedPrice.dominantSeason.multiplier - 1) * 100)}% sezonale`
-                          : `Çmim i bazë €${calculatedPrice.pricePerDay}/ditë − ${Math.round((1 - calculatedPrice.dominantSeason.multiplier) * 100)}% zbritje sezonale`}
-                      </p>
-                    )}
+                    <div className="flex justify-between text-sm">
+                      <span className="text-neutral-600">
+                        {calculatedPrice.days} ditë × €{calculatedPrice.effectiveDailyRate}
+                      </span>
+                      <span className="text-neutral-800">€{calculatedPrice.total}</span>
+                    </div>
+                    <p className="text-[11px] text-neutral-400 leading-snug">
+                      Dita e qirasë = 24 orë nga ora e marrjes, me {graceMinutes} min tolerancë. Njësoj si në website.
+                    </p>
                     <div className="border-t border-primary/20 pt-2 flex justify-between">
                       <span className="font-medium text-neutral-800">Total</span>
                       <span className="text-lg font-semibold text-primary">€{calculatedPrice.total}</span>

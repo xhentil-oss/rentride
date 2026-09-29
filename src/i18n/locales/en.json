@@ -743,6 +743,7 @@
     "summary": "Booking summary",
     "summaryTitle": "Summary",
     "days": "days",
+    "dayRule": "A rental day = 24 hours from pickup time, with a {{minutes}}-minute grace period. Beyond it, an extra day is charged.",
     "hours": "total hours · daily rate applies",
     "extras": {
       "label": "Extras",

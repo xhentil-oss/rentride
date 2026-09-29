@@ -2,6 +2,7 @@ const router = require('express').Router();
 const pool = require('../database/db');
 const { authenticate, requireRole, logActivity } = require('../middleware/auth');
 const { loadLocations, invalidateLocationCache } = require('../lib/locations');
+const { invalidateGraceCache } = require('../lib/billing');
 
 // Settings keys whose value is a JSON object/array — stored as JSON strings
 // in the DB so frontend can edit them structurally.
@@ -47,6 +48,14 @@ router.put('/', authenticate, requireRole('admin'), async (req, res) => {
           return res.status(400).json({ error: `Vlerë JSON e pavlefshme për ${key}.` });
         }
         locationsTouched = true;
+      } else if (key === 'booking_grace_minutes') {
+        // Grace period after each 24h rental block, 0–1440 minutes.
+        const n = Number(String(value ?? '').trim());
+        if (!Number.isInteger(n) || n < 0 || n > 1440) {
+          return res.status(400).json({ error: 'Toleranca duhet të jetë 0–1440 minuta.' });
+        }
+        storedValue = String(n);
+        invalidateGraceCache();
       } else {
         storedValue = String(value);
       }
@@ -82,7 +91,7 @@ router.put('/', authenticate, requireRole('admin'), async (req, res) => {
 router.get('/public', async (req, res) => {
   try {
     const [rows] = await pool.query(
-      "SELECT setting_key, setting_value FROM settings WHERE category IN ('company','homepage','banner','logo') OR setting_key IN ('company_name','company_phone','company_email','company_address','company_website','social_facebook','social_instagram','social_tiktok','homepage_featured_cars','banner_hero','banner_about','booking_contract_enabled','booking_discount_code_enabled','fleet_default_sort','logo_url')"
+      "SELECT setting_key, setting_value FROM settings WHERE category IN ('company','homepage','banner','logo') OR setting_key IN ('company_name','company_phone','company_email','company_address','company_website','social_facebook','social_instagram','social_tiktok','homepage_featured_cars','banner_hero','banner_about','booking_contract_enabled','booking_discount_code_enabled','booking_grace_minutes','fleet_default_sort','logo_url')"
     );
     const data = {};
     for (const row of rows) {

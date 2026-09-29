@@ -534,6 +534,30 @@ export default function AdminSettings() {
 
               <div className="border-t border-border my-6" />
 
+              {/* Rental-day grace period */}
+              <div className="mb-2">
+                <h3 className="text-sm font-semibold text-neutral-900">Toleranca e orës së kthimit</h3>
+                <p className="text-xs text-neutral-500 mt-0.5 mb-3">
+                  Dita e qirasë është 24 orë nga ora e marrjes. Nëse klienti e kthen makinën brenda kësaj tolerance pas
+                  mbarimit të ditës, nuk paguan ditë shtesë; mbi tolerancën llogaritet një ditë e plotë. Kompanitë e mëdha
+                  përdorin 29–60 minuta. Vlen për website-in dhe për rezervimet nga admin-i.
+                </p>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="number"
+                    min={0}
+                    max={1440}
+                    step={1}
+                    value={settings["booking_grace_minutes"] ?? "60"}
+                    onChange={(e) => handleChange("booking_grace_minutes", e.target.value)}
+                    className="w-28 px-3 py-2.5 rounded-md border border-border text-sm text-neutral-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/40"
+                  />
+                  <span className="text-sm text-neutral-600">minuta</span>
+                </div>
+              </div>
+
+              <div className="border-t border-border my-6" />
+
               {/* Default fleet sort order */}
               <div className="mb-2">
                 <h3 className="text-sm font-semibold text-neutral-900 flex items-center gap-2">

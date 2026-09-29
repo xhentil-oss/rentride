@@ -153,14 +153,19 @@ export function calcTotalWithMonthlyRates(
   carCategory: string,
   basePricePerDay: number,
   startDate: Date,
-  endDate: Date
+  endDate: Date,
+  billableDayCount?: number
 ): { total: number; effectiveDailyRate: number; usedMonthlyRate: boolean } {
   const current = new Date(startDate);
   current.setHours(0, 0, 0, 0);
   const end = new Date(endDate);
   end.setHours(0, 0, 0, 0);
 
-  const days = Math.max(1, Math.ceil((end.getTime() - current.getTime()) / DAY_MS));
+  // Charge as many days as the rental is billed for (24h blocks + grace, see
+  // src/lib/billing.ts). Calendar-day fallback only when no count is given.
+  const days = billableDayCount && billableDayCount > 0
+    ? billableDayCount
+    : Math.max(1, Math.ceil((end.getTime() - current.getTime()) / DAY_MS));
 
   // Prices may arrive as strings (DECIMAL column) — without this coercion `+`
   // would concatenate text and the total would come out NaN.

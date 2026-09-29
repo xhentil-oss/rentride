@@ -80,7 +80,8 @@ export function getSeasonalPricePerDay(basePrice: number, date: Date = new Date(
 export function calculateSeasonalTotal(
   basePrice: number,
   startDate: Date,
-  endDate: Date
+  endDate: Date,
+  billableDayCount?: number
 ): { total: number; breakdown: { season: Season; days: number; pricePerDay: number; subtotal: number }[] } {
   const breakdown: { season: Season; days: number; pricePerDay: number; subtotal: number }[] = [];
   const base = Number.isFinite(Number(basePrice)) ? Number(basePrice) : 0;
@@ -91,7 +92,9 @@ export function calculateSeasonalTotal(
   end.setHours(0, 0, 0, 0);
 
   const msPerDay = 24 * 60 * 60 * 1000;
-  const days = Math.max(1, Math.ceil((end.getTime() - current.getTime()) / msPerDay));
+  const days = billableDayCount && billableDayCount > 0
+    ? billableDayCount
+    : Math.max(1, Math.ceil((end.getTime() - current.getTime()) / msPerDay));
 
   for (let i = 0; i < days; i += 1) {
     const season = getSeasonForDate(current);

@@ -7,6 +7,7 @@ const { sendMail, adminRecipients, mailErrorDetail } = require('../lib/mailer');
 const { getClientIp, countryFromHeaders, parseDevice, lookupCountry } = require('../lib/requestMeta');
 const { surchargeForBooking } = require('../lib/pricingRules');
 const { sumRateForRange } = require('../lib/monthlyRates');
+const { billableDays, getGraceMinutes } = require('../lib/billing');
 const tpl = require('../lib/emailTemplates');
 const {
   loadLocations,
@@ -327,9 +328,9 @@ router.post('/', async (req, res) => {
         'SELECT applies_to, applies_to_value, price_per_day, month, year, start_date, end_date FROM monthly_rates'
       );
 
-      const msPerDay = 86400000;
-      // Daily rental: any partial day = full day (industry standard). 5h = 1 day, 25h = 2 days.
-      const days = Math.max(1, Math.ceil((endDateTime.getTime() - startDateTime.getTime()) / msPerDay));
+      // Rental day = 24h from pickup, with an admin-set grace period after each
+      // block (see backend/lib/billing.js). Same rule as the booking form.
+      const days = billableDays(startDateTime, endDateTime, await getGraceMinutes());
       const { total: rentalSubtotal } = sumRateForRange(
         allMonthlyRates, carId, carCategory, basePricePerDay, startDateTime, days
       );
@@ -723,8 +724,7 @@ router.put('/:id', authenticate, requireRole('admin', 'manager'), async (req, re
           'SELECT applies_to, applies_to_value, price_per_day, month, year, start_date, end_date FROM monthly_rates'
         );
 
-        const msPerDay = 86400000;
-        const days = Math.max(1, Math.ceil((newEndDateTime.getTime() - newStartDateTime.getTime()) / msPerDay));
+        const days = billableDays(newStartDateTime, newEndDateTime, await getGraceMinutes());
         const { total: rentalSubtotal } = sumRateForRange(
           allMonthlyRates, newCarId, newCategory, basePrice, newStartDateTime, days
         );

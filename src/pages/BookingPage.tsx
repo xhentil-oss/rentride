@@ -35,6 +35,7 @@ import {
   getDominantSeason,
   getAllSeasonPrices,
 } from "../lib/seasonalPricing";
+import { billableDays, graceMinutesFromSettings, DEFAULT_GRACE_MINUTES } from "../lib/billing";
 import { applyPricingRules, RULE_TYPE_LABELS, getMinDaysRequirement, doesRuleMatch } from "../lib/pricingRules";
 import type { PricingRule } from "../lib/pricingRules";
 import { calcTotalWithMonthlyRates, resolveRateForDate } from "../lib/monthlyRates";
@@ -354,6 +355,8 @@ export default function BookingPage() {
   const [contractEnabled, setContractEnabled] = useState(true);
   // Discount-code section can be toggled off from admin Settings.
   const [discountCodeEnabled, setDiscountCodeEnabled] = useState(true);
+  // Grace period after each 24h rental block — must match the server.
+  const [graceMinutes, setGraceMinutes] = useState(DEFAULT_GRACE_MINUTES);
   useEffect(() => {
     let cancelled = false;
     fetch("/api/settings/public")
@@ -368,6 +371,7 @@ export default function BookingPage() {
         });
         setContractEnabled(j.booking_contract_enabled !== "false");
         setDiscountCodeEnabled(j.booking_discount_code_enabled !== "false");
+        setGraceMinutes(graceMinutesFromSettings(j.booking_grace_minutes));
       })
       .catch(() => {});
     return () => { cancelled = true; };
@@ -384,12 +388,8 @@ export default function BookingPage() {
     if (!start || !end) return { days: 0, hours: 0 };
     const diffMs = end.getTime() - start.getTime();
     if (diffMs <= 0) return { days: 0, hours: 0 };
-    const totalHours = diffMs / (1000 * 60 * 60);
-    const fullDays = Math.floor(totalHours / 24);
-    const remainingHours = totalHours % 24;
-    // Round up partial day to full day for pricing
-    const billableDays = remainingHours > 0 ? fullDays + 1 : fullDays;
-    return { days: billableDays, hours: Math.round(totalHours) };
+    // 24h blocks from pickup + grace period — identical to the server rule.
+    return { days: billableDays(start, end, graceMinutes), hours: Math.round(diffMs / (1000 * 60 * 60)) };
   })();
 
   // Seasonal pricing calculation
@@ -399,8 +399,8 @@ export default function BookingPage() {
     const end = buildLocalDateTime(form.endDate, form.endTime);
     if (!start || !end) return null;
     if (end <= start) return null;
-    return calculateSeasonalTotal(car.pricePerDay, start, end);
-  }, [form.startDate, form.endDate, form.startTime, form.endTime, car]);
+    return calculateSeasonalTotal(car.pricePerDay, start, end, days);
+  }, [form.startDate, form.endDate, form.startTime, form.endTime, car, days]);
 
   const dominantSeason = React.useMemo(() => {
     if (!form.startDate || !form.endDate) return getSeasonForDate(new Date());
@@ -438,7 +438,7 @@ export default function BookingPage() {
     if (rates.length === 0) return null;
     return calcTotalWithMonthlyRates(
       rates, car.id, car.category, car.pricePerDay,
-      startDateObj, endDateObj
+      startDateObj, endDateObj, days
     );
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [monthlyRatesRaw, car, startDateObj, endDateObj, days]);
@@ -1626,6 +1626,11 @@ export default function BookingPage() {
                       </span>
                       <span>€{basePrice}</span>
                     </div>
+                  )}
+                  {days > 0 && (
+                    <p className="text-[11px] text-neutral-400 leading-snug">
+                      {t("booking.dayRule", { minutes: graceMinutes })}
+                    </p>
                   )}
                   {!monthlyRatesCalc?.usedMonthlyRate && dominantSeason.multiplier !== 1 && days > 0 && (
                     <div className={`text-xs px-2 py-1 rounded-md border inline-flex items-center gap-1 ${dominantSeason.badgeColor}`}>

@@ -743,6 +743,7 @@
     "summary": "Riepilogo prenotazione",
     "summaryTitle": "Riepilogo",
     "days": "giorni",
+    "dayRule": "Un giorno di noleggio = 24 ore dall'orario di ritiro, con {{minutes}} minuti di tolleranza. Oltre, si conta un giorno in più.",
     "hours": "ore totali · tariffa giornaliera applicata",
     "extras": {
       "label": "Extra",
