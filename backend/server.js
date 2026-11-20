@@ -192,7 +192,9 @@ app.use('/api/deposits',      apiLimiter,  require('./routes/deposits'));
 app.use('/api/customer-documents', apiLimiter, require('./routes/customerDocuments'));
 app.use('/api/communication-logs', apiLimiter, require('./routes/communicationLogs'));
 app.use('/api/google-reviews',     apiLimiter,  require('./routes/googleReviews'));
-app.post('/api/contact', require('./routes/contact'));
+// Mounted with app.use so the router sees "/" — with app.post the router got the
+// full "/api/contact" path, matched nothing, and every submission fell to the 404.
+app.use('/api/contact', require('./routes/contact'));
 app.use('/api/email',    apiLimiter,  require('./routes/email'));
 try {
   app.use('/api/upload', apiLimiter, require('./routes/upload'));
