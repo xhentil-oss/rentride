@@ -238,24 +238,24 @@ app.get('/sitemap.xml', async (req, res) => {
     </image:image>`;
     };
 
-    const LANGS = ['sq', 'en', 'fr', 'es', 'it'];
+    const LANGS = ['sq', 'en', 'fr', 'es', 'it', 'de', 'pl', 'cs', 'he'];
 
     // Per-page localized slugs (must mirror src/lib/routes.ts SLUGS).
     const staticUrls = [
-      { slugs: { sq: '/',                          en: '/en',                      fr: '/fr',                         es: '/es',                         it: '/it' },                      pri: '1.0',  freq: 'weekly' },
-      { slugs: { sq: '/makina-me-qira-tirane',     en: '/en/car-rental-tirana',    fr: '/fr/location-voiture-tirana', es: '/es/alquiler-coches-tirana',  it: '/it/noleggio-auto-tirana' }, pri: '0.95', freq: 'weekly' },
-      { slugs: { sq: '/flota',                     en: '/en/fleet',                fr: '/fr/flotte',                  es: '/es/flota',                   it: '/it/flotta' },               pri: '0.9',  freq: 'weekly' },
-      { slugs: { sq: '/makine-me-qira-aeroport',   en: '/en/airport-car-rental',   fr: '/fr/location-aeroport',       es: '/es/alquiler-aeropuerto',     it: '/it/noleggio-aeroporto' },   pri: '0.9',  freq: 'monthly' },
-      { slugs: { sq: '/makina-suv-me-qira',        en: '/en/suv-car-rental',       fr: '/fr/location-suv',            es: '/es/alquiler-suv',            it: '/it/noleggio-suv' },         pri: '0.85', freq: 'monthly' },
-      { slugs: { sq: '/makina-automatike-me-qira', en: '/en/automatic-car-rental', fr: '/fr/location-automatique',    es: '/es/alquiler-automatico',     it: '/it/noleggio-automatico' },  pri: '0.85', freq: 'monthly' },
-      { slugs: { sq: '/makina-luksoze-me-qira',    en: '/en/luxury-car-rental',    fr: '/fr/location-luxe',           es: '/es/alquiler-lujo',           it: '/it/noleggio-lusso' },       pri: '0.85', freq: 'monthly' },
-      { slugs: { sq: '/rezervo',                   en: '/en/book',                 fr: '/fr/reserver',                es: '/es/reservar',                it: '/it/prenota' },              pri: '0.8',  freq: 'monthly' },
-      { slugs: { sq: '/blog',                      en: '/en/blog',                 fr: '/fr/blog',                    es: '/es/blog',                    it: '/it/blog' },                 pri: '0.8',  freq: 'weekly' },
-      { slugs: { sq: '/vleresime',                 en: '/en/reviews',              fr: '/fr/avis',                    es: '/es/opiniones',               it: '/it/recensioni' },           pri: '0.7',  freq: 'weekly' },
-      { slugs: { sq: '/kontakt',                   en: '/en/contact',              fr: '/fr/contact',                 es: '/es/contacto',                it: '/it/contatti' },             pri: '0.6',  freq: 'monthly' },
-      { slugs: { sq: '/zyrat',                     en: '/en/offices',              fr: '/fr/bureaux',                 es: '/es/oficinas',                it: '/it/uffici' },               pri: '0.6',  freq: 'monthly' },
-      { slugs: { sq: '/termat-e-sherbimit',        en: '/en/terms',                fr: '/fr/conditions',              es: '/es/terminos',                it: '/it/termini' },              pri: '0.3',  freq: 'yearly' },
-      { slugs: { sq: '/privatesie',                en: '/en/privacy',              fr: '/fr/confidentialite',         es: '/es/privacidad',              it: '/it/privacy' },              pri: '0.3',  freq: 'yearly' },
+      { slugs: { sq: '/',                          en: '/en',                      fr: '/fr',                         es: '/es',                         it: '/it', de: '/de', pl: '/pl', cs: '/cs', he: '/he' },                      pri: '1.0',  freq: 'weekly' },
+      { slugs: { sq: '/makina-me-qira-tirane',     en: '/en/car-rental-tirana',    fr: '/fr/location-voiture-tirana', es: '/es/alquiler-coches-tirana',  it: '/it/noleggio-auto-tirana', de: '/de/mietwagen-tirana', pl: '/pl/wynajem-samochodow-tirana', cs: '/cs/pujcovna-aut-tirana', he: '/he/car-rental-tirana' }, pri: '0.95', freq: 'weekly' },
+      { slugs: { sq: '/flota',                     en: '/en/fleet',                fr: '/fr/flotte',                  es: '/es/flota',                   it: '/it/flotta', de: '/de/flotte', pl: '/pl/flota', cs: '/cs/vozovy-park', he: '/he/fleet' },               pri: '0.9',  freq: 'weekly' },
+      { slugs: { sq: '/makine-me-qira-aeroport',   en: '/en/airport-car-rental',   fr: '/fr/location-aeroport',       es: '/es/alquiler-aeropuerto',     it: '/it/noleggio-aeroporto', de: '/de/mietwagen-flughafen', pl: '/pl/wynajem-samochodow-lotnisko', cs: '/cs/pujcovna-aut-letiste', he: '/he/airport-car-rental' },   pri: '0.9',  freq: 'monthly' },
+      { slugs: { sq: '/makina-suv-me-qira',        en: '/en/suv-car-rental',       fr: '/fr/location-suv',            es: '/es/alquiler-suv',            it: '/it/noleggio-suv', de: '/de/suv-mieten', pl: '/pl/wynajem-suv', cs: '/cs/pronajem-suv', he: '/he/suv-car-rental' },         pri: '0.85', freq: 'monthly' },
+      { slugs: { sq: '/makina-automatike-me-qira', en: '/en/automatic-car-rental', fr: '/fr/location-automatique',    es: '/es/alquiler-automatico',     it: '/it/noleggio-automatico', de: '/de/automatik-mietwagen', pl: '/pl/wynajem-automat', cs: '/cs/pronajem-automat', he: '/he/automatic-car-rental' },  pri: '0.85', freq: 'monthly' },
+      { slugs: { sq: '/makina-luksoze-me-qira',    en: '/en/luxury-car-rental',    fr: '/fr/location-luxe',           es: '/es/alquiler-lujo',           it: '/it/noleggio-lusso', de: '/de/luxus-mietwagen', pl: '/pl/wynajem-luksusowych-samochodow', cs: '/cs/pronajem-luxusnich-aut', he: '/he/luxury-car-rental' },       pri: '0.85', freq: 'monthly' },
+      { slugs: { sq: '/rezervo',                   en: '/en/book',                 fr: '/fr/reserver',                es: '/es/reservar',                it: '/it/prenota', de: '/de/buchen', pl: '/pl/rezerwacja', cs: '/cs/rezervace', he: '/he/book' },              pri: '0.8',  freq: 'monthly' },
+      { slugs: { sq: '/blog',                      en: '/en/blog',                 fr: '/fr/blog',                    es: '/es/blog',                    it: '/it/blog', de: '/de/blog', pl: '/pl/blog', cs: '/cs/blog', he: '/he/blog' },                 pri: '0.8',  freq: 'weekly' },
+      { slugs: { sq: '/vleresime',                 en: '/en/reviews',              fr: '/fr/avis',                    es: '/es/opiniones',               it: '/it/recensioni', de: '/de/bewertungen', pl: '/pl/opinie', cs: '/cs/recenze', he: '/he/reviews' },           pri: '0.7',  freq: 'weekly' },
+      { slugs: { sq: '/kontakt',                   en: '/en/contact',              fr: '/fr/contact',                 es: '/es/contacto',                it: '/it/contatti', de: '/de/kontakt', pl: '/pl/kontakt', cs: '/cs/kontakt', he: '/he/contact' },             pri: '0.6',  freq: 'monthly' },
+      { slugs: { sq: '/zyrat',                     en: '/en/offices',              fr: '/fr/bureaux',                 es: '/es/oficinas',                it: '/it/uffici', de: '/de/standorte', pl: '/pl/biura', cs: '/cs/pobocky', he: '/he/offices' },               pri: '0.6',  freq: 'monthly' },
+      { slugs: { sq: '/termat-e-sherbimit',        en: '/en/terms',                fr: '/fr/conditions',              es: '/es/terminos',                it: '/it/termini', de: '/de/agb', pl: '/pl/regulamin', cs: '/cs/obchodni-podminky', he: '/he/terms' },              pri: '0.3',  freq: 'yearly' },
+      { slugs: { sq: '/privatesie',                en: '/en/privacy',              fr: '/fr/confidentialite',         es: '/es/privacidad',              it: '/it/privacy', de: '/de/datenschutz', pl: '/pl/polityka-prywatnosci', cs: '/cs/ochrana-osobnich-udaju', he: '/he/privacy' },              pri: '0.3',  freq: 'yearly' },
     ];
 
     const hreflangLinks = (slugs) =>
@@ -284,7 +284,7 @@ ${hreflangLinks(slugs)}
     // Car detail pages (slug shared across languages; only the prefix differs)
     for (const car of cars) {
       const s = escXml(car.slug);
-      const slugs = { sq: `/makina/${s}`, en: `/en/car/${s}`, fr: `/fr/voiture/${s}`, es: `/es/coche/${s}`, it: `/it/auto/${s}` };
+      const slugs = { sq: `/makina/${s}`, en: `/en/car/${s}`, fr: `/fr/voiture/${s}`, es: `/es/coche/${s}`, it: `/it/auto/${s}`, de: `/de/auto/${s}`, pl: `/pl/samochod/${s}`, cs: `/cs/auto/${s}`, he: `/he/car/${s}` };
       const lastmod = fmtDate(car.updated_at);
       const label = `${car.brand} ${car.model} ${car.year}`.trim();
       const images = imageBlock(
@@ -298,7 +298,7 @@ ${hreflangLinks(slugs)}
     // Blog posts
     for (const post of posts) {
       const s = escXml(post.slug);
-      const slugs = { sq: `/blog/${s}`, en: `/en/blog/${s}`, fr: `/fr/blog/${s}`, es: `/es/blog/${s}`, it: `/it/blog/${s}` };
+      const slugs = { sq: `/blog/${s}`, en: `/en/blog/${s}`, fr: `/fr/blog/${s}`, es: `/es/blog/${s}`, it: `/it/blog/${s}`, de: `/de/blog/${s}`, pl: `/pl/blog/${s}`, cs: `/cs/blog/${s}`, he: `/he/blog/${s}` };
       const lastmod = fmtDate(post.updated_at);
       const images = imageBlock(post.cover_image, post.title_sq || 'Rent Ride blog', post.title_sq || 'Rent Ride blog');
       for (const l of LANGS) xml += urlEntry({ loc: slugs[l], slugs, lastmod, freq: 'monthly', pri: '0.7', images });

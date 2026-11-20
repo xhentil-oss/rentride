@@ -111,8 +111,12 @@ function LanguageSwitcher({ onAfterSelect }: { onAfterSelect?: () => void }) {
     fr: { flag: "🇫🇷", code: "FR", label: "Français" },
     es: { flag: "🇪🇸", code: "ES", label: "Español" },
     it: { flag: "🇮🇹", code: "IT", label: "Italiano" },
+    de: { flag: "🇩🇪", code: "DE", label: "Deutsch" },
+    pl: { flag: "🇵🇱", code: "PL", label: "Polski" },
+    cs: { flag: "🇨🇿", code: "CZ", label: "Čeština" },
+    he: { flag: "🇮🇱", code: "HE", label: "עברית" },
   };
-  const ORDER = ["sq", "en", "fr", "es", "it"] as const;
+  const ORDER = ["sq", "en", "de", "it", "fr", "es", "pl", "cs", "he"] as const;
   const current = LANG_INFO[lang] ?? LANG_INFO.sq;
 
   // Close dropdown on outside click
@@ -139,7 +143,7 @@ function LanguageSwitcher({ onAfterSelect }: { onAfterSelect?: () => void }) {
         <CaretDown size={10} weight="bold" className={`transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
       {open && (
-        <div className="absolute right-0 top-full mt-1 w-36 bg-white rounded-lg border border-border shadow-lg overflow-hidden z-50">
+        <div className="absolute end-0 top-full mt-1 w-36 bg-white rounded-lg border border-border shadow-lg overflow-hidden z-50">
           {ORDER.map((l) => {
             const info = LANG_INFO[l];
             const active = lang === l;
@@ -153,7 +157,7 @@ function LanguageSwitcher({ onAfterSelect }: { onAfterSelect?: () => void }) {
                 role="menuitem"
               >
                 <span className="text-base leading-none">{info.flag}</span>
-                <span className="flex-1 text-left">{info.label}</span>
+                <span className="flex-1 text-start" lang={l} dir="auto">{info.label}</span>
                 {active && <span className="text-primary">✓</span>}
               </button>
             );

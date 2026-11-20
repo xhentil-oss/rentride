@@ -300,7 +300,7 @@
       "contactUs": "Contáctanos"
     },
     "seo": {
-      "title": "Alquiler de Coches Tirana y su Aeropuerto TIA — Recogida Gratuita | Rent Ride",
+      "title": "Alquiler de Coches Tirana y su Aeropuerto TIA — Recogida Gratuita",
       "description": "Alquiler coche aeropuerto Tirana (TIA) y en la ciudad con recogida sin coste. Tarifas desde 25 €/día, cero cargos ocultos y confirmación online al instante.",
       "keywords": "alquiler coches tirana, alquiler coches aeropuerto tirana, rent a car tirana, car hire tirana, alquiler coches albania"
     },
@@ -743,6 +743,8 @@
     "summary": "Resumen de la reserva",
     "summaryTitle": "Resumen",
     "days": "días",
+    "days_one": "día",
+    "days_other": "días",
     "hours": "horas en total · se aplica tarifa diaria",
     "extras": {
       "label": "Extras",
@@ -789,7 +791,7 @@
       "minDays": "Reserva mínima: {{count}} día(s)."
     },
     "seo": {
-      "title": "Reserva Online de Tu Alquiler — Confirmación Inmediata | Rent Ride",
+      "title": "Reserva Online de Tu Alquiler — Confirmación Inmediata",
       "description": "Completa tu reserva de alquiler de coches Tirana online: rellena el formulario, añade seguro y extras y firma el contrato digital. La confirmación llega al instante por correo.",
       "keywords": "reservar coche online tirana, booking alquiler coches tirana, reserva alquiler coches albania"
     },
@@ -877,7 +879,16 @@
     "confirmTitle": "Estás haciendo una reserva real",
     "confirmBody": "No es una consulta de precios: estás enviando una solicitud de reserva y nuestro equipo te contactará. ¿Continuar?",
     "confirmCancel": "No, solo precios",
-    "confirmOk": "Sí, reservar"
+    "confirmOk": "Sí, reservar",
+    "noCarSelected": {
+      "title": "No has seleccionado ningún coche",
+      "text": "Elige un coche de nuestra flota para continuar con tu reserva.",
+      "cta": "Ver la flota"
+    },
+    "carNotFound": {
+      "title": "Coche no encontrado",
+      "text": "Este coche no existe o ya no está disponible."
+    }
   },
   "contactPage": {
     "badge": "CONTÁCTANOS",
@@ -943,7 +954,7 @@
     },
     "hoursAllDays": "Todos los días",
     "seo": {
-      "title": "Contacto y Atención al Cliente — Rent Ride",
+      "title": "Contacto y Atención al Cliente",
       "description": "Habla con el equipo de Rent Ride para tu alquiler de coches Tirana, dudas o asistencia. Teléfono +355 69 81 45 803, correo o formulario online. Te atendemos 24/7.",
       "keywords": "contacto alquiler coches tirana, teléfono alquiler coches, email alquiler coches albania, contáctanos",
       "breadcrumbHome": "Inicio",
@@ -973,7 +984,7 @@
       "bookingEase": "Facilidad de reserva"
     },
     "seo": {
-      "title": "Reseñas de Clientes — 4,9★ y más de 500 Valoraciones | Rent Ride",
+      "title": "Reseñas de Clientes — 4,9★ y más de 500 Valoraciones",
       "description": "Lee experiencias reales de nuestros clientes: más de 500 reseñas con una nota media de 4,9/5 en alquiler de coches Tirana. Comparte tú también tu opinión con nosotros.",
       "keywords": "opiniones alquiler coches tirana, reseñas clientes alquiler coches, experiencias alquiler coches albania"
     },

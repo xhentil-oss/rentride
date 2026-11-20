@@ -85,6 +85,10 @@ export const OG_LOCALE: Record<string, string> = {
   fr: "fr_FR",
   es: "es_ES",
   it: "it_IT",
+  de: "de_DE",
+  pl: "pl_PL",
+  cs: "cs_CZ",
+  he: "he_IL",
 };
 
 /** Stable schema entity identifiers — the backbone of the @graph. */
@@ -177,7 +181,7 @@ export const buildWebSiteSchema = () => ({
   url: SITE_URL,
   name: SITE_NAME,
   publisher: { "@id": ID.organization },
-  inLanguage: ["sq", "en", "fr", "es", "it"],
+  inLanguage: ["sq", "en", "fr", "es", "it", "de", "pl", "cs", "he"],
   potentialAction: {
     "@type": "SearchAction",
     target: {

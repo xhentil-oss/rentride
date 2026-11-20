@@ -540,7 +540,7 @@
       "zoomOut": "Zoom out"
     },
     "seo": {
-      "title": "Hire {{brand}} {{model}} {{year}} in Tirana — from €{{price}}/day | Rent Ride",
+      "title": "Hire {{brand}} {{model}} {{year}} in Tirana — from €{{price}}/day",
       "description": "Book a {{brand}} {{model}} ({{year}}) car rental in Tirana from €{{price}}/day. {{category}}, {{transmission}}, {{fuel}} fuel, free airport pickup and 24/7 support.",
       "keywords": "{{brand}} {{model}} car hire tirana, {{category}} car rental albania, hire {{brand}} tirana airport",
       "fallbackTitle": "Car Hire in Tirana",
@@ -743,6 +743,8 @@
     "summary": "Booking summary",
     "summaryTitle": "Summary",
     "days": "days",
+    "days_one": "day",
+    "days_other": "days",
     "hours": "total hours · daily rate applies",
     "extras": {
       "label": "Extras",
@@ -789,7 +791,7 @@
       "minDays": "Minimum booking is {{count}} day(s)."
     },
     "seo": {
-      "title": "Reserve a Rental Car Online — Instant Confirmation | Rent Ride",
+      "title": "Reserve a Rental Car Online — Instant Confirmation",
       "description": "Book your car rental online in minutes: fill in the form, choose insurance and extras, then e-sign the contract. Get instant confirmation sent to your inbox.",
       "keywords": "book car online tirana, booking car hire tirana, car rental reservation albania"
     },
@@ -877,7 +879,16 @@
     "confirmTitle": "You're making a real booking",
     "confirmBody": "This isn't a price check — you're sending a booking request and our team will contact you. Continue?",
     "confirmCancel": "No, just prices",
-    "confirmOk": "Yes, book it"
+    "confirmOk": "Yes, book it",
+    "noCarSelected": {
+      "title": "No car selected",
+      "text": "Please choose a car from our fleet to continue with your booking.",
+      "cta": "View fleet"
+    },
+    "carNotFound": {
+      "title": "Car not found",
+      "text": "This car does not exist or is no longer available."
+    }
   },
   "contactPage": {
     "badge": "CONTACT US",
@@ -973,7 +984,7 @@
       "bookingEase": "Ease of booking"
     },
     "seo": {
-      "title": "Client Reviews — Rated 4.9★ by 500+ Customers | Rent Ride",
+      "title": "Client Reviews — Rated 4.9★ by 500+ Customers",
       "description": "See what customers say about car hire in Tirana: over 500 authentic reviews with a 4.9/5 average rating. Share your own experience with us too.",
       "keywords": "reviews car hire tirana, customer reviews car rental tirana, car rental experiences albania"
     },

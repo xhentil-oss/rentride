@@ -7,6 +7,8 @@
  * bundle is passed it falls back to Albanian.
  */
 
+import { isRtl } from "./routes";
+
 function escapeHtml(str: string): string {
   return str
     .replace(/&/g, '&amp;')
@@ -100,7 +102,7 @@ export function downloadContractPdf(data: ContractData): void {
     : "";
 
   const html = `<!DOCTYPE html>
-<html lang="${escapeHtml(lang)}">
+<html lang="${escapeHtml(lang)}" dir="${isRtl(lang) ? "rtl" : "ltr"}">
 <head>
   <meta charset="UTF-8"/>
   <title>${escapeHtml(T.contractTitle)} - ${escapeHtml(data.clientName)}</title>
@@ -112,7 +114,7 @@ export function downloadContractPdf(data: ContractData): void {
     .header { display: flex; align-items: flex-start; justify-content: space-between; border-bottom: 2px solid #1a1a2e; padding-bottom: 20px; margin-bottom: 28px; }
     .logo-block .company-name { font-size: 22px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.5px; }
     .logo-block .company-subtitle { font-size: 11px; color: #6b7280; margin-top: 2px; }
-    .contract-meta { text-align: right; }
+    .contract-meta { text-align: end; }
     .contract-meta .contract-title { font-size: 16px; font-weight: 600; color: #1a1a2e; }
     .contract-meta .contract-no { font-size: 11px; color: #6b7280; margin-top: 3px; }
     .section { margin-bottom: 24px; }
@@ -127,7 +129,7 @@ export function downloadContractPdf(data: ContractData): void {
     .car-block .car-info .car-meta { font-size: 12px; color: #6b7280; margin-top: 2px; }
     .price-table { width: 100%; border-collapse: collapse; margin-top: 4px; }
     .price-table tr td { padding: 7px 0; border-bottom: 1px solid #f3f4f6; font-size: 13px; }
-    .price-table tr td:last-child { text-align: right; font-weight: 500; }
+    .price-table tr td:last-child { text-align: end; font-weight: 500; }
     .price-table .total-row td { border-top: 2px solid #1a1a2e; border-bottom: none; font-weight: 700; font-size: 15px; padding-top: 10px; }
     .discount-row td { color: #16a34a; }
     .terms-box { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; font-size: 11px; color: #4b5563; line-height: 1.7; }

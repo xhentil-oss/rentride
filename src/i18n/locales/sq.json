@@ -873,7 +873,16 @@
     "confirmTitle": "Po bën një rezervim real",
     "confirmBody": "Ky nuk është kontroll çmimi — po dërgon një kërkesë rezervimi dhe ekipi do të të kontaktojë. Dëshiron të vazhdosh?",
     "confirmCancel": "Jo, vetëm çmimet",
-    "confirmOk": "Po, rezervo"
+    "confirmOk": "Po, rezervo",
+    "noCarSelected": {
+      "title": "Nuk u zgjodh asnjë makinë",
+      "text": "Ju lutemi zgjidhni një makinë nga flota jonë për të vazhduar me rezervimin.",
+      "cta": "Shiko flotën"
+    },
+    "carNotFound": {
+      "title": "Makina nuk u gjet",
+      "text": "Makina me këtë ID nuk ekziston ose nuk është më e disponueshme."
+    }
   },
   "contactPage": {
     "badge": "NA KONTAKTONI",
@@ -969,7 +978,7 @@
       "bookingEase": "Lehtësia e rezervimit"
     },
     "seo": {
-      "title": "Vlerësime nga Klientët — 4.9★ nga mbi 500 Klientë | Rent Ride",
+      "title": "Vlerësime nga Klientët — 4.9★ nga mbi 500 Klientë",
       "description": "Lexo çfarë thonë klientët tanë: mbi 500 vlerësime reale me notë mesatare 4.9/5 për makinat me qira në Tiranë. Ndaj edhe ti eksperiencën tënde.",
       "keywords": "vleresime makina me qira tirane, reviews car hire tirana, pervoja klientesh car rental albania"
     },

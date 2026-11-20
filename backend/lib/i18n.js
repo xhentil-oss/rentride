@@ -5,7 +5,7 @@
 //   - Query string `?lang=en`
 // Defaults to `sq` (the primary site language) when nothing matches.
 
-const SUPPORTED = ['sq', 'en', 'fr', 'es', 'it'];
+const SUPPORTED = ['sq', 'en', 'fr', 'es', 'it', 'de', 'pl', 'cs', 'he'];
 
 function detectLocale(req) {
   // 1. Explicit override
@@ -35,6 +35,10 @@ const messages = {
       fr: 'Trop de requêtes. Réessayez dans une heure.',
       es: 'Demasiadas solicitudes. Inténtalo de nuevo en una hora.',
       it: 'Troppe richieste. Riprova tra un\'ora.',
+      de: 'Zu viele Anfragen. Bitte versuchen Sie es in einer Stunde erneut.',
+      pl: 'Zbyt wiele zapytań. Spróbuj ponownie za godzinę.',
+      cs: 'Příliš mnoho požadavků. Zkuste to prosím znovu za hodinu.',
+      he: 'יותר מדי בקשות. נסו שוב בעוד שעה.',
     },
     missingFields: {
       sq: 'Fusha të detyrueshme mungojnë.',
@@ -42,6 +46,10 @@ const messages = {
       fr: 'Champs obligatoires manquants.',
       es: 'Faltan campos obligatorios.',
       it: 'Campi obbligatori mancanti.',
+      de: 'Bitte füllen Sie alle Pflichtfelder aus.',
+      pl: 'Uzupełnij wszystkie wymagane pola.',
+      cs: 'Vyplňte prosím všechna povinná pole.',
+      he: 'יש למלא את כל שדות החובה.',
     },
     invalidEmail: {
       sq: 'Email i pavlefshëm.',
@@ -49,6 +57,10 @@ const messages = {
       fr: 'Adresse e-mail invalide.',
       es: 'Dirección de email no válida.',
       it: 'Indirizzo email non valido.',
+      de: 'Ungültige E-Mail-Adresse.',
+      pl: 'Nieprawidłowy adres e-mail.',
+      cs: 'Neplatná e-mailová adresa.',
+      he: 'כתובת האימייל אינה תקינה.',
     },
     messageLength: {
       sq: 'Mesazhi duhet të jetë 10–2000 karaktere.',
@@ -56,6 +68,10 @@ const messages = {
       fr: 'Le message doit comporter 10 à 2000 caractères.',
       es: 'El mensaje debe tener 10–2000 caracteres.',
       it: 'Il messaggio deve avere 10–2000 caratteri.',
+      de: 'Die Nachricht muss 10–2000 Zeichen lang sein.',
+      pl: 'Wiadomość musi mieć od 10 do 2000 znaków.',
+      cs: 'Zpráva musí mít 10–2000 znaků.',
+      he: 'ההודעה צריכה להכיל בין 10 ל-2000 תווים.',
     },
     sendFailed: {
       sq: 'Dërgimi dështoi. Provoni sërish.',
@@ -63,6 +79,10 @@ const messages = {
       fr: 'Échec de l\'envoi. Veuillez réessayer.',
       es: 'Error al enviar. Inténtalo de nuevo.',
       it: 'Invio fallito. Riprova.',
+      de: 'Senden fehlgeschlagen. Bitte versuchen Sie es erneut.',
+      pl: 'Nie udało się wysłać wiadomości. Spróbuj ponownie.',
+      cs: 'Odeslání se nezdařilo. Zkuste to prosím znovu.',
+      he: 'השליחה נכשלה. נסו שוב.',
     },
   },
 };

@@ -17,16 +17,28 @@ Disallow: /en/my-account
 Disallow: /fr/mon-compte
 Disallow: /es/mi-cuenta
 Disallow: /it/account
+Disallow: /de/mein-konto
+Disallow: /pl/moje-konto
+Disallow: /cs/muj-ucet
+Disallow: /he/my-account
 Disallow: /faleminderit
 Disallow: /en/thank-you
 Disallow: /fr/merci
 Disallow: /es/gracias
 Disallow: /it/grazie
+Disallow: /de/danke
+Disallow: /pl/dziekujemy
+Disallow: /cs/dekujeme
+Disallow: /he/thank-you
 Disallow: /reset-password
 Disallow: /en/reset-password
 Disallow: /fr/reset-password
 Disallow: /es/reset-password
 Disallow: /it/reset-password
+Disallow: /de/reset-password
+Disallow: /pl/reset-password
+Disallow: /cs/reset-password
+Disallow: /he/reset-password
 
 # Pre-filled checkout permutations — near-infinite duplicates of one form.
 Disallow: /rezervo?
@@ -34,6 +46,10 @@ Disallow: /en/book?
 Disallow: /fr/reserver?
 Disallow: /es/reservar?
 Disallow: /it/prenota?
+Disallow: /de/buchen?
+Disallow: /pl/rezerwacja?
+Disallow: /cs/rezervace?
+Disallow: /he/book?
 
 # Tracking / session parameters. These never change the page, they only
 # multiply it — the classic way a site burns its crawl budget.

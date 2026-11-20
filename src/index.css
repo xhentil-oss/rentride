@@ -4,6 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Phone numbers are always left-to-right. Inside a right-to-left (Hebrew) page the
+   space-separated digit groups would otherwise be reordered: "803 45 81 69 355+". */
+a[href^="tel:"] {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
 @keyframes slide-in-right {
   from {
     transform: translateX(100%);

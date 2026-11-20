@@ -743,6 +743,8 @@
     "summary": "Riepilogo prenotazione",
     "summaryTitle": "Riepilogo",
     "days": "giorni",
+    "days_one": "giorno",
+    "days_other": "giorni",
     "hours": "ore totali · tariffa giornaliera applicata",
     "extras": {
       "label": "Extra",
@@ -877,7 +879,16 @@
     "confirmTitle": "Stai effettuando una prenotazione reale",
     "confirmBody": "Non è un controllo prezzi: stai inviando una richiesta di prenotazione e il nostro team ti contatterà. Vuoi continuare?",
     "confirmCancel": "No, solo i prezzi",
-    "confirmOk": "Sì, prenota"
+    "confirmOk": "Sì, prenota",
+    "noCarSelected": {
+      "title": "Nessuna auto selezionata",
+      "text": "Scegli un’auto dalla nostra flotta per proseguire con la prenotazione.",
+      "cta": "Vedi la flotta"
+    },
+    "carNotFound": {
+      "title": "Auto non trovata",
+      "text": "Questa auto non esiste o non è più disponibile."
+    }
   },
   "contactPage": {
     "badge": "CONTATTACI",

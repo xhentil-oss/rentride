@@ -17,6 +17,7 @@ import {
 import DOMPurify from "dompurify";
 import { useSEO, buildLocalBusinessSchema, buildBreadcrumbSchema } from "../hooks/useSEO";
 import { ADDRESS_LINE } from "../lib/seo";
+import { detectLang } from "../lib/routes";
 
 type FormState = {
   name: string;
@@ -90,11 +91,7 @@ export default function ContactPage() {
     setError(null);
 
     try {
-      const path = window.location.pathname;
-      let locale: "sq" | "en" | "fr" | "es" | "it" = "sq";
-      for (const l of ["en", "fr", "es", "it"] as const) {
-        if (path === `/${l}` || path.startsWith(`/${l}/`)) { locale = l; break; }
-      }
+      const locale = detectLang(window.location.pathname);
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json", "X-Locale": locale },

@@ -666,13 +666,13 @@ export default function BookingPage() {
           <div className="w-14 h-14 rounded-full bg-error/10 flex items-center justify-center mx-auto mb-4">
             <WarningCircle size={28} weight="regular" className="text-error" />
           </div>
-          <h1 className="text-xl font-semibold text-neutral-900 mb-2">Nuk u zgjodh asnjë makinë</h1>
-          <p className="text-sm text-neutral-500 mb-6">Ju lutemi zgjidhni një makinë nga flota jonë për të vazhduar me rezervimin.</p>
+          <h1 className="text-xl font-semibold text-neutral-900 mb-2">{t("booking.noCarSelected.title")}</h1>
+          <p className="text-sm text-neutral-500 mb-6">{t("booking.noCarSelected.text")}</p>
           <button
             onClick={() => navigate(localePath("/flota"))}
             className="px-6 py-3 rounded-full text-sm font-medium bg-gradient-primary text-primary-foreground hover:opacity-90 transition-opacity cursor-pointer"
           >
-            Shiko flotën
+            {t("booking.noCarSelected.cta")}
           </button>
         </div>
       </div>
@@ -696,13 +696,13 @@ export default function BookingPage() {
           <div className="w-14 h-14 rounded-full bg-error/10 flex items-center justify-center mx-auto mb-4">
             <WarningCircle size={28} weight="regular" className="text-error" />
           </div>
-          <h1 className="text-xl font-semibold text-neutral-900 mb-2">Makina nuk u gjet</h1>
-          <p className="text-sm text-neutral-500 mb-6">Makina me këtë ID nuk ekziston ose nuk është më e disponueshme.</p>
+          <h1 className="text-xl font-semibold text-neutral-900 mb-2">{t("booking.carNotFound.title")}</h1>
+          <p className="text-sm text-neutral-500 mb-6">{t("booking.carNotFound.text")}</p>
           <button
             onClick={() => navigate(localePath("/flota"))}
             className="px-6 py-3 rounded-full text-sm font-medium bg-gradient-primary text-primary-foreground hover:opacity-90 transition-opacity cursor-pointer"
           >
-            Shiko flotën
+            {t("booking.noCarSelected.cta")}
           </button>
         </div>
       </div>
@@ -1619,9 +1619,9 @@ export default function BookingPage() {
                     <div className="flex justify-between text-sm text-neutral-700">
                       <span>
                         {days > 0 && seasonalData && !monthlyRatesCalc?.usedMonthlyRate
-                          ? `${dominantSeason.emoji} ${days} ${t("booking.days")} × €${effectiveDailyRate}`
+                          ? `${dominantSeason.emoji} ${days} ${t("booking.days", { count: days })} × €${effectiveDailyRate}`
                           : days > 0
-                          ? `${days} ${t("booking.days")} × €${effectiveDailyRate}`
+                          ? `${days} ${t("booking.days", { count: days })} × €${effectiveDailyRate}`
                           : t("booking.discountCode")}
                       </span>
                       <span>€{basePrice}</span>

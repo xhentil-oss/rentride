@@ -3,6 +3,7 @@
  * Maps entity names to our backend API endpoints
  */
 import { useState, useEffect, useCallback } from "react";
+import { detectLang, type Lang } from "../lib/routes";
 
 const API_BASE = "/api";
 const AUTH_CHANGED_EVENT = "rct_auth_changed";
@@ -64,13 +65,9 @@ const ENTITY_MAP: Record<string, string> = {
 
 // Cookies are sent automatically — only Content-Type + locale needed.
 // X-Locale tells the backend which language to return error messages in.
-function detectLocale(): "sq" | "en" | "fr" | "es" | "it" {
+function detectLocale(): Lang {
   if (typeof window === "undefined") return "sq";
-  const path = window.location.pathname;
-  for (const lang of ["en", "fr", "es", "it"] as const) {
-    if (path === `/${lang}` || path.startsWith(`/${lang}/`)) return lang;
-  }
-  return "sq";
+  return detectLang(window.location.pathname);
 }
 
 function getHeaders(): Record<string, string> {

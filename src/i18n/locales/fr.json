@@ -300,7 +300,7 @@
       "contactUs": "Nous contacter"
     },
     "seo": {
-      "title": "Location de Voiture à Tirana & Aéroport TIA — Accueil Offert | Rent Ride",
+      "title": "Location de Voiture à Tirana & Aéroport TIA — Accueil Offert",
       "description": "Réservez votre location de voiture à Tirana ou à l'aéroport Mère Teresa (TIA), livraison offerte. Dès 25 €/jour, tarifs clairs, réservation en ligne en 2 minutes.",
       "keywords": "location voiture tirana, location voiture aéroport tirana, louer voiture tirana, car hire tirana, location voiture albanie"
     },
@@ -743,6 +743,8 @@
     "summary": "Récapitulatif de la réservation",
     "summaryTitle": "Récapitulatif",
     "days": "jours",
+    "days_one": "jour",
+    "days_other": "jours",
     "hours": "heures au total · tarif journalier appliqué",
     "extras": {
       "label": "Suppléments",
@@ -789,7 +791,7 @@
       "minDays": "Réservation minimale : {{count}} jour(s)."
     },
     "seo": {
-      "title": "Réserver une Voiture en Ligne — Confirmation Immédiate | Rent Ride",
+      "title": "Réserver une Voiture en Ligne — Confirmation Immédiate",
       "description": "Finalisez votre location de voiture en ligne : renseignez le formulaire, choisissez assurance et options, signez le contrat numérique. Confirmation envoyée aussitôt par e-mail.",
       "keywords": "réserver voiture en ligne tirana, booking location voiture tirana, réservation location voiture albanie"
     },
@@ -877,7 +879,16 @@
     "confirmTitle": "Vous effectuez une réservation réelle",
     "confirmBody": "Ce n'est pas une simulation de prix — vous envoyez une demande de réservation et notre équipe vous contactera. Continuer ?",
     "confirmCancel": "Non, juste les tarifs",
-    "confirmOk": "Oui, réserver"
+    "confirmOk": "Oui, réserver",
+    "noCarSelected": {
+      "title": "Aucun véhicule sélectionné",
+      "text": "Veuillez choisir un véhicule dans notre flotte pour poursuivre votre réservation.",
+      "cta": "Voir la flotte"
+    },
+    "carNotFound": {
+      "title": "Véhicule introuvable",
+      "text": "Ce véhicule n’existe pas ou n’est plus disponible."
+    }
   },
   "contactPage": {
     "badge": "NOUS CONTACTER",
@@ -973,7 +984,7 @@
       "bookingEase": "Facilité de réservation"
     },
     "seo": {
-      "title": "Avis Clients — Note 4,9★ sur plus de 500 Retours | Rent Ride",
+      "title": "Avis Clients — Note 4,9★ sur plus de 500 Retours",
       "description": "Découvrez l'expérience de nos clients : plus de 500 avis vérifiés et une note moyenne de 4,9/5 pour la location de voiture à Tirana. Partagez vous aussi votre avis.",
       "keywords": "avis location voiture tirana, avis clients location voiture, expériences location voiture albanie"
     },

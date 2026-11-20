@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { LocaleProvider } from "./hooks/useLocale";
+import { LANGS, localePath } from "./lib/routes";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import Header from "./components/Header";
 import FloatingWhatsAppButton from "./components/FloatingWhatsAppButton";
@@ -51,28 +52,30 @@ const ResetPasswordPage = React.lazy(() => import("./pages/ResetPasswordPage"));
 const BlogPage = React.lazy(() => import("./pages/BlogPage"));
 const BlogPostPage = React.lazy(() => import("./pages/BlogPostPage"));
 
-/* Route definition: [SQ, EN, FR, ES, IT, Component]. SQ is the canonical default. */
-const PUBLIC_ROUTES: [string, string, string, string, string, React.ComponentType][] = [
-  ["/",                          "/en",                       "/fr",                            "/es",                            "/it",                            HomePage],
-  ["/flota",                     "/en/fleet",                 "/fr/flotte",                     "/es/flota",                      "/it/flotta",                     FleetPage],
-  ["/makina/:slug",              "/en/car/:slug",             "/fr/voiture/:slug",              "/es/coche/:slug",                "/it/auto/:slug",                 CarDetailPage],
-  ["/rezervo",                   "/en/book",                  "/fr/reserver",                   "/es/reservar",                   "/it/prenota",                    BookingPage],
-  ["/faleminderit",              "/en/thank-you",             "/fr/merci",                      "/es/gracias",                    "/it/grazie",                     ThankYouPage],
-  ["/llogaria",                  "/en/my-account",            "/fr/mon-compte",                 "/es/mi-cuenta",                  "/it/account",                    MyAccountPage],
-  ["/vleresime",                 "/en/reviews",               "/fr/avis",                       "/es/opiniones",                  "/it/recensioni",                 ReviewsPage],
-  ["/makina-me-qira-tirane",     "/en/car-rental-tirana",     "/fr/location-voiture-tirana",    "/es/alquiler-coches-tirana",     "/it/noleggio-auto-tirana",       MakinaQeraTirana],
-  ["/makine-me-qira-aeroport",   "/en/airport-car-rental",    "/fr/location-aeroport",          "/es/alquiler-aeropuerto",        "/it/noleggio-aeroporto",         MakineAeroport],
-  ["/makina-suv-me-qira",        "/en/suv-car-rental",        "/fr/location-suv",               "/es/alquiler-suv",               "/it/noleggio-suv",               MakinaSUV],
-  ["/makina-automatike-me-qira", "/en/automatic-car-rental",  "/fr/location-automatique",       "/es/alquiler-automatico",        "/it/noleggio-automatico",        MakinaAutomatike],
-  ["/makina-luksoze-me-qira",    "/en/luxury-car-rental",     "/fr/location-luxe",              "/es/alquiler-lujo",              "/it/noleggio-lusso",             MakinaLuksoze],
-  ["/sitemap",                   "/en/sitemap",               "/fr/sitemap",                    "/es/sitemap",                    "/it/sitemap",                    SitemapPage],
-  ["/kontakt",                   "/en/contact",               "/fr/contact",                    "/es/contacto",                   "/it/contatti",                   ContactPage],
-  ["/zyrat",                     "/en/offices",               "/fr/bureaux",                    "/es/oficinas",                   "/it/uffici",                     OfficesPage],
-  ["/termat-e-sherbimit",        "/en/terms",                 "/fr/conditions",                 "/es/terminos",                   "/it/termini",                    TermsPage],
-  ["/privatesie",                "/en/privacy",               "/fr/confidentialite",            "/es/privacidad",                 "/it/privacy",                    PrivacyPage],
-  ["/blog",                      "/en/blog",                  "/fr/blog",                       "/es/blog",                       "/it/blog",                       BlogPage],
-  ["/blog/:slug",                "/en/blog/:slug",            "/fr/blog/:slug",                 "/es/blog/:slug",                 "/it/blog/:slug",                 BlogPostPage],
-  ["/reset-password",            "/en/reset-password",        "/fr/reset-password",             "/es/reset-password",             "/it/reset-password",             ResetPasswordPage],
+/* Route definition: [canonical SQ path, Component]. Every other language's
+ * path is derived from src/lib/routes.ts (SLUGS + dynamic prefixes), so adding
+ * a language there is enough — no second table to keep in sync here. */
+const PUBLIC_ROUTES: [string, React.ComponentType][] = [
+  ["/",                          HomePage],
+  ["/flota",                     FleetPage],
+  ["/makina/:slug",              CarDetailPage],
+  ["/rezervo",                   BookingPage],
+  ["/faleminderit",              ThankYouPage],
+  ["/llogaria",                  MyAccountPage],
+  ["/vleresime",                 ReviewsPage],
+  ["/makina-me-qira-tirane",     MakinaQeraTirana],
+  ["/makine-me-qira-aeroport",   MakineAeroport],
+  ["/makina-suv-me-qira",        MakinaSUV],
+  ["/makina-automatike-me-qira", MakinaAutomatike],
+  ["/makina-luksoze-me-qira",    MakinaLuksoze],
+  ["/sitemap",                   SitemapPage],
+  ["/kontakt",                   ContactPage],
+  ["/zyrat",                     OfficesPage],
+  ["/termat-e-sherbimit",        TermsPage],
+  ["/privatesie",                PrivacyPage],
+  ["/blog",                      BlogPage],
+  ["/blog/:slug",                BlogPostPage],
+  ["/reset-password",            ResetPasswordPage],
 ];
 
 function LazyFallback() {
@@ -107,14 +110,12 @@ export default function App() {
         <ScrollToTop />
         <AnalyticsTracker />
         <Routes>
-          {/* Public Routes — Albanian (default) + EN + FR + ES + IT */}
-          {PUBLIC_ROUTES.map(([sq, en, fr, es, it, Component]) => (
+          {/* Public Routes — Albanian (default) + one localized route per language in LANGS */}
+          {PUBLIC_ROUTES.map(([sq, Component]) => (
             <React.Fragment key={sq}>
-              <Route path={sq} element={<PublicLayout><Component /></PublicLayout>} />
-              <Route path={en} element={<PublicLayout><Component /></PublicLayout>} />
-              <Route path={fr} element={<PublicLayout><Component /></PublicLayout>} />
-              <Route path={es} element={<PublicLayout><Component /></PublicLayout>} />
-              <Route path={it} element={<PublicLayout><Component /></PublicLayout>} />
+              {LANGS.map((l) => (
+                <Route key={l} path={localePath(sq, l)} element={<PublicLayout><Component /></PublicLayout>} />
+              ))}
             </React.Fragment>
           ))}
 
