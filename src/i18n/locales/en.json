@@ -214,7 +214,7 @@
       "items": [
         {
           "title": "Documents you need for airport car rental",
-          "desc": "To rent a car at Tirana Airport you'll need three things: a driving license held for at least one year, a national ID or passport, and a credit or debit card to cover the refundable deposit. EU and international licenses are welcome, and for most nationalities no extra paperwork is required."
+          "desc": "To rent a car at Tirana Airport you'll need just two things: a driving license held for at least one year and a national ID or passport. No security deposit is required and nothing is blocked on your card. EU and international licenses are welcome, and for most nationalities no extra paperwork is required."
         },
         {
           "title": "Age requirements and the young-driver rule",
@@ -243,7 +243,7 @@
         },
         {
           "question": "What documents are required?",
-          "answer": "You'll need a valid driver's license held for at least 1 year, an ID card or passport, plus a credit/debit card to cover the deposit."
+          "answer": "You'll need a valid driver's license held for at least 1 year and an ID card or passport. No deposit is required."
         },
         {
           "question": "Can I collect the car at the airport?",
@@ -263,7 +263,7 @@
         },
         {
           "question": "Can I cancel my reservation?",
-          "answer": "Yes — you can cancel at no cost up to 24 hours before pickup. After that a cancellation fee applies."
+          "answer": "Yes — you can cancel at no cost up to 48 hours before pickup. For later cancellations, up to 50% of the booking value is retained."
         },
         {
           "question": "Which cars can I rent at the airport?",
@@ -450,7 +450,7 @@
       },
       "cancellation": {
         "title": "Cancellation",
-        "text": "Cancel free of charge up to 48 hours before pickup; after that, 30% of the total is retained."
+        "text": "Cancel free of charge up to 48 hours before pickup; after that, up to 50% of the booking value is retained."
       }
     },
     "about": {
@@ -476,7 +476,7 @@
       "unavailable": "Currently reserved",
       "chooseDates": "Choose other dates",
       "reserve": "Book now",
-      "instant": "Instant confirmation · No cancellation fee",
+      "instant": "Instant confirmation · Free cancellation up to 48 h before pickup",
       "totalLabel": "Total",
       "basePrice": "€{{price}} × {{days}} days",
       "insuranceFree": "Free",
@@ -517,7 +517,7 @@
       },
       {
         "question": "What happens with damages?",
-        "answer": "Each car has a security deposit. Minor damage is covered by insurance; we recommend full cover."
+        "answer": "No security deposit is required. Minor damage is covered by insurance; we recommend full cover."
       },
       {
         "question": "Can I pick up the car from the airport?",
@@ -719,8 +719,8 @@
           "text": "Interior damage (excessive dirt, smoking damage) is charged extra. Exterior damage must be reported immediately."
         },
         {
-          "label": "Deposit",
-          "text": "A security amount may be held on the customer's card during the rental period and is released unconditionally after the vehicle is returned undamaged."
+          "label": "No deposit",
+          "text": "No security deposit is taken and no amount is blocked on the customer's card. The customer remains liable for damage, traffic fines and fuel in accordance with the other clauses of this contract and the insurance selected."
         },
         {
           "label": "Cancellation",

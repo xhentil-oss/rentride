@@ -1,0 +1,299 @@
+{
+  "airport": {
+    "seo": {
+      "title": "Tirana Airport Car Rental — No Extra Fee, 24/7",
+      "description": "Rent a car at Tirana International Airport. We meet you at arrivals with a name sign, day or night, at no extra cost. Book online in minutes.",
+      "keywords": "car rental Tirana airport, rent a car Tirana airport, car hire Tirana airport, Tirana airport car rental 24/7, Mother Teresa airport car rental, car rental Albania airport"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "current": "Tirana Airport Car Rental"
+    },
+    "hero": {
+      "badge": "Tirana International Airport Mother Teresa",
+      "title": "Car Rental at Tirana Airport",
+      "intro": "Pick up and return your car around the clock, right at Tirana International Airport Mother Teresa. No queues, no hassle — just grab the keys and start your trip.",
+      "ctaBook": "Book an Airport Pickup",
+      "ctaCall": "Call Us"
+    },
+    "benefits": {
+      "title": "Why pick up your car at the airport",
+      "items": [
+        "Our representative meets you in person at the terminal exit",
+        "Available 24/7, every day of the year",
+        "Airport delivery at no extra cost",
+        "Flexible return times, even late at night",
+        "Cars equipped with GPS and automatic climate control",
+        "Basic insurance always included in the price",
+        "We track your flight by its flight number",
+        "Instant confirmation by email"
+      ]
+    },
+    "steps": {
+      "title": "How it works, step by step",
+      "items": [
+        { "title": "Book online", "desc": "Fill in the request and tell us your flight number and arrival time." },
+        { "title": "Get your confirmation", "desc": "Your confirmation arrives instantly by email — no prepayment required." },
+        { "title": "Land at Tirana Airport", "desc": "Our team member waits at the terminal exit holding a sign with your name." },
+        { "title": "Hit the road", "desc": "Sign the rental agreement, take the keys and enjoy your trip!" }
+      ]
+    },
+    "info": {
+      "title": "Tirana International Airport Mother Teresa",
+      "text": "{{address}}. The meeting point is the International Terminal exit (P1) — our representative will be holding a sign with your name, so you will spot us right away.",
+      "hours": "Open: 24/7"
+    },
+    "cta": {
+      "title": "Flying into Tirana?",
+      "text": "Book your car now and the keys will be ready the moment you step off the plane",
+      "button": "Book Now"
+    },
+    "faq": [
+      { "question": "Are you available around the clock at Tirana Airport?", "answer": "Yes — we handle car pickups and returns 24 hours a day at Tirana International Airport Mother Teresa. Whatever time your flight lands, our team is waiting for you as soon as you leave the terminal." },
+      { "question": "Is there an extra charge for picking up the car at the airport?", "answer": "None at all. Delivery to Tirana Airport is free — the price you book is the price you pay, with no hidden extras." },
+      { "question": "Where at the airport do I meet your representative?", "answer": "Our team member will be waiting right at the International Terminal exit (P1), holding a sign with your name, so you won't waste any time looking for us." },
+      { "question": "Can I return the car late at night?", "answer": "No problem. We accept returns outside normal hours too — just let us know in advance and our 24/7 team will arrange it." }
+    ]
+  },
+  "tirana": {
+    "seo": {
+      "title": "Car Rental in Tirana — From €25/Day",
+      "description": "Rent a car in Tirana from €25/day with transparent prices. Book online 24/7 and pick up at Tirana Airport or in the city. Modern 2020–2024 fleet.",
+      "keywords": "rent a car Tirana, car rental Tirana, car hire Tirana, cheap car rental Tirana, car rental Albania, rent a car Albania online"
+    },
+    "hero": {
+      "badge": "Tirana · Albania",
+      "title": "Car Rental in Tirana",
+      "intro": "Choose your car, book in a few minutes and pick it up wherever suits you best — at the airport or in the heart of Tirana. No hidden fees and 24/7 assistance.",
+      "ctaBook": "Book Now",
+      "ctaFleet": "Explore the Fleet"
+    },
+    "features": {
+      "title": "Why choose Rent Ride?",
+      "items": {
+        "price": { "title": "From €25/day", "desc": "Competitive rates, shown upfront — no surprises when you complete your booking." },
+        "airport": { "title": "Airport Delivery", "desc": "We meet you right at Tirana Airport and hand over your car without delays or any extra charge." },
+        "online": { "title": "24/7 Online Booking", "desc": "Book at any hour; your confirmation lands in your inbox instantly." },
+        "insurance": { "title": "Insurance Included", "desc": "Every car comes with basic insurance cover; upgrade to premium whenever you want complete peace of mind." },
+        "fleet": { "title": "Modern Fleet", "desc": "Models from 2020 to 2024, regularly serviced and all fitted with air conditioning." },
+        "customers": { "title": "500+ Customers", "desc": "More than 500 customers have chosen us, with an average rating of 4.8 out of 5 stars." }
+      }
+    },
+    "cars": {
+      "title": "Cars available in Tirana",
+      "subtitle": "A selection from our well-maintained fleet, ready to take you anywhere",
+      "viewAll": "View all cars"
+    },
+    "faqTitle": "Frequently asked questions",
+    "faq": [
+      { "question": "How much does it cost to rent a car in Tirana?", "answer": "Car rental in Tirana starts at €25/day for economy cars and goes up to around €120/day for luxury models. The final price depends on the category you choose and how many days you keep the car." },
+      { "question": "Can I pick up the car at Tirana Airport?", "answer": "Absolutely. We meet you right at Tirana International Airport Mother Teresa and hand over the car quickly, at any time of day or night." },
+      { "question": "What documents do I need to rent a car?", "answer": "All you need is a driving licence (held for at least 1 year), an ID card or passport, and a credit or debit card." },
+      { "question": "Is insurance included in the rental price?", "answer": "Yes — every rate includes basic insurance cover. If you want full protection, you can choose a wider or premium cover package when you book." }
+    ],
+    "cta": {
+      "title": "Ready to hit the road?",
+      "text": "Book online in a few minutes and leave the rest to us",
+      "button": "Book Online for Free"
+    }
+  },
+  "suv": {
+    "seo": {
+      "title": "SUV Rental in Tirana — 4x4 & Crossovers from €45/Day",
+      "description": "Rent an SUV or crossover in Tirana from €45/day. Modern cars with A/C, GPS and insurance included — ideal for mountains, beaches and family trips.",
+      "keywords": "SUV rental Albania, SUV rental Tirana, 4x4 rental Albania, rent a 4x4 Tirana, crossover rental Tirana, rent BMW X5 Tirana, Toyota RAV4 rental Albania"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "fleet": "Fleet",
+      "current": "SUV Rental"
+    },
+    "hero": {
+      "badge": "SUV & 4x4 — Tirana",
+      "title": "SUV Rental in Tirana",
+      "intro": "Explore every corner of Albania in one of our versatile SUVs — from city-centre traffic to mountain roads and the coast. Power, safety and comfort wherever the road takes you.",
+      "ctaBrowse": "Browse Affordable SUVs",
+      "ctaBook": "Book Now"
+    },
+    "why": {
+      "title": "Why choose an SUV?",
+      "subtitle": "The ideal choice for families, groups of friends and adventurous road trips",
+      "items": {
+        "terrain": { "title": "Ready for any road", "desc": "4x4 traction and high ground clearance — dependable on mountain roads and unpaved tracks." },
+        "space": { "title": "Room for everyone", "desc": "5 to 7 seats and a spacious cabin that keeps the whole family or group comfortable." },
+        "luggage": { "title": "Large boot", "desc": "Up to 500 L of luggage space — enough even for the suitcases of a long holiday." }
+      }
+    },
+    "features": [
+      "Dual-zone automatic climate control",
+      "Built-in GPS navigation",
+      "Full insurance cover included in the price",
+      "360° parking camera",
+      "Bluetooth and Apple CarPlay",
+      "Heated front and rear seats",
+      "Front and rear parking sensors",
+      "Up to 8 airbags",
+      "ABS, ESP and traction control",
+      "Free airport pickup"
+    ],
+    "cars": {
+      "title": "SUVs available right now",
+      "subtitle": "Book online — instant confirmation"
+    },
+    "faqTitle": "Frequently asked questions — SUV Rental",
+    "faq": [
+      { "question": "Which SUV models can I rent in Tirana?", "answer": "Our fleet includes the Toyota RAV4, BMW X5, Hyundai Tucson, Kia Sportage and similar models — all fitted as standard with air conditioning and GPS navigation." },
+      { "question": "How much does it cost to rent an SUV per day?", "answer": "Prices start at €45/day, with premium models up to around €120/day. The final price depends on the model you choose and the time of year." },
+      { "question": "Can I drive an SUV outside Albania?", "answer": "Yes — with the required authorisation you can travel to Kosovo, North Macedonia or Greece. Let us know in advance so we can prepare the documents." },
+      { "question": "Do you have 4x4 SUVs?", "answer": "Yes, several of our models come with four-wheel drive, ideal for mountain roads and challenging terrain. Just mention it when you book." }
+    ],
+    "cta": {
+      "title": "Ready for your next adventure?",
+      "text": "Book your SUV online — we're available 24/7",
+      "button": "Browse SUVs"
+    }
+  },
+  "automatic": {
+    "seo": {
+      "title": "Automatic Car Rental in Tirana — From €35/Day",
+      "description": "Automatic car rental in Tirana from €35/day. Choose DSG, CVT or hybrid models — easy in city traffic and ideal for visitors from abroad. Book online.",
+      "keywords": "automatic car rental Tirana, automatic car hire Tirana, rent an automatic car Albania, hybrid car rental Tirana, automatic transmission car rental Albania"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "fleet": "Fleet",
+      "current": "Automatic Car Rental"
+    },
+    "hero": {
+      "badge": "Automatic Transmission",
+      "title": "Automatic Car Rental",
+      "intro": "Stress-free driving in Tirana and all across Albania. With DSG and CVT automatic gearboxes, every journey runs smoothly — in city traffic and on the motorway alike.",
+      "ctaBrowse": "Browse All Automatics",
+      "ctaBook": "Book Now"
+    },
+    "why": {
+      "title": "Why choose an automatic?",
+      "items": {
+        "traffic": { "title": "Comfort in traffic", "desc": "No more thinking about the gear stick — your focus stays on the road, even in heavy traffic." },
+        "effortless": { "title": "Effortless driving", "desc": "Journeys that don't tire you out: DSG and CVT gearboxes shift with complete smoothness." },
+        "technology": { "title": "Advanced technology", "desc": "Modern automatics often use the same amount of fuel as manuals — sometimes even less." }
+      }
+    },
+    "features": [
+      "DSG / CVT / torque converter gearbox",
+      "Perfect for drivers visiting from abroad",
+      "Dual-zone automatic climate control",
+      "Just as easy in the city as on the motorway",
+      "Bluetooth and smartphone integration",
+      "Basic insurance included in the price",
+      "Free delivery to Tirana Airport",
+      "Book online any time, 24/7"
+    ],
+    "cars": {
+      "title": "Automatics available right now",
+      "subtitle": "Book online — get instant confirmation"
+    },
+    "faqTitle": "Frequently asked questions",
+    "faq": [
+      { "question": "What are the advantages of an automatic car?", "answer": "With an automatic you never have to deal with the gear stick, so driving is much easier — especially in busy city traffic. It's the right choice for anyone not used to a manual or spending long hours behind the wheel." },
+      { "question": "Are automatic rental cars more expensive?", "answer": "The rate is usually slightly higher (around +5–10%), but the extra driving comfort more than makes up for it. Rentals start from €35 per day." },
+      { "question": "Which automatic models do you offer?", "answer": "You can choose from the Toyota Corolla Hybrid, BMW 3 Series, Mercedes C-Class, Volkswagen Passat and many other cars with DSG or CVT gearboxes." },
+      { "question": "Can I pick up an automatic directly at the airport?", "answer": "Of course! Delivery at Tirana Airport is free and available at any time, 24/7. Just select the 'Automatic' option when you book online." }
+    ],
+    "cta": {
+      "title": "Start stress-free driving today",
+      "text": "Reserve your automatic car online in just a few minutes",
+      "button": "Browse Automatics"
+    }
+  },
+  "luxury": {
+    "seo": {
+      "title": "Luxury Car Rental Tirana — BMW, Mercedes, Audi",
+      "description": "Rent premium cars in Tirana: BMW, Mercedes-Benz, Audi and Porsche from €80/day. Perfect for weddings, events and VIP transfers, with fast confirmation.",
+      "keywords": "luxury car rental Tirana, luxury car rental Albania, rent BMW Tirana, rent Mercedes Tirana, VIP car rental Tirana, wedding car rental Tirana"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "fleet": "Fleet",
+      "current": "Luxury Car Rental"
+    },
+    "hero": {
+      "badge": "Premium & Luxury Fleet",
+      "title": "Luxury Car Rental",
+      "titleBrands": "BMW · Mercedes · Audi",
+      "intro": "The true feeling of premium driving, exactly as you imagined it. Our luxury cars turn every journey into an unforgettable memory — whether it's a wedding, a business meeting or simply the pleasure of the drive.",
+      "ctaBrowse": "Explore the Luxury Fleet",
+      "ctaBook": "Make a Booking"
+    },
+    "experience": {
+      "title": "The premium experience",
+      "subtitle": "Every detail carefully crafted for your ultimate comfort",
+      "items": {
+        "elite": { "title": "Elite class", "desc": "BMW, Mercedes, Audi — the most prestigious brands in the world. Leather upholstery and the latest-generation equipment." },
+        "priceMatch": { "title": "Price guarantee", "desc": "Found the same car cheaper elsewhere? We'll match the offer straight away, no questions asked." },
+        "vip": { "title": "VIP service", "desc": "Head to your destination in style — with airport pickup and a chauffeur on request." }
+      }
+    },
+    "included": {
+      "title": "What's included",
+      "items": [
+        "Heated and ventilated leather seats",
+        "Panoramic display with Head-Up Display",
+        "High-end audio (Bang & Olufsen / Harman)",
+        "4-zone automatic climate control",
+        "Full comprehensive insurance cover",
+        "360° camera with Park Assist",
+        "Adaptive Cruise Control with Lane Assist",
+        "Wireless charger and 4 USB ports",
+        "Free airport pickup, at any hour",
+        "Chauffeur on request, for an extra fee"
+      ]
+    },
+    "cars": {
+      "title": "Luxury cars available",
+      "subtitle": "Book online with fast confirmation"
+    },
+    "faqTitle": "Questions & answers — Luxury",
+    "faq": [
+      { "question": "Which luxury models do you offer?", "answer": "Our premium range includes the BMW 7 Series, Mercedes-Benz E-Class and S-Class, Audi A6, Porsche Cayenne and other exclusive cars — a collection we keep updating." },
+      { "question": "How much does it cost to rent a luxury car?", "answer": "Prices start at €80/day and depend on the model, the time of year and the number of days. Rentals longer than 7 days get lower rates." },
+      { "question": "Can I rent a luxury car for a wedding or event?", "answer": "Absolutely — we offer special packages for weddings, business meetings and photo shoots. Contact us and we'll prepare a proposal tailored to your needs." },
+      { "question": "Can I rent the car with a driver?", "answer": "Yes. For luxury cars you can add a professional chauffeur for an extra fee — ideal for airport transfers or events." }
+    ],
+    "cta": {
+      "title": "Secure your premium experience",
+      "text": "Our luxury cars are ready for you at any hour, for every special moment",
+      "button": "Browse Luxury Cars"
+    }
+  },
+  "offices": {
+    "seo": {
+      "title": "Our Office at Tirana Airport",
+      "description": "Find us at Tirana International Airport Mother Teresa — {{address}}. See the map, directions and our 24/7 opening hours.",
+      "keywords": "Rent Ride office Tirana, car rental office Tirana airport, Tirana airport car hire location, directions Tirana airport, car rental Tirana airport map"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "current": "Offices"
+    },
+    "hero": {
+      "badge": "OUR OFFICES",
+      "title": "Find Us at Tirana Airport",
+      "intro": "Our office is at Tirana International Airport Mother Teresa and open 24/7. Click the map for directions."
+    },
+    "office": {
+      "badge": "Tirana Airport",
+      "name": "Rent Ride — Tirana Airport Mother Teresa",
+      "hours": "Every day · 24/7"
+    },
+    "actions": {
+      "directions": "Get Directions",
+      "whatsappAriaLabel": "Chat with us on WhatsApp"
+    },
+    "contactCta": {
+      "title": "Questions about pickup or return?",
+      "text": "Contact our team any time — we offer free pickup and return at the airport, 24/7.",
+      "button": "Contact Us"
+    }
+  }
+}

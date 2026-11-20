@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const dotenv = require('dotenv');
 const express = require('express');
 const cors = require('cors');
@@ -173,6 +174,9 @@ app.use('/api/auth', (req, res, next) => {
   if (strictAuthPaths.some(s => p === s || p.startsWith(s))) return authLimiter(req, res, next);
   return sessionLimiter(req, res, next);
 }, require('./routes/auth'));
+// Car photos: immutable, cache-friendly, and requested once per car — kept
+// outside apiLimiter so a fleet page's images never eat a visitor's API quota.
+app.get('/api/cars/:id/image', require('./routes/cars').serveImage);
 app.use('/api/cars',          apiLimiter,  require('./routes/cars'));
 app.use('/api/customers',     apiLimiter,  require('./routes/customers'));
 app.use('/api/reservations',  apiLimiter,  require('./routes/reservations'));
@@ -213,8 +217,8 @@ app.get('/sitemap.xml', async (req, res) => {
     const BASE = 'https://rentride.al';
     const today = new Date().toISOString().slice(0, 10);
 
-    const [cars]  = await pool.query("SELECT slug, brand, model, year, image, updated_at FROM cars WHERE status != 'Deleted' ORDER BY created_at");
-    const [posts] = await pool.query("SELECT slug, title_sq, cover_image, updated_at FROM blog_posts WHERE status = 'published' ORDER BY created_at DESC").catch(() => [[]]);
+    const [cars]  = await pool.query("SELECT id, slug, brand, model, year, image, updated_at FROM cars WHERE status != 'Deleted' ORDER BY created_at");
+    const [posts] = await pool.query("SELECT slug, title_sq, title_en, content_en, cover_image, updated_at FROM blog_posts WHERE status = 'published' ORDER BY created_at DESC").catch(() => [[]]);
 
     const escXml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     const fmtDate = (d) => d ? new Date(d).toISOString().slice(0, 10) : today;
@@ -260,8 +264,10 @@ app.get('/sitemap.xml', async (req, res) => {
       { slugs: { sq: '/privatesie',                en: '/en/privacy',              fr: '/fr/confidentialite',         es: '/es/privacidad',              it: '/it/privacy', de: '/de/datenschutz', pl: '/pl/polityka-prywatnosci', cs: '/cs/ochrana-osobnich-udaju', he: '/he/privacy' },              pri: '0.3',  freq: 'yearly' },
     ];
 
+    // Only languages present in `slugs` — a page that exists in fewer languages
+    // (e.g. an admin blog post in sq/en) must not advertise the others.
     const hreflangLinks = (slugs) =>
-      LANGS.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${escXml(BASE + slugs[l])}" />`).join('\n') +
+      LANGS.filter((l) => slugs[l]).map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${escXml(BASE + slugs[l])}" />`).join('\n') +
       `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${escXml(BASE + slugs.sq)}" />`;
 
     const urlEntry = ({ loc, slugs, lastmod, freq, pri, images = '' }) => `
@@ -290,20 +296,40 @@ ${hreflangLinks(slugs)}
       const lastmod = fmtDate(car.updated_at);
       const label = `${car.brand} ${car.model} ${car.year}`.trim();
       const images = imageBlock(
-        car.image,
+        require('./routes/cars').imageUrl(car),
         `${label} — makinë me qira në Tiranë`,
         `${label} me qira nga Rent Ride, e disponueshme në Tiranë dhe Aeroportin Nënë Tereza.`,
       );
       for (const l of LANGS) xml += urlEntry({ loc: slugs[l], slugs, lastmod, freq: 'weekly', pri: '0.8', images });
     }
 
-    // Blog posts
+    const blogPath = (l, s) => (l === 'sq' ? `/blog/${s}` : `/${l}/blog/${s}`);
+
+    // Blog articles that ship with the site (src/content/blog/<lang>/<slug>.json):
+    // listed in every language that has a translation file.
+    const contentDir = path.join(__dirname, '..', 'src', 'content', 'blog');
+    let staticPosts = [];
+    try { staticPosts = JSON.parse(fs.readFileSync(path.join(contentDir, 'posts.json'), 'utf8')); } catch { /* none */ }
+    const staticSlugs = new Set();
+    for (const p of staticPosts) {
+      const s = escXml(p.slug);
+      const slugs = {};
+      for (const l of LANGS) if (fs.existsSync(path.join(contentDir, l, `${p.slug}.json`))) slugs[l] = blogPath(l, s);
+      if (!slugs.sq) continue;
+      staticSlugs.add(p.slug);
+      const lastmod = p.updatedAt || p.publishedAt || today;
+      for (const l of Object.keys(slugs)) xml += urlEntry({ loc: slugs[l], slugs, lastmod, freq: 'monthly', pri: '0.7' });
+    }
+
+    // Admin (database) posts exist only in Albanian, plus English when translated.
     for (const post of posts) {
+      if (staticSlugs.has(post.slug)) continue;
       const s = escXml(post.slug);
-      const slugs = { sq: `/blog/${s}`, en: `/en/blog/${s}`, fr: `/fr/blog/${s}`, es: `/es/blog/${s}`, it: `/it/blog/${s}`, de: `/de/blog/${s}`, pl: `/pl/blog/${s}`, cs: `/cs/blog/${s}`, he: `/he/blog/${s}` };
+      const slugs = { sq: blogPath('sq', s) };
+      if (post.title_en && post.content_en) slugs.en = blogPath('en', s);
       const lastmod = fmtDate(post.updated_at);
       const images = imageBlock(post.cover_image, post.title_sq || 'Rent Ride blog', post.title_sq || 'Rent Ride blog');
-      for (const l of LANGS) xml += urlEntry({ loc: slugs[l], slugs, lastmod, freq: 'monthly', pri: '0.7', images });
+      for (const l of Object.keys(slugs)) xml += urlEntry({ loc: slugs[l], slugs, lastmod, freq: 'monthly', pri: '0.7', images });
     }
 
     xml += `\n</urlset>`;
@@ -332,6 +358,8 @@ app.use('/uploads', express.static(uploadsPath, {
 const distPath = path.join(__dirname, 'public');
 // Cache hashed assets (JS/CSS) for 1 year; never cache index.html
 app.use(express.static(distPath, {
+  // "/" must reach the handler below so it can get its prerendered page.
+  index: false,
   setHeaders(res, filePath) {
     if (filePath.endsWith('index.html')) {
       res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
@@ -340,9 +368,27 @@ app.use(express.static(distPath, {
     }
   },
 }));
+
+// Prerendered pages (scripts/prerender.mjs → dist/prerender → backend/prerender):
+// full HTML per URL and language, so crawlers and link previews see the real
+// title, canonical, hreflang and text without running JavaScript. Any URL
+// without one (account, checkout, admin…) gets the plain SPA shell.
+const prerenderPath = path.join(__dirname, 'prerender');
+function prerenderedFile(urlPath) {
+  let p = urlPath;
+  try { p = decodeURIComponent(p); } catch { return null; }
+  p = p.replace(/\/+$/, '') || '/';
+  if (p.includes('\0') || p.includes('..')) return null;
+  const file = path.join(prerenderPath, p === '/' ? '__root.html' : `${p.slice(1)}.html`);
+  return file.startsWith(prerenderPath + path.sep) && fs.existsSync(file) ? file : null;
+}
+
 app.get('*', (req, res) => {
   res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
-  res.sendFile(path.join(distPath, 'index.html'));
+  // Query-string variants (?utm=…, prefilled checkout) keep the SPA shell; the
+  // page itself sets canonical/noindex for them as before.
+  const file = Object.keys(req.query).length ? null : prerenderedFile(req.path);
+  res.sendFile(file || path.join(distPath, 'index.html'));
 });
 
 // ─── ERROR HANDLER ────────────────────────────────────────────

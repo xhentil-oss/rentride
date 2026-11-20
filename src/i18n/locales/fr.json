@@ -214,7 +214,7 @@
       "items": [
         {
           "title": "Documents nécessaires",
-          "desc": "Trois documents suffisent pour votre location de voiture à l'aéroport de Tirana : un permis de conduire détenu depuis au moins un an, une pièce d'identité ou un passeport, et une carte bancaire (crédit ou débit) destinée à la caution remboursable. Nous acceptons aussi bien les permis européens qu'internationaux, sans formalité supplémentaire pour la plupart des nationalités."
+          "desc": "Deux documents suffisent pour votre location de voiture à l'aéroport de Tirana : un permis de conduire détenu depuis au moins un an et une pièce d'identité ou un passeport. Aucune caution n'est demandée et aucun montant n'est bloqué sur votre carte. Nous acceptons aussi bien les permis européens qu'internationaux, sans formalité supplémentaire pour la plupart des nationalités."
         },
         {
           "title": "Âge minimum et conditions jeune conducteur",
@@ -243,7 +243,7 @@
         },
         {
           "question": "Quels documents dois-je fournir ?",
-          "answer": "Munissez-vous d'un permis de conduire valide (détenu depuis 1 an au moins), d'une pièce d'identité ou d'un passeport, et d'une carte bancaire (crédit/débit) pour la caution."
+          "answer": "Munissez-vous d'un permis de conduire valide (détenu depuis 1 an au moins) et d'une pièce d'identité ou d'un passeport. Aucune caution n'est demandée."
         },
         {
           "question": "Puis-je récupérer la voiture directement à l'aéroport ?",
@@ -263,7 +263,7 @@
         },
         {
           "question": "Puis-je annuler ma réservation ?",
-          "answer": "Oui : tant que vous annulez plus de 24 h avant la prise en charge, c'est gratuit. Au-delà, des frais d'annulation s'appliquent."
+          "answer": "Oui : tant que vous annulez au moins 48 h avant la prise en charge, c'est gratuit. Au-delà, jusqu'à 50 % du montant de la réservation peut être retenu."
         },
         {
           "question": "Quels types de voitures proposez-vous ?",
@@ -450,7 +450,7 @@
       },
       "cancellation": {
         "title": "Annulation",
-        "text": "Annulation gratuite jusqu'à 48 h avant la prise en charge. Ensuite, des frais de 30 % s'appliquent."
+        "text": "Annulation gratuite jusqu'à 48 h avant la prise en charge. Ensuite, jusqu'à 50 % du montant de la réservation peut être retenu."
       }
     },
     "about": {
@@ -476,7 +476,7 @@
       "unavailable": "Actuellement réservée",
       "chooseDates": "Choisir d'autres dates",
       "reserve": "Réserver",
-      "instant": "Confirmation immédiate · Pas de frais d'annulation",
+      "instant": "Confirmation immédiate · Annulation gratuite jusqu'à 48 h avant",
       "totalLabel": "Total",
       "basePrice": "{{price}} € × {{days}} jours",
       "insuranceFree": "Gratuit",
@@ -517,7 +517,7 @@
       },
       {
         "question": "Que se passe-t-il en cas de dommage ?",
-        "answer": "Chaque voiture a un dépôt de garantie. Les dommages mineurs sont couverts par l'assurance. Nous recommandons la couverture complète."
+        "answer": "Aucun dépôt de garantie n'est demandé. Les dommages mineurs sont couverts par l'assurance. Nous recommandons la couverture complète."
       },
       {
         "question": "Puis-je récupérer la voiture à l'aéroport ?",
@@ -719,8 +719,8 @@
           "text": "Les dommages intérieurs (saleté excessive, dommages dus au tabac) sont facturés en supplément. Les dommages extérieurs doivent être signalés immédiatement."
         },
         {
-          "label": "Caution",
-          "text": "Un montant de garantie peut être bloqué sur la carte du client pendant la location et est libéré sans condition après la restitution du véhicule sans dommage."
+          "label": "Absence de caution",
+          "text": "Aucune caution n'est exigée et aucun montant n'est bloqué sur la carte du client. Le client demeure responsable des dommages, des amendes et du carburant conformément aux autres clauses du présent contrat et à l'assurance choisie."
         },
         {
           "label": "Annulation",

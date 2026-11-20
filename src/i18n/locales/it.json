@@ -214,7 +214,7 @@
       "items": [
         {
           "title": "Documenti richiesti",
-          "desc": "Per il noleggio di un'auto all'aeroporto di Tirana bastano tre elementi: la patente conseguita da almeno un anno, la carta d'identità o il passaporto e una carta di credito o debito per il deposito, che ti viene poi restituito. Sono ammesse sia le patenti dei Paesi UE sia quelle internazionali, senza formalità extra per gran parte delle nazionalità."
+          "desc": "Per il noleggio di un'auto all'aeroporto di Tirana bastano due elementi: la patente conseguita da almeno un anno e la carta d'identità o il passaporto. Non è richiesto alcun deposito cauzionale e nessun importo viene bloccato sulla tua carta. Sono ammesse sia le patenti dei Paesi UE sia quelle internazionali, senza formalità extra per gran parte delle nazionalità."
         },
         {
           "title": "Requisiti di età e giovani conducenti",
@@ -243,7 +243,7 @@
         },
         {
           "question": "Quali documenti sono necessari?",
-          "answer": "Occorrono una patente in corso di validità (conseguita da almeno 1 anno), la carta d'identità o il passaporto e una carta di credito/debito per il deposito."
+          "answer": "Occorrono una patente in corso di validità (conseguita da almeno 1 anno) e la carta d'identità o il passaporto. Non è richiesto alcun deposito."
         },
         {
           "question": "Posso ritirare l'auto in aeroporto?",
@@ -263,7 +263,7 @@
         },
         {
           "question": "Posso annullare la prenotazione?",
-          "answer": "Certo, la cancellazione non ha costi fino a 24 ore prima del ritiro. Dopo questo termine si applica una penale di disdetta."
+          "answer": "Certo, la cancellazione non ha costi fino a 48 ore prima del ritiro. Dopo questo termine viene trattenuto fino al 50% dell'importo della prenotazione."
         },
         {
           "question": "Che tipi di auto sono disponibili?",
@@ -450,7 +450,7 @@
       },
       "cancellation": {
         "title": "Cancellazione",
-        "text": "Cancellazione gratuita fino a 48 ore prima del ritiro. Dopo si applica il 30 %."
+        "text": "Cancellazione gratuita fino a 48 ore prima del ritiro. Dopo viene trattenuto fino al 50 % della prenotazione."
       }
     },
     "about": {
@@ -476,7 +476,7 @@
       "unavailable": "Attualmente prenotata",
       "chooseDates": "Scegli altre date",
       "reserve": "Prenota",
-      "instant": "Conferma immediata · Nessun costo di cancellazione",
+      "instant": "Conferma immediata · Cancellazione gratuita fino a 48 ore prima",
       "totalLabel": "Totale",
       "basePrice": "{{price}} € × {{days}} giorni",
       "insuranceFree": "Gratis",
@@ -517,7 +517,7 @@
       },
       {
         "question": "Cosa succede in caso di danni?",
-        "answer": "Ogni auto ha un deposito cauzionale. I danni minori sono coperti dall'assicurazione. Consigliamo copertura totale."
+        "answer": "Non è richiesto alcun deposito cauzionale. I danni minori sono coperti dall'assicurazione. Consigliamo copertura totale."
       },
       {
         "question": "Posso ritirare l'auto in aeroporto?",
@@ -719,8 +719,8 @@
           "text": "I danni interni (sporco eccessivo, danni da fumo) vengono addebitati a parte. I danni esterni devono essere segnalati immediatamente."
         },
         {
-          "label": "Deposito",
-          "text": "Un importo cauzionale può essere bloccato sulla carta del cliente durante il noleggio e viene svincolato senza condizioni dopo la riconsegna del veicolo senza danni."
+          "label": "Nessun deposito",
+          "text": "Non è richiesto alcun deposito cauzionale né viene bloccato alcun importo sulla carta del cliente. Il cliente resta responsabile per danni, multe e carburante secondo le altre clausole del presente contratto e l'assicurazione scelta."
         },
         {
           "label": "Annullamento",

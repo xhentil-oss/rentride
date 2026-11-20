@@ -1,0 +1,299 @@
+{
+  "airport": {
+    "seo": {
+      "title": "Půjčovna aut letiště Tirana – bez příplatku, nonstop",
+      "description": "Půjčte si auto na Mezinárodním letišti v Tiraně. Ve dne i v noci na vás čekáme v příletové hale s cedulkou se jménem, bez příplatku. Rezervujte online.",
+      "keywords": "půjčovna aut letiště Tirana, pronájem auta letiště Tirana, půjčení auta letiště Tirana, půjčovna aut Tirana letiště nonstop, půjčovna aut letiště Matky Terezy, půjčovna aut Albánie letiště"
+    },
+    "breadcrumb": {
+      "home": "Domů",
+      "current": "Půjčovna aut na letišti Tirana"
+    },
+    "hero": {
+      "badge": "Mezinárodní letiště Matky Terezy v Tiraně",
+      "title": "Půjčovna aut na letišti v Tiraně",
+      "intro": "Vyzvedněte a vraťte auto kdykoli ve dne i v noci přímo na Mezinárodním letišti Matky Terezy v Tiraně. Žádné fronty, žádné starosti – jen převezmete klíče a vyrazíte na cestu.",
+      "ctaBook": "Rezervovat přistavení na letiště",
+      "ctaCall": "Zavolejte nám"
+    },
+    "benefits": {
+      "title": "Proč si vyzvednout auto na letišti",
+      "items": [
+        "Náš zástupce vás osobně přivítá u východu z terminálu",
+        "K dispozici nonstop, každý den v roce",
+        "Přistavení na letiště bez příplatku",
+        "Flexibilní čas vrácení, i pozdě v noci",
+        "Vozy s GPS navigací a automatickou klimatizací",
+        "Základní pojištění vždy v ceně",
+        "Váš let sledujeme podle čísla letu",
+        "Okamžité potvrzení e-mailem"
+      ]
+    },
+    "steps": {
+      "title": "Jak to funguje krok za krokem",
+      "items": [
+        { "title": "Rezervujte online", "desc": "Vyplňte poptávku a uveďte číslo letu a čas příletu." },
+        { "title": "Obdržíte potvrzení", "desc": "Potvrzení vám okamžitě přijde e-mailem – bez platby předem." },
+        { "title": "Přistanete na letišti v Tiraně", "desc": "Náš kolega na vás čeká u východu z terminálu s cedulkou s vaším jménem." },
+        { "title": "Vyrazte na cestu", "desc": "Podepište nájemní smlouvu, převezměte klíče a užijte si cestu!" }
+      ]
+    },
+    "info": {
+      "title": "Mezinárodní letiště Matky Terezy v Tiraně",
+      "text": "Adresa: {{address}}. Místem setkání je východ z mezinárodního terminálu (P1) – náš zástupce bude držet cedulku s vaším jménem, takže nás hned najdete.",
+      "hours": "Otevřeno: nonstop"
+    },
+    "cta": {
+      "title": "Letíte do Tirany?",
+      "text": "Rezervujte si auto hned teď a klíče budou připravené, jakmile vystoupíte z letadla",
+      "button": "Rezervovat"
+    },
+    "faq": [
+      { "question": "Jste na letišti v Tiraně k dispozici nonstop?", "answer": "Ano – vyzvednutí i vrácení vozu zajišťujeme 24 hodin denně na Mezinárodním letišti Matky Terezy v Tiraně. Ať váš let přistane v jakoukoli hodinu, náš tým na vás čeká hned, jak vyjdete z terminálu." },
+      { "question": "Platí se příplatek za vyzvednutí auta na letišti?", "answer": "Vůbec žádný. Přistavení na letiště v Tiraně je zdarma – cena, kterou rezervujete, je cena, kterou zaplatíte, bez skrytých poplatků." },
+      { "question": "Kde na letišti se setkám s vaším zástupcem?", "answer": "Náš kolega na vás bude čekat přímo u východu z mezinárodního terminálu (P1) s cedulkou s vaším jménem, takže nás nebudete muset zbytečně hledat." },
+      { "question": "Mohu auto vrátit pozdě v noci?", "answer": "Žádný problém. Vrácení přijímáme i mimo běžnou otevírací dobu – stačí nám dát vědět předem a náš tým, který je k dispozici nonstop, vše zařídí." }
+    ]
+  },
+  "tirana": {
+    "seo": {
+      "title": "Půjčovna aut Tirana – od 25 €/den",
+      "description": "Pronájem auta v Tiraně od 25 €/den s transparentními cenami. Rezervujte online nonstop a vyzvedněte na letišti v Tiraně nebo ve městě. Moderní vozy 2020–2024.",
+      "keywords": "pronájem auta Tirana, půjčovna aut Tirana, půjčení auta Tirana, levná půjčovna aut Tirana, půjčovna aut Albánie, pronájem auta Albánie online"
+    },
+    "hero": {
+      "badge": "Tirana · Albánie",
+      "title": "Půjčovna aut v Tiraně",
+      "intro": "Vyberte si auto, rezervujte za pár minut a vyzvedněte ho tam, kde se vám to nejvíc hodí – na letišti nebo v srdci Tirany. Žádné skryté poplatky a pomoc nonstop.",
+      "ctaBook": "Rezervovat",
+      "ctaFleet": "Prohlédnout vozový park"
+    },
+    "features": {
+      "title": "Proč si vybrat Rent Ride?",
+      "items": {
+        "price": { "title": "Od 25 €/den", "desc": "Konkurenceschopné ceny zobrazené hned na začátku – žádná překvapení při dokončení rezervace." },
+        "airport": { "title": "Přistavení na letiště", "desc": "Přivítáme vás přímo na letišti v Tiraně a auto vám předáme bez zdržení a bez příplatku." },
+        "online": { "title": "Online rezervace nonstop", "desc": "Rezervujte v kteroukoli hodinu; potvrzení vám okamžitě dorazí do e-mailu." },
+        "insurance": { "title": "Pojištění v ceně", "desc": "Každý vůz má základní pojištění; kdykoli můžete přejít na prémiové krytí pro naprostý klid." },
+        "fleet": { "title": "Moderní vozový park", "desc": "Modely z let 2020 až 2024, pravidelně servisované a všechny s klimatizací." },
+        "customers": { "title": "Více než 500 zákazníků", "desc": "Vybralo si nás přes 500 zákazníků s průměrným hodnocením 4,8 z 5 hvězdiček." }
+      }
+    },
+    "cars": {
+      "title": "Auta k dispozici v Tiraně",
+      "subtitle": "Výběr z našeho pečlivě udržovaného vozového parku, připravený vás dovézt kamkoli",
+      "viewAll": "Zobrazit všechna auta"
+    },
+    "faqTitle": "Časté dotazy",
+    "faq": [
+      { "question": "Kolik stojí pronájem auta v Tiraně?", "answer": "Pronájem auta v Tiraně začíná na 25 €/den u ekonomických vozů a u luxusních modelů dosahuje zhruba 120 €/den. Konečná cena závisí na zvolené kategorii a počtu dní pronájmu." },
+      { "question": "Mohu si auto vyzvednout na letišti v Tiraně?", "answer": "Samozřejmě. Přivítáme vás přímo na Mezinárodním letišti Matky Terezy v Tiraně a auto vám rychle předáme v kteroukoli denní i noční hodinu." },
+      { "question": "Jaké doklady potřebuji k pronájmu auta?", "answer": "Stačí řidičský průkaz (vlastněný alespoň 1 rok), občanský průkaz nebo cestovní pas a kreditní či debetní karta." },
+      { "question": "Je pojištění zahrnuto v ceně pronájmu?", "answer": "Ano – každá cena zahrnuje základní pojištění. Pokud chcete plnou ochranu, můžete si při rezervaci zvolit rozšířené nebo prémiové krytí." }
+    ],
+    "cta": {
+      "title": "Připraveni vyrazit?",
+      "text": "Rezervujte online za pár minut a zbytek nechte na nás",
+      "button": "Rezervovat online zdarma"
+    }
+  },
+  "suv": {
+    "seo": {
+      "title": "Pronájem SUV Tirana – 4x4 a crossovery od 45 €/den",
+      "description": "Půjčte si SUV nebo crossover v Tiraně od 45 €/den. Moderní vozy s klimatizací, GPS a pojištěním v ceně – ideální do hor, k moři i na rodinné výlety.",
+      "keywords": "půjčení SUV Albánie, pronájem SUV Tirana, půjčovna SUV Tirana, pronájem 4x4 Albánie, půjčení 4x4 Tirana, pronájem crossoveru Tirana, pronájem BMW X5 Tirana, Toyota RAV4 pronájem Albánie"
+    },
+    "breadcrumb": {
+      "home": "Domů",
+      "fleet": "Vozový park",
+      "current": "Pronájem SUV"
+    },
+    "hero": {
+      "badge": "SUV a 4x4 – Tirana",
+      "title": "Pronájem SUV v Tiraně",
+      "intro": "Objevte každý kout Albánie v některém z našich všestranných SUV – od městského provozu v centru po horské silnice a pobřeží. Výkon, bezpečí a pohodlí, ať vás cesta zavede kamkoli.",
+      "ctaBrowse": "Prohlédnout cenově dostupná SUV",
+      "ctaBook": "Rezervovat"
+    },
+    "why": {
+      "title": "Proč si vybrat SUV?",
+      "subtitle": "Ideální volba pro rodiny, partu přátel i dobrodružné road tripy",
+      "items": {
+        "terrain": { "title": "Připraveno na každou cestu", "desc": "Pohon 4x4 a vysoká světlá výška – spolehlivost na horských silnicích i nezpevněných cestách." },
+        "space": { "title": "Místo pro všechny", "desc": "5 až 7 míst a prostorná kabina, ve které se pohodlně usadí celá rodina nebo parta." },
+        "luggage": { "title": "Velký kufr", "desc": "Až 500 l zavazadlového prostoru – dost i na kufry z dlouhé dovolené." }
+      }
+    },
+    "features": [
+      "Dvouzónová automatická klimatizace",
+      "Vestavěná GPS navigace",
+      "Plné pojištění v ceně",
+      "Parkovací kamera 360°",
+      "Bluetooth a Apple CarPlay",
+      "Vyhřívaná přední i zadní sedadla",
+      "Přední a zadní parkovací senzory",
+      "Až 8 airbagů",
+      "ABS, ESP a kontrola trakce",
+      "Vyzvednutí na letišti zdarma"
+    ],
+    "cars": {
+      "title": "SUV k dispozici právě teď",
+      "subtitle": "Rezervujte online – okamžité potvrzení"
+    },
+    "faqTitle": "Časté dotazy – pronájem SUV",
+    "faq": [
+      { "question": "Které modely SUV si mohu v Tiraně půjčit?", "answer": "Náš vozový park zahrnuje Toyotu RAV4, BMW X5, Hyundai Tucson, Kiu Sportage a podobné modely – všechny standardně vybavené klimatizací a GPS navigací." },
+      { "question": "Kolik stojí pronájem SUV na den?", "answer": "Ceny začínají na 45 €/den, prémiové modely až zhruba 120 €/den. Konečná cena závisí na zvoleném modelu a ročním období." },
+      { "question": "Mohu s SUV vyjet mimo Albánii?", "answer": "Ano – s potřebným povolením můžete cestovat do Kosova, Severní Makedonie nebo Řecka. Dejte nám vědět předem, abychom mohli připravit doklady." },
+      { "question": "Máte SUV s pohonem 4x4?", "answer": "Ano, několik našich modelů má pohon všech kol, ideální na horské silnice a náročný terén. Stačí to uvést při rezervaci." }
+    ],
+    "cta": {
+      "title": "Připraveni na další dobrodružství?",
+      "text": "Rezervujte si SUV online – jsme k dispozici nonstop",
+      "button": "Prohlédnout SUV"
+    }
+  },
+  "automatic": {
+    "seo": {
+      "title": "Auto s automatem Tirana – pronájem od 35 €/den",
+      "description": "Pronájem auta s automatem v Tiraně od 35 €/den. Vyberte si DSG, CVT nebo hybrid – snadná jízda v městském provozu, ideální pro zahraniční návštěvníky.",
+      "keywords": "auto s automatem Tirana, pronájem auta s automatem Tirana, půjčení auta s automatickou převodovkou Albánie, pronájem hybridu Tirana, půjčovna aut automat Albánie"
+    },
+    "breadcrumb": {
+      "home": "Domů",
+      "fleet": "Vozový park",
+      "current": "Pronájem auta s automatem"
+    },
+    "hero": {
+      "badge": "Automatická převodovka",
+      "title": "Pronájem auta s automatem",
+      "intro": "Jízda bez stresu v Tiraně i po celé Albánii. S automatickými převodovkami DSG a CVT probíhá každá cesta hladce – v městském provozu i na dálnici.",
+      "ctaBrowse": "Prohlédnout všechny automaty",
+      "ctaBook": "Rezervovat"
+    },
+    "why": {
+      "title": "Proč si vybrat automat?",
+      "items": {
+        "traffic": { "title": "Pohodlí v provozu", "desc": "Žádné myšlení na řadicí páku – soustředíte se na silnici, i v hustém provozu." },
+        "effortless": { "title": "Jízda bez námahy", "desc": "Cesty, které vás neunaví: převodovky DSG a CVT řadí naprosto plynule." },
+        "technology": { "title": "Moderní technologie", "desc": "Moderní automaty mají často stejnou spotřebu jako manuály – někdy dokonce nižší." }
+      }
+    },
+    "features": [
+      "Převodovka DSG / CVT / s měničem točivého momentu",
+      "Ideální pro řidiče ze zahraničí",
+      "Dvouzónová automatická klimatizace",
+      "Stejně snadné ve městě jako na dálnici",
+      "Bluetooth a propojení se smartphonem",
+      "Základní pojištění v ceně",
+      "Přistavení na letiště v Tiraně zdarma",
+      "Online rezervace kdykoli, nonstop"
+    ],
+    "cars": {
+      "title": "Automaty k dispozici právě teď",
+      "subtitle": "Rezervujte online – okamžité potvrzení"
+    },
+    "faqTitle": "Časté dotazy",
+    "faq": [
+      { "question": "Jaké jsou výhody auta s automatem?", "answer": "S automatem nikdy nemusíte řešit řadicí páku, takže je řízení mnohem snazší – zejména v rušném městském provozu. Je to správná volba pro každého, kdo není zvyklý na manuál nebo tráví za volantem dlouhé hodiny." },
+      { "question": "Je pronájem auta s automatem dražší?", "answer": "Cena bývá o něco vyšší (zhruba o 5–10 %), ale vyšší pohodlí při jízdě to bohatě vyváží. Pronájem začíná od 35 € na den." },
+      { "question": "Jaké modely s automatem nabízíte?", "answer": "Můžete si vybrat z Toyoty Corolla Hybrid, BMW řady 3, Mercedesu třídy C, Volkswagenu Passat a mnoha dalších vozů s převodovkou DSG nebo CVT." },
+      { "question": "Mohu si auto s automatem vyzvednout přímo na letišti?", "answer": "Samozřejmě! Přistavení na letiště v Tiraně je zdarma a možné kdykoli, nonstop. Při online rezervaci stačí zvolit možnost „Automat“." }
+    ],
+    "cta": {
+      "title": "Začněte jezdit bez stresu ještě dnes",
+      "text": "Rezervujte si auto s automatem online během pár minut",
+      "button": "Prohlédnout automaty"
+    }
+  },
+  "luxury": {
+    "seo": {
+      "title": "Pronájem luxusních aut Tirana – BMW, Mercedes, Audi",
+      "description": "Půjčte si prémiové auto v Tiraně: BMW, Mercedes-Benz, Audi a Porsche od 80 €/den. Ideální na svatby, akce a VIP transfery, s rychlým potvrzením.",
+      "keywords": "pronájem luxusních aut Tirana, půjčovna luxusních aut Albánie, pronájem BMW Tirana, pronájem Mercedes Tirana, VIP pronájem auta Tirana, auto na svatbu Tirana"
+    },
+    "breadcrumb": {
+      "home": "Domů",
+      "fleet": "Vozový park",
+      "current": "Pronájem luxusních aut"
+    },
+    "hero": {
+      "badge": "Prémiový a luxusní vozový park",
+      "title": "Pronájem luxusních aut",
+      "titleBrands": "BMW · Mercedes · Audi",
+      "intro": "Skutečný pocit z prémiové jízdy, přesně jak jste si ho představovali. Naše luxusní vozy promění každou cestu v nezapomenutelný zážitek – ať jde o svatbu, obchodní schůzku, nebo prostě radost z jízdy.",
+      "ctaBrowse": "Prohlédnout luxusní vozy",
+      "ctaBook": "Rezervovat"
+    },
+    "experience": {
+      "title": "Prémiový zážitek",
+      "subtitle": "Každý detail pečlivě připravený pro vaše maximální pohodlí",
+      "items": {
+        "elite": { "title": "Elitní třída", "desc": "BMW, Mercedes, Audi – nejprestižnější značky světa. Kožené čalounění a výbava nejnovější generace." },
+        "priceMatch": { "title": "Záruka ceny", "desc": "Našli jste stejné auto jinde levněji? Nabídku okamžitě dorovnáme, bez zbytečných otázek." },
+        "vip": { "title": "VIP servis", "desc": "Do cíle se stylem – s vyzvednutím na letišti a na přání i s řidičem." }
+      }
+    },
+    "included": {
+      "title": "Co je v ceně",
+      "items": [
+        "Vyhřívaná a ventilovaná kožená sedadla",
+        "Panoramatický displej s Head-Up Displejem",
+        "Špičkové audio (Bang & Olufsen / Harman)",
+        "Čtyřzónová automatická klimatizace",
+        "Plné komplexní pojištění",
+        "Kamera 360° s asistentem parkování",
+        "Adaptivní tempomat s asistentem jízdy v pruhu",
+        "Bezdrátová nabíječka a 4 USB porty",
+        "Vyzvednutí na letišti zdarma, v kteroukoli hodinu",
+        "Řidič na přání, za příplatek"
+      ]
+    },
+    "cars": {
+      "title": "Luxusní vozy k dispozici",
+      "subtitle": "Rezervujte online s rychlým potvrzením"
+    },
+    "faqTitle": "Otázky a odpovědi – luxusní vozy",
+    "faq": [
+      { "question": "Jaké luxusní modely nabízíte?", "answer": "Naše prémiová nabídka zahrnuje BMW řady 7, Mercedes-Benz třídy E a S, Audi A6, Porsche Cayenne a další exkluzivní vozy – kolekci, kterou neustále obnovujeme." },
+      { "question": "Kolik stojí pronájem luxusního auta?", "answer": "Ceny začínají na 80 €/den a závisí na modelu, ročním období a počtu dní. Pronájmy delší než 7 dní mají nižší sazby." },
+      { "question": "Mohu si luxusní auto půjčit na svatbu nebo akci?", "answer": "Samozřejmě – nabízíme speciální balíčky pro svatby, obchodní schůzky a focení. Kontaktujte nás a připravíme vám nabídku na míru." },
+      { "question": "Mohu si auto půjčit s řidičem?", "answer": "Ano. U luxusních vozů si můžete za příplatek přidat profesionálního řidiče – ideální pro letištní transfery nebo akce." }
+    ],
+    "cta": {
+      "title": "Zajistěte si prémiový zážitek",
+      "text": "Naše luxusní vozy jsou pro vás připravené v kteroukoli hodinu, pro každou výjimečnou chvíli",
+      "button": "Prohlédnout luxusní vozy"
+    }
+  },
+  "offices": {
+    "seo": {
+      "title": "Naše pobočka na letišti v Tiraně",
+      "description": "Najdete nás na Mezinárodním letišti Matky Terezy v Tiraně – adresa: {{address}}. Mapa, popis cesty a otevírací doba nonstop.",
+      "keywords": "Rent Ride pobočka Tirana, půjčovna aut pobočka letiště Tirana, půjčovna aut letiště Tirana kde najít, cesta na letiště Tirana, půjčovna aut letiště Tirana mapa"
+    },
+    "breadcrumb": {
+      "home": "Domů",
+      "current": "Pobočky"
+    },
+    "hero": {
+      "badge": "NAŠE POBOČKY",
+      "title": "Najdete nás na letišti v Tiraně",
+      "intro": "Naše pobočka se nachází na Mezinárodním letišti Matky Terezy v Tiraně a má otevřeno nonstop. Klikněte na mapu a zobrazí se vám trasa."
+    },
+    "office": {
+      "badge": "Letiště Tirana",
+      "name": "Rent Ride – letiště Matky Terezy, Tirana",
+      "hours": "Každý den · nonstop"
+    },
+    "actions": {
+      "directions": "Navigovat",
+      "whatsappAriaLabel": "Napište nám na WhatsApp"
+    },
+    "contactCta": {
+      "title": "Máte dotazy k vyzvednutí nebo vrácení?",
+      "text": "Kontaktujte náš tým kdykoli – vyzvednutí i vrácení na letišti nabízíme zdarma a nonstop.",
+      "button": "Kontaktujte nás"
+    }
+  }
+}

@@ -91,6 +91,12 @@ export const OG_LOCALE: Record<string, string> = {
   he: "he_IL",
 };
 
+/** Absolute URL for structured data; inline (data:) images are not valid there. */
+export const absoluteImage = (src?: string | null): string | undefined => {
+  if (!src || src.startsWith("data:")) return undefined;
+  return /^https?:\/\//i.test(src) ? src : `${SITE_URL}${src.startsWith("/") ? "" : "/"}${src}`;
+};
+
 /** Stable schema entity identifiers — the backbone of the @graph. */
 export const ID = {
   organization: `${SITE_URL}/#organization`,
@@ -331,7 +337,7 @@ export const buildItemListSchema = ({
       "@type": "Product",
       name: it.name,
       url: it.url.startsWith("http") ? it.url : `${SITE_URL}${it.url}`,
-      ...(it.image ? { image: it.image } : {}),
+      ...(absoluteImage(it.image) ? { image: absoluteImage(it.image) } : {}),
       ...(it.price
         ? {
             offers: {
@@ -370,7 +376,7 @@ export const buildCarProductSchema = (car: {
     image: [
       {
         "@type": "ImageObject",
-        url: car.image,
+        url: absoluteImage(car.image),
         name: `${car.brand} ${car.model} ${car.year} — makinë me qira në Tiranë`,
         description: `Foto e ${car.brand} ${car.model} ${car.year}, kategoria ${car.category}, me qira në Tiranë`,
         width: "1200",

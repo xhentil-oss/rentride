@@ -46,3 +46,6 @@ backend/public/favicon.svg
 backend/public/icon-512.svg
 backend/public/logo-rent-ride.svg
 backend/public/manifest.webmanifest
+
+# Generated on the server from dist/prerender by .cpanel.yml
+backend/prerender/

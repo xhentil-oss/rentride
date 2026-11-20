@@ -214,7 +214,7 @@
       "items": [
         {
           "title": "Documentos que necesitas",
-          "desc": "Para tu alquiler de coches en el aeropuerto de Tirana solo hacen falta tres documentos: un carné de conducir con al menos un año de antigüedad, DNI o pasaporte y una tarjeta de crédito o débito para la fianza reembolsable. Admitimos permisos de la UE e internacionales y, en la mayoría de nacionalidades, sin ningún trámite añadido."
+          "desc": "Para tu alquiler de coches en el aeropuerto de Tirana solo hacen falta dos documentos: un carné de conducir con al menos un año de antigüedad y DNI o pasaporte. No pedimos fianza ni bloqueamos ningún importe en tu tarjeta. Admitimos permisos de la UE e internacionales y, en la mayoría de nacionalidades, sin ningún trámite añadido."
         },
         {
           "title": "Edad mínima y requisitos para conductores jóvenes",
@@ -243,7 +243,7 @@
         },
         {
           "question": "¿Qué documentación tengo que presentar?",
-          "answer": "Un carné de conducir válido (con al menos un año de antigüedad), DNI o pasaporte y una tarjeta de crédito o débito para dejar la fianza."
+          "answer": "Un carné de conducir válido (con al menos un año de antigüedad) y DNI o pasaporte. No se pide fianza."
         },
         {
           "question": "¿Es posible recoger el coche en el aeropuerto?",
@@ -263,7 +263,7 @@
         },
         {
           "question": "¿Puedo cancelar mi reserva?",
-          "answer": "Sí, cancelar es gratis hasta 24 h antes de la recogida. Pasado ese plazo se cobra una tarifa de cancelación."
+          "answer": "Sí, cancelar es gratis hasta 48 h antes de la recogida. Pasado ese plazo, se retiene hasta el 50 % del importe de la reserva."
         },
         {
           "question": "¿Qué clases de coches ofrecéis?",
@@ -450,7 +450,7 @@
       },
       "cancellation": {
         "title": "Cancelación",
-        "text": "Cancelación gratis hasta 48 h antes. Después se aplica 30 %."
+        "text": "Cancelación gratis hasta 48 h antes. Después se retiene hasta el 50 % de la reserva."
       }
     },
     "about": {
@@ -476,7 +476,7 @@
       "unavailable": "Actualmente reservado",
       "chooseDates": "Elegir otras fechas",
       "reserve": "Reservar",
-      "instant": "Confirmación inmediata · Sin cargos de cancelación",
+      "instant": "Confirmación inmediata · Cancelación gratis hasta 48 h antes",
       "totalLabel": "Total",
       "basePrice": "{{price}} € × {{days}} días",
       "insuranceFree": "Gratis",
@@ -517,7 +517,7 @@
       },
       {
         "question": "¿Qué pasa con los daños?",
-        "answer": "Cada coche tiene una fianza. Los daños menores los cubre el seguro. Recomendamos cobertura completa."
+        "answer": "No se pide fianza. Los daños menores los cubre el seguro. Recomendamos cobertura completa."
       },
       {
         "question": "¿Puedo recoger en el aeropuerto?",
@@ -719,8 +719,8 @@
           "text": "Los daños interiores (suciedad excesiva, daños por fumar) se cobran aparte. Los daños exteriores deben comunicarse de inmediato."
         },
         {
-          "label": "Depósito",
-          "text": "Se puede bloquear un importe de garantía en la tarjeta del cliente durante el alquiler y se libera sin condiciones tras devolver el vehículo sin daños."
+          "label": "Sin depósito",
+          "text": "No se exige depósito de garantía ni se bloquea importe alguno en la tarjeta del cliente. El cliente sigue siendo responsable de los daños, las multas y el combustible conforme a las demás cláusulas del presente contrato y al seguro elegido."
         },
         {
           "label": "Cancelación",

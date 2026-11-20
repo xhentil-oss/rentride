@@ -43,7 +43,6 @@ Të dhëna kontakti:
 Të dhëna transaksionale:
 • Historiku i rezervimeve
 • Të dhënat e pagesës (ruhen nga procesori, jo direkt prej nesh)
-• Depozitat e sigurisë
 
 Të dhëna teknike (mbledhur automatikisht):
 • Adresa IP dhe vendndodhja e përafërt (shteti) e nxjerrë prej saj

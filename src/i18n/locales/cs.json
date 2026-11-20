@@ -214,7 +214,7 @@
       "items": [
         {
           "title": "Doklady potřebné k pronájmu auta na letišti",
-          "desc": "K pronájmu auta na letišti v Tiraně potřebujete tři věci: řidičský průkaz vlastněný alespoň jeden rok, občanský průkaz nebo cestovní pas a kreditní či debetní kartu na vratnou kauci. Řidičské průkazy z EU i mezinárodní řidičské průkazy přijímáme a pro většinu národností nejsou potřeba žádné další doklady."
+          "desc": "K pronájmu auta na letišti v Tiraně potřebujete jen dvě věci: řidičský průkaz vlastněný alespoň jeden rok a občanský průkaz nebo cestovní pas. Kauci nevyžadujeme a na vaší kartě nic neblokujeme. Řidičské průkazy z EU i mezinárodní řidičské průkazy přijímáme a pro většinu národností nejsou potřeba žádné další doklady."
         },
         {
           "title": "Věkové požadavky a příplatek pro mladé řidiče",
@@ -243,7 +243,7 @@
         },
         {
           "question": "Jaké doklady potřebuji?",
-          "answer": "Potřebujete platný řidičský průkaz vlastněný alespoň 1 rok, občanský průkaz nebo cestovní pas a kreditní/debetní kartu na kauci."
+          "answer": "Potřebujete platný řidičský průkaz vlastněný alespoň 1 rok a občanský průkaz nebo cestovní pas. Kauci nevyžadujeme."
         },
         {
           "question": "Mohu si vůz vyzvednout na letišti?",
@@ -263,7 +263,7 @@
         },
         {
           "question": "Mohu rezervaci zrušit?",
-          "answer": "Ano – rezervaci můžete zdarma zrušit až 24 hodin před vyzvednutím. Poté se účtuje stornopoplatek."
+          "answer": "Ano – rezervaci můžete zdarma zrušit až 48 hodin před vyzvednutím. Při pozdějším zrušení si ponecháváme až 50 % z ceny rezervace."
         },
         {
           "question": "Jaké vozy si mohu na letišti půjčit?",
@@ -450,7 +450,7 @@
       },
       "cancellation": {
         "title": "Storno",
-        "text": "Zrušení zdarma až 48 hodin před vyzvednutím; poté se účtuje 30 % z celkové ceny."
+        "text": "Zrušení zdarma až 48 hodin před vyzvednutím; poté si ponecháváme až 50 % z ceny rezervace."
       }
     },
     "about": {
@@ -476,7 +476,7 @@
       "unavailable": "Momentálně rezervováno",
       "chooseDates": "Zvolit jiný termín",
       "reserve": "Rezervovat",
-      "instant": "Okamžité potvrzení · Storno bez poplatku",
+      "instant": "Okamžité potvrzení · Storno zdarma až 48 h předem",
       "totalLabel": "Celkem",
       "basePrice": "{{price}} €/den × {{days}}",
       "insuranceFree": "Zdarma",
@@ -517,7 +517,7 @@
       },
       {
         "question": "Co se děje v případě poškození?",
-        "answer": "U každého vozu se skládá kauce. Drobné škody kryje pojištění; doporučujeme plné krytí."
+        "answer": "Kauci nevyžadujeme. Drobné škody kryje pojištění; doporučujeme plné krytí."
       },
       {
         "question": "Mohu si vůz vyzvednout na letišti?",
@@ -719,8 +719,8 @@
           "text": "Poškození interiéru (nadměrné znečištění, škody způsobené kouřením) se účtuje zvlášť. Poškození exteriéru je nutné neprodleně nahlásit."
         },
         {
-          "label": "Kauce",
-          "text": "Po dobu pronájmu může být na kartě zákazníka blokována jistota (kauce), která se po vrácení nepoškozeného vozidla bezpodmínečně uvolní."
+          "label": "Bez kauce",
+          "text": "Kauce se nevybírá a na kartě zákazníka se neblokuje žádná částka. Zákazník nadále odpovídá za škody, pokuty a palivo v souladu s ostatními ustanoveními této smlouvy a se zvoleným pojištěním."
         },
         {
           "label": "Storno",

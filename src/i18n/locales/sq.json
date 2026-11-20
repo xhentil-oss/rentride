@@ -214,7 +214,7 @@
       "items": [
         {
           "title": "Dokumentet që nevojiten",
-          "desc": "Për të tërhequr një makinë me qira te Aeroporti i Tiranës mjaftojnë tri dokumente: një patentë e vlefshme (të paktën 1 vit e mbajtur), një kartë identiteti ose pasaportë, si dhe një kartë krediti a debiti për depozitën që rimbursohet. Patentat ndërkombëtare dhe ato të BE-së i pranojmë pa asnjë dokument shtesë."
+          "desc": "Për të tërhequr një makinë me qira te Aeroporti i Tiranës mjaftojnë dy dokumente: një patentë e vlefshme (të paktën 1 vit e mbajtur) dhe një kartë identiteti ose pasaportë. Nuk kërkohet depozitë sigurie dhe nuk bllokohet asnjë shumë në kartën tënde. Patentat ndërkombëtare dhe ato të BE-së i pranojmë pa asnjë dokument shtesë."
         },
         {
           "title": "Mosha minimale dhe rregullat për drejtuesit e rinj",
@@ -243,7 +243,7 @@
         },
         {
           "question": "Çfarë dokumentesh më duhen?",
-          "answer": "Do të të duhen një patentë e vlefshme (të paktën 1 vit), një kartë identiteti ose pasaportë, si dhe një kartë krediti/debiti për depozitën."
+          "answer": "Do të të duhen një patentë e vlefshme (të paktën 1 vit) dhe një kartë identiteti ose pasaportë. Nuk kërkohet asnjë depozitë."
         },
         {
           "question": "A mund ta tërheq makinën direkt te aeroporti?",
@@ -275,7 +275,11 @@
         },
         {
           "question": "A mund ta anuloj rezervimin?",
-          "answer": "Po, deri 24 orë para datës së marrjes e anulon falas. Kur ky afat kalon, aplikohet tarifa përkatëse e anulimit."
+          "answer": "Po, deri 48 orë para datës së marrjes e anulon falas. Kur ky afat kalon, mbahet deri në 50% e vlerës së rezervimit."
+        },
+        {
+          "question": "A përfshin çmimi i qirasë ndonjë tarifë shtesë aeroporti?",
+          "answer": "Asnjë shtesë — nuk ka fare tarifë aeroporti. Paguan të njëjtin çmim, qoftë kur e merr makinën te Aeroporti i Tiranës, qoftë në zyrën tonë në qendër të qytetit, gjë që na bën një nga të paktat kompani makinash me qira në aeroportin e Tiranës me çmime vërtet transparente në të dyja pikat."
         }
       ]
     },
@@ -446,7 +450,7 @@
       },
       "cancellation": {
         "title": "Anulimi",
-        "text": "Anulim pa pagesë deri 48 orë para marrjes; pas këtij afati mbahet 30% e shumës."
+        "text": "Anulim pa pagesë deri 48 orë para marrjes; pas këtij afati mbahet deri në 50% e vlerës së rezervimit."
       }
     },
     "about": {
@@ -472,7 +476,7 @@
       "unavailable": "Momentalisht e rezervuar",
       "chooseDates": "Zgjidhni data tjera",
       "reserve": "Rezervo tani",
-      "instant": "Konfirmim i menjëhershëm · Pa tarifë anulimi",
+      "instant": "Konfirmim i menjëhershëm · Anulim falas deri 48 orë para marrjes",
       "totalLabel": "Totali",
       "basePrice": "€{{price}} × {{days}} ditë",
       "insuranceFree": "Falas",
@@ -513,7 +517,7 @@
       },
       {
         "question": "Çfarë ndodh me dëmtimet?",
-        "answer": "Çdo makinë ka një depozitë sigurie. Dëmet e vogla i mbulon sigurimi; këshillojmë mbulimin e plotë."
+        "answer": "Nuk kërkohet depozitë sigurie. Dëmet e vogla i mbulon sigurimi; këshillojmë mbulimin e plotë."
       },
       {
         "question": "A mund ta marr makinën nga aeroporti?",
@@ -715,8 +719,8 @@
           "text": "Dëmtimet e brendshme (ndotja e tepërt, dëme nga pirja e duhanit) tarifohen shtesë. Dëmtimet e jashtme raportohen menjëherë."
         },
         {
-          "label": "Depozita",
-          "text": "Një shumë garanci mund të bllokohet në kartën e klientit gjatë periudhës së qirasë dhe lirohet pa kushte pas kthimit të automjetit pa dëme."
+          "label": "Pa depozitë",
+          "text": "Nuk merret depozitë sigurie dhe nuk bllokohet asnjë shumë në kartën e klientit. Klienti mbetet përgjegjës për dëmet, gjobat e trafikut dhe karburantin sipas klauzolave të tjera të kësaj kontrate dhe sigurimit të zgjedhur."
         },
         {
           "label": "Anulimi",

@@ -24,7 +24,6 @@ Këto kushte zbatohen për të gjitha shërbimet e qirasë automobilistike që o
 • Të jenë minimalisht 21 vjeç (drejtuesit 21–25 vjeç mund të kenë tarifë shtesë të rinisë prej €5/ditë)
 • Të kenë patentë shoferi të vlefshme me minimum 1 vit nga data e lëshimit
 • Të kenë kartë identiteti ose pasaportë të vlefshme ndërkombëtare
-• Të sjellin kartë krediti/debiti në emrin e tyre për depozitën e sigurisë
 
 Pranohen patentat shqiptare, europiane dhe ato ndërkombëtare të lëshuara sipas Konventës së Vjenës.`,
     },
@@ -55,20 +54,15 @@ Rent Ride ruan të drejtën të refuzojë çdo rezervim pa dhënë arsye, me rim
 Çmimet sezonale ndryshojnë në bazë të periudhës: Normale, Verore (Qershor–Shtator), Festive (Dhjetor–Janar) dhe Jashtë-sezone (Janar–Mars).`,
     },
     {
-      title: "5. Depozita e Sigurisë",
-      content: `Në çastin e Tërhieves, klientit i kërkohet të bëjë një depozitë sigurie:
+      title: "5. Pa Depozitë Sigurie",
+      content: `Rent Ride nuk kërkon depozitë sigurie. Në çastin e tërheqjes nuk bllokohet dhe nuk debitohet asnjë shumë garancie në kartën tuaj.
 
-• Ekonomike / Kompakte: €150–€200
-• SUV / Familjare: €250–€350
-• Luksoze / Premium: €400–€600
-
-Depozita bllokohet (jo debitohet) nga karta juaj. Ajo lirohet brenda 5–7 ditëve bankare pas kthimit të mjetit nëse nuk ka dëmtime, gjoba ose karburant i munguar.`,
+Klienti mbetet përgjegjës për dëmtimet, gjobat dhe karburantin që mungon, sipas pikave 4, 7 dhe 8 të këtyre kushteve dhe planit të sigurimit të zgjedhur.`,
     },
     {
       title: "6. Politika e Anulimit dhe Rimbursimit",
-      content: `• Anulim falas: deri 48 orë para orës së tërhieves — rimbursim i plotë
-• Anulim 24–48 orë para: ngarkohet 30% e vlerës totale
-• Anulim brenda 24 orëve: ngarkohet 50% e vlerës totale
+      content: `• Anulim falas: deri 48 orë para orës së tërheqjes — rimbursim i plotë
+• Anulim më pak se 48 orë para tërheqjes: mbahet deri në 50% e vlerës totale të rezervimit
 • No-show (mos-paraqitje pa anulim): ngarkohet 100% e vlerës
 
 Rimbursimi procesohët brenda 5–10 ditëve bankare në mjetin origjinal të pagesës.`,
@@ -83,7 +77,7 @@ Rimbursimi procesohët brenda 5–10 ditëve bankare në mjetin origjinal të pa
 • Të mos nënqirasë mjetin te persona të tretë
 • Të raportojë çdo aksident ose dëmtim brenda 24 orëve
 
-Shkelja e këtyre kushteve mund të rezultojë në ndërprerje të menjëhershme të kontratës dhe humbje të depozitës.`,
+Shkelja e këtyre kushteve mund të rezultojë në ndërprerje të menjëhershme të kontratës.`,
     },
     {
       title: "8. Dëmtimet dhe Aksidentet",

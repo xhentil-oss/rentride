@@ -214,7 +214,7 @@
       "items": [
         {
           "title": "Dokumenty potrzebne do wynajmu auta na lotnisku",
-          "desc": "Aby wynająć samochód na lotnisku w Tiranie, potrzebujesz trzech rzeczy: prawa jazdy posiadanego od co najmniej roku, dowodu osobistego lub paszportu oraz karty kredytowej lub debetowej na zwrotną kaucję. Akceptujemy prawa jazdy wydane w UE i międzynarodowe, a obywatele większości krajów nie potrzebują żadnych dodatkowych dokumentów."
+          "desc": "Aby wynająć samochód na lotnisku w Tiranie, potrzebujesz tylko dwóch rzeczy: prawa jazdy posiadanego od co najmniej roku oraz dowodu osobistego lub paszportu. Nie pobieramy kaucji i nie blokujemy żadnej kwoty na Twojej karcie. Akceptujemy prawa jazdy wydane w UE i międzynarodowe, a obywatele większości krajów nie potrzebują żadnych dodatkowych dokumentów."
         },
         {
           "title": "Wymagany wiek i zasady dla młodych kierowców",
@@ -243,7 +243,7 @@
         },
         {
           "question": "Jakie dokumenty są wymagane?",
-          "answer": "Potrzebujesz ważnego prawa jazdy posiadanego od co najmniej roku, dowodu osobistego lub paszportu oraz karty kredytowej/debetowej na kaucję."
+          "answer": "Potrzebujesz ważnego prawa jazdy posiadanego od co najmniej roku oraz dowodu osobistego lub paszportu. Kaucja nie jest wymagana."
         },
         {
           "question": "Czy mogę odebrać samochód na lotnisku?",
@@ -263,7 +263,7 @@
         },
         {
           "question": "Czy mogę anulować rezerwację?",
-          "answer": "Tak — możesz anulować bezpłatnie najpóźniej 24 godziny przed odbiorem. Później obowiązuje opłata za anulację."
+          "answer": "Tak — możesz anulować bezpłatnie najpóźniej 48 godzin przed odbiorem. W przypadku późniejszej anulacji zatrzymujemy do 50% wartości rezerwacji."
         },
         {
           "question": "Jakie samochody mogę wynająć na lotnisku?",
@@ -450,7 +450,7 @@
       },
       "cancellation": {
         "title": "Anulacja",
-        "text": "Bezpłatna anulacja najpóźniej 48 godzin przed odbiorem; później zatrzymujemy 30% łącznej kwoty."
+        "text": "Bezpłatna anulacja najpóźniej 48 godzin przed odbiorem; później zatrzymujemy do 50% wartości rezerwacji."
       }
     },
     "about": {
@@ -476,7 +476,7 @@
       "unavailable": "Obecnie zarezerwowany",
       "chooseDates": "Wybierz inne terminy",
       "reserve": "Zarezerwuj teraz",
-      "instant": "Natychmiastowe potwierdzenie · Bez opłaty za anulację",
+      "instant": "Natychmiastowe potwierdzenie · Bezpłatna anulacja do 48 h przed odbiorem",
       "totalLabel": "Razem",
       "basePrice": "€{{price}}/dzień × {{days}}",
       "insuranceFree": "Gratis",
@@ -517,7 +517,7 @@
       },
       {
         "question": "Co w przypadku uszkodzeń?",
-        "answer": "Przy każdym samochodzie obowiązuje kaucja. Drobne szkody pokrywa ubezpieczenie; zalecamy pełną ochronę."
+        "answer": "Kaucja nie jest wymagana. Drobne szkody pokrywa ubezpieczenie; zalecamy pełną ochronę."
       },
       {
         "question": "Czy mogę odebrać samochód na lotnisku?",
@@ -719,8 +719,8 @@
           "text": "Uszkodzenia wnętrza (nadmierne zabrudzenie, szkody spowodowane paleniem tytoniu) są dodatkowo płatne. Uszkodzenia zewnętrzne należy zgłaszać niezwłocznie."
         },
         {
-          "label": "Kaucja",
-          "text": "W okresie najmu na karcie Klienta może zostać zablokowana kwota zabezpieczenia, która jest bezwarunkowo zwalniana po zwrocie nieuszkodzonego pojazdu."
+          "label": "Brak kaucji",
+          "text": "Nie pobiera się kaucji ani nie blokuje żadnej kwoty na karcie Klienta. Klient pozostaje odpowiedzialny za szkody, mandaty i paliwo zgodnie z pozostałymi postanowieniami niniejszej umowy oraz wybranym ubezpieczeniem."
         },
         {
           "label": "Anulacja",

@@ -10,6 +10,32 @@ const VALID_TRANSMISSIONS = ['Automatic', 'Manual', 'Automatike', 'Manuale'];
 const VALID_FUELS = ['Petrol', 'Diesel', 'Hybrid', 'Electric', 'Benzinë', 'Benzine', 'Naftë', 'Nafte', 'Hibrid', 'Elektrik'];
 const VALID_STATUSES = ['Available', 'Rented', 'Maintenance', 'Out of Service', 'Në dispozicion', 'I rezervuar', 'Në mirëmbajtje'];
 
+// Photos uploaded in the admin are stored as base64 data URIs. Sending them
+// inside every /api/cars response made the fleet JSON ~350 KB, uncacheable,
+// and unusable as an image URL for Google/Facebook. The API now returns a
+// small versioned URL instead; GET /api/cars/:id/image serves the bytes.
+const IMAGE_URL_RE = /^\/api\/cars\/[^/]+\/image(\?|$)/;
+const imageUrl = (r) => {
+  if (typeof r.image !== 'string' || !r.image.startsWith('data:')) return r.image;
+  const v = r.updated_at ? new Date(r.updated_at).getTime() : 0;
+  return `/api/cars/${encodeURIComponent(r.id)}/image?v=${v}`;
+};
+
+/** GET /api/cars/:id/image — mounted in server.js ahead of the API rate limiter. */
+async function serveImage(req, res) {
+  try {
+    const [rows] = await pool.query('SELECT image FROM cars WHERE id = ? OR slug = ?', [req.params.id, req.params.id]);
+    const src = rows[0]?.image;
+    if (!src) return res.status(404).end();
+    const m = /^data:([a-z]+\/[a-z0-9.+-]+);base64,(.*)$/is.exec(src);
+    if (!m) return res.redirect(302, src);
+    res.set('Content-Type', m[1]);
+    // The URL carries ?v=<updated_at>, so a new photo gets a new URL.
+    res.set('Cache-Control', req.query.v ? 'public, max-age=31536000, immutable' : 'public, max-age=3600');
+    res.send(Buffer.from(m[2], 'base64'));
+  } catch (err) { console.error(err); res.status(500).end(); }
+}
+
 const toCamel = (r) => ({
   id: r.id, brand: r.brand, model: r.model, year: r.year,
   category: r.category, transmission: r.transmission, fuel: r.fuel,
@@ -17,7 +43,7 @@ const toCamel = (r) => ({
   // ne frontend behet bashkim tekstesh dhe totali del NaN.
   seats: r.seats, luggage: r.luggage, pricePerDay: parseFloat(r.price_per_day),
   displayPrice: r.display_price != null ? Number(r.display_price) : null,
-  status: r.status, image: r.image, slug: r.slug, featured: !!r.featured,
+  status: r.status, image: imageUrl(r), slug: r.slug, featured: !!r.featured,
   quantity: r.quantity ?? 1, description: r.description ?? '',
   createdAt: r.created_at, updatedAt: r.updated_at,
 });
@@ -89,7 +115,9 @@ router.put('/:id', authenticate, requireRole('admin', 'manager'), async (req, re
       category: fields.category, transmission: fields.transmission, fuel: fields.fuel,
       seats: fields.seats, luggage: fields.luggage, price_per_day: fields.pricePerDay,
       display_price: fields.displayPrice !== undefined ? (fields.displayPrice === '' || fields.displayPrice === null ? null : Number(fields.displayPrice)) : undefined,
-      status: fields.status, image: fields.image, slug: fields.slug,
+      // The admin form sends back the URL it received; that means "unchanged",
+      // so keep the stored photo instead of overwriting it with the URL.
+      status: fields.status, image: (typeof fields.image === 'string' && IMAGE_URL_RE.test(fields.image)) ? undefined : fields.image, slug: fields.slug,
       featured: fields.featured !== undefined ? (fields.featured ? 1 : 0) : undefined,
       quantity: fields.quantity, description: fields.description,
     };
@@ -128,3 +156,5 @@ router.delete('/:id', authenticate, requireRole('admin'), async (req, res) => {
 });
 
 module.exports = router;
+module.exports.serveImage = serveImage;
+module.exports.imageUrl = imageUrl;

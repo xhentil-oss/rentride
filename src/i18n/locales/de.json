@@ -214,7 +214,7 @@
       "items": [
         {
           "title": "Erforderliche Dokumente für die Anmietung am Flughafen",
-          "desc": "Um ein Auto am Flughafen Tirana zu mieten, benötigen Sie drei Dinge: einen Führerschein, den Sie seit mindestens einem Jahr besitzen, einen Personalausweis oder Reisepass sowie eine Kredit- oder Debitkarte für die erstattungsfähige Kaution. EU-Führerscheine und internationale Führerscheine werden akzeptiert; für die meisten Nationalitäten sind keine weiteren Unterlagen erforderlich."
+          "desc": "Um ein Auto am Flughafen Tirana zu mieten, benötigen Sie nur zwei Dinge: einen Führerschein, den Sie seit mindestens einem Jahr besitzen, und einen Personalausweis oder Reisepass. Eine Kaution ist nicht erforderlich, und auf Ihrer Karte wird kein Betrag blockiert. EU-Führerscheine und internationale Führerscheine werden akzeptiert; für die meisten Nationalitäten sind keine weiteren Unterlagen erforderlich."
         },
         {
           "title": "Mindestalter und Junge-Fahrer-Regelung",
@@ -243,7 +243,7 @@
         },
         {
           "question": "Welche Dokumente benötige ich?",
-          "answer": "Sie benötigen einen gültigen Führerschein, den Sie seit mindestens 1 Jahr besitzen, einen Personalausweis oder Reisepass sowie eine Kredit- oder Debitkarte für die Kaution."
+          "answer": "Sie benötigen einen gültigen Führerschein, den Sie seit mindestens 1 Jahr besitzen, sowie einen Personalausweis oder Reisepass. Eine Kaution ist nicht erforderlich."
         },
         {
           "question": "Kann ich das Auto am Flughafen abholen?",
@@ -263,7 +263,7 @@
         },
         {
           "question": "Kann ich meine Buchung stornieren?",
-          "answer": "Ja – Sie können bis 24 Stunden vor der Abholung kostenlos stornieren. Danach fällt eine Stornogebühr an."
+          "answer": "Ja – Sie können bis 48 Stunden vor der Abholung kostenlos stornieren. Bei späterer Stornierung werden bis zu 50 % des Buchungswerts einbehalten."
         },
         {
           "question": "Welche Autos kann ich am Flughafen mieten?",
@@ -450,7 +450,7 @@
       },
       "cancellation": {
         "title": "Stornierung",
-        "text": "Kostenlose Stornierung bis 48 Stunden vor der Abholung; danach werden 30 % des Gesamtbetrags einbehalten."
+        "text": "Kostenlose Stornierung bis 48 Stunden vor der Abholung; danach werden bis zu 50 % des Buchungswerts einbehalten."
       }
     },
     "about": {
@@ -476,7 +476,7 @@
       "unavailable": "Derzeit reserviert",
       "chooseDates": "Anderen Zeitraum wählen",
       "reserve": "Jetzt buchen",
-      "instant": "Sofortige Bestätigung · Keine Stornogebühr",
+      "instant": "Sofortige Bestätigung · Kostenlose Stornierung bis 48 Std. vorher",
       "totalLabel": "Gesamt",
       "basePrice": "{{price}} € × {{days}} Tage",
       "insuranceFree": "Kostenlos",
@@ -517,7 +517,7 @@
       },
       {
         "question": "Was passiert bei Schäden?",
-        "answer": "Für jedes Auto wird eine Kaution hinterlegt. Kleinere Schäden sind durch die Versicherung abgedeckt; wir empfehlen den Vollschutz."
+        "answer": "Eine Kaution ist nicht erforderlich. Kleinere Schäden sind durch die Versicherung abgedeckt; wir empfehlen den Vollschutz."
       },
       {
         "question": "Kann ich das Auto am Flughafen abholen?",
@@ -719,8 +719,8 @@
           "text": "Schäden im Innenraum (übermäßige Verschmutzung, Schäden durch Rauchen) werden gesondert berechnet. Äußere Schäden sind unverzüglich zu melden."
         },
         {
-          "label": "Kaution",
-          "text": "Während der Mietdauer kann ein Sicherheitsbetrag auf der Karte des Mieters reserviert werden, der nach unbeschädigter Rückgabe des Fahrzeugs bedingungslos freigegeben wird."
+          "label": "Keine Kaution",
+          "text": "Es wird keine Kaution erhoben und kein Betrag auf der Karte des Mieters blockiert. Der Mieter haftet weiterhin für Schäden, Bußgelder und Kraftstoff gemäß den übrigen Bestimmungen dieses Vertrags und der gewählten Versicherung."
         },
         {
           "label": "Stornierung",

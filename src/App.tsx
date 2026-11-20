@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { LocaleProvider } from "./hooks/useLocale";
 import { LANGS, localePath } from "./lib/routes";
+import { PageReadySignal } from "./lib/appReady";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import Header from "./components/Header";
 import FloatingWhatsAppButton from "./components/FloatingWhatsAppButton";
@@ -97,7 +98,7 @@ function PublicLayout({ children }: { children: React.ReactNode }) {
         {t("skipToContent")}
       </a>
       <Header />
-      <main id="main-content"><ErrorBoundary><Suspense fallback={<LazyFallback />}>{children}</Suspense></ErrorBoundary></main>
+      <main id="main-content"><ErrorBoundary><Suspense fallback={<LazyFallback />}>{children}<PageReadySignal /></Suspense></ErrorBoundary></main>
       <FloatingWhatsAppButton />
     </div>
   );

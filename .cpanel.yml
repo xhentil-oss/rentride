@@ -6,6 +6,9 @@ deployment:
     - /bin/rm -rf backend/public/assets
     - /bin/cp -R dist/assets backend/public/assets
     - /bin/cp dist/index.html backend/public/index.html
+    # Prerendered HTML per page and language (scripts/prerender.mjs); served by server.js.
+    - /bin/rm -rf backend/prerender
+    - /bin/cp -R dist/prerender backend/prerender
     - /bin/cp dist/placeholder-car.svg backend/public/placeholder-car.svg
     - /bin/cp dist/robots.txt backend/public/robots.txt
     # SEO/brand assets. logo-rent-ride.svg is the URL the Organization JSON-LD

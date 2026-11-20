@@ -1,0 +1,299 @@
+{
+  "airport": {
+    "seo": {
+      "title": "Wynajem samochodu lotnisko Tirana — bez dopłat, 24/7",
+      "description": "Wynajmij samochód na lotnisku w Tiranie. Czekamy na Ciebie w hali przylotów z tabliczką z Twoim nazwiskiem, w dzień i w nocy, bez dopłat. Rezerwuj online.",
+      "keywords": "wynajem samochodu lotnisko Tirana, wypożyczalnia samochodów lotnisko Tirana, wynajem auta lotnisko Tirana, wynajem samochodu Tirana lotnisko 24/7, wypożyczalnia samochodów lotnisko Matki Teresy, wynajem samochodu Albania lotnisko"
+    },
+    "breadcrumb": {
+      "home": "Strona główna",
+      "current": "Wynajem samochodu na lotnisku w Tiranie"
+    },
+    "hero": {
+      "badge": "Międzynarodowe Lotnisko w Tiranie im. Matki Teresy",
+      "title": "Wynajem samochodu na lotnisku w Tiranie",
+      "intro": "Odbierz i zwróć samochód o każdej porze, bezpośrednio na Międzynarodowym Lotnisku w Tiranie im. Matki Teresy. Bez kolejek i bez kłopotu — bierzesz kluczyki i ruszasz w drogę.",
+      "ctaBook": "Zarezerwuj odbiór na lotnisku",
+      "ctaCall": "Zadzwoń do nas"
+    },
+    "benefits": {
+      "title": "Dlaczego warto odebrać auto na lotnisku",
+      "items": [
+        "Nasz przedstawiciel czeka na Ciebie osobiście przy wyjściu z terminalu",
+        "Dostępni 24/7, każdego dnia w roku",
+        "Podstawienie auta na lotnisko bez dopłat",
+        "Elastyczne godziny zwrotu, nawet późno w nocy",
+        "Samochody z GPS i automatyczną klimatyzacją",
+        "Podstawowe ubezpieczenie zawsze wliczone w cenę",
+        "Śledzimy Twój lot po numerze lotu",
+        "Natychmiastowe potwierdzenie e-mailem"
+      ]
+    },
+    "steps": {
+      "title": "Jak to działa krok po kroku",
+      "items": [
+        { "title": "Zarezerwuj online", "desc": "Wypełnij formularz i podaj nam numer lotu oraz godzinę przylotu." },
+        { "title": "Otrzymaj potwierdzenie", "desc": "Potwierdzenie przychodzi od razu e-mailem — bez przedpłaty." },
+        { "title": "Wyląduj w Tiranie", "desc": "Nasz pracownik czeka przy wyjściu z terminalu z tabliczką z Twoim nazwiskiem." },
+        { "title": "Ruszaj w drogę", "desc": "Podpisz umowę najmu, odbierz kluczyki i ciesz się podróżą!" }
+      ]
+    },
+    "info": {
+      "title": "Międzynarodowe Lotnisko w Tiranie im. Matki Teresy",
+      "text": "{{address}}. Miejsce spotkania to wyjście z Terminalu Międzynarodowego (P1) — nasz przedstawiciel będzie trzymał tabliczkę z Twoim nazwiskiem, więc od razu nas zauważysz.",
+      "hours": "Otwarte: 24/7"
+    },
+    "cta": {
+      "title": "Lecisz do Tirany?",
+      "text": "Zarezerwuj samochód już teraz, a kluczyki będą na Ciebie czekać, gdy tylko wysiądziesz z samolotu",
+      "button": "Zarezerwuj teraz"
+    },
+    "faq": [
+      { "question": "Czy jesteście dostępni całą dobę na lotnisku w Tiranie?", "answer": "Tak — wydajemy i przyjmujemy samochody 24 godziny na dobę na Międzynarodowym Lotnisku w Tiranie im. Matki Teresy. Niezależnie od godziny lądowania nasz zespół czeka na Ciebie, gdy tylko wyjdziesz z terminalu." },
+      { "question": "Czy za odbiór samochodu na lotnisku trzeba dopłacić?", "answer": "Nie, w ogóle. Podstawienie auta na lotnisko w Tiranie jest bezpłatne — cena z rezerwacji to cena, którą zapłacisz, bez ukrytych dodatków." },
+      { "question": "Gdzie na lotnisku spotkam Waszego przedstawiciela?", "answer": "Nasz pracownik będzie czekał tuż przy wyjściu z Terminalu Międzynarodowego (P1) z tabliczką z Twoim nazwiskiem, więc nie stracisz czasu na szukanie nas." },
+      { "question": "Czy mogę zwrócić samochód późno w nocy?", "answer": "Żaden problem. Przyjmujemy zwroty także poza standardowymi godzinami — wystarczy, że dasz nam znać wcześniej, a nasz zespół 24/7 wszystko zorganizuje." }
+    ]
+  },
+  "tirana": {
+    "seo": {
+      "title": "Wynajem samochodu Tirana — od 25 €/dzień",
+      "description": "Wynajmij samochód w Tiranie od 25 €/dzień w przejrzystych cenach. Rezerwuj online 24/7, odbiór na lotnisku lub w mieście. Nowoczesna flota z lat 2020–2024.",
+      "keywords": "wynajem samochodu Tirana, wypożyczalnia samochodów Tirana, wynajem auta Tirana, tani wynajem samochodu Tirana, wypożyczalnia samochodów Albania, wynajem samochodu Albania online"
+    },
+    "hero": {
+      "badge": "Tirana · Albania",
+      "title": "Wynajem samochodu w Tiranie",
+      "intro": "Wybierz auto, zarezerwuj w kilka minut i odbierz je tam, gdzie Ci wygodnie — na lotnisku lub w samym centrum Tirany. Bez ukrytych opłat i z pomocą 24/7.",
+      "ctaBook": "Zarezerwuj teraz",
+      "ctaFleet": "Poznaj flotę"
+    },
+    "features": {
+      "title": "Dlaczego Rent Ride?",
+      "items": {
+        "price": { "title": "Od 25 €/dzień", "desc": "Konkurencyjne stawki pokazane od razu — bez niespodzianek przy finalizowaniu rezerwacji." },
+        "airport": { "title": "Podstawienie na lotnisko", "desc": "Czekamy na Ciebie na lotnisku w Tiranie i przekazujemy auto bez opóźnień i bez dopłat." },
+        "online": { "title": "Rezerwacja online 24/7", "desc": "Rezerwuj o dowolnej porze; potwierdzenie od razu trafi do Twojej skrzynki." },
+        "insurance": { "title": "Ubezpieczenie w cenie", "desc": "Każde auto ma podstawowe ubezpieczenie; rozszerz je do pakietu premium, gdy chcesz pełnego spokoju." },
+        "fleet": { "title": "Nowoczesna flota", "desc": "Modele z lat 2020–2024, regularnie serwisowane i wszystkie z klimatyzacją." },
+        "customers": { "title": "Ponad 500 klientów", "desc": "Zaufało nam ponad 500 klientów, ze średnią oceną 4,8 na 5 gwiazdek." }
+      }
+    },
+    "cars": {
+      "title": "Samochody dostępne w Tiranie",
+      "subtitle": "Wybór z naszej zadbanej floty, gotowej zawieźć Cię wszędzie",
+      "viewAll": "Zobacz wszystkie samochody"
+    },
+    "faqTitle": "Najczęściej zadawane pytania",
+    "faq": [
+      { "question": "Ile kosztuje wynajem samochodu w Tiranie?", "answer": "Wynajem samochodu w Tiranie zaczyna się od 25 €/dzień za auta ekonomiczne i sięga ok. 120 €/dzień za modele luksusowe. Ostateczna cena zależy od wybranej kategorii i liczby dni wynajmu." },
+      { "question": "Czy mogę odebrać samochód na lotnisku w Tiranie?", "answer": "Oczywiście. Czekamy na Ciebie na Międzynarodowym Lotnisku w Tiranie im. Matki Teresy i szybko przekazujemy auto, o każdej porze dnia i nocy." },
+      { "question": "Jakie dokumenty są potrzebne do wynajmu samochodu?", "answer": "Wystarczy prawo jazdy (posiadane od co najmniej roku), dowód osobisty lub paszport oraz karta kredytowa lub debetowa." },
+      { "question": "Czy ubezpieczenie jest wliczone w cenę wynajmu?", "answer": "Tak — każda stawka obejmuje podstawowe ubezpieczenie. Jeśli chcesz pełnej ochrony, przy rezerwacji możesz wybrać szerszy pakiet lub pakiet premium." }
+    ],
+    "cta": {
+      "title": "Gotowy, by ruszyć w drogę?",
+      "text": "Zarezerwuj online w kilka minut, a resztą zajmiemy się my",
+      "button": "Zarezerwuj online za darmo"
+    }
+  },
+  "suv": {
+    "seo": {
+      "title": "Wynajem SUV Tirana — 4x4 i crossovery od 45 €/dzień",
+      "description": "Wynajmij SUV-a lub crossovera w Tiranie od 45 €/dzień. Nowoczesne auta z klimatyzacją, GPS i ubezpieczeniem — idealne w góry, na plaże i na rodzinne wyjazdy.",
+      "keywords": "wynajem SUV Albania, wynajem SUV Tirana, wynajem 4x4 Albania, wypożyczalnia 4x4 Tirana, wynajem crossovera Tirana, wynajem BMW X5 Tirana, wynajem Toyota RAV4 Albania"
+    },
+    "breadcrumb": {
+      "home": "Strona główna",
+      "fleet": "Flota",
+      "current": "Wynajem SUV-ów"
+    },
+    "hero": {
+      "badge": "SUV i 4x4 — Tirana",
+      "title": "Wynajem SUV-ów w Tiranie",
+      "intro": "Odkryj każdy zakątek Albanii jednym z naszych wszechstronnych SUV-ów — od miejskich korków po drogi górskie i wybrzeże. Moc, bezpieczeństwo i komfort, dokądkolwiek prowadzi droga.",
+      "ctaBrowse": "Zobacz niedrogie SUV-y",
+      "ctaBook": "Zarezerwuj teraz"
+    },
+    "why": {
+      "title": "Dlaczego SUV?",
+      "subtitle": "Idealny wybór dla rodzin, grup znajomych i road tripów pełnych przygód",
+      "items": {
+        "terrain": { "title": "Gotowy na każdą drogę", "desc": "Napęd 4x4 i duży prześwit — niezawodność na drogach górskich i nieutwardzonych." },
+        "space": { "title": "Miejsce dla wszystkich", "desc": "Od 5 do 7 miejsc i przestronne wnętrze, w którym wygodnie będzie całej rodzinie lub grupie." },
+        "luggage": { "title": "Duży bagażnik", "desc": "Do 500 l przestrzeni bagażowej — wystarczy nawet na walizki na długie wakacje." }
+      }
+    },
+    "features": [
+      "Dwustrefowa klimatyzacja automatyczna",
+      "Wbudowana nawigacja GPS",
+      "Pełna ochrona ubezpieczeniowa w cenie",
+      "Kamera parkowania 360°",
+      "Bluetooth i Apple CarPlay",
+      "Podgrzewane przednie i tylne fotele",
+      "Przednie i tylne czujniki parkowania",
+      "Do 8 poduszek powietrznych",
+      "ABS, ESP i kontrola trakcji",
+      "Bezpłatny odbiór na lotnisku"
+    ],
+    "cars": {
+      "title": "SUV-y dostępne od ręki",
+      "subtitle": "Rezerwuj online — natychmiastowe potwierdzenie"
+    },
+    "faqTitle": "Najczęściej zadawane pytania — wynajem SUV-ów",
+    "faq": [
+      { "question": "Jakie modele SUV-ów mogę wynająć w Tiranie?", "answer": "W naszej flocie są m.in. Toyota RAV4, BMW X5, Hyundai Tucson, Kia Sportage i podobne modele — wszystkie standardowo z klimatyzacją i nawigacją GPS." },
+      { "question": "Ile kosztuje wynajem SUV-a za dzień?", "answer": "Ceny zaczynają się od 45 €/dzień, a modele premium kosztują do ok. 120 €/dzień. Ostateczna cena zależy od wybranego modelu i pory roku." },
+      { "question": "Czy mogę wyjechać SUV-em poza Albanię?", "answer": "Tak — z wymaganą zgodą możesz pojechać do Kosowa, Macedonii Północnej lub Grecji. Daj nam znać wcześniej, abyśmy mogli przygotować dokumenty." },
+      { "question": "Czy macie SUV-y z napędem 4x4?", "answer": "Tak, kilka naszych modeli ma napęd na cztery koła, idealny na drogi górskie i trudny teren. Wystarczy zaznaczyć to przy rezerwacji." }
+    ],
+    "cta": {
+      "title": "Gotowy na kolejną przygodę?",
+      "text": "Zarezerwuj SUV-a online — jesteśmy dostępni 24/7",
+      "button": "Zobacz SUV-y"
+    }
+  },
+  "automatic": {
+    "seo": {
+      "title": "Samochód z automatem Tirana — wynajem od 35 €/dzień",
+      "description": "Wynajem samochodu z automatyczną skrzynią w Tiranie od 35 €/dzień. Modele DSG, CVT i hybrydy — wygodne w miejskim ruchu i idealne dla turystów. Rezerwuj online.",
+      "keywords": "samochód z automatem Tirana, wynajem samochodu z automatyczną skrzynią Tirana, wynajem auta automat Albania, wynajem hybrydy Tirana, wypożyczalnia samochodów automat Albania"
+    },
+    "breadcrumb": {
+      "home": "Strona główna",
+      "fleet": "Flota",
+      "current": "Wynajem aut z automatem"
+    },
+    "hero": {
+      "badge": "Automatyczna skrzynia biegów",
+      "title": "Wynajem samochodów z automatyczną skrzynią biegów",
+      "intro": "Jazda bez stresu w Tiranie i w całej Albanii. Dzięki automatycznym skrzyniom DSG i CVT każda podróż przebiega płynnie — zarówno w miejskim ruchu, jak i na autostradzie.",
+      "ctaBrowse": "Zobacz wszystkie automaty",
+      "ctaBook": "Zarezerwuj teraz"
+    },
+    "why": {
+      "title": "Dlaczego automat?",
+      "items": {
+        "traffic": { "title": "Komfort w korkach", "desc": "Koniec z myśleniem o lewarku zmiany biegów — skupiasz się na drodze, nawet w dużym ruchu." },
+        "effortless": { "title": "Jazda bez wysiłku", "desc": "Podróże, które nie męczą: skrzynie DSG i CVT zmieniają biegi całkowicie płynnie." },
+        "technology": { "title": "Nowoczesna technologia", "desc": "Nowoczesne automaty często spalają tyle samo paliwa co manualne — a czasem nawet mniej." }
+      }
+    },
+    "features": [
+      "Skrzynia DSG / CVT / z przekładnią hydrokinetyczną",
+      "Idealne dla kierowców przyjeżdżających z zagranicy",
+      "Dwustrefowa klimatyzacja automatyczna",
+      "Równie wygodne w mieście, co na autostradzie",
+      "Bluetooth i integracja ze smartfonem",
+      "Podstawowe ubezpieczenie wliczone w cenę",
+      "Bezpłatne podstawienie na lotnisko w Tiranie",
+      "Rezerwacja online o każdej porze, 24/7"
+    ],
+    "cars": {
+      "title": "Automaty dostępne od ręki",
+      "subtitle": "Rezerwuj online — otrzymasz natychmiastowe potwierdzenie"
+    },
+    "faqTitle": "Najczęściej zadawane pytania",
+    "faq": [
+      { "question": "Jakie są zalety samochodu z automatyczną skrzynią biegów?", "answer": "W automacie nie musisz w ogóle zajmować się zmianą biegów, więc jazda jest dużo łatwiejsza — zwłaszcza w zatłoczonym mieście. To dobry wybór dla każdego, kto nie jest przyzwyczajony do manuala lub spędza długie godziny za kierownicą." },
+      { "question": "Czy wynajem auta z automatem jest droższy?", "answer": "Stawka jest zwykle nieco wyższa (ok. +5–10%), ale większy komfort jazdy z nawiązką to rekompensuje. Wynajem zaczyna się od 35 € za dzień." },
+      { "question": "Jakie modele z automatem oferujecie?", "answer": "Możesz wybierać m.in. spośród Toyoty Corolli Hybrid, BMW serii 3, Mercedesa klasy C, Volkswagena Passata i wielu innych aut ze skrzynią DSG lub CVT." },
+      { "question": "Czy mogę odebrać auto z automatem bezpośrednio na lotnisku?", "answer": "Oczywiście! Podstawienie na lotnisko w Tiranie jest bezpłatne i dostępne o każdej porze, 24/7. Przy rezerwacji online wybierz po prostu opcję „Automat”." }
+    ],
+    "cta": {
+      "title": "Zacznij jeździć bez stresu już dziś",
+      "text": "Zarezerwuj samochód z automatem online w zaledwie kilka minut",
+      "button": "Zobacz automaty"
+    }
+  },
+  "luxury": {
+    "seo": {
+      "title": "Wynajem aut luksusowych Tirana — BMW, Mercedes, Audi",
+      "description": "Wynajmij samochód premium w Tiranie: BMW, Mercedes-Benz, Audi i Porsche od 80 €/dzień. Idealne na wesela, eventy i transfery VIP, z szybkim potwierdzeniem.",
+      "keywords": "wynajem samochodów luksusowych Tirana, wynajem auta luksusowego Albania, wynajem BMW Tirana, wynajem Mercedesa Tirana, wynajem samochodu VIP Tirana, auto do ślubu Tirana"
+    },
+    "breadcrumb": {
+      "home": "Strona główna",
+      "fleet": "Flota",
+      "current": "Wynajem samochodów luksusowych"
+    },
+    "hero": {
+      "badge": "Flota premium i luksusowa",
+      "title": "Wynajem samochodów luksusowych",
+      "titleBrands": "BMW · Mercedes · Audi",
+      "intro": "Prawdziwe wrażenia z jazdy klasy premium, dokładnie takie, jak sobie wyobrażasz. Nasze luksusowe auta zamieniają każdą podróż w niezapomniane wspomnienie — czy to ślub, spotkanie biznesowe, czy po prostu przyjemność z jazdy.",
+      "ctaBrowse": "Poznaj flotę luksusową",
+      "ctaBook": "Zarezerwuj"
+    },
+    "experience": {
+      "title": "Doświadczenie premium",
+      "subtitle": "Każdy szczegół starannie dopracowany dla Twojego najwyższego komfortu",
+      "items": {
+        "elite": { "title": "Klasa elitarna", "desc": "BMW, Mercedes, Audi — najbardziej prestiżowe marki świata. Skórzana tapicerka i wyposażenie najnowszej generacji." },
+        "priceMatch": { "title": "Gwarancja ceny", "desc": "Znalazłeś ten sam samochód taniej gdzie indziej? Od razu wyrównamy ofertę, bez zbędnych pytań." },
+        "vip": { "title": "Obsługa VIP", "desc": "Dotrzyj do celu z klasą — z odbiorem na lotnisku i kierowcą na życzenie." }
+      }
+    },
+    "included": {
+      "title": "Co jest w cenie",
+      "items": [
+        "Podgrzewane i wentylowane skórzane fotele",
+        "Panoramiczny wyświetlacz z Head-Up Display",
+        "Wysokiej klasy system audio (Bang & Olufsen / Harman)",
+        "4-strefowa klimatyzacja automatyczna",
+        "Pełne ubezpieczenie autocasco",
+        "Kamera 360° z Park Assist",
+        "Aktywny tempomat z asystentem pasa ruchu",
+        "Ładowarka bezprzewodowa i 4 porty USB",
+        "Bezpłatny odbiór na lotnisku, o każdej porze",
+        "Kierowca na życzenie, za dodatkową opłatą"
+      ]
+    },
+    "cars": {
+      "title": "Dostępne samochody luksusowe",
+      "subtitle": "Rezerwuj online z szybkim potwierdzeniem"
+    },
+    "faqTitle": "Pytania i odpowiedzi — auta luksusowe",
+    "faq": [
+      { "question": "Jakie modele luksusowe oferujecie?", "answer": "Nasza oferta premium obejmuje m.in. BMW serii 7, Mercedes-Benz klasy E i klasy S, Audi A6, Porsche Cayenne i inne ekskluzywne auta — kolekcję, którą stale odświeżamy." },
+      { "question": "Ile kosztuje wynajem samochodu luksusowego?", "answer": "Ceny zaczynają się od 80 €/dzień i zależą od modelu, pory roku i liczby dni. Przy wynajmie dłuższym niż 7 dni stawki są niższe." },
+      { "question": "Czy mogę wynająć luksusowe auto na ślub lub event?", "answer": "Oczywiście — oferujemy specjalne pakiety na wesela, spotkania biznesowe i sesje zdjęciowe. Skontaktuj się z nami, a przygotujemy ofertę dopasowaną do Twoich potrzeb." },
+      { "question": "Czy mogę wynająć auto z kierowcą?", "answer": "Tak. Do samochodów luksusowych możesz za dodatkową opłatą dodać profesjonalnego kierowcę — idealne rozwiązanie na transfery lotniskowe lub eventy." }
+    ],
+    "cta": {
+      "title": "Zapewnij sobie doświadczenie premium",
+      "text": "Nasze luksusowe auta czekają na Ciebie o każdej porze, na każdą wyjątkową okazję",
+      "button": "Zobacz auta luksusowe"
+    }
+  },
+  "offices": {
+    "seo": {
+      "title": "Nasze biuro na lotnisku w Tiranie",
+      "description": "Znajdziesz nas na Międzynarodowym Lotnisku w Tiranie im. Matki Teresy — {{address}}. Zobacz mapę, wskazówki dojazdu i godziny otwarcia 24/7.",
+      "keywords": "biuro Rent Ride Tirana, wypożyczalnia samochodów lotnisko Tirana biuro, wynajem samochodu lotnisko Tirana lokalizacja, dojazd lotnisko Tirana, wypożyczalnia samochodów lotnisko Tirana mapa"
+    },
+    "breadcrumb": {
+      "home": "Strona główna",
+      "current": "Biura"
+    },
+    "hero": {
+      "badge": "NASZE BIURA",
+      "title": "Znajdź nas na lotnisku w Tiranie",
+      "intro": "Nasze biuro znajduje się na Międzynarodowym Lotnisku w Tiranie im. Matki Teresy i jest otwarte 24/7. Kliknij mapę, aby wyznaczyć trasę."
+    },
+    "office": {
+      "badge": "Lotnisko w Tiranie",
+      "name": "Rent Ride — lotnisko w Tiranie im. Matki Teresy",
+      "hours": "Codziennie · 24/7"
+    },
+    "actions": {
+      "directions": "Wyznacz trasę",
+      "whatsappAriaLabel": "Napisz do nas na WhatsApp"
+    },
+    "contactCta": {
+      "title": "Pytania o odbiór lub zwrot?",
+      "text": "Skontaktuj się z naszym zespołem o każdej porze — odbiór i zwrot auta na lotnisku są bezpłatne, 24/7.",
+      "button": "Skontaktuj się z nami"
+    }
+  }
+}

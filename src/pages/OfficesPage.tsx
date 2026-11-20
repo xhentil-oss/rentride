@@ -9,14 +9,16 @@ import {
   NavigationArrow,
   Buildings,
 } from "@phosphor-icons/react";
+import { useTranslation } from "react-i18next";
 import { useSEO, buildLocalBusinessSchema, buildBreadcrumbSchema } from "../hooks/useSEO";
 import { ADDRESS_LINE, NAP, CONTACT } from "../lib/seo";
 
 type Office = {
-  badge: string;
-  name: string;
+  /** Translation keys (namespace "landing") for the office's visible texts. */
+  badgeKey: string;
+  nameKey: string;
+  hoursKey: string;
   address: string;
-  hours: string;
   lat: number;
   lng: number;
   zoom: number;
@@ -28,10 +30,10 @@ type Office = {
 
 const OFFICES: Office[] = [
   {
-    badge: "Aeroporti i Tiranës",
-    name: "Rent Ride — Aeroporti Nënë Tereza",
+    badgeKey: "offices.office.badge",
+    nameKey: "offices.office.name",
+    hoursKey: "offices.office.hours",
     address: ADDRESS_LINE,
-    hours: "Çdo ditë · 24/7",
     lat: Number(NAP.latitude),
     lng: Number(NAP.longitude),
     zoom: 15,
@@ -63,17 +65,18 @@ function getDirectionsUrl(office: Office): string {
 }
 
 export default function OfficesPage() {
+  const { t } = useTranslation("landing");
+
   useSEO({
-    title: "Zyra jonë te Aeroporti i Tiranës",
-    description: `Na gjen te Aeroporti Ndërkombëtar Nënë Tereza — ${ADDRESS_LINE}. Shih hartën, drejtimet dhe orarin 24/7.`,
-    keywords:
-      "zyra car hire tirana, vendndodhja, harta, car hire aeroporti tirana, drejtimet",
+    title: t("offices.seo.title"),
+    description: t("offices.seo.description", { address: ADDRESS_LINE }),
+    keywords: t("offices.seo.keywords"),
     canonical: "/zyrat",
     structuredData: [
       buildLocalBusinessSchema(),
       buildBreadcrumbSchema([
-        { name: "Kryefaqja", url: "/" },
-        { name: "Zyrat", url: "/zyrat" },
+        { name: t("offices.breadcrumb.home"), url: "/" },
+        { name: t("offices.breadcrumb.current"), url: "/zyrat" },
       ]),
     ],
   });
@@ -89,13 +92,13 @@ export default function OfficesPage() {
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-primary text-xs font-semibold mb-5">
             <Buildings size={14} weight="fill" />
-            ZYRAT TONA
+            {t("offices.hero.badge")}
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-            Na gjen te Aeroporti i Tiranës
+            {t("offices.hero.title")}
           </h1>
           <p className="text-neutral-300 text-lg max-w-xl mx-auto">
-            Zyra jonë ndodhet te Aeroporti Ndërkombëtar Nënë Tereza, e hapur 24/7. Kliko mbi hartë për drejtimet.
+            {t("offices.hero.intro")}
           </p>
         </div>
       </div>
@@ -113,17 +116,17 @@ export default function OfficesPage() {
                 <div className="flex items-center gap-2 mb-1.5">
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wide">
                     <MapPin size={12} weight="fill" />
-                    {office.badge}
+                    {t(office.badgeKey)}
                   </span>
                 </div>
-                <h2 className="text-lg font-bold text-neutral-800 mb-1">{office.name}</h2>
+                <h2 className="text-lg font-bold text-neutral-800 mb-1">{t(office.nameKey)}</h2>
                 <p className="text-sm text-neutral-600">{office.address}</p>
               </div>
 
               {/* Map */}
               <div className="h-72 bg-neutral-100">
                 <iframe
-                  title={office.name}
+                  title={t(office.nameKey)}
                   src={getEmbedSrc(office)}
                   width="100%"
                   height="100%"
@@ -138,7 +141,7 @@ export default function OfficesPage() {
               <div className="px-6 py-5 space-y-3 border-t border-neutral-100">
                 <div className="flex items-center gap-3 text-sm">
                   <Clock size={16} weight="fill" className="text-primary shrink-0" />
-                  <span className="text-neutral-700">{office.hours}</span>
+                  <span className="text-neutral-700">{t(office.hoursKey)}</span>
                 </div>
                 {office.phone && (
                   <div className="flex items-center gap-3 text-sm">
@@ -162,7 +165,7 @@ export default function OfficesPage() {
                   className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-colors no-underline"
                 >
                   <NavigationArrow size={14} weight="fill" />
-                  Merr drejtimet
+                  {t("offices.actions.directions")}
                 </a>
                 {office.phone && (
                   <a
@@ -170,7 +173,7 @@ export default function OfficesPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-green-50 text-green-700 text-sm font-semibold hover:bg-green-100 transition-colors no-underline"
-                    aria-label="WhatsApp"
+                    aria-label={t("offices.actions.whatsappAriaLabel")}
                   >
                     <WhatsappLogo size={16} weight="fill" />
                   </a>
@@ -183,9 +186,9 @@ export default function OfficesPage() {
         {/* Bottom CTA */}
         <div className="mt-12 bg-white rounded-2xl border border-neutral-100 shadow-sm p-8 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-center">
           <div>
-            <h3 className="text-lg font-bold text-neutral-800 mb-1.5">Keni pyetje rreth marrjes / kthimit?</h3>
+            <h3 className="text-lg font-bold text-neutral-800 mb-1.5">{t("offices.contactCta.title")}</h3>
             <p className="text-sm text-neutral-500">
-              Kontaktoni stafin tonë në çdo kohë — ofrojmë marrje dhe kthim falas te aeroporti, 24/7.
+              {t("offices.contactCta.text")}
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -194,7 +197,7 @@ export default function OfficesPage() {
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-neutral-200 text-sm font-semibold text-neutral-700 hover:bg-neutral-50 transition-colors no-underline"
             >
               <EnvelopeSimple size={15} weight="fill" />
-              Na kontaktoni
+              {t("offices.contactCta.button")}
             </LLink>
             <a
               href="tel:+355698145803"
