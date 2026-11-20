@@ -8,7 +8,24 @@ const dotenv = require('dotenv');
 const { v4: uuidv4 } = require('uuid');
 const { body, validationResult } = require('express-validator');
 const otplib = require('otplib');
-const authenticator = otplib.authenticator || (otplib.default && otplib.default.authenticator);
+
+// otplib v13 dropped the `authenticator` object (it was undefined here, so every
+// 2FA call crashed with a 500). Thin adapter over the v13 functional API that
+// keeps the old call shape: generateSecret / keyuri / check.
+const authenticator = {
+  generateSecret: () => otplib.generateSecret(),
+  keyuri: (label, issuer, secret) => otplib.generateURI({ issuer, label, secret }),
+  check: (token, secret) => {
+    const t = String(token || '').trim();
+    if (!/^\d{6}$/.test(t) || !secret) return false;
+    try {
+      // ±30s tolerance for phone clock drift (same as the old window: 1).
+      return otplib.verifySync({ secret: String(secret), token: t, epochTolerance: 30 }).valid === true;
+    } catch {
+      return false;
+    }
+  },
+};
 const QRCode = require('qrcode');
 const { OAuth2Client } = require('google-auth-library');
 
@@ -61,7 +78,6 @@ function getGoogleClient() {
   return clientId ? new OAuth2Client(clientId) : null;
 }
 
-if (authenticator) authenticator.options = { window: 1 }; // Allow ±30s clock drift
 
 // Simple HTML escape for email templates (prevent XSS via user-supplied name)
 const escapeHtml = (s) => String(s || '')
