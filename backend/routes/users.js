@@ -46,7 +46,7 @@ router.put('/:id', authenticate, requireRole('admin'), async (req, res) => {
       : String(req.body.role).trim().toLowerCase();
 
     if (role !== undefined && role !== null && ![...ADMIN_ROLES, 'customer'].includes(role)) {
-      return res.status(400).json({ error: 'Roli i pavlefshëm.' });
+      return res.status(400).json({ error: `Roli i pavlefshëm: "${String(req.body.role).slice(0, 30)}".` });
     }
     // An admin can't demote or deactivate themselves (would lock out the panel).
     if (req.params.id === req.user.id && ((role && role !== 'admin') || isActive === false)) {
