@@ -2,22 +2,22 @@
  * Gjeneron hash bcrypt + komandën SQL për të bërë reset admin-in.
  *
  * Përdorim:
- *   node backend/scripts/gen-admin-reset.js "FJALEKALIMI_YT"
+ *   node backend/scripts/gen-admin-reset.js "FJALEKALIMI_YT" "email.i.ri@shembull.com" ["email.i.vjeter@shembull.com"]
  *
- * Opsionale (email i ri / email i vjetër që kërkohet për UPDATE):
- *   node backend/scripts/gen-admin-reset.js "FJALEKALIMI_YT" "andrikurti471@gmail.com" "admin@rentalalb.com"
+ * Email-i i vjetër (opsional) është ai që kërkohet për UPDATE; nëse mungon,
+ * përdoret i njëjti email.
  *
  * Kopjo SQL-në që del në output te phpMyAdmin (skeda SQL) dhe ekzekutoje.
+ * Fjalëkalimi NUK printohet — mos e ruaj në historikun e terminalit.
  */
 const bcrypt = require('bcryptjs');
 
 const password = process.argv[2];
-const newEmail = process.argv[3] || 'andrikurti471@gmail.com';
-const oldEmail = process.argv[4] || 'admin@rentalalb.com';
+const newEmail = process.argv[3];
+const oldEmail = process.argv[4] || newEmail;
 
-if (!password || password.length < 8) {
-  console.error('❌ Jep një fjalëkalim me të paktën 8 karaktere:');
-  console.error('   node backend/scripts/gen-admin-reset.js "FjalekalimiYt123"');
+if (!password || password.length < 12 || !newEmail) {
+  console.error('❌ Përdorim: node backend/scripts/gen-admin-reset.js "FjalekalimiYt (min 12)" "email@shembull.com" ["email.i.vjeter@shembull.com"]');
   process.exit(1);
 }
 
@@ -43,5 +43,4 @@ console.log(
   `VALUES (UUID(), '${esc(newEmail)}', 'Admin Rent Ride', '${hash}', 'admin', 1,\n` +
   `        'cars.view,cars.edit,reservations.view,reservations.edit,customers.view,finance.view');`
 );
-console.log('\nEmail i ri:', newEmail);
-console.log('Fjalëkalimi:', password, '(ruaje diku të sigurt)\n');
+console.log('\nEmail i ri:', newEmail, '\n');

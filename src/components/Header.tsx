@@ -291,7 +291,16 @@ function UserMenu() {
       setCodeLoading(true);
       setCodeError("");
       loginWithCode(loginEmail, loginCode)
-        .then(() => { setShowAuth(false); setCodeMode(false); setCodeSent(false); setLoginCode(""); })
+        .then((result: any) => {
+          setCodeMode(false); setCodeSent(false); setLoginCode("");
+          if (result?.requires2fa) {
+            setAuthTab("login");
+            setTempToken(result.tempToken);
+            setTwoFAStep(true);
+          } else {
+            setShowAuth(false);
+          }
+        })
         .catch((err: Error) => setCodeError(err.message || "Kodi i pavlefshëm"))
         .finally(() => setCodeLoading(false));
     };
@@ -317,7 +326,15 @@ function UserMenu() {
       setRegError("");
       setLoginLoading(true);
       googleLogin(credential)
-        .then(() => setShowAuth(false))
+        .then((result: any) => {
+          if (result?.requires2fa) {
+            setAuthTab("login");
+            setTempToken(result.tempToken);
+            setTwoFAStep(true);
+          } else {
+            setShowAuth(false);
+          }
+        })
         .catch((err: Error) => {
           const msg = err.message || "Hyrja me Google dështoi";
           if (authTab === "register") setRegError(msg);

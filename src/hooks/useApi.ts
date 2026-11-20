@@ -389,6 +389,8 @@ export function useAuth() {
       throw new Error(err.error || "Kodi i pavlefshëm");
     }
     const data = await res.json();
+    // Account has 2FA — caller must show the OTP step.
+    if (data.requires2fa) return data;
     publishAuthUser(data.user);
     return data.user;
   }, []);
@@ -429,6 +431,8 @@ export function useAuth() {
       throw new Error(err.error || "Hyrja me Google dështoi");
     }
     const data = await res.json();
+    // Account has 2FA — caller must show the OTP step.
+    if (data.requires2fa) return data;
     publishAuthUser(data.user);
     return data.user;
   }, []);

@@ -37,6 +37,14 @@ router.put('/:id', authenticate, requireRole('admin'), async (req, res) => {
   try {
     const { name, role, isActive, permissions, twoFactorEnabled } = req.body;
 
+    if (role !== undefined && role !== null && ![...ADMIN_ROLES, 'customer'].includes(role)) {
+      return res.status(400).json({ error: 'Roli i pavlefshëm.' });
+    }
+    // An admin can't demote or deactivate themselves (would lock out the panel).
+    if (req.params.id === req.user.id && ((role && role !== 'admin') || isActive === false)) {
+      return res.status(400).json({ error: 'Nuk mund të hiqni rolin admin ose të çaktivizoni llogarinë tuaj.' });
+    }
+
     // Prevent locking users out by enabling 2FA without a configured secret
     if (twoFactorEnabled === true) {
       const [check] = await pool.query('SELECT two_factor_secret FROM users WHERE id = ?', [req.params.id]);

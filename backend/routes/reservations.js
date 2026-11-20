@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { v4: uuidv4 } = require('uuid');
 const pool = require('../database/db');
-const { authenticate, requireRole, logActivity, ADMIN_ROLES } = require('../middleware/auth');
+const { authenticate, optionalAuth, requireRole, logActivity, ADMIN_ROLES } = require('../middleware/auth');
 const { safePagination } = require('../lib/helpers');
 const { sendMail, adminRecipients, mailErrorDetail } = require('../lib/mailer');
 const { getClientIp, countryFromHeaders, parseDevice, lookupCountry } = require('../lib/requestMeta');
@@ -205,7 +205,7 @@ router.get('/:id', authenticate, async (req, res) => {
 });
 
 // Public endpoint — no authenticate middleware intentionally (web booking form)
-router.post('/', async (req, res) => {
+router.post('/', optionalAuth, async (req, res) => {
   try {
     const { carId, customerId, startDate, startTime, endDate, endTime, flightNumber, country, notes, source, insurance, extras, discountCode, website, customerEmail, selectedExtras } = req.body;
     let { pickupLocation, dropoffLocation } = req.body;
@@ -220,12 +220,18 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ error: 'Fusha të detyrueshme mungojnë.' });
     }
 
-    // Verify customerId matches a real customer, and if customerEmail provided, that they match
+    // Verify customerId matches a real customer AND the email typed in the form.
+    // customerEmail is mandatory: when it was optional, a leaked/guessed
+    // customer ID alone was enough to file bookings under someone else's name.
+    // Staff booking from the admin panel pick the customer from the list, so
+    // they are exempt.
+    const isStaff = !!(req.user && ADMIN_ROLES.includes(req.user.role));
+    if (!isStaff && !customerEmail) return res.status(400).json({ error: 'Email i klientit mungon.' });
     const [custCheck] = await pool.query('SELECT id, email FROM customers WHERE id = ?', [customerId]);
     if (!custCheck.length) return res.status(400).json({ error: 'Klient i pavlefshëm.' });
     // Trim both sides — a stored address with stray whitespace would otherwise
     // fail this check and block a legitimate booking with a 403.
-    if (customerEmail &&
+    if (!isStaff &&
         String(custCheck[0].email).trim().toLowerCase() !== String(customerEmail).trim().toLowerCase()) {
       return res.status(403).json({ error: 'Klient i pavlefshëm.' });
     }

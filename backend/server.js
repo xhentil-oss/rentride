@@ -72,7 +72,9 @@ app.use(helmet({
     directives: {
       defaultSrc: ["'self'"],
       scriptSrc: [
-        "'self'", "'unsafe-inline'", "https://unpkg.com",
+        // unpkg.com removed: it serves any npm package, so allowing it let an
+        // injected <script src> load arbitrary code past the CSP. Nothing uses it.
+        "'self'", "'unsafe-inline'",
         // Google Analytics 4 + Google Ads (gtag.js) and Google Sign-In
         "https://www.googletagmanager.com",
         "https://tagmanager.google.com", // GTM Preview / Tag Assistant
@@ -86,7 +88,7 @@ app.use(helmet({
       fontSrc: ["'self'", "https://fonts.gstatic.com"],
       imgSrc: ["'self'", "data:", "https:", "blob:"], // "https:" already covers Google/Ads tracking pixels
       connectSrc: [
-        "'self'", "https://unpkg.com", "https://images.unsplash.com", "https://maps.googleapis.com",
+        "'self'", "https://images.unsplash.com", "https://maps.googleapis.com",
         "https://www.googletagmanager.com",
         "https://tagmanager.google.com",
         "https://tagassistant.google.com",
@@ -114,7 +116,15 @@ app.use(cors({
   credentials: true,
 }));
 app.use(cookieParser());
-app.use(express.json({ limit: '10mb' }));
+// Large bodies (base64 images/documents from the admin panel) only for requests
+// carrying a session; anonymous visitors get a small limit so public endpoints
+// can't be used to push 10MB payloads at the server.
+const jsonLarge = express.json({ limit: '10mb' });
+const jsonSmall = express.json({ limit: '200kb' });
+app.use((req, res, next) => {
+  const hasSession = !!(req.cookies?.rct_token || req.headers.authorization);
+  return (hasSession ? jsonLarge : jsonSmall)(req, res, next);
+});
 app.use(morgan('combined'));
 
 // Rate limit — strict for login/register/reset (brute-force sensitive)
@@ -190,7 +200,16 @@ app.use('/api/users',         apiLimiter,  require('./routes/users'));
 app.use('/api/activity-logs', apiLimiter,  require('./routes/activityLogs'));
 app.use('/api/chat',          apiLimiter,  require('./routes/chat'));
 app.use('/api/settings',      apiLimiter,  require('./routes/settings'));
-app.use('/api/analytics',                  require('./routes/analytics'));
+// Analytics beacons fire on every page view, so a dedicated (generous) limiter
+// instead of apiLimiter — but never unlimited, or anyone can flood the table.
+const analyticsLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 300,
+  standardHeaders: true,
+  legacyHeaders: false,
+  handler: (req, res) => res.status(204).end(),
+});
+app.use('/api/analytics', analyticsLimiter, require('./routes/analytics'));
 app.use('/api/blog',          apiLimiter,  require('./routes/blog'));
 app.use('/api/deposits',      apiLimiter,  require('./routes/deposits'));
 app.use('/api/customer-documents', apiLimiter, require('./routes/customerDocuments'));

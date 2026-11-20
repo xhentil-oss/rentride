@@ -7,9 +7,10 @@ const { authenticate, requireRole } = require('../middleware/auth');
 const geoCache = new Map(); // ip -> { country, ts }
 const GEO_TTL = 24 * 60 * 60 * 1000; // 24h
 
+// req.ip honours `trust proxy` — the left-most X-Forwarded-For value is
+// client-controlled and would let anyone pick the IP we look up.
 function clientIp(req) {
-  const xff = (req.headers['x-forwarded-for'] || '').split(',')[0].trim();
-  return xff || req.ip || req.connection?.remoteAddress || '';
+  return (req.ip || req.socket?.remoteAddress || '').replace(/^::ffff:/, '');
 }
 
 async function lookupCountry(req) {

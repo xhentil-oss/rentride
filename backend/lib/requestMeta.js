@@ -7,9 +7,11 @@
 const geoCache = new Map(); // ip -> { country, ts }
 const GEO_TTL = 24 * 60 * 60 * 1000; // 24h
 
+// req.ip honours `trust proxy` (server.js): it takes the address our own proxy
+// appended, not the left-most X-Forwarded-For entry — which the client controls
+// and could set to any fake IP.
 function getClientIp(req) {
-  const xff = (req.headers['x-forwarded-for'] || '').split(',')[0].trim();
-  return (xff || req.ip || req.connection?.remoteAddress || '').replace(/^::ffff:/, '');
+  return (req.ip || req.socket?.remoteAddress || '').replace(/^::ffff:/, '');
 }
 
 // Country from a CDN/proxy header (instant, no network call). Null otherwise.

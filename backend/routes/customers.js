@@ -71,10 +71,12 @@ router.post('/', async (req, res) => {
 
     const id = uuidv4();
     const createdBy = req.user ? req.user.id : null;
-    const safeName = name || `${firstName || ''} ${lastName || ''}`.trim() || safeEmail;
+    const safeName = String(name || `${firstName || ''} ${lastName || ''}`.trim() || safeEmail).slice(0, 255);
+    // Public endpoint — only accept the known customer types.
+    const safeType = ['Standard', 'VIP', 'Korporatë'].includes(type) ? type : 'Standard';
     await pool.query(
       'INSERT INTO customers (id, name, first_name, last_name, email, phone, type, created_by) VALUES (?,?,?,?,?,?,?,?)',
-      [id, safeName, firstName || '', lastName || '', safeEmail, safePhone, type, createdBy]
+      [id, safeName, String(firstName || '').slice(0, 100), String(lastName || '').slice(0, 100), safeEmail, safePhone, safeType, createdBy]
     );
     return res.status(201).json({ id });
   } catch (err) { console.error(err); res.status(500).json({ error: 'Gabim i brendshëm.' }); }

@@ -81,7 +81,10 @@ const { BCRYPT_ROUNDS, REFRESH_TOKEN_EXPIRY_MS } = require('../lib/helpers');
 const hashToken = (token) => crypto.createHash('sha256').update(token).digest('hex');
 
 // ─── Cookie options ───────────────────────────────────────────
-const isProd = process.env.NODE_ENV === 'production';
+// Treat an https FRONTEND_URL as production too, so a missing NODE_ENV on the
+// server can't silently downgrade the session cookies to non-secure / lax.
+const isProd = process.env.NODE_ENV === 'production'
+  || /^https:\/\//i.test(String(process.env.FRONTEND_URL || ''));
 const COOKIE_OPTS = { httpOnly: true, secure: isProd, sameSite: isProd ? 'strict' : 'lax', path: '/' };
 const ACCESS_MAX_AGE  = 60 * 60 * 1000;
 const REFRESH_MAX_AGE = REFRESH_TOKEN_EXPIRY_MS;
@@ -94,6 +97,41 @@ function setAuthCookies(res, access, refresh) {
 function clearAuthCookies(res) {
   res.clearCookie('rct_token', COOKIE_OPTS);
   res.clearCookie('rct_refresh_token', COOKIE_OPTS);
+}
+
+// The 2FA "pending" token is signed with its own key (derived from JWT_SECRET)
+// so it can never verify as a session access token, even if the type check in
+// middleware/auth.js were removed.
+const twoFaSecret = () => crypto.createHmac('sha256', process.env.JWT_SECRET).update('2fa_pending').digest('hex');
+
+const make2faToken = (userId) => jwt.sign({ userId, type: '2fa_pending' }, twoFaSecret(), { expiresIn: '5m' });
+
+// Attach a guest `customers` row (created by booking without an account) to a
+// user — ONLY once the user has proven they own the email. Linking at
+// registration time let anyone register someone else's email and read that
+// person's booking history.
+async function linkGuestCustomer(conn, userId) {
+  const [[u]] = await conn.query('SELECT email, name FROM users WHERE id = ?', [userId]);
+  if (!u) return null;
+  const [linked] = await conn.query('SELECT id FROM customers WHERE user_id = ? LIMIT 1', [userId]);
+  if (linked.length) return linked[0].id;
+  const [guest] = await conn.query('SELECT id FROM customers WHERE email = ? AND user_id IS NULL LIMIT 1', [u.email]);
+  const nameParts = String(u.name || '').trim().split(/\s+/);
+  if (guest.length) {
+    await conn.query(
+      'UPDATE customers SET user_id = ?, name = COALESCE(NULLIF(name, ""), ?), first_name = COALESCE(NULLIF(first_name, ""), ?), last_name = COALESCE(NULLIF(last_name, ""), ?) WHERE id = ?',
+      [userId, u.name, nameParts[0] || '', nameParts.slice(1).join(' '), guest[0].id]
+    );
+    return guest[0].id;
+  }
+  const [any] = await conn.query('SELECT id FROM customers WHERE email = ? LIMIT 1', [u.email]);
+  if (any.length) return null; // owned by another user — leave it alone
+  const id = uuidv4();
+  await conn.query(
+    'INSERT INTO customers (id, name, first_name, last_name, email, phone, type, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+    [id, u.name, nameParts[0] || '', nameParts.slice(1).join(' '), u.email, '', 'Standard', userId]
+  );
+  return id;
 }
 
 const makeTokens = (userId) => {
@@ -145,21 +183,14 @@ router.post(
       }
 
       // A `customers` row with this email is COMMON: it's created every time
-      // someone books as a guest. We don't refuse — we attach that existing
-      // customer record to the new user account so booking history is kept.
-      // If the customer is already linked to another user, then it's a genuine
-      // duplicate — refuse.
+      // someone books as a guest. It is NOT linked here — the email is not yet
+      // proven, and linking now would hand that person's booking history to
+      // whoever registered their address. The customer row is linked (or
+      // created) by linkGuestCustomer() once the email is verified.
+      // If the customer is already linked to another user, refuse.
       const [existingCust] = await pool.query('SELECT id, user_id FROM customers WHERE email = ?', [email]);
-      let customerId;
-      let reusedCustomer = false;
-      if (existingCust.length) {
-        if (existingCust[0].user_id) {
-          return res.status(409).json({ error: 'Ky email është tashmë i regjistruar.' });
-        }
-        customerId = existingCust[0].id;
-        reusedCustomer = true;
-      } else {
-        customerId = uuidv4();
+      if (existingCust.length && existingCust[0].user_id) {
+        return res.status(409).json({ error: 'Ky email është tashmë i regjistruar.' });
       }
 
       const hash = await bcrypt.hash(password, BCRYPT_ROUNDS);
@@ -167,10 +198,6 @@ router.post(
       const verifyToken = crypto.randomBytes(32).toString('hex');
       const verifyTokenHash = hashToken(verifyToken);
       const verifyExpires = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24h
-
-      const nameParts = name.split(/\s+/);
-      const firstName = nameParts[0] || '';
-      const lastName = nameParts.slice(1).join(' ') || '';
 
       const conn = await pool.getConnection();
       try {
@@ -189,20 +216,6 @@ router.post(
             return res.status(409).json({ error: 'Ky email është tashmë i regjistruar.' });
           }
           throw insErr;
-        }
-
-        if (reusedCustomer) {
-          // Attach existing guest customer to the new user, filling in any
-          // missing name/phone fields without overwriting non-empty data.
-          await conn.query(
-            'UPDATE customers SET user_id = ?, name = COALESCE(NULLIF(name, ""), ?), first_name = COALESCE(NULLIF(first_name, ""), ?), last_name = COALESCE(NULLIF(last_name, ""), ?), phone = COALESCE(NULLIF(phone, ""), ?) WHERE id = ?',
-            [userId, name, firstName, lastName, phone, customerId]
-          );
-        } else {
-          await conn.query(
-            'INSERT INTO customers (id, name, first_name, last_name, email, phone, type, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-            [customerId, name, firstName, lastName, email, phone, 'Standard', userId]
-          );
         }
 
         const { access, refresh } = makeTokens(userId);
@@ -226,10 +239,10 @@ router.post(
         `).catch(() => {});
 
         setAuthCookies(res, access, refresh);
-        await logActivity({ userId, action: 'CREATE', entity: 'Customer', entityId: customerId, description: `Regjistrim klienti: ${email}`, ipAddress: req.ip });
+        await logActivity({ userId, action: 'CREATE', entity: 'User', entityId: userId, description: `Regjistrim klienti: ${email}`, ipAddress: req.ip });
 
         return res.status(201).json({
-          user: { id: userId, email, name, role, customerId, email_verified: 0 },
+          user: { id: userId, email, name, role, customerId: null, email_verified: 0 },
         });
       } catch (txErr) {
         await conn.rollback();
@@ -275,7 +288,8 @@ router.post(
         return res.status(423).json({ error: `Llogaria është bllokuar. Provoni pas ${remaining} minutash.` });
       }
 
-      const valid = await bcrypt.compare(password, user.password);
+      // Google-only accounts have no password (NULL) — bcrypt would throw.
+      const valid = user.password ? await bcrypt.compare(String(password), user.password) : false;
       if (!valid) {
         const attempts = (user.failed_attempts || 0) + 1;
         if (attempts >= 5) {
@@ -295,12 +309,7 @@ router.post(
 
       // 2FA required — issue a short-lived temp token instead of full session
       if (user.two_factor_enabled) {
-        const tempToken = jwt.sign(
-          { userId: user.id, type: '2fa_pending' },
-          process.env.JWT_SECRET,
-          { expiresIn: '5m' }
-        );
-        return res.json({ requires2fa: true, tempToken });
+        return res.json({ requires2fa: true, tempToken: make2faToken(user.id) });
       }
 
       const { access, refresh } = makeTokens(user.id);
@@ -335,7 +344,7 @@ router.post('/login-2fa', async (req, res) => {
   try {
     let decoded;
     try {
-      decoded = jwt.verify(tempToken, process.env.JWT_SECRET);
+      decoded = jwt.verify(String(tempToken), twoFaSecret());
     } catch {
       return res.status(401).json({ error: 'Token i pavlefshëm ose ka skaduar.' });
     }
@@ -358,7 +367,7 @@ router.post('/login-2fa', async (req, res) => {
       return res.status(429).json({ error: `Shumë përpjekje të gabuara OTP. Provoni pas ${remaining} minutash.` });
     }
 
-    const valid = authenticator.check(otp, user.two_factor_secret);
+    const valid = authenticator.check(String(otp), user.two_factor_secret);
     if (!valid) {
       const attempts = (user.otp_failed_attempts || 0) + 1;
       if (attempts >= OTP_MAX_ATTEMPTS) {
@@ -412,18 +421,24 @@ router.post('/login-code/request', async (req, res) => {
   if (!email) return res.status(400).json({ error: 'Email është i detyrueshëm.' });
   try {
     const [rows] = await pool.query(
-      'SELECT id, email, name, role, is_active FROM users WHERE email = ?',
+      'SELECT id, email, name, role, is_active, otp_locked_until FROM users WHERE email = ?',
       [email]
     );
     const user = rows[0];
     if (!user || !user.is_active || !ADMIN_ROLES.includes(user.role)) {
       return res.json(generic);
     }
+    // While locked, don't issue a fresh code. Requesting a code must NOT reset
+    // the failure counters — otherwise every request buys a new round of guesses
+    // (and the counters are shared with the 2FA OTP check).
+    if (user.otp_locked_until && new Date(user.otp_locked_until) > new Date()) {
+      return res.json(generic);
+    }
     const code = String(crypto.randomInt(0, 1000000)).padStart(6, '0');
     const codeHash = await bcrypt.hash(code, BCRYPT_ROUNDS);
     const expires = new Date(Date.now() + LOGIN_CODE_TTL_MS);
     await pool.query(
-      'UPDATE users SET login_code_hash = ?, login_code_expires = ?, otp_failed_attempts = 0, otp_locked_until = NULL WHERE id = ?',
+      'UPDATE users SET login_code_hash = ?, login_code_expires = ? WHERE id = ?',
       [codeHash, expires, user.id]
     );
     sendMail(
@@ -448,9 +463,10 @@ router.post('/login-code/verify', async (req, res) => {
   const email = String(req.body.email || '').trim().toLowerCase();
   const code = String(req.body.code || '').trim();
   if (!email || !code) return res.status(400).json({ error: 'Email dhe kodi janë të detyrueshme.' });
+  if (!/^\d{6}$/.test(code)) return res.status(401).json({ error: 'Email ose kod i gabuar.' });
   try {
     const [rows] = await pool.query(
-      'SELECT id, email, name, role, permissions, is_active, login_code_hash, login_code_expires, otp_failed_attempts, otp_locked_until, email_verified FROM users WHERE email = ?',
+      'SELECT id, email, name, role, permissions, is_active, login_code_hash, login_code_expires, otp_failed_attempts, otp_locked_until, email_verified, two_factor_enabled, two_factor_secret FROM users WHERE email = ?',
       [email]
     );
     const user = rows[0];
@@ -475,11 +491,16 @@ router.post('/login-code/verify', async (req, res) => {
       await pool.query('UPDATE users SET otp_failed_attempts = ? WHERE id = ?', [attempts, user.id]);
       return res.status(401).json({ error: `Kodi është i gabuar. (${OTP_MAX_ATTEMPTS - attempts} përpjekje të mbetura)` });
     }
-    // Success — consume code, reset counters, issue a full session.
+    // Success — consume code, reset counters.
     await pool.query(
       'UPDATE users SET login_code_hash = NULL, login_code_expires = NULL, otp_failed_attempts = 0, otp_locked_until = NULL, last_login = NOW() WHERE id = ?',
       [user.id]
     );
+    // The email code replaces the password, not the second factor: an account
+    // with 2FA still has to pass the authenticator step.
+    if (user.two_factor_enabled && user.two_factor_secret) {
+      return res.json({ requires2fa: true, tempToken: make2faToken(user.id) });
+    }
     const { access, refresh } = makeTokens(user.id);
     const expiresAt = new Date(Date.now() + REFRESH_TOKEN_EXPIRY_MS);
     await pool.query(
@@ -559,10 +580,11 @@ router.post('/google', async (req, res) => {
   const googleClient = getGoogleClient();
 
   if (!googleClient) {
+    // Diagnostics go to the server log only — not to anonymous visitors.
+    console.error('Google Sign-In not configured:', getGoogleConfigDiagnostics());
     return res.status(500).json({
       error: 'Google Sign-In nuk është i konfiguruar.',
       code: 'GOOGLE_CLIENT_ID_MISSING',
-      diagnostics: getGoogleConfigDiagnostics(),
     });
   }
   const { credential } = req.body || {};
@@ -591,7 +613,7 @@ router.post('/google', async (req, res) => {
 
     // 1) User already linked via google_id → log them in.
     let [rows] = await pool.query(
-      'SELECT id, email, name, role, permissions, is_active, email_verified FROM users WHERE google_id = ?',
+      'SELECT id, email, name, role, permissions, is_active, email_verified, two_factor_enabled, two_factor_secret FROM users WHERE google_id = ?',
       [googleId]
     );
 
@@ -605,17 +627,32 @@ router.post('/google', async (req, res) => {
     } else {
       // 2) Existing local account with same email → link it.
       [rows] = await pool.query(
-        'SELECT id, email, name, role, permissions, is_active, email_verified FROM users WHERE email = ?',
+        'SELECT id, email, name, role, permissions, is_active, email_verified, two_factor_enabled, two_factor_secret FROM users WHERE email = ?',
         [email]
       );
       if (rows.length) {
         if (!rows[0].is_active) return res.status(403).json({ error: 'Llogaria juaj është çaktivizuar.' });
         user = rows[0];
         userId = user.id;
+        if (!user.email_verified) {
+          // The local account was created with this email but the email was
+          // never proven — it may have been registered by someone else to
+          // pre-hijack the real owner's account. Google has now proven
+          // ownership, so drop every credential the registrant set: password,
+          // 2FA secret and all existing sessions.
+          await pool.query(
+            'UPDATE users SET password = NULL, two_factor_enabled = 0, two_factor_secret = NULL, failed_attempts = 0, locked_until = NULL WHERE id = ?',
+            [userId]
+          );
+          await pool.query('DELETE FROM refresh_tokens WHERE user_id = ?', [userId]);
+          user.two_factor_enabled = 0;
+          user.two_factor_secret = null;
+        }
         await pool.query(
           'UPDATE users SET google_id = ?, email_verified = 1, profile_picture_url = COALESCE(profile_picture_url, ?) WHERE id = ?',
           [googleId, picture, userId]
         );
+        await linkGuestCustomer(pool, userId);
       } else {
         // 3) Brand-new user → create users + customers rows in a transaction.
         userId = uuidv4();
@@ -680,10 +717,15 @@ router.post('/google', async (req, res) => {
       }
     }
 
+    // Google proves the email, not the second factor — honour 2FA like /login.
+    if (user.two_factor_enabled && user.two_factor_secret) {
+      return res.json({ requires2fa: true, tempToken: make2faToken(userId) });
+    }
+
     // Look up customerId for the response (matches /login behaviour).
     const [custRows] = await pool.query(
-      'SELECT id FROM customers WHERE user_id = ? OR email = ? LIMIT 1',
-      [userId, email]
+      'SELECT id FROM customers WHERE user_id = ? LIMIT 1',
+      [userId]
     );
     const customerId = custRows[0]?.id || null;
 
@@ -824,10 +866,13 @@ router.post('/reset-password',
       const { id: tokenId, user_id: userId } = rows[0];
       const hash = await bcrypt.hash(newPassword, BCRYPT_ROUNDS);
 
-      // Also clear any existing lockout so user can log in immediately
-      await pool.query('UPDATE users SET password = ?, failed_attempts = 0, locked_until = NULL WHERE id = ?', [hash, userId]);
+      // Also clear any existing lockout so user can log in immediately.
+      // The reset link arrived by email, so the email is proven: mark it
+      // verified and attach the guest booking history.
+      await pool.query('UPDATE users SET password = ?, failed_attempts = 0, locked_until = NULL, email_verified = 1, email_verification_token = NULL WHERE id = ?', [hash, userId]);
       await pool.query('UPDATE password_reset_tokens SET used = 1 WHERE id = ?', [tokenId]);
       await pool.query('DELETE FROM refresh_tokens WHERE user_id = ?', [userId]);
+      await linkGuestCustomer(pool, userId);
       clearAuthCookies(res);
 
       return res.json({ message: 'Fjalëkalimi u rivendos me sukses. Mund të kyçeni tani.' });
@@ -854,6 +899,9 @@ router.get('/verify-email', async (req, res) => {
       'UPDATE users SET email_verified = 1, email_verification_token = NULL, email_verification_expires = NULL WHERE id = ?',
       [rows[0].id]
     );
+    // Email is now proven — attach the guest booking history (or create the
+    // customer record) for this user.
+    await linkGuestCustomer(pool, rows[0].id);
 
     const frontendUrl = process.env.FRONTEND_URL || 'https://rentride.al';
     // Redirect to the localized account page. `locale` is passed when the
@@ -896,8 +944,19 @@ router.post('/resend-verification', authenticate, async (req, res) => {
 });
 
 // ─── POST /api/auth/2fa/setup ─────────────────────────────────
+// Refuse to (re)configure while 2FA is already on: otherwise a stolen session
+// could silently replace the owner's authenticator secret without the current
+// code. To change devices, disable first (that requires a valid OTP).
+async function twoFactorAlreadyOn(userId) {
+  const [rows] = await pool.query('SELECT two_factor_enabled, two_factor_secret FROM users WHERE id = ?', [userId]);
+  return !!(rows[0]?.two_factor_enabled && rows[0]?.two_factor_secret);
+}
+
 router.post('/2fa/setup', authenticate, async (req, res) => {
   try {
+    if (await twoFactorAlreadyOn(req.user.id)) {
+      return res.status(409).json({ error: '2FA është tashmë aktiv. Çaktivizojeni më parë për ta rikonfiguruar.' });
+    }
     const secret = authenticator.generateSecret();
     const otpauthUrl = authenticator.keyuri(req.user.email, 'Rent Ride', secret);
     const qrDataUrl = await QRCode.toDataURL(otpauthUrl);
@@ -918,7 +977,10 @@ router.post('/2fa/verify-setup', authenticate,
 
     const { tempSecret, otp } = req.body;
     try {
-      const valid = authenticator.check(otp, tempSecret);
+      if (await twoFactorAlreadyOn(req.user.id)) {
+        return res.status(409).json({ error: '2FA është tashmë aktiv. Çaktivizojeni më parë për ta rikonfiguruar.' });
+      }
+      const valid = authenticator.check(String(otp), String(tempSecret));
       if (!valid) return res.status(400).json({ error: 'Kodi OTP është i gabuar. Provoni sërisht.' });
 
       await pool.query(

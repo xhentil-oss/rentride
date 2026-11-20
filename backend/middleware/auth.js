@@ -13,6 +13,12 @@ const authenticate = async (req, res, next) => {
       return res.status(401).json({ error: 'Token mungon. Ju luteni kyçuni.' });
     }
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    // Session access tokens carry only { userId }. Any token with a `type`
+    // (e.g. the 5-minute '2fa_pending' token issued after the password step)
+    // is NOT a session — accepting it would let a password alone skip 2FA.
+    if (decoded.type || !decoded.userId) {
+      return res.status(401).json({ error: 'Token i pavlefshëm.' });
+    }
 
     const [rows] = await pool.query(
       'SELECT id, email, name, role, is_active, permissions, email_verified FROM users WHERE id = ?',
@@ -31,6 +37,25 @@ const authenticate = async (req, res, next) => {
     }
     return res.status(401).json({ error: 'Token i pavlefshëm.' });
   }
+};
+
+/**
+ * Optional auth for public endpoints: attaches req.user when a valid session
+ * is present, otherwise continues anonymously. Never rejects the request.
+ */
+const optionalAuth = async (req, res, next) => {
+  try {
+    const token = req.cookies?.rct_token || req.headers.authorization?.replace(/^Bearer /, '');
+    if (!token) return next();
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    if (decoded.type || !decoded.userId) return next();
+    const [rows] = await pool.query(
+      'SELECT id, email, name, role, is_active, permissions, email_verified FROM users WHERE id = ?',
+      [decoded.userId]
+    );
+    if (rows.length && rows[0].is_active) req.user = rows[0];
+  } catch { /* anonymous */ }
+  next();
 };
 
 /**
@@ -63,4 +88,4 @@ const logActivity = async ({ userId, action, entity, entityId, description, ipAd
 // Admin roles that can access admin panel and manage data
 const ADMIN_ROLES = ['admin', 'manager', 'staff', 'accountant'];
 
-module.exports = { authenticate, requireRole, logActivity, ADMIN_ROLES };
+module.exports = { authenticate, optionalAuth, requireRole, logActivity, ADMIN_ROLES };
