@@ -25,7 +25,10 @@ router.post('/', authenticate, requireRole('admin'), async (req, res) => {
     if (existing.length) return res.status(409).json({ error: 'Email ekziston.' });
     const hash = await bcrypt.hash(password, BCRYPT_ROUNDS);
     const id = uuidv4();
-    const safeRole = ADMIN_ROLES.includes(role) ? role : 'staff';
+    // UI sends "Admin"/"Manager"… — normalise, otherwise every new user
+    // silently became 'staff'.
+    const roleNorm = String(role || '').trim().toLowerCase();
+    const safeRole = ADMIN_ROLES.includes(roleNorm) ? roleNorm : 'staff';
     await pool.query('INSERT INTO users (id, email, name, password, role, permissions) VALUES (?,?,?,?,?,?)', [id, email, name, hash, safeRole, permissions || '']);
     await logActivity({ userId: req.user.id, action: 'CREATE', entity: 'User', entityId: id, description: `Përdorues i ri: ${email}`, ipAddress: req.ip });
     const [rows] = await pool.query('SELECT id, email, name, role, is_active, two_factor_enabled, permissions, last_login, created_at FROM users WHERE id = ?', [id]);
@@ -35,7 +38,12 @@ router.post('/', authenticate, requireRole('admin'), async (req, res) => {
 
 router.put('/:id', authenticate, requireRole('admin'), async (req, res) => {
   try {
-    const { name, role, isActive, permissions, twoFactorEnabled } = req.body;
+    const { name, isActive, permissions, twoFactorEnabled } = req.body;
+    // The admin UI sends display-cased roles ("Admin", "Manager"); the DB
+    // stores lowercase.
+    const role = req.body.role === undefined || req.body.role === null
+      ? req.body.role
+      : String(req.body.role).trim().toLowerCase();
 
     if (role !== undefined && role !== null && ![...ADMIN_ROLES, 'customer'].includes(role)) {
       return res.status(400).json({ error: 'Roli i pavlefshëm.' });
